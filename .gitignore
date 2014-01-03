@@ -1,0 +1,10 @@
+/.emacs.desktop
+/.recentfiles
+/.session
+/ac-comphist.dat
+/backups
+/elpa
+/auto-save-list/.saves-4928-GANDALF~
+/projectile.cache
+/server/server
+*.elc

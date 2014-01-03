@@ -1,0 +1,1 @@
+("~/.emacs.d/" "c:/Program Files/MAXON/CINEMA 4D R14 Student/plugins/laubwerk_c4d/")
