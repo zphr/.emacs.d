@@ -2,11 +2,11 @@
 ;; ---------------------------------------- Whole Line Or Region Mode
 
 (require-package 'whole-line-or-region)
+(after-load 'whole-line-or-region
+  (whole-line-or-region-mode t)
 
-(whole-line-or-region-mode t)
-
-(diminish 'whole-line-or-region-mode)
-(make-variable-buffer-local 'whole-line-or-region-mode)
+  (diminish 'whole-line-or-region-mode)
+  (make-variable-buffer-local 'whole-line-or-region-mode))
 
 ;; ---------------------------------------- Guide Key
 

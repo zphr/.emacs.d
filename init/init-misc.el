@@ -61,10 +61,10 @@
       backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
       diff-switches "-u")
 
-;; ---------------------------------------- Powerline
+;; ;; ---------------------------------------- Powerline
 
-(require-package 'powerline)
-(powerline-default-theme)
+;; (require-package 'powerline)
+;; (powerline-default-theme)
 
 
 ;; ---------------------------------------- Tramp

@@ -42,6 +42,8 @@
 
 (blink-cursor-mode -1)
 
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;; ---------------------------------------- Fringe
 
 ;;  Links 0px, Rechts 4px
@@ -109,7 +111,6 @@
 (require 'init-elpa)
 (require 'init-theme)
 (require 'init-completion)
-(require 'init-misc)
 
 
 ;; ---------------------------------------- Modes and Package Config
@@ -117,7 +118,9 @@
 (require-package 'wgrep)
 (require-package 'diminish)
 (require-package 'scratch)
+(require-package 'idle-highlight-mode)
 
+(require 'init-misc)
 (require 'init-sessions)
 (require 'init-buffer-window-frame)
 (require 'init-killring)

@@ -1,7 +1,9 @@
 
 (require-package 'smartscan)
 
-(global-smartscan-mode t)
+(after-load 'smartscan
+  (global-smartscan-mode t))
+
 
 (global-set-key (kbd "M-N") 'smartscan-symbol-go-forward)
 (global-set-key (kbd "M-P") 'smartscan-symbol-go-backward)

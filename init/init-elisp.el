@@ -7,10 +7,12 @@
   (diminish 'elisp-slime-nav-mode))
 
 
-;; ---------------------------------------- Pretty Mode
+;; ;; ---------------------------------------- Pretty Mode
 
-(require-package 'pretty-mode)
-(autoload 'turn-on-pretty-mode "pretty-mode")
+;; (require-package 'pretty-mode)
+;; (after-load 'pretty-mode
+;;   (require 'pretty-mode)
+;;   (autoload 'turn-on-pretty-mode "pretty-mode"))
 
 
 ;; ---------------------------------------- Hippie-expand
@@ -51,7 +53,7 @@
 ;; ---------------------------------------- Mode Setup
 
 (add-hook 'emacs-lisp-mode-hook (lambda ()
-				   (turn-on-pretty-mode)
+				   ;; (turn-on-pretty-mode)
 				   (turn-on-eldoc-mode)
 				   (enable-paredit-mode)
 				   (rainbow-delimiters-mode t)

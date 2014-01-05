@@ -1,10 +1,19 @@
+
+;; ---------------------------------------- Elpa
+
 (require 'package)
+
 (setq package-user-dir "~/.emacs.d/elpa/")
+
+
+;; ---------------------------------------- Sources
+
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
 
-;;;; macros
+
+;; ---------------------------------------- Macros
+
 (defmacro after-load (mode &rest body)
   "`eval-after-load' MODE evaluate BODY."
   (declare (indent defun))
@@ -22,5 +31,11 @@ re-downloaded in order to locate PACKAGE."
       (progn
         (package-refresh-contents)
         (require-package package min-version t)))))
+
+
+;; ---------------------------------------- Init
+
+(package-initialize)
+
 
 (provide 'init-elpa)
