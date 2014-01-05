@@ -140,4 +140,4 @@
 (require 'init-ace-jump-mode)
 (require 'init-smart-scan)
 (require 'init-auto-complete)
-(require 'init-god-mode)
+;; (require 'init-god-mode)
