@@ -9,7 +9,7 @@
   (set-register ?l '(file . "~/../../Downloads/"))
   (set-register ?t '(file . "~/../../Desktop/TODO.org"))
 
-  (when (string= (system-name) "foolhouse")
+  (when (string= (system-name) "FOOLHOUSE-PC")
     (set-register ?6 '(file . "e:/Rettungsboot/Studium/6Semester/"))
     (set-register ?1 '(file . "e:/Rettungsboot/Studium/1MSemester/"))
     (set-register ?2 '(file . "e:/Rettungsboot/Studium/2MSemester/"))
