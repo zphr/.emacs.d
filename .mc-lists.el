@@ -8,8 +8,10 @@
         comment-dwim
         indent-for-tab-command
         keyboard-quit
+        kill-region
         kill-sexp
         paredit-forward
+        paredit-forward-delete
         paredit-forward-kill-word
         universal-argument-minus
         whole-line-or-region-kill-region
