@@ -274,5 +274,26 @@
 (global-set-key [remap backward-up-list] 'backward-up-sexp)
 
 
+;; ---------------------------------------- Ö Map
+
+(global-unset-key (kbd "ö"))
+(define-prefix-command 'ö-map)
+(global-set-key (kbd "ö") 'ö-map)
+(define-key ö-map (kbd "s") 'isearch-forward-regexp)
+(define-key ö-map (kbd "r") 'isearch-backward-regexp)
+
+(define-key ö-map (kbd "i") 'helm-imenu)
+
+(defadvice isearch-forward-regexp (before my-isearch-repeat-key activate)
+  (define-key isearch-mode-map (kbd "ö") 'isearch-repeat-forward)
+  (define-key isearch-mode-map (kbd "ü") 'isearch-repeat-backward))
+
+(defadvice isearch-backward-regexp (before my-isearch-repeat-key activate)
+  (define-key isearch-mode-map (kbd "ö") 'isearch-repeat-backward)
+  (define-key isearch-mode-map (kbd "ü") 'isearch-repeat-forward))
+
+(define-key ö-map (kbd "xf") 'helm-find-files)
+(define-key ö-map (kbd "g") 'helm-buffers-list)
+
 (provide 'init-shortcuts)
 

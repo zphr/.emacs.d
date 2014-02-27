@@ -1,4 +1,8 @@
 
+;; ---------------------------------------- Electric Modes
+
+(electric-pair-mode t)
+
 ;; ---------------------------------------- Starter Kit Loot
 
 (defun local-column-number-mode ()

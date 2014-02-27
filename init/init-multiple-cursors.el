@@ -3,6 +3,8 @@
 
 (require-package 'multiple-cursors)
 
+(require 'multiple-cursors)
+
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "M-ö") 'mc/mark-next-like-this)
 (global-set-key (kbd "M-ä") 'mc/mark-previous-like-this)
@@ -93,23 +95,23 @@
 
 (define-key multiple-cursors-map (kbd "c") 'mc/mark-column)
 (require 'cc-mode)
-(define-key c++-mode-map (kbd "C-M-<return>") 'mc/mark-column)
+(global-set-key (kbd "C-M-<return>") 'mc/mark-column)
 
 
-;; ---------------------------------------- Region Bindings Mode
+;; ;; ---------------------------------------- Region Bindings Mode
 
-(require-package 'region-bindings-mode)
-(require 'region-bindings-mode)
+;; (require-package 'region-bindings-mode)
+;; (require 'region-bindings-mode)
 
-(region-bindings-mode-enable)
-(define-key region-bindings-mode-map (kbd "C-M-S-ä") 'mc/edit-ends-of-lines)
-(define-key region-bindings-mode-map (kbd "C-M-S-n") 'mc/skip-to-next-like-this)
-(define-key region-bindings-mode-map (kbd "C-M-S-p") 'mc/skip-to-previous-like-this)
-(define-key region-bindings-mode-map (kbd "C-M-S-m") 'mc/mark-next-like-this)
-(define-key region-bindings-mode-map (kbd "C-M-S-o") 'mc/mark-previous-like-this)
-(define-key region-bindings-mode-map (kbd "C-M-S-w") 'mc/mark-next-word-like-this)
-(define-key region-bindings-mode-map (kbd "C-M-S-u") 'mc/unmark-next-like-this)
-(define-key region-bindings-mode-map (kbd "C-M-S-z") 'mc/unmark-previous-like-this)
+;; (region-bindings-mode-enable)
+;; (define-key region-bindings-mode-map (kbd "C-M-S-ä") 'mc/edit-ends-of-lines)
+;; (define-key region-bindings-mode-map (kbd "C-M-S-n") 'mc/skip-to-next-like-this)
+;; (define-key region-bindings-mode-map (kbd "C-M-S-p") 'mc/skip-to-previous-like-this)
+;; (define-key region-bindings-mode-map (kbd "C-M-S-m") 'mc/mark-next-like-this)
+;; (define-key region-bindings-mode-map (kbd "C-M-S-o") 'mc/mark-previous-like-this)
+;; (define-key region-bindings-mode-map (kbd "C-M-S-w") 'mc/mark-next-word-like-this)
+;; (define-key region-bindings-mode-map (kbd "C-M-S-u") 'mc/unmark-next-like-this)
+;; (define-key region-bindings-mode-map (kbd "C-M-S-z") 'mc/unmark-previous-like-this)
 
 
 (provide 'init-multiple-cursors)
