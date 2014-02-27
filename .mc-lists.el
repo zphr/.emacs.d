@@ -5,17 +5,77 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        abort-recursive-edit
+        artist-backward-char
+        artist-forward-char
+        backward-sexp
+        backward-up-sexp
+        c-electric-brace
+        c-electric-colon
+        c-electric-delete-forward
+        c-electric-lt-gt
+        c-electric-paren
+        c-electric-semi&comma
+        c-electric-star
+        c-indent-line-or-region
         comment-dwim
+        dabbrev-expand
+        delete-indentation
+        down-list
+        evil-delete
+        evil-delete-backward-word
+        evil-delete-char
+        evil-end-of-line
+        evil-force-normal-state
+        evil-next-line
+        evil-next-line-1-first-non-blank
+        evil-previous-line
+        forward-sexp
+        ignore
         indent-for-tab-command
+        insert-parentheses
         keyboard-quit
+        kill-region
         kill-sexp
+        mark-sexp
+        org-cycle
+        org-end-of-line
+        org-self-insert-command
+        paredit-backward-kill-word
         paredit-forward
+        paredit-forward-delete
         paredit-forward-kill-word
+        picture-clear-column
+        picture-self-insert
+        query-replace
+        smartscan-restrict-to-defun-forward
+        split-line
+        transpose-sexps
         universal-argument-minus
         whole-line-or-region-kill-region
+        whole-line-or-region-kill-ring-save
+        whole-line-or-region-yank
+        zap-up-to-char
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        ace-jump-mode-pop-mark
+        ace-jump-word-mode
+        align-current
+        c-end-of-defun
+        custom-split-window-horizontally
+        evil-emacs-state
+        evil-normal-state
+        evil-search-word-forward
         god-local-mode
+        goto-last-change
+        helm-M-x
+        helm-confirm-and-exit-minibuffer
+        mc/mark-column
+        my-find-other-file
+        open-file-in-visual-studio
+        smartscan-symbol-go-forward
+        smex
+        switch-window
         ))

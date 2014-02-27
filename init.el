@@ -24,14 +24,6 @@
 (unless (server-running-p)
   (server-start))
 
-
-;; ---------------------------------------- Custom File
-
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(when (file-exists-p custom-file)
-  (load custom-file))
-
-
 ;; ---------------------------------------- Misc
 
 (require 'misc)
@@ -103,6 +95,14 @@
   (setq mac-command-modifier 'meta)
   (setq mac-right-command-modifier 'control))
 
+
+;; ---------------------------------------- Custom File
+
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file))
+
+
 ;; ---------------------------------------- Bootstrap Config
 
 (require 'init-path)
@@ -121,6 +121,7 @@
 (require-package 'idle-highlight-mode)
 
 (require 'init-misc)
+(require 'init-isearch)
 (require 'init-sessions)
 (require 'init-buffer-window-frame)
 (require 'init-killring)
@@ -140,4 +141,8 @@
 (require 'init-ace-jump-mode)
 (require 'init-smart-scan)
 (require 'init-auto-complete)
+;; (require 'init-evil)
+(require 'init-helm)
 ;; (require 'init-god-mode)
+
+;; visual studio error regex  ^.*[0-9]+>\([0-9a-zA-Z:_.\\ ]+\)(\([0-9]+\)): \(.*\)
