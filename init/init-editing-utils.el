@@ -9,13 +9,6 @@
 (diminish 'whole-line-or-region-mode)
 (make-variable-buffer-local 'whole-line-or-region-mode)
 
-;; ---------------------------------------- Guide Key
-
-(require-package 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x 5" "C-c ;" "C-c ; f"))
-(guide-key-mode 1)
-(diminish 'guide-key-mode)
-
 
 ;; ---------------------------------------- Goto Last Change
 
@@ -49,6 +42,14 @@
           (define-key jump-char-isearch-map (kbd "ö") 'jump-char-switch-to-ace)
           (define-key ö-map (kbd "f") 'jump-char-forward)
           (define-key ö-map (kbd "b") 'jump-char-backward)))
+
+
+;; ---------------------------------------- Expand Region
+
+(require-package 'expand-region)
+(require 'expand-region)
+
+(global-set-key (kbd "C-M-S-SPC") 'er/expand-region)
 
 
 (provide 'init-editing-utils)

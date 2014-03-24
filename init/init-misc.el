@@ -1,4 +1,9 @@
 
+;; ---------------------------------------- Truncate Longe Lines
+
+(setq truncate-lines t)
+
+
 ;; ---------------------------------------- Electric Modes
 
 (electric-pair-mode t)

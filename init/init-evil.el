@@ -6,7 +6,7 @@
 (require 'evil)
 (evil-mode 1)
 
-;;(setcdr evil-insert-state-map nil)
+(setcdr evil-insert-state-map nil)
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
 
 (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)

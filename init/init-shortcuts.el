@@ -93,7 +93,6 @@
 ;;                                  ***REMOVED***
 ;;                                    (kill-sexp -1)))
 
-
 ;;; ---------------------------------------- Yank Maps
 
 (global-set-key (kbd "C-M-<backspace>") 'backward-kill-sexp)

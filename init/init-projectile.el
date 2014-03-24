@@ -22,4 +22,7 @@
 (add-hook 'c++-mode-hook 'projectile-on)
 
 
+(add-hook 'projectile-idle-timer-hook 'projectile-regenerate-tags)
+
+
 (provide 'init-projectile)

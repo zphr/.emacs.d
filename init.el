@@ -144,5 +144,7 @@
 ;; (require 'init-evil)
 (require 'init-helm)
 ;; (require 'init-god-mode)
+(require 'init-chat)
+;; (require 'init-semantic)
 
 ;; visual studio error regex  ^.*[0-9]+>\([0-9a-zA-Z:_.\\ ]+\)(\([0-9]+\)): \(.*\)

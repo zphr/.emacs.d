@@ -1,6 +1,5 @@
 
 (require-package 'zenburn-theme)
-;; (load-theme 'subatomic)
 
 (require-package 'subatomic-theme)
 (load-theme 'subatomic)
