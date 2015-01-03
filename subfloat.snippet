@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: subfloat
+# key: sfv
+# binding: direct-keybinding
+# --
+\subfloat[][$1]{
+ \includesvg[height=${2:0.35}\textwidth]{img/$3}
+ \label{fig:${3:$(s-replace-all '(("_". "")) yas-text)}}}
+${0:\qquad} 

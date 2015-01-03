@@ -5,11 +5,11 @@
 (global-set-key (kbd "S-SPC") 'save-buffer)
 
 (global-set-key (kbd "<f5>") (lambda ()
-                                ***REMOVED***
+                                  (interactive)
                                   (compile)))
 
 (global-set-key (kbd "C-<f5>") (lambda ()
-                               ***REMOVED***
+                                 (interactive)
                                  (message "bla: %s" (compile "make"))))
 
 (global-set-key (kbd "C-x C-r") 'revert-buffer)
@@ -20,10 +20,12 @@
 
 (global-set-key (kbd "C-z") 'undo)
 
-(global-set-key (kbd "C-S-j" ) 'just-one-space)
+(if (and (= emacs-major-version 24) (> emacs-minor-version 3))
+    (global-set-key (kbd "C-S-j" ) 'cycle-spacing)
+  (global-set-key (kbd "C-S-j" ) 'just-one-space))
 
 (global-set-key (kbd "M-C-S-j" ) (lambda ()
-                                 ***REMOVED***
+                                   (interactive)
                                    (just-one-space -1)))
 
 (defun my-find-other-file (&optional arg)
@@ -54,7 +56,7 @@
 ;;; ---------------------------------------- Killing Maps
 
 ;; (global-set-key (kbd "M-<backspace>") (lambda ()
-;;                                       ***REMOVED***
+;;                                         (interactive)
 ;;                                         (kill-line 0)))
 
 (defadvice zap-up-to-char (around zap-up-to-char-case-sensitive
@@ -90,7 +92,7 @@
 (global-set-key (kbd "C-x C-o") 'delete-blank-lines)
 
 ;; (global-set-key (kbd "C-M-S-k") '(lambda ()
-;;                                  ***REMOVED***
+;;                                    (interactive)
 ;;                                    (kill-sexp -1)))
 
 ;;; ---------------------------------------- Yank Maps
@@ -208,6 +210,7 @@
 
 ;; Jump to a definition in the current file. (Protip: this is awesome.)
 (global-set-key (kbd "C-x C-i") 'imenu)
+(global-set-key (kbd "C-x i") 'imenu)
 
 ;; Window switching. (C-x o goes to the next window)
 (windmove-default-keybindings) ;; Shift+direction
@@ -273,26 +276,23 @@
 (global-set-key [remap backward-up-list] 'backward-up-sexp)
 
 
-;; ---------------------------------------- Ö Map
+;; ;; ---------------------------------------- Ö Map
 
-(global-unset-key (kbd "ö"))
-(define-prefix-command 'ö-map)
-(global-set-key (kbd "ö") 'ö-map)
-(define-key ö-map (kbd "s") 'isearch-forward-regexp)
-(define-key ö-map (kbd "r") 'isearch-backward-regexp)
+;; (global-unset-key (kbd "ö"))
+;; (define-prefix-command 'ö-map)
+;; (global-set-key (kbd "ö") 'ö-map)
+;; (define-key ö-map (kbd "s") 'isearch-forward-regexp)
+;; (define-key ö-map (kbd "r") 'isearch-backward-regexp)
 
-(define-key ö-map (kbd "i") 'helm-imenu)
+;; (define-key ö-map (kbd "i") 'helm-imenu)
 
-(defadvice isearch-forward-regexp (before my-isearch-repeat-key activate)
-  (define-key isearch-mode-map (kbd "ö") 'isearch-repeat-forward)
-  (define-key isearch-mode-map (kbd "ü") 'isearch-repeat-backward))
+;; (defadvice isearch-forward-regexp (before my-isearch-repeat-key activate)
+;;   (define-key isearch-mode-map (kbd "ö") 'isearch-repeat-forward)
+;;   (define-key isearch-mode-map (kbd "ü") 'isearch-repeat-backward))
 
-(defadvice isearch-backward-regexp (before my-isearch-repeat-key activate)
-  (define-key isearch-mode-map (kbd "ö") 'isearch-repeat-backward)
-  (define-key isearch-mode-map (kbd "ü") 'isearch-repeat-forward))
-
-(define-key ö-map (kbd "xf") 'helm-find-files)
-(define-key ö-map (kbd "g") 'helm-buffers-list)
+;; (defadvice isearch-backward-regexp (before my-isearch-repeat-key activate)
+;;   (define-key isearch-mode-map (kbd "ö") 'isearch-repeat-backward)
+;;   (define-key isearch-mode-map (kbd "ü") 'isearch-repeat-forward))
 
 (provide 'init-shortcuts)
 

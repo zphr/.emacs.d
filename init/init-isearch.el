@@ -13,7 +13,7 @@
 ;; See http://www.emacswiki.org/emacs/SearchAtPoint
 (defun isearch-yank-symbol ()
   "*Put symbol at current point into search string."
-***REMOVED***
+  (interactive)
   (let ((sym (symbol-at-point)))
     (if sym
         (progn

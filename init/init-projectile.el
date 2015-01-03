@@ -12,7 +12,7 @@
 
 (defun projectile-regenerate-tags ()
   "Regenerate the project's etags."
-***REMOVED***
+  (interactive)
   (let* ((project-root (projectile-project-root))
          (tags-exclude (projectile-tags-exclude-patterns))
          (default-directory project-root))
@@ -22,6 +22,7 @@
 (add-hook 'c++-mode-hook 'projectile-on)
 
 
+(setq projectile-enable-idle-timer t)
 (add-hook 'projectile-idle-timer-hook 'projectile-regenerate-tags)
 
 

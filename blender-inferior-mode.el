@@ -50,7 +50,8 @@ OUTPUT is a string with the contents of the buffer."
   (compilation-shell-minor-mode 1))
 
 (defun blender-make-comint ()
-***REMOVED***
+  (interactive)
+  (message "test test test")
   (save-excursion
     (let* ((buffer-name "*blender*"))
       (if (comint-check-proc buffer-name)

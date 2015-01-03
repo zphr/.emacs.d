@@ -1,7 +1,7 @@
 ;;; ---------------------------------------- Org Mode
 
 (require 'org)
-(require 'org-latex)
+;; (require 'org-latex)
 
 (setq org-directory "e:/Rettungsboot/Dokumente/TODO")
 
@@ -32,6 +32,12 @@
 
 (require 'bibtex)
 (require 'org-bibtex)
+
+
+;; ---------------------------------------- Org Babel
+
+(org-babel-do-load-languages 'org-babel-load-languages '((dot . t))) ;activate graphviz
+
 
 ;; ;;; ---------------------------------------- Capture
 
@@ -72,6 +78,18 @@
 ;;; ---------------------------------------- Export
 
 (add-to-list 'org-export-backends 'confluence)
+
+
+;;; ---------------------------------------- Beamer
+
+;; (require 'org-beamer)
+(require 'ox-beamer)
+
+(add-to-list 'org-beamer-environments-extra
+             '("onlyenv" "O" "\\begin{onlyenv}%a" "\\end{onlyenv}"))
+
+(add-to-list 'org-beamer-environments-extra
+             '("visibleenv" "V" "\\begin{visibleenv}%a" "\\end{visibleenv}"))
 
 
 (provide 'init-org)

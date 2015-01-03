@@ -6,7 +6,7 @@
 
 (defun smartscan-restrict-to-defun-forward ()
   "Restrict smartscan to defun bounds."
-***REMOVED***
+  (interactive)
   (let* ((start (save-excursion (progn (beginning-of-defun) (point))))
 	 (end (save-excursion (progn (end-of-defun) (point)))))
     (save-restriction
@@ -18,7 +18,7 @@
 
 (defun smartscan-restrict-to-defun-backward ()
   "Restrict smartscan to defun bounds."
-***REMOVED***
+  (interactive)
   (let* ((start (save-excursion (progn (beginning-of-defun) (point))))
 	 (end (save-excursion (progn (end-of-defun) (point)))))
     (save-restriction

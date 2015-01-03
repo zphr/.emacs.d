@@ -82,7 +82,7 @@
 	    (move-to-column column)))))
 
 (defun mc/mark-column ()
-***REMOVED***
+  (interactive)
   (let* ((start-pos (point))
 	 (start-line (line-number-at-pos))
 	 (top (save-excursion (line-number-at-pos

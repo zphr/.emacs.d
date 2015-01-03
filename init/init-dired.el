@@ -6,7 +6,7 @@
 (setq dired-dwim-target t)
 
 (defun dired-back-to-top ()
-***REMOVED***
+  (interactive)
   (beginning-of-buffer)
   (dired-next-line 4))
 
@@ -14,7 +14,7 @@
 (define-key dired-mode-map (kbd "M-+") 'dired-back-to-top)
 
 (defun dired-jump-to-bottom ()
-***REMOVED***
+  (interactive)
   (end-of-buffer)
   (dired-next-line -1))
 

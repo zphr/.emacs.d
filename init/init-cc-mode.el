@@ -1,9 +1,10 @@
 
+
 ;;; ---------------------------------------- CC Mode
 
 (defun open-file-in-visual-studio ()
   "see https://github.com/diimdeep/VisualStudioFileOpenTool"
-***REMOVED***
+  (interactive)
   (start-process "VisualStudioOpen" nil "VisualStudioFileOpenTool.exe" "10" (buffer-file-name) (number-to-string (line-number-at-pos)))
   ;; (suspend-frame)
   )
@@ -18,7 +19,7 @@
 (defun c-c++-header ()
   "sets either c-mode or c++-mode, whichever is appropriate for
 header"
-***REMOVED***
+  (interactive)
   (let ((c-file (concat (substring (buffer-file-name) 0 -1) "c")))
     (if (file-exists-p c-file)
         (c-mode)
@@ -145,7 +146,7 @@ header"
   )
 
 (defun my-kill-statement ()
-***REMOVED***
+  (interactive)
   (let ((start (point)))
     (save-excursion
       (c-end-of-statement)
@@ -157,5 +158,18 @@ header"
                            (local-set-key (kbd "C-<return>") 'open-file-in-visual-studio)
 			   (local-set-key (kbd "C-c C-k") 'my-kill-statement)
 			   (c++11-extra-font-locking)))
+
+
+;;; ---------------------------------------- C# 
+
+(require-package 'csharp-mode)
+
+(add-hook 'csharp-mode-hook 'omnisharp-mode)
+
+(setq omnisharp-server-executable-path "c:/OmniSharpServer/OmniSharp/bin/Debug/OmniSharp.exe")
+
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-omnisharp))
+
 
 (provide 'init-cc-mode)

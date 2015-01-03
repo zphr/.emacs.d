@@ -32,6 +32,7 @@
 (define-key god-local-mode-map (kbd ".") 'repeat)
 
 (define-key god-local-mode-map (kbd "F") 'forward-word)
+(define-key god-local-mode-map (kbd "V") '(lambda () (interactive) (scroll-down-command)))
 (define-key god-local-mode-map (kbd "B") 'backward-word)
 
 (define-key god-local-mode-map (kbd "C") 'comment-dwim)
@@ -54,7 +55,7 @@
 (define-key god-local-mode-map (kbd "h") 'helm-mini)
 
 (defun helm-swoop-start-with-2 ()
-***REMOVED***
+  (interactive)
   (helm-swoop 2))
 (define-key god-local-mode-map (kbd "S") 'helm-swoop-start-with-2)
 

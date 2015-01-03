@@ -1,8 +1,15 @@
 
 (require-package 'zenburn-theme)
+(load-theme 'zenburn)
 
-(require-package 'subatomic-theme)
-(load-theme 'subatomic)
+;; (require-package 'subatomic-theme)
+;; (load-theme 'subatomic)
+
+;; (require-package 'firebelly-theme)
+;; (load-theme 'firebelly)
+
+;; (require-package 'clues-theme)
+;; (load-theme 'clues)
 
 ;; ---------------------------------------- Mode Line
 

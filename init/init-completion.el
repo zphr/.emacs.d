@@ -163,15 +163,21 @@ string).  It returns t if a new completion is found, nil otherwise."
 
 ;; Create own function to expand lines (C-S-.)
 (defun hippie-expand-lines ()
-***REMOVED***
+  (interactive)
   (let ((hippie-expand-try-functions-list '(try-expand-line-closest-first
                                             try-expand-line-all-buffers)))
     (end-of-line)
     (hippie-expand nil)))
 
+(defun hippie-expand-filenames ()
+  (interactive)
+  (let ((hippie-expand-try-functions-list '(try-complete-file-name
+					    try-complete-file-name-partially)))
+    (hippie-expand nil)))
+
 ;; Don't case-fold when expanding with hippe
 (defun hippie-expand-no-case-fold ()
-***REMOVED***
+  (interactive)
   (let ((case-fold-search nil))
     (hippie-expand nil)))
 
@@ -180,9 +186,11 @@ string).  It returns t if a new completion is found, nil otherwise."
 
 (global-set-key (kbd "M-S-SPC") 'hippie-expand-lines)
 
+(global-set-key (kbd "M-_") 'hippie-expand-filenames)
+
+
 ;; (global-set-key (kbd "M-S-SPC") (make-hippie-expand-function
 ;;                                  '(try-expand-line
 ;;                                    try-expand-whole-kill) t))
-
 
 (provide 'init-completion)

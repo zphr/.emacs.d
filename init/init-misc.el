@@ -48,11 +48,11 @@
 
 
 (defun untabify-buffer ()
-***REMOVED***
+  (interactive)
   (untabify (point-min) (point-max)))
 
 (defun indent-buffer ()
-***REMOVED***
+  (interactive)
   (indent-region (point-min) (point-max)))
 
 (setq visible-bell t
@@ -73,6 +73,7 @@
 ;; ---------------------------------------- Powerline
 
 (require-package 'powerline)
+(require 'powerline)
 (powerline-default-theme)
 
 
@@ -128,7 +129,7 @@
 (global-set-key (kbd "C--") 'my-decrement-number-decimal)
 
 (defun my-hide ()
-***REMOVED***
+  (interactive)
   (if selective-display
       (set-selective-display nil)
     (set-selective-display (+ 1(current-column)))))

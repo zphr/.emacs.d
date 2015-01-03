@@ -1,12 +1,14 @@
 
 ;;; ---------------------------------------- Auctex
 
+(require-package 'auctex)
+
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq TeX-save-query nil)
 (setq TeX-PDF-mode t)
 (setq TeX-display-help 'expert)
-
+(setq TeX-source-correlate-method 'synctex)
 (setq-default TeX-master nil)
 
 (require 'tex-site)
@@ -17,6 +19,8 @@
 (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
 (add-hook 'reftex-load-hook 'imenu-add-menubar-index)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+
+(setq reftex-plug-into-AUCTeX t)
 
 (defun call-latex (name)
   "Execute `TeX-command-list' NAME from a menu."
@@ -46,18 +50,28 @@
                   nil t :help "Create nomenclature file")))
 
 ;; (LaTeX-command-style (quote (("" "%(PDF)%(latex) %S%(PDFout) -file-line-error"))))
-(setq LaTeX-command "latex -shell-escape -file-line-error")
+;; (setq LaTeX-command "latex -shell-escape -file-line-error")
+
+(setq TeX-engine-alist 
+      '((luatex "LuaTeX" 
+		"luatex --file-line-error --shell-escape" 
+		"lualatex --jobname=%s --file-line-error --shell-escape "
+		"luatex")))
+
+(setq TeX-engine 'luatex)
 
 (add-hook 'LaTeX-mode-hook (lambda ()
                              (flyspell-mode 0)
                              (turn-on-reftex)
                              (setq abbrev-mode 0)
-                             (local-set-key (kbd "<f5>") (lambda ()
-                                                         ***REMOVED***
+                             (local-set-key (kbd "C-c C-.") 'LaTeX-mark-environment)
+                             (local-set-key (kbd "C-<return>") 'TeX-view)
+			     (local-set-key (kbd "<f5>") (lambda ()
+                                                           (interactive)
                                                            (call-latex "LaTeX")))
 
                              (local-set-key (kbd "<f6>") (lambda ()
-                                                         ***REMOVED***
+                                                           (interactive)
                                                            (call-latex "BiTbeX")))))
 
 (defadvice TeX-master-file-ask (around set-master-with-dir-local activate)
@@ -75,5 +89,10 @@
                                   (concat (locate-dominating-file buffer-file-name master-name) master-name))))))))"))
       (save-buffer))))
 
+
+
+(setq TeX-source-correlate-mode t)
+(setq TeX-view-program-list (quote (("Sumatra PDF" ("SumatraPDF.exe -reuse-instance" (mode-io-correlate " -forward-search %b %n") " %o")))))
+(setq TeX-view-program-selection (quote (((output-dvi style-pstricks) "dvips and start") (output-dvi "Yap") (output-pdf "Sumatra PDF") (output-html "start"))))
 
 (provide 'init-latex)

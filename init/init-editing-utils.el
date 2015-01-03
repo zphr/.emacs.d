@@ -9,6 +9,16 @@
 (diminish 'whole-line-or-region-mode)
 (make-variable-buffer-local 'whole-line-or-region-mode)
 
+;; ;; ---------------------------------------- Easy Kill
+
+;; (require-package 'easy-kill)
+;; (require 'easy-kill)
+
+;; (global-set-key [remap kill-ring-save] 'easy-kill)
+
+;; (define-key easy-kill-base-map "p" 'easy-kill-shrink)
+;; (define-key easy-kill-base-map "n" 'easy-kill-expand)
+
 
 ;; ---------------------------------------- Goto Last Change
 
@@ -39,9 +49,8 @@
 
 (eval-after-load "jump-char"
   '(progn (define-key jump-char-isearch-map (kbd "<return>") 'jump-char-exit)
-          (define-key jump-char-isearch-map (kbd "ö") 'jump-char-switch-to-ace)
-          (define-key ö-map (kbd "f") 'jump-char-forward)
-          (define-key ö-map (kbd "b") 'jump-char-backward)))
+	  (global-set-key (kbd "M-f") 'jump-char-forward)
+	  (global-set-key (kbd "M-b") 'jump-char-backward)))
 
 
 ;; ---------------------------------------- Expand Region
@@ -50,6 +59,29 @@
 (require 'expand-region)
 
 (global-set-key (kbd "C-M-S-SPC") 'er/expand-region)
+
+
+;; ;;; ---------------------------------------- Yasnippet
+
+;; (require-package 'yasnippet)
+;; (yas-global-mode 1)
+
+
+;; ;;; ---------------------------------------- Color Identifiers
+
+;; (require-package 'color-identifiers-mode)
+;; (require 'color-identifiers-mode)
+
+;; (setq color-identifiers:max-color-saturation 0.75)
+;; (global-color-identifiers-mode t)
+
+
+;;; ---------------------------------------- Change Inner
+
+(require-package 'change-inner)
+(require 'change-inner)
+(global-set-key (kbd "M-i") 'change-inner)
+;; (global-set-key (kbd "M-o") 'change-outer)
 
 
 (provide 'init-editing-utils)

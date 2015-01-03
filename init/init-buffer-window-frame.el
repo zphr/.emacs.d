@@ -19,7 +19,6 @@
       (other-frame 1)))
 
 (global-set-key (kbd "C-S-o") 'switch-window)
-(define-key ö-map (kbd "w") 'switch-window)
 
 ;;; ---------------------------------------- IBuffer
 

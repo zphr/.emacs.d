@@ -1,0 +1,10 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("boundary edge"
+ (filename . "c:/Program Files/MAXON/CINEMA 4D R14/plugins/laubwerk_c4d/source/nsidedregionbranchvisitor.cpp")
+ (front-context-string . "\n			BranchEdge* ")
+ (rear-context-string . "st boundary edge")
+ (position . 17541))
+)

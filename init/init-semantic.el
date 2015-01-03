@@ -18,7 +18,7 @@
 ;; (add-to-list 'ac-sources 'ac-source-semantic)
 
 (defun semantic-and-gtags-complete ()
-***REMOVED***
+  (interactive)
   (auto-complete '(ac-source-semantic ac-source-gtags)))
 
 (require-package 'function-args)

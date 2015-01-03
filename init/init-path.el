@@ -5,7 +5,8 @@
           (concat
            "~/.emacs.d/" ";"
 	   "C:/Program Files \(x86\)/Git/bin/" ";"
-           "C:/Python27/" ";"
+	   "c:/Python34/" ";"
+           ;; "C:/Python27/" ";"
            ;; "C:/Python26/" ";"
            "c:/Emacs/bin/" ";"
            "C:/Program\ Files\ \(x86\)/Bazaar/" ";"
@@ -14,6 +15,7 @@
            "c:/gnuwin32/lib/" ";"
            "C:/cygwin64/bin" ";"
            "C:/Program\ Files\ \(x86\)/Inkscape/" ";"
+	   "C:/Program\ Files\ \(x86\)/gs/gs9.14/bin/" ";"
            "C:/Program Files/TortoiseHg" ";"
            "C:/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 9\.0/Common7/IDE" ";"
            "C:/Program\ Files\ \(x86\)/Git/bin" ";"
@@ -22,15 +24,20 @@
            "C:/Users/Christian/AppData/Roaming/.emacs.d/svn/bin/"  ";"
            ;; "c:/Program Files (x86)/LLVM 3.4.svn/bin/" ";"
            "c:/Program Files (x86)/Cppcheck" ";"
-	   ;; "c:/Program Files (x86)/LLVM/bin" ";"
+	   "c:/Program Files (x86)/LLVM/bin" ";"
            "c:/Program Files (x86)/Microsoft Visual Studio 10.0/Common7/IDE" ";"
-           "C:/Users/Christian/Desktop/zeal"
+           "C:/Users/Christian/Desktop/zeal" ";"
+	   "c:/Program Files (x86)/MiKTeX 2.9/miktex/bin/" ";"
+	   "C:/Program Files (x86)/Graphviz2.38/bin/" ";"
+	   "C:/Program Files (x86)/SumatraPDF/" ";"
+	   "c:/Program Files/GIMP 2/bin/" ";"
+	   "c:/Program Files/ImageMagick-6.7.6-Q16/"
            (getenv "PATH")))
 
   (setq exec-path '("~/.emacs.d/" 
 		    "C:/Program Files (x86)/Git/bin/"
-                    ;; "C:/Python32/"
-                    "C:/Python27/" 
+                    "c:/Python34/"
+                    ;; "C:/Python27/" 
                     "c:/Emacs/bin/"
                     "c:/gnuwin32/bin/" 
                     "C:/Program Files (x86)/Bazaar/"
@@ -38,6 +45,7 @@
                     "C:/Program Files/TortoiseHg"
                     "C:/cygwin64/bin"
                     "C:/Program Files (x86)/Inkscape/"
+		    "C:/Program Files (x86)/gs/gs9.14/bin/" 
                     "c:/Program Files (x86)/Microsoft Visual Studio 9.0/Common7/IDE"
                     "C:/Program Files/TortoiseHg"
 		    "C:/Program Files (x86)/CVSNT/"
@@ -47,10 +55,15 @@
                     "C:/Users/Christian/AppData/Roaming/.emacs.d/svn/bin/"
                     ;; "c:/Program Files (x86)/LLVM 3.4.svn/bin/"
 		    "c:/Program Files (x86)/Cppcheck"
-		    ;; "c:/Program Files (x86)/LLVM/bin";
+		    "c:/Program Files (x86)/LLVM/bin";
                     "c:/Program Files (x86)/Microsoft Visual Studio 10.0/Common7/IDE"
                     "C:/Users/Christian/Desktop/zeal"
+		    "c:/Program Files (x86)/MiKTeX 2.9/miktex/bin/"
+		    "C:/Program Files (x86)/Graphviz2.38/bin/"
+		    "C:/Program Files (x86)/SumatraPDF/"
                     ;; "c:/Users/foolhouse/Desktop/Blender/blender.exe" ";"
+		    "c:/Program Files/GIMP 2/bin/"
+		    "c:/Program Files/ImageMagick-6.7.6-Q16/"
                     (getenv "PATH"))))
 
 

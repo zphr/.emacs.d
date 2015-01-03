@@ -11,17 +11,17 @@
 
 (require 'cc-mode)
 
-;; (defun set-up-ace-jump-keys ()
-;;   (local-set-key (kbd "ö") 'ace-jump-word-mode)
-;;   (local-set-key (kbd "ü") 'ace-jump-line-mode))
-;; (add-hook 'prog-mode-hook 'set-up-ace-jump-keys)
+(defun set-up-ace-jump-keys ()
+  (local-set-key (kbd "ö") 'ace-jump-word-mode)
+  (local-set-key (kbd "ü") 'ace-jump-line-mode))
+(add-hook 'prog-mode-hook 'set-up-ace-jump-keys)
 
 (global-set-key (kbd "´") 'ace-jump-word-mode)
 
 (global-set-key (kbd "C-ö") 'ace-jump-word-mode)
 (global-set-key (kbd "C-ü") 'ace-jump-line-mode)
 (global-set-key (kbd "C-M-ü") 'ace-jump-char-mode)
-(global-set-key (kbd "C-S-R") 'ace-jump-word-mode)
+(global-set-key (kbd "M-C-R") 'ace-jump-word-mode)
 (global-set-key (kbd "C-,") 'ace-jump-word-mode)
 (global-set-key (kbd "C-.") 'ace-jump-line-mode)
 (global-set-key (kbd "C-;") 'ace-jump-mode-pop-mark)

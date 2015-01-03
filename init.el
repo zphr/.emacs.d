@@ -13,6 +13,12 @@
 (setq inhibit-startup-screen t)
 
 
+;; ---------------------------------------- Truncate Lines
+
+(setq truncate-partial-width-windows nil)
+(setq truncate-lines t)
+
+
 ;; ---------------------------------------- Unicode
 
 (prefer-coding-system 'utf-8)
@@ -111,6 +117,7 @@
 (require 'init-elpa)
 (require 'init-theme)
 (require 'init-completion)
+(require 'init-abbrev)
 
 
 ;; ---------------------------------------- Modes and Package Config
@@ -140,11 +147,14 @@
 (require 'init-multiple-cursors)
 (require 'init-ace-jump-mode)
 (require 'init-smart-scan)
-(require 'init-auto-complete)
+;; (require 'init-auto-complete)
+(require 'init-company)
 ;; (require 'init-evil)
 (require 'init-helm)
 ;; (require 'init-god-mode)
 (require 'init-chat)
 ;; (require 'init-semantic)
+(require 'init-yasnippet)
 
 ;; visual studio error regex  ^.*[0-9]+>\([0-9a-zA-Z:_.\\ ]+\)(\([0-9]+\)): \(.*\)
+(put 'narrow-to-region 'disabled nil)
