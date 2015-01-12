@@ -9,7 +9,9 @@
 
 ;; ---------------------------------------- Sources
 
-(setq package-archives nil)
+;; (setq package-archives nil)
+(add-to-list 'package-archives
+             '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 
