@@ -1,8 +1,10 @@
 
 ;;; ---------------------------------------- Inferior Blender
 
-(defvar blender-path 'blender'
-  "Blender path.")
+(defcustom blender-path "blender"
+  "Blender path."
+  :group 'blender-inferior-mode
+  :type 'string)
 
 (require 'ansi-color)
 (require 'comint)
@@ -51,7 +53,6 @@ OUTPUT is a string with the contents of the buffer."
 
 (defun blender-make-comint ()
   (interactive)
-  (message "test test test")
   (save-excursion
     (let* ((buffer-name "*blender*"))
       (if (comint-check-proc buffer-name)

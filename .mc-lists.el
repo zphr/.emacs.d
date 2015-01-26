@@ -13,6 +13,7 @@
 	TeX-insert-sub-or-superscript
 	TeX-newline
 	abort-recursive-edit
+	ace-jump-done
 	anzu-query-replace
 	artist-backward-char
 	artist-forward-char
@@ -36,6 +37,7 @@
 	dabbrev-expand
 	delete-indentation
 	down-list
+	electric-newline-and-maybe-indent
 	evil-backward-char
 	evil-backward-word-begin
 	evil-change

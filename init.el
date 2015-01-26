@@ -155,6 +155,7 @@
 ;; (require 'init-chat)
 ;; (require 'init-semantic)
 (require 'init-yasnippet)
+(require 'init-python)
 
 ;; visual studio error regex  ^.*[0-9]+>\([0-9a-zA-Z:_.\\ ]+\)(\([0-9]+\)): \(.*\)
 (put 'narrow-to-region 'disabled nil)
