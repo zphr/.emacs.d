@@ -166,7 +166,7 @@ header"
 
 (add-hook 'csharp-mode-hook 'omnisharp-mode)
 
-(setq omnisharp-server-executable-path "c:/OmniSharpServer/OmniSharp/bin/Debug/OmniSharp.exe")
+(setq omnisharp-server-executable-path "c:/OmniSharpServer/OmniSharp/bin/Release/OmniSharp.exe")
 
 (eval-after-load 'company
   '(add-to-list 'company-backends 'company-omnisharp))

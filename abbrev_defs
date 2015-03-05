@@ -1,6 +1,8 @@
 ;;-*-coding: utf-8;-*-
 (define-abbrev-table 'Buffer-menu-mode-abbrev-table '())
 
+(define-abbrev-table 'Info-edit-mode-abbrev-table '())
+
 (define-abbrev-table 'awk-mode-abbrev-table
   '(
    ))
@@ -25,18 +27,20 @@
 
 (define-abbrev-table 'doctex-mode-abbrev-table '())
 
+(define-abbrev-table 'edebug-eval-mode-abbrev-table '())
+
+(define-abbrev-table 'edit-abbrevs-mode-abbrev-table '())
+
 (define-abbrev-table 'emacs-lisp-byte-code-mode-abbrev-table '())
 
 (define-abbrev-table 'emacs-lisp-mode-abbrev-table '())
-
-(define-abbrev-table 'eshell-mode-abbrev-table '())
 
 (define-abbrev-table 'fundamental-mode-abbrev-table '())
 
 (define-abbrev-table 'global-abbrev-table
   '(
     ("alpha" "α" nil 0)
-    ("ar1" "→" nil 1)
+    ("ar1" "→" nil 0)
     ("ar2" "⇒" nil 0)
     ("beta" "β" nil 0)
     ("gamma" "γ" nil 0)
@@ -47,6 +51,8 @@
 (define-abbrev-table 'grep-mode-abbrev-table '())
 
 (define-abbrev-table 'help-mode-abbrev-table '())
+
+(define-abbrev-table 'ibuffer-mode-abbrev-table '())
 
 (define-abbrev-table 'idl-mode-abbrev-table '())
 
@@ -63,6 +69,10 @@
 (define-abbrev-table 'latex-mode-abbrev-table '())
 
 (define-abbrev-table 'lisp-mode-abbrev-table '())
+
+(define-abbrev-table 'message-mode-abbrev-table '())
+
+(define-abbrev-table 'messages-buffer-mode-abbrev-table '())
 
 (define-abbrev-table 'objc-mode-abbrev-table
   '(
@@ -84,8 +94,6 @@
   '(
    ))
 
-(define-abbrev-table 'proced-mode-abbrev-table '())
-
 (define-abbrev-table 'process-menu-mode-abbrev-table '())
 
 (define-abbrev-table 'prog-mode-abbrev-table '())
@@ -104,9 +112,11 @@
 
 (define-abbrev-table 'tabulated-list-mode-abbrev-table '())
 
-(define-abbrev-table 'term-mode-abbrev-table '())
+(define-abbrev-table 'tar-mode-abbrev-table '())
 
 (define-abbrev-table 'text-mode-abbrev-table '())
+
+(define-abbrev-table 'url-cookie-mode-abbrev-table '())
 
 (define-abbrev-table 'vc-git-log-edit-mode-abbrev-table '())
 

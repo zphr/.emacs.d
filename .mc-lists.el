@@ -34,6 +34,7 @@
 	c-indent-new-comment-line
 	comment-dwim
 	csharp-insert-open-brace
+	cycle-spacing
 	dabbrev-expand
 	delete-indentation
 	down-list
@@ -97,6 +98,7 @@
 	paredit-forward-kill-word
 	paredit-kill
 	paredit-newline
+	paredit-open-round
 	picture-clear-column
 	picture-self-insert
 	python-nav-backward-up-list

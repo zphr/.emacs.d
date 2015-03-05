@@ -18,4 +18,12 @@
 (company-auctex-init)
 
 
+;; ---------------------------------------- Quickhelp
+
+(require-package 'company-quickhelp)
+(require 'company-quickhelp)
+
+(company-quickhelp-mode 1)
+
+
 (provide 'init-company)

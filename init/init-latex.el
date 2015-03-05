@@ -49,8 +49,8 @@
                     (TeX-process-set-variable file 'TeX-command-next TeX-command-default))
                   nil t :help "Create nomenclature file")))
 
-;; (LaTeX-command-style (quote (("" "%(PDF)%(latex) %S%(PDFout) -file-line-error"))))
-;; (setq LaTeX-command "latex -shell-escape -file-line-error")
+(setq LaTeX-command-style
+      (quote (("" "%(PDF)%(latex) -shell-escape %(file-line-error) %(extraopts) %S%(PDFout)"))))
 
 (setq TeX-engine-alist 
       '((luatex "LuaTeX" 

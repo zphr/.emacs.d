@@ -84,4 +84,11 @@
 ;; (global-set-key (kbd "M-o") 'change-outer)
 
 
+;; --------------------------------------------- Zop To Char
+
+(require-package 'zop-to-char)
+(require 'zop-to-char)
+
+(global-set-key (kbd "M-z") 'zop-up-to-char)
+
 (provide 'init-editing-utils)
