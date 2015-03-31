@@ -69,4 +69,12 @@ This is useful when followed by an immediate kill."
 (define-key isearch-mode-map [(control return)] 'isearch-exit-other-end)
 
 
+;;; ---------------------------------------- Swiper
+
+(require-package 'swiper)
+(require-package 'swiper-helm)
+(require 'swiper-helm)
+
+(global-set-key (kbd "M-s") 'swiper-helm)
+
 (provide 'init-isearch)

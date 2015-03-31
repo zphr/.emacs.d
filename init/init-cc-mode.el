@@ -163,13 +163,14 @@ header"
 ;;; ---------------------------------------- C# 
 
 (require-package 'csharp-mode)
+(require-package 'omnisharp)
 
 (add-hook 'csharp-mode-hook 'omnisharp-mode)
 
 (setq omnisharp-server-executable-path "c:/OmniSharpServer/OmniSharp/bin/Release/OmniSharp.exe")
 
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-omnisharp))
+;; (eval-after-load 'company
+;;   '(add-to-list 'company-backends 'company-omnisharp))
 
 
 (provide 'init-cc-mode)

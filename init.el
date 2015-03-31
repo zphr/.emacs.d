@@ -152,7 +152,7 @@
 ;; (require 'init-evil)
 (require 'init-helm)
 ;; (require 'init-god-mode)
-;; (require 'init-chat)
+(require 'init-chat)
 ;; (require 'init-semantic)
 (require 'init-yasnippet)
 (require 'init-python)

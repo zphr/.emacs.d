@@ -34,6 +34,7 @@
 	   "c:/Program Files/GIMP 2/bin/" ";"
 	   "c:/Program Files/ImageMagick-6.7.6-Q16/" ";"
 	   "c:/OmniSharpServer/OmniSharp/bin/Release/" ";"
+	   "C:/Program Files (x86)/Unity/Editor/Data/Mono/lib/mono/2.0" ";"
            (getenv "PATH")))
 
   (setq exec-path '("~/.emacs.d/" 
@@ -68,6 +69,7 @@
 		    "c:/Program Files/GIMP 2/bin/"
 		    "c:/Program Files/ImageMagick-6.7.6-Q16/"
 		    "c:/OmniSharpServer/OmniSharp/bin/Release/"
+		    "C:/Program Files (x86)/Unity/Editor/Data/Mono/lib/mono/2.0" 
                     (getenv "PATH"))))
 
 

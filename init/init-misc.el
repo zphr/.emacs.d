@@ -76,6 +76,11 @@
 (require 'powerline)
 (powerline-default-theme)
 
+;;; ---------------------------------------- Fancy Narrow
+(require-package 'fancy-narrow)
+(require 'fancy-narrow)
+(fancy-narrow-mode t)
+
 
 ;; ---------------------------------------- Tramp
 
