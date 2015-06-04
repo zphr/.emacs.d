@@ -250,8 +250,8 @@ header"
 (setq omnisharp-server-executable-path "c:/OmniSharpServer/OmniSharp/bin/Release/OmniSharp.exe")
 (setq omnisharp-auto-complete-want-documentation nil)
 
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-omnisharp))
+;; (eval-after-load 'company
+;;   '(add-to-list 'company-backends 'company-omnisharp))
 
 (eval-after-load 'align
   '(add-to-list 'align-c++-modes 'csharp-mode))

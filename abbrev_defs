@@ -76,25 +76,11 @@
 
 (define-abbrev-table 'messages-buffer-mode-abbrev-table '())
 
-(define-abbrev-table 'objc-mode-abbrev-table
-  '(
-   ))
-
 (define-abbrev-table 'occur-edit-mode-abbrev-table '())
 
 (define-abbrev-table 'occur-mode-abbrev-table '())
 
-(define-abbrev-table 'org-export-stack-mode-abbrev-table '())
-
-(define-abbrev-table 'org-mode-abbrev-table '())
-
-(define-abbrev-table 'outline-mode-abbrev-table '())
-
 (define-abbrev-table 'package-menu-mode-abbrev-table '())
-
-(define-abbrev-table 'pike-mode-abbrev-table
-  '(
-   ))
 
 (define-abbrev-table 'process-menu-mode-abbrev-table '())
 
