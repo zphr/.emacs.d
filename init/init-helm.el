@@ -13,12 +13,10 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
-;; (global-unset-key (kbd "C-h"))
-;; (define-prefix-command 'helm-start-map)
-;; (global-set-key (kbd "C-h") 'helm-start-map)
-;; (define-key helm-start-map (kbd "SPC") 'helm-mini)
-;; (define-key helm-start-map (kbd "i") 'helm-imenu)
-;; (define-key helm-start-map (kbd "f") 'helm-find-files)
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+
+(when (executable-find "curl")
+  (setq helm-google-suggest-use-curl-p t))
 
 (require 'helm-adaptive)
 (helm-adaptive-mode 1)
@@ -26,6 +24,8 @@
 (setq helm-buffers-fuzzy-matching t)
 
 (set-face-attribute 'helm-selection nil :inherit 'hl-line)
+
+(define-key helm-map (kbd "M-o") 'helm-buffer-switch-other-window)
 
 ;; ;; ---------------------------------------- Helm Swoop
 
@@ -66,8 +66,14 @@
 
 (require 'helm-imenu)
 
+(require-package 'imenu-anywhere)
+(require 'imenu-anywhere)
+
+(global-set-key (kbd "C-c h i") 'helm-imenu-anywhere)
+
 (setq helm-sources-using-default-as-input nil)
 (setq helm-mini-default-sources '(helm-source-buffers-list
+				  helm-source-bookmarks
 				  helm-source-ido-virtual-buffers
 				  helm-source-imenu
 				  (if (and tags-file-name tags-table-list)
@@ -76,6 +82,16 @@
 				  helm-source-files-in-current-dir))
 
 (global-set-key (kbd "C-8") 'helm-mini)
+
+(global-set-key (kbd "C-x C-i") 'helm-imenu)
+
+;;; ---------------------------------------- Helm Pt
+
+(require-package 'helm-pt)
+(require 'helm-pt)
+
+(global-set-key (kbd "C-c C-h") 'helm-projectile-pt)
+
 
 ;;; ---------------------------------------- Helm Mark Ring
 
@@ -92,7 +108,7 @@
 (setq helm-recentf-fuzzy-match t)
 (setq helm-buffers-fuzzy-matching t)
 (setq helm-find-files t)
-(setq helm-locate-fuzzy-match t)
+(setq helm-locate-fuzzy-match nil)
 (setq helm-M-x-fuzzy-match t)
 (setq helm-semantic-fuzzy-match t)
 (setq helm-imenu-fuzzy-match t)

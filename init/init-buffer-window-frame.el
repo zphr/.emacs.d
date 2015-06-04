@@ -9,16 +9,26 @@
 (global-set-key (kbd "<f8>") popwin:keymap)
 
 
-;; ---------------------------------------- Switch Window
+;; ---------------------------------------- Ace Window
 
-(require-package 'switch-window)
+(require-package 'ace-window)
+(require 'ace-window)
 
-(defadvice switch-window (before switch-frame-if-just-one-window activate)
-  "Switch to other frame if only one window exists"
-  (if (< (length (window-list)) 2)
-      (other-frame 1)))
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
-(global-set-key (kbd "C-S-o") 'switch-window)
+(global-set-key (kbd "C-S-o") 'ace-window)
+
+
+;; ;; ---------------------------------------- Switch Window
+
+;; (require-package 'switch-window)
+
+;; (defadvice switch-window (before switch-frame-if-just-one-window activate)
+;;   "Switch to other frame if only one window exists"
+;;   (if (< (length (window-list)) 2)
+;;       (other-frame 1)))
+
+;; (global-set-key (kbd "C-S-o") 'switch-window)
 
 ;;; ---------------------------------------- IBuffer
 

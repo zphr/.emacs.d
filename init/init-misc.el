@@ -76,6 +76,11 @@
 (require 'powerline)
 (powerline-default-theme)
 
+;;; ---------------------------------------- Fancy Narrow
+(require-package 'fancy-narrow)
+(require 'fancy-narrow)
+(fancy-narrow-mode t)
+
 
 ;; ---------------------------------------- Tramp
 
@@ -155,5 +160,13 @@
          (setq case-fold-search t)
          (setq truncate-lines t))))
 
+
+;;; ---------------------------------------- Color Identifiers
+
+(require-package 'color-identifiers-mode)
+
+(eval-after-load 'color-identifiers-mode
+		'(add-to-list 'color-identifiers:modes-alist
+			     '(csharp-mode "" "\\_<\\([a-zA-Z_$]\\(?:\\s_\\|\\sw\\)*\\)" (nil font-lock-variable-name-face))))
 
 (provide 'init-misc)

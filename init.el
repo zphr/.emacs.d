@@ -85,6 +85,13 @@
 
 (setenv "CYGWIN" "nodosfilewarning")
 
+;; ---------------------------------------- Backup- and TMP-Files
+
+;; store all backup and autosave files in the tmp dir
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 
 ;; ---------------------------------------- Mac Key Settings
 
@@ -152,10 +159,11 @@
 ;; (require 'init-evil)
 (require 'init-helm)
 ;; (require 'init-god-mode)
-;; (require 'init-chat)
+(require 'init-chat)
 ;; (require 'init-semantic)
 (require 'init-yasnippet)
 (require 'init-python)
+(require 'init-hydra)
 
 ;; visual studio error regex  ^.*[0-9]+>\([0-9a-zA-Z:_.\\ ]+\)(\([0-9]+\)): \(.*\)
 (put 'narrow-to-region 'disabled nil)

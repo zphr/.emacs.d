@@ -26,14 +26,17 @@
 	c-electric-delete-forward
 	c-electric-lt-gt
 	c-electric-paren
+	c-electric-pound
 	c-electric-semi&comma
 	c-electric-slash
 	c-electric-star
 	c-end-of-statement
 	c-indent-line-or-region
 	c-indent-new-comment-line
+	change-inner
 	comment-dwim
 	csharp-insert-open-brace
+	csharp-maybe-insert-codedoc
 	cycle-spacing
 	dabbrev-expand
 	delete-indentation
@@ -60,6 +63,7 @@
 	evil-substitute
 	fill-paragraph
 	forward-sexp
+	hydra-yank-pop/yank
 	ignore
 	indent-for-tab-command
 	insert-parentheses
@@ -75,6 +79,7 @@
 	my-kill-statement
 	org-backward-sentence
 	org-beginning-of-line
+	org-ctrl-c-ctrl-c
 	org-ctrl-c-star
 	org-cycle
 	org-delete-char
@@ -90,15 +95,19 @@
 	org-return-indent
 	org-self-insert-command
 	org-yank
+	paredit-backslash
 	paredit-backward
 	paredit-backward-kill-word
 	paredit-backward-up
+	paredit-doublequote
 	paredit-forward
 	paredit-forward-delete
+	paredit-forward-down
 	paredit-forward-kill-word
 	paredit-kill
 	paredit-newline
 	paredit-open-round
+	paredit-raise-sexp
 	picture-clear-column
 	picture-self-insert
 	python-nav-backward-up-list
@@ -115,8 +124,10 @@
 	whole-line-or-region-kill-region
 	whole-line-or-region-kill-ring-save
 	whole-line-or-region-yank
+	yank-rectangle
 	yas-expand
 	zap-up-to-char
+	zop-up-to-char
 	))
 
 (setq mc/cmds-to-run-once
@@ -135,8 +146,10 @@
 	evil-visual-block
 	god-local-mode
 	goto-last-change
+	handle-switch-frame
 	helm-M-x
 	helm-confirm-and-exit-minibuffer
+	helm-mini
 	helm-swoop
 	help-for-help
 	mc/mark-column

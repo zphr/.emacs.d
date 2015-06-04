@@ -68,4 +68,9 @@
     (require-package 'w32-browser)))
 
 
+;; ;;; ---------------------------------------- Dired Async
+;; (require-package 'async)
+;; (when (require 'dired-aux)
+;;    (require 'dired-async))
+
 (provide 'init-dired)

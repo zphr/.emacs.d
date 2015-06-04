@@ -2,7 +2,22 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("boundary edge"
+(("AssetBundles"
+ (filename . "d:/Software/geniusevil-client/Season/AssetBundles/")
+ (front-context-string . "AssetBundles\n  -")
+ (rear-context-string . "948 05-04 08:49 ")
+ (position . 268))
+("gamebook-sdk"
+ (filename . "d:/Software/gamebook-sdk/")
+ (front-context-string . ".git\n  -rw-rw-rw")
+ (rear-context-string . "096 04-10 17:14 ")
+ (position . 231))
+("geniusevil-client"
+ (filename . "d:/Software/geniusevil-client/")
+ (front-context-string . "Assets\n  -rw-rw-")
+ (rear-context-string . "192 04-10 16:25 ")
+ (position . 1287))
+("boundary edge"
  (filename . "c:/Program Files/MAXON/CINEMA 4D R14/plugins/laubwerk_c4d/source/nsidedregionbranchvisitor.cpp")
  (front-context-string . "\n			BranchEdge* ")
  (rear-context-string . "st boundary edge")

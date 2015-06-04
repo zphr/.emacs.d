@@ -33,13 +33,13 @@
 
 (setq auto-indent-start-org-indent nil)
 
-;; ---------------------------------------- Align
+;; ;; ---------------------------------------- Align
 
-(defadvice align-regexp (around smart-tabs activate)
-  (let ((indent-tabs-mode nil)) ad-do-it))
+;; (defadvice align-regexp (around smart-tabs activate)
+;;   (let ((indent-tabs-mode nil)) ad-do-it))
 
-(defadvice align-current (around smart-tabs activate)
-  (let ((indent-tabs-mode nil)) ad-do-it))
+;; (defadvice align-current (around smart-tabs activate)
+;;   (let ((indent-tabs-mode nil)) ad-do-it))
 
 
 ;; ---------------------------------------- Jump Char

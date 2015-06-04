@@ -16,6 +16,7 @@
 ;; ---------------------------------------- Session Mode
 
 (require-package 'session)
+(require 'session)
 
 (setq session-save-file (expand-file-name ".session" user-emacs-directory))
 (add-hook 'after-init-hook 'session-initialize)

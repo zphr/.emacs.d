@@ -19,13 +19,13 @@
 
 (define-abbrev-table 'calendar-mode-abbrev-table '())
 
+(define-abbrev-table 'change-log-mode-abbrev-table '())
+
 (define-abbrev-table 'comint-mode-abbrev-table '())
 
 (define-abbrev-table 'completion-list-mode-abbrev-table '())
 
 (define-abbrev-table 'diredp-w32-drives-mode-abbrev-table '())
-
-(define-abbrev-table 'doctex-mode-abbrev-table '())
 
 (define-abbrev-table 'edebug-eval-mode-abbrev-table '())
 
@@ -37,6 +37,10 @@
 
 (define-abbrev-table 'fundamental-mode-abbrev-table '())
 
+(define-abbrev-table 'git-commit-mode-abbrev-table '())
+
+(define-abbrev-table 'git-gutter+-commit-mode-abbrev-table '())
+
 (define-abbrev-table 'global-abbrev-table
   '(
     ("alpha" "α" nil 0)
@@ -47,8 +51,6 @@
     ("inf" "∞" nil 0)
     ("theta" "θ" nil 0)
    ))
-
-(define-abbrev-table 'grep-mode-abbrev-table '())
 
 (define-abbrev-table 'help-mode-abbrev-table '())
 
@@ -66,9 +68,9 @@
   '(
    ))
 
-(define-abbrev-table 'latex-mode-abbrev-table '())
-
 (define-abbrev-table 'lisp-mode-abbrev-table '())
+
+(define-abbrev-table 'log-edit-mode-abbrev-table '())
 
 (define-abbrev-table 'message-mode-abbrev-table '())
 
@@ -106,13 +108,9 @@
 
 (define-abbrev-table 'shell-mode-abbrev-table '())
 
-(define-abbrev-table 'snippet-mode-abbrev-table '())
-
 (define-abbrev-table 'special-mode-abbrev-table '())
 
 (define-abbrev-table 'tabulated-list-mode-abbrev-table '())
-
-(define-abbrev-table 'tar-mode-abbrev-table '())
 
 (define-abbrev-table 'text-mode-abbrev-table '())
 
