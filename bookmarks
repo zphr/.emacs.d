@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("AssetBundles"
+(("gamebook-client"
+ (filename . "d:/Software/gamebook-client/")
+ (front-context-string . ".dir-locals.el\n ")
+ (rear-context-string . "262 06-01 11:32 ")
+ (position . 234))
+("gamebook-web"
+ (filename . "d:/Software/gamebook-web/")
+ (front-context-string . ".bowerrc\n  drwxr")
+ (rear-context-string . " 45 05-08 15:47 ")
+ (position . 227))
+("AssetBundles"
  (filename . "d:/Software/geniusevil-client/Season/AssetBundles/")
  (front-context-string . "AssetBundles\n  -")
  (rear-context-string . "948 05-04 08:49 ")

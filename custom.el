@@ -144,7 +144,7 @@
 	       (concat
 		(locate-dominating-file buffer-file-name master-name)
 		master-name)))))))
- '(session-use-package t nil (session))
+
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
    (quote

@@ -90,7 +90,15 @@
 (require-package 'helm-pt)
 (require 'helm-pt)
 
-(global-set-key (kbd "C-c C-h") 'helm-projectile-pt)
+(defun helm-pt-exg-search (&optional arg)
+  (interactive "p")
+  (if (>= arg 4)
+      (helm-do-pt "d:/Software/")
+    (helm-projectile-pt)))
+
+(if (string= system-name "BLACKWORTHMOODY")
+    (global-set-key (kbd "C-c C-h") 'helm-pt-exg-search)
+  (global-set-key (kbd "C-c C-h") 'helm-projectile-pt))
 
 
 ;;; ---------------------------------------- Helm Mark Ring

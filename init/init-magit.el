@@ -18,7 +18,7 @@
 (require 'git-gutter-fringe+)
 
 (define-prefix-command 'git-gutter-map)
-(global-set-key (kbd "C-c g") 'git-gutter-map)
+;; (global-set-key (kbd "C-c g") 'git-gutter-map)
 
 (defhydra hydra-git-gutter (git-gutter-map "" :pre (widen))
   "hunk"
@@ -29,5 +29,6 @@
   ("p" git-gutter+-previous-hunk "previous")
   ("s" git-gutter+-stage-hunks "stage"))
 
+(global-set-key (kbd "C-c g") 'hydra-git-gutter/body)
 
 (provide 'init-magit)

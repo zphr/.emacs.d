@@ -250,8 +250,8 @@ header"
 (setq omnisharp-server-executable-path "c:/OmniSharpServer/OmniSharp/bin/Release/OmniSharp.exe")
 (setq omnisharp-auto-complete-want-documentation nil)
 
-;; (eval-after-load 'company
-;;   '(add-to-list 'company-backends 'company-omnisharp))
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-omnisharp))
 
 (eval-after-load 'align
   '(add-to-list 'align-c++-modes 'csharp-mode))
@@ -295,8 +295,6 @@ header"
 			   (set-buffer-file-coding-system 'utf-8-dos)
 			   (git-gutter+-mode t)
 			   (setq indent-tabs-mode nil)))
-
-
 
 (defun powerline-color-change ()
   (if (fboundp 'projectile-project-root)

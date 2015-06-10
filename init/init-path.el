@@ -91,6 +91,7 @@
 	   "c:/Python34/Scripts/" ";"
 	   "C:/Program Files (x86)/nodejs/" ";"
 	   "c:/Users/Christian/AppData/Roaming/npm/" ";"
+	   "C:/Program Files/Unity/Editor/" ";"
 	   (getenv "PATH")))
 
   (setq exec-path '("~/.emacs.d/" 
@@ -109,6 +110,7 @@
 		    "c:/Python34/Scripts/"
 		    "C:/Program Files (x86)/nodejs/"
 		    "c:/Users/Christian/AppData/Roaming/npm/"
+		    "C:/Program Files/Unity/Editor/"
                     (getenv "PATH"))))
 
 

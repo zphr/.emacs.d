@@ -155,8 +155,6 @@
 
 (global-set-key (kbd "C-3") 'custom-split-window-horizontally)
 
-(global-set-key (kbd "C-7") 'ido-find-file)
-
 (global-set-key (kbd "C-6") 'save-buffer)
 
 (defun custom-switch-buffer (&optional arg)
