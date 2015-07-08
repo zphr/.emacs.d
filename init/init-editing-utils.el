@@ -42,15 +42,15 @@
 ;;   (let ((indent-tabs-mode nil)) ad-do-it))
 
 
-;; ---------------------------------------- Jump Char
+;; ;; ---------------------------------------- Jump Char
 
-(require-package 'jump-char)
-(require 'jump-char)
+;; (require-package 'jump-char)
+;; (require 'jump-char)
 
-(eval-after-load "jump-char"
-  '(progn (define-key jump-char-isearch-map (kbd "<return>") 'jump-char-exit)
-	  (global-set-key (kbd "M-f") 'jump-char-forward)
-	  (global-set-key (kbd "M-b") 'jump-char-backward)))
+;; (eval-after-load "jump-char"
+;;   '(progn (define-key jump-char-isearch-map (kbd "<return>") 'jump-char-exit)
+;; 	  (global-set-key (kbd "M-f") 'jump-char-forward)
+;; 	  (global-set-key (kbd "M-b") 'jump-char-backward)))
 
 
 ;; ---------------------------------------- Expand Region

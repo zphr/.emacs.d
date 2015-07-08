@@ -49,7 +49,16 @@
     :name "Unity: Gamebook Client"
     :command "unity"
     :args '("-projectPath" "d:/Software/gamebook-client/")
-    :cwd "d:/Software/gamebook-web/"
+    :cwd "d:/Software/gamebook-client/"
+    :tags '(unity-project)
+    :kill-signal 'sigkill
+    :kill-process-buffer-on-stop t)
+
+  (prodigy-define-service
+    :name "Unity: GeniuisEvil Client"
+    :command "unity"
+    :args '("-projectPath" "d:/Software/geniusevil-client/")
+    :cwd "d:/Software/geniusevil-client/"
     :tags '(unity-project)
     :kill-signal 'sigkill
     :kill-process-buffer-on-stop t))

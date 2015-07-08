@@ -3,31 +3,19 @@
 
 (define-abbrev-table 'Info-edit-mode-abbrev-table '())
 
-(define-abbrev-table 'awk-mode-abbrev-table
-  '(
-   ))
-
 (define-abbrev-table 'bibtex-mode-abbrev-table '())
 
-(define-abbrev-table 'c++-mode-abbrev-table
-  '(
-   ))
-
-(define-abbrev-table 'c-mode-abbrev-table
-  '(
-   ))
-
 (define-abbrev-table 'calendar-mode-abbrev-table '())
-
-(define-abbrev-table 'change-log-mode-abbrev-table '())
 
 (define-abbrev-table 'comint-mode-abbrev-table '())
 
 (define-abbrev-table 'completion-list-mode-abbrev-table '())
 
-(define-abbrev-table 'diredp-w32-drives-mode-abbrev-table '())
+(define-abbrev-table 'debugger-mode-abbrev-table '())
 
-(define-abbrev-table 'edebug-eval-mode-abbrev-table '())
+(define-abbrev-table 'diff-mode-abbrev-table '())
+
+(define-abbrev-table 'diredp-w32-drives-mode-abbrev-table '())
 
 (define-abbrev-table 'edit-abbrevs-mode-abbrev-table '())
 
@@ -36,10 +24,6 @@
 (define-abbrev-table 'emacs-lisp-mode-abbrev-table '())
 
 (define-abbrev-table 'fundamental-mode-abbrev-table '())
-
-(define-abbrev-table 'git-commit-mode-abbrev-table '())
-
-(define-abbrev-table 'git-gutter+-commit-mode-abbrev-table '())
 
 (define-abbrev-table 'global-abbrev-table
   '(
@@ -54,31 +38,25 @@
 
 (define-abbrev-table 'help-mode-abbrev-table '())
 
-(define-abbrev-table 'ibuffer-mode-abbrev-table '())
-
-(define-abbrev-table 'idl-mode-abbrev-table '())
-
 (define-abbrev-table 'image-dired-display-image-mode-abbrev-table '())
 
 (define-abbrev-table 'image-dired-thumbnail-mode-abbrev-table '())
 
 (define-abbrev-table 'inferior-blender-mode-abbrev-table '())
 
-(define-abbrev-table 'java-mode-abbrev-table
-  '(
-   ))
-
 (define-abbrev-table 'lisp-mode-abbrev-table '())
-
-(define-abbrev-table 'log-edit-mode-abbrev-table '())
-
-(define-abbrev-table 'message-mode-abbrev-table '())
 
 (define-abbrev-table 'messages-buffer-mode-abbrev-table '())
 
 (define-abbrev-table 'occur-edit-mode-abbrev-table '())
 
 (define-abbrev-table 'occur-mode-abbrev-table '())
+
+(define-abbrev-table 'org-export-stack-mode-abbrev-table '())
+
+(define-abbrev-table 'org-mode-abbrev-table '())
+
+(define-abbrev-table 'outline-mode-abbrev-table '())
 
 (define-abbrev-table 'package-menu-mode-abbrev-table '())
 
@@ -90,8 +68,6 @@
 
 (define-abbrev-table 'reb-mode-abbrev-table '())
 
-(define-abbrev-table 'select-tags-table-mode-abbrev-table '())
-
 (define-abbrev-table 'shell-mode-abbrev-table '())
 
 (define-abbrev-table 'special-mode-abbrev-table '())
@@ -99,8 +75,6 @@
 (define-abbrev-table 'tabulated-list-mode-abbrev-table '())
 
 (define-abbrev-table 'text-mode-abbrev-table '())
-
-(define-abbrev-table 'url-cookie-mode-abbrev-table '())
 
 (define-abbrev-table 'vc-git-log-edit-mode-abbrev-table '())
 

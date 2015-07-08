@@ -1,6 +1,2 @@
 ;;; -*- coding: utf-8 -*-
-(("c:/Users/foolhouse/AppData/Roaming/.emacs.d/init.el" . 2974)
- ("c:/Users/foolhouse/AppData/Roaming/.emacs.d/init/init-misc.el" . 2224)
- ("c:/Users/foolhouse/AppData/Roaming/.emacs.d/elpa/smart-mode-line-powerline-theme-20141229.1046/smart-mode-line-powerline-theme-autoloads.el" . 488)
- ("c:/Users/foolhouse/AppData/Roaming/.emacs.d/elpa/smart-mode-line-20150312.1736/smart-mode-line-autoloads.el" . 1878)
- ("c:/Users/foolhouse/AppData/Roaming/.emacs.d/elpa/rich-minority-20150305.516/rich-minority-autoloads.el" . 1135))
+(("c:/Users/Christian/AppData/Roaming/.emacs.d/init/init-magit.el" . 354))

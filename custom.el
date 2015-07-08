@@ -10,11 +10,10 @@
  '(compilation-skip-threshold 2)
  '(custom-safe-themes
    (quote
-    ("2a05e0061e801af2954f1b2f539d3c411c9a48ab403b8fd0f20c862697c7675c" default)))
+    ("b06aaf5cefc4043ba018ca497a9414141341cb5a2152db84a9a80020d35644d1" "d7fd415a5525efd5f969cb251dabf561562059240c55f67fa9bce5108d944d31" "3dafeadb813a33031848dfebfa0928e37e7a3c18efefa10f3e9f48d1993598d3" "2a05e0061e801af2954f1b2f539d3c411c9a48ab403b8fd0f20c862697c7675c" default)))
  '(fci-rule-color "#383838")
  '(global-company-mode t)
  '(global-flycheck-mode t)
- '(global-git-gutter+-mode nil)
  '(helm-external-programs-associations (quote (("svg" . "inkscape.exe"))))
  '(menu-bar-mode nil)
  '(org-agenda-files (quote ("c:/Users/foolhouse/Desktop/TODO.org")))

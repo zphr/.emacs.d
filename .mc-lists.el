@@ -63,6 +63,7 @@
 	evil-substitute
 	fill-paragraph
 	forward-sexp
+	hydra-yank-pop/lambda-n
 	hydra-yank-pop/yank
 	ignore
 	indent-for-tab-command
@@ -74,6 +75,7 @@
 	kill-region
 	kill-sexp
 	mark-sexp
+	multiple-cursors-hydra/mc/unmark-next-like-this
 	my-decrement-number-decimal
 	my-increment-number-decimal
 	my-kill-statement
@@ -153,10 +155,14 @@
 	helm-swoop
 	help-for-help
 	mc/mark-column
+	multiple-cursors-hydra/mc/mark-next-like-this
+	multiple-cursors-hydra/mc/skip-to-next-like-this
+	multiple-cursors-hydra/mc/unmark-previous-like-this
 	my-find-other-file
 	open-file-in-visual-studio
 	org-edit-src-save
 	org-export-dispatch
+	smartscan-symbol-go-backward
 	smartscan-symbol-go-forward
 	smex
 	switch-window

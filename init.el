@@ -165,6 +165,3 @@
 (require 'init-python)
 (require 'init-hydra)
 (require 'init-prodigy)
-
-;; visual studio error regex  ^.*[0-9]+>\([0-9a-zA-Z:_.\\ ]+\)(\([0-9]+\)): \(.*\)
-(put 'narrow-to-region 'disabled nil)

@@ -21,9 +21,11 @@
 
 (add-hook 'c++-mode-hook 'projectile-on)
 
-
 (setq projectile-enable-idle-timer t)
 (add-hook 'projectile-idle-timer-hook 'projectile-regenerate-tags)
 
+(setq projectile-switch-project-action 'projectile-vc)
+
 
 (provide 'init-projectile)
+;;; init-projectile ends here

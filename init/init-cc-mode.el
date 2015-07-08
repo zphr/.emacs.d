@@ -292,8 +292,7 @@ header"
 			   (local-set-key (kbd "C-M-.") 'omnisharp-helm-find-usages)
 			   (local-set-key (kbd "C-c C-i") 'look-up-unity-documentation)
 			   (local-set-key (kbd "C-c d") 'unity-log-symbol-or-region)
-			   (set-buffer-file-coding-system 'utf-8-dos)
-			   (git-gutter+-mode t)
+			   ;; (set-buffer-file-coding-system 'utf-8-dos)
 			   (setq indent-tabs-mode nil)))
 
 (defun powerline-color-change ()

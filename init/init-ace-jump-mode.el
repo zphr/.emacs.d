@@ -47,5 +47,7 @@
 
 (define-key isearch-mode-map (kbd "ö") 'avy-isearch)
 
+(setq avy-style 'at-full)
+
 
 (provide 'init-ace-jump-mode)

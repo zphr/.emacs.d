@@ -26,6 +26,8 @@
 (set-face-attribute 'helm-selection nil :inherit 'hl-line)
 
 (define-key helm-map (kbd "M-o") 'helm-buffer-switch-other-window)
+(define-key helm-map (kbd "M-C-n") 'helm-next-source)
+(define-key helm-map (kbd "M-C-p") 'helm-previous-source)
 
 ;; ;; ---------------------------------------- Helm Swoop
 
@@ -75,15 +77,24 @@
 (setq helm-mini-default-sources '(helm-source-buffers-list
 				  helm-source-bookmarks
 				  helm-source-ido-virtual-buffers
-				  helm-source-imenu
-				  (if (and tags-file-name tags-table-list)
-				      helm-source-etags-select)
-				  helm-source-buffer-not-found
-				  helm-source-files-in-current-dir))
+				  helm-source-imenu-anywhere
+				  helm-source-buffer-not-found))
 
 (global-set-key (kbd "C-8") 'helm-mini)
 
 (global-set-key (kbd "C-x C-i") 'helm-imenu)
+
+(setq helm-echo-input-in-header-line t)
+
+(defun helm-hide-minibuffer-maybe ()
+  (when (with-helm-buffer helm-echo-input-in-header-line)
+    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+      (overlay-put ov 'window (selected-window))
+      (overlay-put ov 'face (let ((bg-color (face-background 'default nil)))
+                              `(:background ,bg-color :foreground ,bg-color)))
+      (setq-local cursor-type nil))))
+
+(add-hook 'helm-minibuffer-set-up-hook 'helm-hide-minibuffer-maybe)
 
 ;;; ---------------------------------------- Helm Pt
 
