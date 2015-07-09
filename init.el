@@ -1,3 +1,4 @@
+;;; init.el --- user init file      -*- no-byte-compile: t -*-
 
 ;; ---------------------------------------- Load Path
 
@@ -125,6 +126,26 @@
 (require 'init-theme)
 (require 'init-completion)
 (require 'init-abbrev)
+
+
+;; ---------------------------------------- Auto-Compile 
+
+(setq load-prefer-newer t)
+(add-to-list 'load-path "./elpa/dash-20150704.253/")
+(add-to-list 'load-path "./elpa/packed-20150614.529/")
+(add-to-list 'load-path "./elpa/auto-compile-20150511.1017/")
+(require 'auto-compile)
+(auto-compile-on-load-mode t)
+(auto-compile-on-save-mode t)
+
+(setq auto-compile-display-buffer nil)
+(setq auto-compile-mode-line-counter t)
+
+
+;; ---------------------------------------- Use-Package
+
+(eval-when-compile
+  (require 'use-package))
 
 
 ;; ---------------------------------------- Modes and Package Config

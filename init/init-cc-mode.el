@@ -242,58 +242,63 @@ header"
 
 ;;; ---------------------------------------- C# 
 
-(require-package 'csharp-mode)
-(require-package 'omnisharp)
+(use-package csharp-mode
+  :ensure t
+  :config (progn
+	    (eval-after-load 'align
+	      '(add-to-list 'align-c++-modes 'csharp-mode))
+	    
+	    (defun look-up-unity-documentation ()
+	      (interactive)
+	      (let ((search-string (if (region-active-p)
+				       (replace-regexp-in-string "\"" "\\\"" (buffer-substring-no-properties (region-beginning) (region-end)))
+				     (symbol-name (symbol-at-point)))))
+		(browse-url (concat "http://docs.unity3d.com/ScriptReference/30_search.html?q=" search-string))))
 
-(add-hook 'csharp-mode-hook 'omnisharp-mode)
-(setq omnisharp--curl-executable-path "c:/Emacs/bin/curl.exe")
-(setq omnisharp-server-executable-path "c:/OmniSharpServer/OmniSharp/bin/Release/OmniSharp.exe")
-(setq omnisharp-auto-complete-want-documentation nil)
+	    (defun unity-log-symbol-or-region (&optional arg)
+	      (interactive)
+	      (let* ((log-string (if (region-active-p)
+				     (buffer-substring (region-beginning) (region-end))
+				   (symbol-name (symbol-at-point))))
+		     (debug-string (if arg
+				       (concat "Debug.Log(\"" log-string "\");")
+				     (concat "Debug.Log(\"" log-string ": \" + " log-string ");"))))
+		(message debug-string)
+		(save-excursion
+		  (forward-paragraph)
+		  (newline)
+		  (insert debug-string)
+		  (c-indent-line-or-region)
+		  (newline))))
 
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-omnisharp))
+	    (add-hook 'csharp-mode-hook (lambda ()
+					  (subword-mode t)
+					  (local-set-key (kbd "C-<return>") 'open-file-in-visual-studio)
+					  (local-set-key (kbd "C-c C-k") 'my-kill-statement)
+					  (local-set-key (kbd "C-c C-i") 'look-up-unity-documentation)
+					  (local-set-key (kbd "C-c d") 'unity-log-symbol-or-region)
+					  ;; (set-buffer-file-coding-system 'utf-8-dos)
+					  (setq indent-tabs-mode nil)))))
 
-(eval-after-load 'align
-  '(add-to-list 'align-c++-modes 'csharp-mode))
+(use-package omnisharp
+  :ensure t
+  :config (progn
+	    (add-hook 'csharp-mode-hook 'omnisharp-mode)
+	    (setq omnisharp--curl-executable-path "c:/Emacs/bin/curl.exe")
+	    (setq omnisharp-server-executable-path "c:/OmniSharpServer/OmniSharp/bin/Release/OmniSharp.exe")
+	    (setq omnisharp-auto-complete-want-documentation nil)
 
-;;; relies heavily on dir-local variables 
-(defun start-omnisharp ()
-  (interactive)
-  (start-process-shell-command "omnisharp-server" nil (concat "OmniSharp -s " solution-file " -p " (int-to-string omnisharp-port))))
+	    (eval-after-load 'company
+	      '(add-to-list 'company-backends 'company-omnisharp))
+	    
+            ;;; relies heavily on dir-local variables 
+	    (defun start-omnisharp ()
+	      (interactive)
+	      (start-process-shell-command "omnisharp-server" nil (concat "OmniSharp -s " solution-file " -p " (int-to-string omnisharp-port))))
 
-(defun look-up-unity-documentation ()
-  (interactive)
-  (let ((search-string (if (region-active-p)
-			   (replace-regexp-in-string "\"" "\\\"" (buffer-substring-no-properties (region-beginning) (region-end)))
-			 (symbol-name (symbol-at-point)))))
-    (browse-url (concat "http://docs.unity3d.com/ScriptReference/30_search.html?q=" search-string))))
-
-(defun unity-log-symbol-or-region (&optional arg)
-  (interactive)
-  (let* ((log-string (if (region-active-p)
-			(buffer-substring (region-beginning) (region-end))
-		      (symbol-name (symbol-at-point))))
-	 (debug-string (if arg
-			   (concat "Debug.Log(\"" log-string "\");")
-			 (concat "Debug.Log(\"" log-string ": \" + " log-string ");"))))
-    (message debug-string)
-    (save-excursion
-      (forward-paragraph)
-      (newline)
-      (insert debug-string)
-      (c-indent-line-or-region)
-      (newline))))
-
-(add-hook 'csharp-mode-hook (lambda ()
-                           (subword-mode t)
-                           (local-set-key (kbd "C-<return>") 'open-file-in-visual-studio)
-			   (local-set-key (kbd "C-c C-k") 'my-kill-statement)
-			   (local-set-key (kbd "M-.") 'omnisharp-go-to-definition)
-			   (local-set-key (kbd "C-M-.") 'omnisharp-helm-find-usages)
-			   (local-set-key (kbd "C-c C-i") 'look-up-unity-documentation)
-			   (local-set-key (kbd "C-c d") 'unity-log-symbol-or-region)
-			   ;; (set-buffer-file-coding-system 'utf-8-dos)
-			   (setq indent-tabs-mode nil)))
+	    (add-hook 'csharp-mode-hook (lambda ()
+					  (local-set-key (kbd "M-.") 'omnisharp-go-to-definition)
+					  (local-set-key (kbd "C-M-.") 'omnisharp-helm-find-usages)))))
 
 (defun powerline-color-change ()
   (if (fboundp 'projectile-project-root)

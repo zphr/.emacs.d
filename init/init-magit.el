@@ -1,14 +1,14 @@
 
 ;;; ---------------------------------------- Magit
 
-(require-package 'magit)
+(use-package magit
+  :ensure t
+  :bind ("C-x g" . magit-status)
+  :config
+  ;;; ask for password avoid stdout
+  (setenv "GIT_ASKPASS" "git-gui--askpass"))
 
-(global-set-key (kbd "C-x g") 'magit-status)
-
-;;; ask for password avoid stdout
-(setenv "GIT_ASKPASS" "git-gui--askpass")
-
-(setq magit-last-seen-setup-instructions "1.4.0")
+;; (setq magit-last-seen-setup-instructions "1.4.0")
 
 
 ;; ;; ---------------------------------------- Diff Hl

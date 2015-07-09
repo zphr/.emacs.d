@@ -1,2 +1,4 @@
 ;;; -*- coding: utf-8 -*-
-(("c:/Users/Christian/AppData/Roaming/.emacs.d/init/init-magit.el" . 354))
+(("c:/Users/foolhouse/AppData/Roaming/.emacs.d/init/init-elisp.el" . 1030)
+ ("c:/Users/foolhouse/AppData/Roaming/.emacs.d/init/init-ace-jump-mode.el" . 2)
+ ("c:/Users/foolhouse/AppData/Roaming/.emacs.d/elpa/fuzzy-20150315.619/fuzzy-autoloads.el" . 224))
