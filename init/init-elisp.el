@@ -2,17 +2,9 @@
 
 ;; ---------------------------------------- Elisp Slime Nav
 
-(require-package 'elisp-slime-nav)
-(after-load 'elisp-slime-nav
-  (diminish 'elisp-slime-nav-mode))
-
-
-;; ;; ---------------------------------------- Pretty Mode
-
-;; (require-package 'pretty-mode)
-;; (after-load 'pretty-mode
-;;   (require 'pretty-mode)
-;;   (autoload 'turn-on-pretty-mode "pretty-mode"))
+(use-package elisp-slime-nav
+  :ensure t
+  :diminish elisp-slime-nav-mode)
 
 
 ;; ---------------------------------------- Hippie-expand
@@ -24,24 +16,19 @@
   (add-to-list 'hippie-expand-try-functions-list 'try-complete-lisp-symbol-partially t))
 
 
-;; ;; ---------------------------------------- Automatic byte compilation
-
-;; (require-package 'auto-compile)
-;; (auto-compile-on-save-mode 1)
-;; (auto-compile-on-load-mode 1)
-
-
 ;; ---------------------------------------- Misc
 
-(require-package 'rainbow-delimiters)
+(use-package rainbow-delimiters
+  :ensure t)
 
 ;; A quick way to jump to the definition of a function given its key binding
 (global-set-key (kbd "C-h K") 'find-function-on-key)
 
+
 ;; ---------------------------------------- Paredit
 
-(require-package 'paredit)
-(require 'paredit)
+(use-package paredit
+  :ensure t)
 
 
 ;; ---------------------------------------- Eldoc
@@ -53,12 +40,11 @@
 ;; ---------------------------------------- Mode Setup
 
 (add-hook 'emacs-lisp-mode-hook (lambda ()
-				   ;; (turn-on-pretty-mode)
-				   (turn-on-eldoc-mode)
-				   (enable-paredit-mode)
-				   (rainbow-delimiters-mode t)
-				   (elisp-slime-nav-mode t)
-				   (set-up-hippie-expand-for-elisp)))
+				  (turn-on-eldoc-mode)
+				  (enable-paredit-mode)
+				  (rainbow-delimiters-mode t)
+				  (elisp-slime-nav-mode t)
+				  (set-up-hippie-expand-for-elisp)))
 
 
 (provide 'init-elisp)

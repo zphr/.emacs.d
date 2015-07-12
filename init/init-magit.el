@@ -11,12 +11,12 @@
 ;; (setq magit-last-seen-setup-instructions "1.4.0")
 
 
-;; ;; ---------------------------------------- Diff Hl
+;; ---------------------------------------- Diff Hl
 
-;; (require-package 'diff-hl)
-;; (require 'diff-hl)
+(use-package diff-hl
+  :ensure t
+  :config (global-diff-hl-mode))
 
-;; (setq global-diff-hl-mode t)
 
 ;; ;;; ---------------------------------------- Git Gutter
 

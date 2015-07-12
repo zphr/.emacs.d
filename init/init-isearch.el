@@ -1,10 +1,13 @@
-;; Show number of matches while searching
-(require-package 'anzu)
-(global-anzu-mode t)
-(diminish 'anzu-mode)
-(global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp)
-(global-set-key [remap query-replace] 'anzu-query-replace)
 
+;; Show number of matches while searching
+(use-package anzu
+  :ensure t
+  :diminish anzu-mode
+  :config (progn
+	    (global-anzu-mode t)	    
+
+	    (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp)
+	    (global-set-key [remap query-replace] 'anzu-query-replace)))
 
 ;; Activate occur easily inside isearch
 (define-key isearch-mode-map (kbd "C-o") 'isearch-occur)
@@ -71,10 +74,12 @@ This is useful when followed by an immediate kill."
 
 ;;; ---------------------------------------- Swiper
 
-(require-package 'swiper)
-(require-package 'swiper-helm)
-(require 'swiper-helm)
+(use-package swiper
+  :ensure t)
 
-(global-set-key (kbd "M-s") 'swiper-helm)
+(use-package swiper-helm
+  :ensure t
+  :bind ("M-s" . swiper-helm))
+
 
 (provide 'init-isearch)

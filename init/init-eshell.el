@@ -1,7 +1,8 @@
 
 ;; ---------------------------------------- Starter Kit Eshell
 
-(require-package 'starter-kit-eshell)
+(use-package starter-kit-eshell
+  :ensure t)
 
 
 ;; ---------------------------------------- Bash Setup

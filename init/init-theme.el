@@ -1,6 +1,8 @@
 
-(require-package 'zenburn-theme)
-(load-theme 'zenburn)
+(use-package zenburn-theme
+  :ensure t
+  :config (load-theme 'zenburn))
+
 
 ;; (require-package 'subatomic-theme)
 ;; (load-theme 'subatomic)

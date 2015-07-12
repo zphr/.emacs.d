@@ -75,10 +75,6 @@
 ;;                         org-capture-find-changelog-entry)
 ;;          "*** %^T %? %i %^g")))
 
-;;; ---------------------------------------- Export
-
-(add-to-list 'org-export-backends 'confluence)
-
 
 ;;; ---------------------------------------- Beamer
 

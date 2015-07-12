@@ -1,30 +1,14 @@
 
 ;; ---------------------------------------- Projectile
 
-(require-package 'projectile)
-(require 'projectile)
+(use-package projectile
+  :ensure t
+  :config (progn
+	    (projectile-global-mode)
 
-(projectile-global-mode)
+	    (setq projectile-completion-system 'helm)
 
-(setq projectile-completion-system 'ido)
-
-(setq projectile-tags-command "ctags -Re --exclude=.git")
-
-(defun projectile-regenerate-tags ()
-  "Regenerate the project's etags."
-  (interactive)
-  (let* ((project-root (projectile-project-root))
-         (tags-exclude (projectile-tags-exclude-patterns))
-         (default-directory project-root))
-    (shell-command (format projectile-tags-command tags-exclude))
-    (visit-tags-table project-root)))
-
-(add-hook 'c++-mode-hook 'projectile-on)
-
-(setq projectile-enable-idle-timer t)
-(add-hook 'projectile-idle-timer-hook 'projectile-regenerate-tags)
-
-(setq projectile-switch-project-action 'projectile-vc)
+	    (setq projectile-switch-project-action 'projectile-vc)))
 
 
 (provide 'init-projectile)

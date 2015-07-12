@@ -22,21 +22,24 @@
 
 ;; ---------------------------------------- Ido Ubiquitous
 
-(when (eval-when-compile (>= emacs-major-version 24))
-  (require-package 'ido-ubiquitous)
-  (ido-ubiquitous-mode t))
+(use-package ido-ubiquitous
+    :ensure t
+    :if (>= emacs-major-version 24)
+    :config (ido-ubiquitous-mode t))
 
 
 ;; ---------------------------------------- Smex
 
 ;; Use smex to handle M-x
-(require-package 'smex)
-(global-set-key [remap execute-extended-command] 'smex)
+(use-package smex
+  :ensure t
+  :config (global-set-key [remap execute-extended-command] 'smex))
 
 
 ;; ---------------------------------------- Idomenu
 
-(require-package 'idomenu)
+(use-package idomenu
+  :ensure t)
 
 ;; Allow the same buffer to be open in different frames
 (setq ido-default-buffer-method 'selected-window)
@@ -44,13 +47,13 @@
 
 ;; ---------------------------------------- FLX
 
-;; speed up garbage collector 
-(setq gc-cons-threshold 20000000)
-
-(require-package 'flx-ido)
-(flx-ido-mode t)
-;; disable ido faces to see flx highlights.
-(setq ido-use-faces nil)
+(use-package flx-ido
+  :ensure t
+  :init (setq gc-cons-threshold 20000000) ;; speed up garbage collector 
+  :config (progn
+	    (flx-ido-mode t)
+	    ;; disable ido faces to see flx highlights.
+	    (setq ido-use-faces nil)))
 
 
 (provide 'init-ido)

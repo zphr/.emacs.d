@@ -3,7 +3,6 @@
 
 (use-package popwin
   :ensure t
-  :bind ("<f8>" . popwin:keymap)
   :config (popwin-mode 1))
 
 

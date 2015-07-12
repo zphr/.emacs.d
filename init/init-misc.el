@@ -72,14 +72,15 @@
 
 ;; ---------------------------------------- Powerline
 
-(require-package 'powerline)
-(require 'powerline)
-(powerline-default-theme)
+(use-package powerline
+  :ensure t
+  :config (powerline-default-theme))
+
 
 ;;; ---------------------------------------- Fancy Narrow
-(require-package 'fancy-narrow)
-(require 'fancy-narrow)
-(fancy-narrow-mode t)
+(use-package fancy-narrow
+  :ensure t
+  :config (fancy-narrow-mode t))
 
 
 ;; ---------------------------------------- Tramp
@@ -163,10 +164,11 @@
 
 ;;; ---------------------------------------- Color Identifiers
 
-(require-package 'color-identifiers-mode)
-
-(eval-after-load 'color-identifiers-mode
+(use-package color-identifiers-mode
+  :ensure t
+  :config (eval-after-load 'color-identifiers-mode
 		'(add-to-list 'color-identifiers:modes-alist
-			     '(csharp-mode "" "\\_<\\([a-zA-Z_$]\\(?:\\s_\\|\\sw\\)*\\)" (nil font-lock-variable-name-face))))
+			     '(csharp-mode "" "\\_<\\([a-zA-Z_$]\\(?:\\s_\\|\\sw\\)*\\)" (nil font-lock-variable-name-face)))))
+
 
 (provide 'init-misc)
