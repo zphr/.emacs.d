@@ -4,6 +4,7 @@
 
 (use-package elisp-slime-nav
   :ensure t
+:defer t
   :diminish elisp-slime-nav-mode)
 
 
@@ -19,7 +20,8 @@
 ;; ---------------------------------------- Misc
 
 (use-package rainbow-delimiters
-  :ensure t)
+  :ensure t
+:defer t)
 
 ;; A quick way to jump to the definition of a function given its key binding
 (global-set-key (kbd "C-h K") 'find-function-on-key)
@@ -28,7 +30,8 @@
 ;; ---------------------------------------- Paredit
 
 (use-package paredit
-  :ensure t)
+  :ensure t
+:defer t)
 
 
 ;; ---------------------------------------- Eldoc

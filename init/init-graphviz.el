@@ -1,6 +1,7 @@
 
 (use-package graphviz-dot-mode
   :ensure t
+:defer t
   :config (progn
 	    (defun graphviz-dot-compile ()
 	      (interactive)

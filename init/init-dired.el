@@ -34,6 +34,7 @@
 (use-package dired-details
   :if (and (= emacs-major-version 24) (< emacs-minor-version 4))
   :ensure t
+:defer t
   :config (progn
 	    (after-load 'dired
 	      (require 'dired-details)
@@ -53,6 +54,7 @@
 
 (use-package dired+
   :ensure t
+:defer t
   :config (progn
 	    (setq diredp-file-name font-lock-constant-face)
 	    (setq diredp-dir-priv font-lock-keyword-face)
@@ -67,7 +69,8 @@
 
 (use-package w32-browser
   :if (eq system-type 'windows-nt)
-  :ensure t)
+  :ensure t
+:defer t)
 
 
 ;; ;;; ---------------------------------------- Dired Async

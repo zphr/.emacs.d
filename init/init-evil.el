@@ -3,6 +3,8 @@
 
 (use-package evil
   :ensure t
+:defer t
+  :defer t
   :config (progn
 	    (evil-mode 1)
 

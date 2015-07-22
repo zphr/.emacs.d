@@ -3,6 +3,7 @@
 
 (use-package auctex
   :ensure t
+:defer t
   :mode ("\\.tex\\'" . latex-mode)
   :commands (latex-mode LaTeX-mode plain-tex-mode)
   :config (progn

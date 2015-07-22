@@ -3,6 +3,7 @@
 
 (use-package whole-line-or-region
   :ensure t
+:defer t
   :diminish whole-line-or-region-mode
   :config (whole-line-or-region-mode t))
 
@@ -11,6 +12,7 @@
 
 (use-package goto-last-change
   :ensure t
+:defer t
   :bind ("C-M-z" . goto-last-change))
 
 
@@ -18,6 +20,7 @@
 
 (use-package auto-indent-mode
   :ensure t
+:defer t
   :config (setq auto-indent-start-org-indent nil))
 
 
@@ -25,6 +28,7 @@
 
 (use-package expand-region
   :ensure t
+:defer t
   :bind ("C-M-S-SPC" . er/expand-region))
 
 
@@ -32,6 +36,7 @@
 
 (use-package color-identifiers-mode
   :ensure t
+:defer t
   :diminish color-identifiers-mode
   :config (progn
 	    (setq color-identifiers:max-color-saturation 0.75)
@@ -42,6 +47,7 @@
 
 (use-package change-inner
   :ensure t
+:defer t
   :bind ("M-i" . change-inner))
 
 
@@ -49,6 +55,7 @@
 
 (use-package zop-to-char
   :ensure t
+:defer t
   :bind ("M-z" . zop-up-to-char))
 
 

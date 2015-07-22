@@ -3,6 +3,7 @@
 
 (use-package magit
   :ensure t
+:defer t
   :bind ("C-x g" . magit-status)
   :config
   ;;; ask for password avoid stdout
@@ -15,6 +16,7 @@
 
 (use-package diff-hl
   :ensure t
+:defer t
   :config (global-diff-hl-mode))
 
 

@@ -68,12 +68,16 @@
 	ignore
 	indent-for-tab-command
 	insert-parentheses
+	isearch-forward-regexp
+	isearch-printing-char
+	isearch-repeat-forward
 	jump-char-backward
 	jump-char-forward
 	jump-char-process-char
 	keyboard-quit
 	kill-region
 	kill-sexp
+	mark-paragraph
 	mark-sexp
 	multiple-cursors-hydra/mc/unmark-next-like-this
 	my-decrement-number-decimal

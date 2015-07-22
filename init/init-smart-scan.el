@@ -1,6 +1,7 @@
 
 (use-package smartscan
   :ensure t
+:defer t
   :config (progn
 	    (global-smartscan-mode t)
 

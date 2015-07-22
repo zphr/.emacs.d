@@ -10,6 +10,7 @@
 
 (use-package ace-window
   :ensure t
+:defer t
   :bind ("C-S-o" . ace-window)
   :config (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
@@ -28,6 +29,7 @@
 
 (use-package ibuffer
   :ensure t
+:defer t
   :config (progn
 	    (setq ibuffer-show-empty-filter-groups nil)
 

@@ -80,36 +80,44 @@
 ;;; ---------------------------------------- Fancy Narrow
 (use-package fancy-narrow
   :ensure t
+  :defer t
   :config (fancy-narrow-mode t))
 
 
 ;; ---------------------------------------- Tramp
 
-(require 'tramp)
-(when (eq system-type 'windows-nt)
-  (setq tramp-default-method "plink"))
+(use-package tramp
+  :defer 10
+  :init (progn
+	  (when (eq system-type 'windows-nt)
+	    (setq tramp-default-method "plink"))))
 
 
 ;; ---------------------------------------- Regex Builder
 
-(require 're-builder)
-(setq reb-re-syntax 'string)
+(use-package re-builder
+  :defer t
+  :config (progn
+	    (setq reb-re-syntax 'string)))
 
 
-;; ---------------------------------------- Blender Inferior Mode
+;; ;; ---------------------------------------- Blender Inferior Mode
 
-(load "~/.emacs.d/blender-inferior-mode.el")
-(require 'blender-inferior-mode)
+;; (load "~/.emacs.d/blender-inferior-mode.el")
+;; (use-package blender-inferior-mode)
 
-(if (eq system-type 'darwin)
-    (setq blender-path "/Applications/blender.app/Contents/MacOS/blender"))
+;; (if (eq system-type 'darwin)
+;;     (setq blender-path "/Applications/blender.app/Contents/MacOS/blender"))
 
 
 ;;; ---------------------------------------- Grep
 
 (setq grep-command "grep -nH -r -e ")
 
- 
+(use-package wgrep
+  :ensure t
+  :defer t)
+
 ;; ---------------------------------------- Increment Number
 
 (defun my-increment-number-decimal (&optional arg)
@@ -160,15 +168,5 @@
        (lambda ()
          (setq case-fold-search t)
          (setq truncate-lines t))))
-
-
-;;; ---------------------------------------- Color Identifiers
-
-(use-package color-identifiers-mode
-  :ensure t
-  :config (eval-after-load 'color-identifiers-mode
-		'(add-to-list 'color-identifiers:modes-alist
-			     '(csharp-mode "" "\\_<\\([a-zA-Z_$]\\(?:\\s_\\|\\sw\\)*\\)" (nil font-lock-variable-name-face)))))
-
 
 (provide 'init-misc)

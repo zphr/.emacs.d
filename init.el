@@ -150,10 +150,12 @@
 
 ;; ---------------------------------------- Modes and Package Config
 
-(require-package 'wgrep)
-(require-package 'diminish)
-(require-package 'scratch)
-(require-package 'idle-highlight-mode)
+(use-package diminish
+  :ensure t)
+(use-package scratch
+  :ensure t)
+(use-package idle-highlight-mode
+  :ensure t)
 
 (require 'init-misc)
 (require 'init-isearch)

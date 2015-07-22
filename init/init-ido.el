@@ -24,6 +24,7 @@
 
 (use-package ido-ubiquitous
     :ensure t
+:defer t
     :if (>= emacs-major-version 24)
     :config (ido-ubiquitous-mode t))
 
@@ -33,13 +34,15 @@
 ;; Use smex to handle M-x
 (use-package smex
   :ensure t
+:defer t
   :config (global-set-key [remap execute-extended-command] 'smex))
 
 
 ;; ---------------------------------------- Idomenu
 
 (use-package idomenu
-  :ensure t)
+  :ensure t
+:defer t)
 
 ;; Allow the same buffer to be open in different frames
 (setq ido-default-buffer-method 'selected-window)
@@ -49,6 +52,7 @@
 
 (use-package flx-ido
   :ensure t
+:defer t
   :init (setq gc-cons-threshold 20000000) ;; speed up garbage collector 
   :config (progn
 	    (flx-ido-mode t)

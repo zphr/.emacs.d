@@ -3,6 +3,7 @@
 
 (use-package prodigy
   :ensure t
+:defer t
   :config (progn
 	    (global-set-key (kbd "C-7") 'prodigy)
 

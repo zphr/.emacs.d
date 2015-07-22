@@ -15,6 +15,7 @@
 
 (use-package company-auctex
   :ensure t
+  :defer t
   :config (company-auctex-init))
 
 
@@ -22,6 +23,7 @@
 
 (use-package company-quickhelp
   :ensure t
+  :defer t
   :config (company-quickhelp-mode 1))
 
 

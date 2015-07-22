@@ -6,13 +6,11 @@
 
 (setq package-user-dir "~/.emacs.d/elpa/")
 
-
 ;; ---------------------------------------- Sources
 
-;; (setq package-archives nil)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-
+(eval-after-load 'package
+		'(add-to-list 'package-archives
+			     '("melpa" . "http://melpa.org/packages/") t))
 
 ;; ---------------------------------------- Macros
 

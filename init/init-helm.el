@@ -2,26 +2,26 @@
 ;; ---------------------------------------- Helm
 
 (use-package projectile
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package helm
   :ensure t
+  :bind (("C-8" . helm-mini)
+	 ("C-x C-i" . helm-imenu)
+	 ("C-x C-f" . helm-find-files)
+	 ("M-x" . helm-M-x))
   :config (progn
 	    (helm-mode 1)
 
 	    (setq helm-default-external-file-browser "explorer.exe")
 
-	    (require 'helm-config)
-
-	    (global-set-key (kbd "C-x C-f") 'helm-find-files)
-	    (global-set-key (kbd "M-x") 'helm-M-x)
-
-	    (global-set-key (kbd "C-c h") 'helm-command-prefix)
+	    (use-package helm-config)
 
 	    (when (executable-find "curl")
 	      (setq helm-google-suggest-use-curl-p t))
 
-	    (require 'helm-adaptive)
+	    (use-package helm-adaptive)
 	    (helm-adaptive-mode 1)
 
 	    (setq helm-buffers-fuzzy-matching t)
@@ -32,7 +32,7 @@
 	    (define-key helm-map (kbd "M-C-n") 'helm-next-source)
 	    (define-key helm-map (kbd "M-C-p") 'helm-previous-source)
 
-	    (require 'helm-tags)
+	    (use-package helm-tags)
 
             ;;; ---------------------------------------- Fuzzy Matching
 	    (setq helm-recentf-fuzzy-match t)
@@ -49,10 +49,6 @@
 
 	    (setq helm-sources-using-default-as-input nil)
 
-	    (global-set-key (kbd "C-8") 'helm-mini)
-
-	    (global-set-key (kbd "C-x C-i") 'helm-imenu)
-
 	    ;; ---------------------------------------- Input In Header 
 	    (setq helm-echo-input-in-header-line t)
 
@@ -66,42 +62,47 @@
 
 	    (add-hook 'helm-minibuffer-set-up-hook 'helm-hide-minibuffer-maybe)
 
-	    ;; ---------------------------------------- Helm Mark Ring
-	    (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
-	    
-	    (use-package helm-projectile
-	      :ensure t)
-
-	    (use-package imenu-anywhere
-	      :ensure t
-	      :bind ("C-c h i" . helm-imenu-anywhere)
-	      :config (progn
-			(add-to-list 'helm-mini-default-sources helm-source-imenu-anywhere)))
-
-	    ;;; ---------------------------------------- Helm Pt
-	    
-	    (use-package helm-pt
-	      :ensure t
-	      :config (progn
-			(defun helm-pt-exg-search (&optional arg)
-			  (interactive "p")
-			  (if (>= arg 4)
-			      (helm-do-pt "d:/Software/")
-			    (helm-projectile-pt)))
-
-			(if (string= system-name "BLACKWORTHMOODY")
-			    (global-set-key (kbd "C-c C-h") 'helm-pt-exg-search)
-			  (global-set-key (kbd "C-c C-h") 'helm-projectile-pt))))
-
-
 	    ;; ---------------------------------------- Mini Sources
 
 	    (setq helm-mini-default-sources '(helm-source-buffers-list
 					      helm-source-bookmarks
 					      helm-source-ido-virtual-buffers
-					      helm-source-buffer-not-found))
-	    )
-  )
+					      helm-source-buffer-not-found))))
 
+(use-package helm-projectile
+  :ensure t
+  :defer t)
+
+(use-package imenu-anywhere
+  :ensure t
+  :defer 1
+  :bind ("C-h i" . helm-imenu-anywhere)
+  :config (progn
+	    (add-to-list 'helm-mini-default-sources helm-source-imenu-anywhere)))
+
+	    ;;; ---------------------------------------- Helm Pt
+
+(use-package helm-pt
+  :ensure t
+  :defer 1
+  :config (progn
+	    (defun helm-pt-exg-search (&optional arg)
+	      (interactive "p")
+	      (let ((old-idle-delay helm-input-idle-delay))
+		(setq helm-input-idle-delay 0.1)
+		(if (>= arg 4)
+		    (helm-do-pt "d:/Software/")
+		  (helm-projectile-pt))
+		(setq helm-input-idle-delay old-idle-delay)))
+
+	    (defadvice helm-do-pt (around helm-do-pt-idle-advice activate)
+	      (let ((old-input-idle-delay helm-input-idle-delay))
+		(setq helm-input-idle-delay 0.1)
+		ad-do-it
+		(setq helm-input-idle-delay old-input-idle-delay)))
+
+	    (if (string= system-name "BLACKWORTHMOODY")
+		(global-set-key (kbd "C-c C-h") 'helm-pt-exg-search)
+	      (global-set-key (kbd "C-c C-h") 'helm-projectile-pt))))
 
 (provide 'init-helm)

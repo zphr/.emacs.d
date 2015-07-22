@@ -1,6 +1,8 @@
 
 (use-package god-mode
   :ensure t
+:defer t
+  :defer t
   :config (progn
 	    (god-mode-all)
 	    
@@ -66,6 +68,7 @@
 
 (use-package jump-char
   :ensure t
+:defer t
   :if (after-load 'god-mode)
   :config (progn (define-key jump-char-isearch-map (kbd "<return>") 'jump-char-exit)
 		 (define-key god-local-mode-map (kbd "f") 'jump-char-forward)
