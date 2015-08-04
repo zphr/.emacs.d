@@ -14,25 +14,13 @@
   :config (progn
 	    (helm-mode 1)
 
+	    (bind-key "M-o" 'helm-buffer-switch-other-window helm-map)
+	    (bind-key "M-C-n" 'helm-next-source helm-map)
+	    (bind-key "M-C-p" 'helm-previous-source helm-map) 
+
 	    (setq helm-default-external-file-browser "explorer.exe")
 
-	    (use-package helm-config)
-
-	    (when (executable-find "curl")
-	      (setq helm-google-suggest-use-curl-p t))
-
-	    (use-package helm-adaptive)
-	    (helm-adaptive-mode 1)
-
-	    (setq helm-buffers-fuzzy-matching t)
-
-	    (set-face-attribute 'helm-selection nil :inherit 'hl-line)
-
-	    (define-key helm-map (kbd "M-o") 'helm-buffer-switch-other-window)
-	    (define-key helm-map (kbd "M-C-n") 'helm-next-source)
-	    (define-key helm-map (kbd "M-C-p") 'helm-previous-source)
-
-	    (use-package helm-tags)
+	    ;; (set-face-attribute 'helm-selection nil :inherit 'hl-line)
 
             ;;; ---------------------------------------- Fuzzy Matching
 	    (setq helm-recentf-fuzzy-match t)
@@ -47,8 +35,6 @@
 	    (setq helm-apropos-fuzzy-match t)
 	    (setq helm-lisp-fuzzy-completion t)
 
-	    (setq helm-sources-using-default-as-input nil)
-
 	    ;; ---------------------------------------- Input In Header 
 	    (setq helm-echo-input-in-header-line t)
 
@@ -61,8 +47,10 @@
 		  (setq-local cursor-type nil))))
 
 	    (add-hook 'helm-minibuffer-set-up-hook 'helm-hide-minibuffer-maybe)
-
+	    
 	    ;; ---------------------------------------- Mini Sources
+	    
+	    ;; (setq helm-sources-using-default-as-input nil)
 
 	    (setq helm-mini-default-sources '(helm-source-buffers-list
 					      helm-source-bookmarks
@@ -70,21 +58,21 @@
 					      helm-source-buffer-not-found))))
 
 (use-package helm-projectile
-  :ensure t
+  :ensure helm
   :defer t)
 
 (use-package imenu-anywhere
-  :ensure t
-  :defer 1
+  :ensure helm
+  :defer t
   :bind ("C-h i" . helm-imenu-anywhere)
   :config (progn
 	    (add-to-list 'helm-mini-default-sources helm-source-imenu-anywhere)))
 
-	    ;;; ---------------------------------------- Helm Pt
+;;; ---------------------------------------- Helm Pt
 
 (use-package helm-pt
-  :ensure t
-  :defer 1
+  :ensure helm
+  :defer t
   :config (progn
 	    (defun helm-pt-exg-search (&optional arg)
 	      (interactive "p")
@@ -104,5 +92,6 @@
 	    (if (string= system-name "BLACKWORTHMOODY")
 		(global-set-key (kbd "C-c C-h") 'helm-pt-exg-search)
 	      (global-set-key (kbd "C-c C-h") 'helm-projectile-pt))))
+
 
 (provide 'init-helm)

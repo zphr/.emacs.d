@@ -4,7 +4,6 @@
 
 (use-package hydra
   :ensure t
-:defer t
   :config (progn
 	    (defhydra hydra-yank-pop ()
 	      "yank"

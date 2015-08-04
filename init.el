@@ -1,5 +1,12 @@
 ;;; init.el --- user init file      -*- no-byte-compile: t -*-
 
+
+;; ---------------------------------------- Use-Package
+
+(add-to-list 'load-path "~/.emacs.d/use-package/")
+(require 'use-package)
+
+
 ;; ---------------------------------------- Load Path
 
 (add-to-list 'load-path (expand-file-name "init" user-emacs-directory))
@@ -140,12 +147,6 @@
 
 (setq auto-compile-display-buffer nil)
 (setq auto-compile-mode-line-counter t)
-
-
-;; ---------------------------------------- Use-Package
-
-(eval-when-compile
-  (require 'use-package))
 
 
 ;; ---------------------------------------- Modes and Package Config

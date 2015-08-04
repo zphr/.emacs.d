@@ -3,7 +3,7 @@
 
 (use-package projectile
   :ensure t
-:defer t
+  :defer t
   :config (progn
 	    (projectile-global-mode)
 

@@ -1,27 +1,28 @@
 
 ;; ---------------------------------------- Dired
 
-(require 'dired)
-(setq dired-isearch-filenames 'dwim)
-(setq dired-dwim-target t)
+(use-package dired
+  :config (progn
+	    (setq dired-isearch-filenames 'dwim)
+	    (setq dired-dwim-target t)
 
-(defun dired-back-to-top ()
-  (interactive)
-  (beginning-of-buffer)
-  (dired-next-line 4))
+	    (defun dired-back-to-top ()
+	      (interactive)
+	      (beginning-of-buffer)
+	      (dired-next-line 4))
 
-(define-key dired-mode-map (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
-(define-key dired-mode-map (kbd "M-+") 'dired-back-to-top)
+	    (define-key dired-mode-map (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
+	    (define-key dired-mode-map (kbd "M-+") 'dired-back-to-top)
 
-(defun dired-jump-to-bottom ()
-  (interactive)
-  (end-of-buffer)
-  (dired-next-line -1))
+	    (defun dired-jump-to-bottom ()
+	      (interactive)
+	      (end-of-buffer)
+	      (dired-next-line -1))
 
-(define-key dired-mode-map (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
-(define-key dired-mode-map (kbd "M-#") 'dired-jump-to-bottom)
+	    (define-key dired-mode-map (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
+	    (define-key dired-mode-map (kbd "M-#") 'dired-jump-to-bottom)
 
-(define-key dired-mode-map (kbd "C-a") 'back-to-indentation)
+	    (define-key dired-mode-map (kbd "C-a") 'back-to-indentation)))
 
 ;; ---------------------------------------- Dired-X
 
@@ -34,7 +35,7 @@
 (use-package dired-details
   :if (and (= emacs-major-version 24) (< emacs-minor-version 4))
   :ensure t
-:defer t
+  :defer t
   :config (progn
 	    (after-load 'dired
 	      (require 'dired-details)
@@ -54,23 +55,22 @@
 
 (use-package dired+
   :ensure t
-:defer t
+  ;; :defer t
   :config (progn
-	    (setq diredp-file-name font-lock-constant-face)
-	    (setq diredp-dir-priv font-lock-keyword-face)
-	    (setq diredp-ignored-file-name font-lock-comment-face)
-	    (setq diredp-file-suffix font-lock-builtin-face)
-	    (setq diredp-dir-heading font-lock-keyword-face)
+	    ;; (setq diredp-file-name font-lock-constant-face)
+	    ;; (setq diredp-dir-priv font-lock-keyword-face)
+	    ;; (setq diredp-ignored-file-name font-lock-comment-face)
+	    ;; (setq diredp-file-suffix font-lock-builtin-face)
+	    ;; (setq diredp-dir-heading font-lock-keyword-face)
 	    ;; (setq diredp-flag-mark-line compilation-info-face)
-	    (setq diredp-flag-mark font-lock-warning-face)
+	    ;; (setq diredp-flag-mark font-lock-warning-face)
 	    
 	    (add-to-list 'dired-compress-file-suffixes 
 			 '("\\.zip\\'" ".zip" "unzip"))))
 
 (use-package w32-browser
   :if (eq system-type 'windows-nt)
-  :ensure t
-:defer t)
+  :ensure t)
 
 
 ;; ;;; ---------------------------------------- Dired Async
