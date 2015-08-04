@@ -3,15 +3,14 @@
 
 (use-package prodigy
   :ensure t
-:defer t
+  :defer t
+  :bind ("C-7" . prodigy)
   :config (progn
-	    (global-set-key (kbd "C-7") 'prodigy)
-
             ;;; EXG Services 
 	    (when (string= system-name "BLACKWORTHMOODY")
 	      (prodigy-define-service
 		:name "Omnisharp gamebook-sdk"
-		:command "OmniSharp"
+		:command "c:/omnisharp-roslyn/scripts/Omnisharp"
 		:args '("-s" "gamebook-engine.sln" "-p" "2001")
 		:cwd "d:/Software/gamebook-sdk/"
 		:tags '(completion)
@@ -20,7 +19,7 @@
 
 	      (prodigy-define-service
 		:name "Omnisharp geniusevil-client"
-		:command "OmniSharp"
+		:command "c:/omnisharp-roslyn/scripts/Omnisharp"
 		:args '("-s" "geniusevil-client.sln" "-p" "2000")
 		:cwd "d:/Software/geniusevil-client/"
 		:tags '(completion)
@@ -29,7 +28,7 @@
 
 	      (prodigy-define-service
 		:name "Omnisharp gamebook-client"
-		:command "OmniSharp"
+		:command "c:/omnisharp-roslyn/scripts/Omnisharp"
 		:args '("-s" "gamebook-client.sln" "-p" "2030")
 		:cwd "d:/Software/gamebook-client/"
 		:tags '(completion)

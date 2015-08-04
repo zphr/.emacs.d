@@ -27,7 +27,7 @@
 ;; ---------------------------------------- Dired-X
 
 ;;; especially usefull for C-x C-j dired-jump
-(require 'dired-x)
+(use-package dired-x)
 
 
 ;; ---------------------------------------- Dired-Details and Dired+
@@ -55,22 +55,20 @@
 
 (use-package dired+
   :ensure t
-  ;; :defer t
   :config (progn
-	    ;; (setq diredp-file-name font-lock-constant-face)
-	    ;; (setq diredp-dir-priv font-lock-keyword-face)
-	    ;; (setq diredp-ignored-file-name font-lock-comment-face)
-	    ;; (setq diredp-file-suffix font-lock-builtin-face)
-	    ;; (setq diredp-dir-heading font-lock-keyword-face)
-	    ;; (setq diredp-flag-mark-line compilation-info-face)
-	    ;; (setq diredp-flag-mark font-lock-warning-face)
+	    (setq diredp-file-name font-lock-constant-face)
+	    (setq diredp-dir-priv font-lock-keyword-face)
+	    (setq diredp-ignored-file-name font-lock-comment-face)
+	    (setq diredp-file-suffix font-lock-builtin-face)
+	    (setq diredp-dir-heading font-lock-keyword-face)
+	    (setq diredp-flag-mark font-lock-warning-face)
 	    
 	    (add-to-list 'dired-compress-file-suffixes 
 			 '("\\.zip\\'" ".zip" "unzip"))))
 
 (use-package w32-browser
   :if (eq system-type 'windows-nt)
-  :ensure t)
+  :ensure dired+)
 
 
 ;; ;;; ---------------------------------------- Dired Async
