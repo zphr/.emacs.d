@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("WebPlayer Logs"
+(("assets.data"
+ (filename . "d:/Software/geniusevil-client/Season/AssetBundles/assets.data")
+ (front-context-string . "b0d3bf9d1d4485b6")
+ (rear-context-string . " \"lo_livingroom_")
+ (position . 168))
+("WebPlayer Logs"
  (filename . "c:/Users/Christian/AppData/Local/Temp/UnityWebPlayer/log/")
  (front-context-string . "log_3f99dd37f580")
  (rear-context-string . "288 07-08 09:05 ")

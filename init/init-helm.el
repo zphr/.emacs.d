@@ -93,5 +93,13 @@
 		(global-set-key (kbd "C-c C-h") 'helm-pt-exg-search)
 	      (global-set-key (kbd "C-c C-h") 'helm-projectile-pt))))
 
+;;; ---------------------------------------- Helm LS Git
+
+(use-package helm-ls-git
+  :ensure helm
+  :bind ("C-9" . helm-browse-project)
+  :config (progn
+	    (setq helm-ls-git-status-command 'magit-status)))
+
 
 (provide 'init-helm)

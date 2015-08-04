@@ -93,6 +93,7 @@
 	   "c:/Users/Christian/AppData/Roaming/npm/" ";"
 	   "C:/Program Files/Unity/Editor/" ";"
 	   "c:/Windows/system32/" ";"
+	   "C:/Program Files (x86)/NArrange 0.2.9/" ";"
 	   (getenv "PATH")))
 
   (setq exec-path '("~/.emacs.d/" 
@@ -113,6 +114,7 @@
 		    "c:/Users/Christian/AppData/Roaming/npm/"
 		    "C:/Program Files/Unity/Editor/"
 		    "c:/Windows/system32/" 
+		    "C:/Program Files (x86)/NArrange 0.2.9/"
                     (getenv "PATH"))))
 
 

@@ -120,10 +120,12 @@
 	query-replace
 	reindent-then-newline-and-indent
 	smartscan-restrict-to-defun-forward
+	sp-kill-hybrid-sexp
 	split-line
 	string-rectangle
 	transpose-sexps
 	undefined
+	unity-assert-symbol-or-region
 	universal-argument-minus
 	wdired-next-line
 	wdired-previous-line
