@@ -1,7 +1,9 @@
 
 (use-package smartscan
   :ensure t
-:defer t
+  :bind
+  ("M-C-S-n" . smartscan-symbol-go-forward)
+  ("M-C-S-p" . smartscan-symbol-go-backward)
   :config (progn
 	    (global-smartscan-mode t)
 
@@ -15,7 +17,6 @@
 		  (smartscan-symbol-go-forward))))
 
 	    (global-set-key (kbd "M-N") 'smartscan-restrict-to-defun-forward)
-	    (global-set-key (kbd "M-C-S-n") 'smartscan-symbol-go-forward)
 
 	    (defun smartscan-restrict-to-defun-backward ()
 	      "Restrict smartscan to defun bounds."
@@ -26,8 +27,7 @@
 		  (narrow-to-region start end)
 		  (smartscan-symbol-go-backward))))
 
-	    (global-set-key (kbd "M-P") 'smartscan-restrict-to-defun-backward)
-	    (global-set-key (kbd "M-C-S-p") 'smartscan-symbol-go-backward)))
+	    (global-set-key (kbd "M-P") 'smartscan-restrict-to-defun-backward)))
 
 
 (provide 'init-smart-scan)

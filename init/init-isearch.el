@@ -76,12 +76,11 @@ This is useful when followed by an immediate kill."
 ;;; ---------------------------------------- Swiper
 
 (use-package swiper
-  :ensure t
-:defer t)
+  :ensure t)
 
 (use-package swiper-helm
   :ensure t
-:defer t
+  :defer t
   :bind ("M-s" . swiper-helm))
 
 

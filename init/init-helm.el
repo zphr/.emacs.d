@@ -64,15 +64,14 @@
 (use-package imenu-anywhere
   :ensure helm
   :defer t
-  :bind ("C-h i" . helm-imenu-anywhere)
-  :config (progn
-	    (add-to-list 'helm-mini-default-sources helm-source-imenu-anywhere)))
+  :bind ("C-h i" . helm-imenu-anywhere))
 
 ;;; ---------------------------------------- Helm Pt
 
 (use-package helm-pt
   :ensure helm
   :defer t
+  :bind ("C-c C-h" . helm-pt-exg-search)
   :config (progn
 	    (defun helm-pt-exg-search (&optional arg)
 	      (interactive "p")
