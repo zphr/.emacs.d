@@ -275,18 +275,18 @@ header"
 	    (defun unity-assert-symbol-or-region (&optional arg)
 	      (interactive "P")
 	      (let* ((log-string (if (region-active-p)
-				     (buffer-substring (region-beginning) (region-end))
-				   (symbol-name (symbol-at-point))))
-		     (debug-string (if arg
-				       (concat "UnityEngine.Assertions.Assert.IsNotNull(\"" log-string "\");")
-				     (concat "UnityEngine.Assertions.Assert.IsNotNull(" log-string ", \"" log-string " in class " (file-name-sans-extension (buffer-name)) " should not be null!\");"))))
-		(message debug-string)
-		(save-excursion
-		  (move-end-of-line 1)
-		  (open-line 1)
-		  (forward-line 1)
-		  (insert debug-string)
-		  (c-indent-line-or-region))))
+	    			     (buffer-substring (region-beginning) (region-end))
+	    			   (symbol-name (symbol-at-point))))
+	    	     (debug-string (if arg
+	    			       (concat "UnityEngine.Assertions.Assert.IsNotNull(\"" log-string "\");")
+	    			     (concat "UnityEngine.Assertions.Assert.IsNotNull(" log-string ", \"" log-string " in class " (file-name-sans-extension (buffer-name)) " should not be null!\");"))))
+	    	(message debug-string)
+	    	(save-excursion
+	    	  (move-end-of-line 1)
+	    	  (open-line 1)
+	    	  (forward-line 1)
+	    	  (insert debug-string)
+	    	  (c-indent-line-or-region))))
 
 	    (add-hook 'csharp-mode-hook (lambda ()
 					  (subword-mode t)
@@ -316,13 +316,42 @@ header"
             (eval-after-load 'company
               '(add-to-list 'company-backends 'company-omnisharp))
 
+	    
+	    ;; (defun omnisharp-current-type-information-worker 
+	    ;;   (omnisharp-post-message-curl-as-json-async
+	    ;;    (concat (omnisharp-get-host) "typelookup")
+	    ;;    (omnisharp--get-common-params)
+	    ;;    (lambda (response)
+	    ;; 	 (let ((stuff-to-display (cdr (assoc type-property-name
+	    ;; 					     response))))
+	    ;; 	   (message stuff-to-display)
+	    ;; 	   (when add-to-kill-ring
+	    ;; 	     (kill-new stuff-to-display))))))
+
+
+	    ;; (defun unity-assert-symbol-or-region (&optional arg)
+	    ;;   (interactive "P")
+	    ;;   (let* ((type-information (s-split "[ \.;]" (omnisharp-current-type-information-worker 'Type) t))
+	    ;; 	     (type (car type-information))
+	    ;; 	     (class (cadr type-information))
+	    ;; 	     (field (caddr type-information))
+	    ;; 	     (debug-string (concat "\"Missing " type " <" field "> on " class "\""))
+	    ;; 	     (final-string (concat "UnityEngine.Assertions.Assert.IsNotNull(" field ", " debug-string " + gameObject.name)")))
+	    ;; 	(message debug-string)
+	    ;; 	(save-excursion
+	    ;; 	  (move-end-of-line 1)
+	    ;; 	  (open-line 1)
+	    ;; 	  (forward-line 1)
+	    ;; 	  (insert final-string)
+	    ;; 	  (c-indent-line-or-region))))
+
             ;;; relies heavily on dir-local variables
             (defun start-omnisharp ()
               (interactive)
               (start-process-shell-command "omnisharp-server" nil (concat "OmniSharp -s " solution-file " -p " (int-to-string omnisharp-port))))
 
             (add-hook 'csharp-mode-hook (lambda ()
-                                          (omnisharp-mode)))))
+					  (local-set-key (kbd "C-c a") 'unity-assert-symbol-or-region)))))
 
 (defun powerline-color-change ()
   (if (fboundp 'projectile-project-root)

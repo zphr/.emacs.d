@@ -15,7 +15,7 @@
  '(global-company-mode t)
  '(global-flycheck-mode t)
  '(helm-external-programs-associations (quote (("svg" . "inkscape.exe"))))
- '(magit-log-arguments (quote ("--graph" "--color" "--decorate")))
+ '(magit-log-arguments (quote ("--graph" "--decorate")))
  '(menu-bar-mode nil)
  '(org-agenda-files (quote ("c:/Users/foolhouse/Desktop/TODO.org")))
  '(paradox-github-token t)

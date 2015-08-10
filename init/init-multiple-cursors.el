@@ -3,23 +3,22 @@
 
 (use-package multiple-cursors
   :ensure t
-  :init (progn
-	  (define-prefix-command 'multiple-cursors-map)
-	  (define-key multiple-cursors-map (kbd "da") 'mc/mark-all-like-this-in-defun)
-	  (define-key multiple-cursors-map (kbd "dm") 'mc/mark-all-like-this-in-defun)
-	  (define-key multiple-cursors-map (kbd "dw") 'mc/mark-all-words-like-this-in-defun)
-	  (define-key multiple-cursors-map (kbd "w") 'mc/mark-all-words-like-this)
-	  (define-key multiple-cursors-map (kbd "m") 'mc/mark-all-like-this-dwim)
-	  (define-key multiple-cursors-map (kbd "l") 'mc/edit-lines)
-	  (define-key multiple-cursors-map (kbd "eb") 'mc/edit-beginnings-of-lines)
-	  (define-key multiple-cursors-map (kbd "el") 'mc/edit-ends-of-lines)
-	  (define-key multiple-cursors-map (kbd "n") 'mc/insert-numbers)
-	  (define-key multiple-cursors-map (kbd "r") 'mc/reverse-regions))
-  :bind (("C-M-m" . multiple-cursors-map)
-	 ("C-S-c C-S-c" . mc/edit-lines)
+  :bind (("C-S-c C-S-c" . mc/edit-lines)
 	 ("M-ö" . mc/mark-next-like-this)
 	 ("M-ä" . mc/mark-previous-like-this))
   :config (progn
+	    (define-prefix-command 'multiple-cursors-map)
+	    (define-key multiple-cursors-map (kbd "da") 'mc/mark-all-like-this-in-defun)
+	    (define-key multiple-cursors-map (kbd "dm") 'mc/mark-all-like-this-in-defun)
+	    (define-key multiple-cursors-map (kbd "dw") 'mc/mark-all-words-like-this-in-defun)
+	    (define-key multiple-cursors-map (kbd "w") 'mc/mark-all-words-like-this)
+	    (define-key multiple-cursors-map (kbd "m") 'mc/mark-all-like-this-dwim)
+	    (define-key multiple-cursors-map (kbd "l") 'mc/edit-lines)
+	    (define-key multiple-cursors-map (kbd "eb") 'mc/edit-beginnings-of-lines)
+	    (define-key multiple-cursors-map (kbd "el") 'mc/edit-ends-of-lines)
+	    (define-key multiple-cursors-map (kbd "n") 'mc/insert-numbers)
+	    (define-key multiple-cursors-map (kbd "r") 'mc/reverse-regions)
+
 	    (defadvice mc/mark-previous-like-this (before mark-previous-default-mark-sexp
 							  (arg) activate)
 	      "Use mark-sexp if no region is selected."

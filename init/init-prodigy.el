@@ -10,7 +10,7 @@
 	    (when (string= system-name "BLACKWORTHMOODY")
 	      (prodigy-define-service
 		:name "Omnisharp gamebook-sdk"
-		:command "c:/omnisharp-roslyn/scripts/Omnisharp"
+		:command "OmniSharp"
 		:args '("-s" "gamebook-engine.sln" "-p" "2001")
 		:cwd "d:/Software/gamebook-sdk/"
 		:tags '(completion)
@@ -19,7 +19,7 @@
 
 	      (prodigy-define-service
 		:name "Omnisharp geniusevil-client"
-		:command "c:/omnisharp-roslyn/scripts/Omnisharp"
+		:command "OmniSharp"
 		:args '("-s" "geniusevil-client.sln" "-p" "2000")
 		:cwd "d:/Software/geniusevil-client/"
 		:tags '(completion)
@@ -28,7 +28,7 @@
 
 	      (prodigy-define-service
 		:name "Omnisharp gamebook-client"
-		:command "c:/omnisharp-roslyn/scripts/Omnisharp"
+		:command "OmniSharp"
 		:args '("-s" "gamebook-client.sln" "-p" "2030")
 		:cwd "d:/Software/gamebook-client/"
 		:tags '(completion)

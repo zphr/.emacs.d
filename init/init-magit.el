@@ -37,6 +37,8 @@
 
 (use-package diff-hl
   :ensure hydra
+  :init
+  (add-hook 'after-init-hook #'global-diff-hl-mode)
   :defer t
   :config (progn
 	    (global-diff-hl-mode)

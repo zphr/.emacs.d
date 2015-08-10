@@ -1,7 +1,11 @@
 
-(use-package zenburn-theme
+(use-package apropospriate-theme
   :ensure t
-  :config (load-theme 'zenburn))
+  :config (load-theme 'apropospriate-dark t))
+
+;; (use-package zenburn-theme
+;;   :ensure t
+;;   :config (load-theme 'zenburn))
 
 
 ;; (require-package 'subatomic-theme)
