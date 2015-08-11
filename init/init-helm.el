@@ -48,6 +48,11 @@
 
 	    (add-hook 'helm-minibuffer-set-up-hook 'helm-hide-minibuffer-maybe)
 	    
+	    (defun magit-status-for-helm-bookmark-candidate (candidate)
+	      (magit-status (bookmark-get-filename candidate)))
+
+	    (helm-add-action-to-source "Magit" 'magit-status-for-helm-bookmark-candidate helm-source-bookmarks 1)
+
 	    ;; ---------------------------------------- Mini Sources
 	    
 	    ;; (setq helm-sources-using-default-as-input nil)
