@@ -76,4 +76,15 @@
 ;; (when (require 'dired-aux)
 ;;    (require 'dired-async))
 
+;;; ---------------------------------------- Ranger
+
+;; (use-package ranger
+;;   :ensure t
+;;   :init (add-hook 'dired-mode-hook #'ranger-mode)
+;;   :config (progn
+;; 	    (setq ranger-cleanup-on-disable t)
+;; 	    (setq ranger-cleanup-eagerly t)
+;; 	    (setq ranger-show-dotfiles t)))
+
+
 (provide 'init-dired)

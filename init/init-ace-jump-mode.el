@@ -34,7 +34,7 @@
 (require-package 'avy)
 (require 'avy)
 
-(global-set-key (kbd "C-ö") 'avy-goto-char-2)
+(global-set-key (kbd "C-ö") 'avy-goto-word-1)
 
 (custom-set-faces
  '(avy-background-face ((t (:background  "#DCA3A3" :foreground "#DCA3A3" :inverse-video nil))))

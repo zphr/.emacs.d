@@ -78,6 +78,8 @@
   :defer t
   :bind ("C-c C-h" . helm-pt-exg-search)
   :config (progn
+	    (setq helm-pt-args '("--smart-case" "--parallel"))
+
 	    (defun helm-pt-exg-search (&optional arg)
 	      (interactive "p")
 	      (let ((old-idle-delay helm-input-idle-delay))
