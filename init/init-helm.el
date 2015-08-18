@@ -80,6 +80,37 @@
   :config (progn
 	    (setq helm-pt-args '("--smart-case" "--parallel"))
 
+	    ;; TODO check this stuff in!
+	    (defun helm-pt--process ()
+	      "Launch async process to supply candidates."
+	      (let ((debug-on-error t)
+		    (cmd-line (helm-pt--command helm-pattern)))
+		;; Start pt process.
+		(prog1            ; This function should return the process first.
+		    (start-file-process-shell-command
+		     "*helm pt*" helm-buffer cmd-line)
+		  ;; Init sentinel.
+		  (set-process-sentinel
+		   (get-buffer-process helm-buffer)
+		   #'(lambda (process event)
+		       ;; need to FIX this and actually recognize exit-code
+		       (let ((status (process-status process)))
+			 (cond ((process-live-p process)
+				(helm-process-deferred-sentinel-hook process event helm-ff-default-directory))
+			       ((= (process-exit-status process) 2)
+				(with-current-buffer helm-buffer
+				  (insert (concat "* Exit with code 2, no result found,"
+						  " command line was:\n\n "
+						  (helm-pt--command helm-pattern)))))
+			       ((string= event "finished\n")
+				(with-helm-window
+				  (force-mode-line-update))
+				(message "Finished"))
+			       ;; Catch error output in log.
+			       (t (helm-log
+				   "Error: %s %s"
+				   (replace-regexp-in-string "\n" "" event))))))))))
+
 	    (defun helm-pt-exg-search (&optional arg)
 	      (interactive "p")
 	      (let ((old-idle-delay helm-input-idle-delay))
@@ -88,6 +119,8 @@
 		    (helm-do-pt "d:/Software/")
 		  (helm-projectile-pt))
 		(setq helm-input-idle-delay old-idle-delay)))
+
+	    (setq helm-input-idle-delay 0.1)
 
 	    (defadvice helm-do-pt (around helm-do-pt-idle-advice activate)
 	      (let ((old-input-idle-delay helm-input-idle-delay))
