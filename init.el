@@ -179,7 +179,7 @@
 (require 'init-navigation)
 (require 'init-smart-scan)
 (require 'init-company)
-;; (require 'init-evil)
+(require 'init-evil)
 (require 'init-helm)
 ;; (require 'init-god-mode)
 (require 'init-chat)

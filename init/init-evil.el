@@ -3,13 +3,16 @@
 
 (use-package evil
   :ensure t
-:defer t
-  :defer t
+  ;; :init
+  ;; (dolist (hook '(emacs-startup-hook))
+  ;;   (add-hook hook #'evil-mode))
   :config (progn
 	    (evil-mode 1)
 
 	    (setcdr evil-insert-state-map nil)
 	    (define-key evil-insert-state-map [escape] 'evil-normal-state)
+
+	    (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
 
 	    (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
 	    (define-key evil-insert-state-map (kbd "S-SPC") 'evil-normal-state)

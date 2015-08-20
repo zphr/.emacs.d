@@ -169,4 +169,13 @@
          (setq case-fold-search t)
          (setq truncate-lines t))))
 
+
+;;; ---------------------------------------- Google This
+
+(use-package google-this
+  :ensure t
+  :init
+  (dolist (hook '(prog-mode-hook text-mode-hook))
+    (add-hook hook #'google-this-mode)))
+
 (provide 'init-misc)
