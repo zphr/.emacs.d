@@ -1,5 +1,15 @@
 
-;; ---------------------------------------- Truncate Longe Lines
+;;; Code:
+
+;;; ---------------------------------------- Show Paren
+
+(use-package paren
+  :ensure t
+  :config
+  (show-paren-mode 1))
+
+
+;; ---------------------------------------- Truncate Long Lines
 
 (setq truncate-lines t)
 
@@ -7,6 +17,7 @@
 ;; ---------------------------------------- Electric Modes
 
 (electric-pair-mode t)
+
 
 ;; ---------------------------------------- Starter Kit Loot
 
@@ -69,12 +80,6 @@
       save-place-file (concat user-emacs-directory "places")
       backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
       diff-switches "-u")
-
-;; ---------------------------------------- Powerline
-
-(use-package powerline
-  :ensure t
-  :config (powerline-default-theme))
 
 
 ;;; ---------------------------------------- Fancy Narrow
@@ -170,6 +175,13 @@
          (setq truncate-lines t))))
 
 
+;;; ---------------------------------------- Golden Ratio
+
+(use-package golden-ratio
+  :ensure t
+  :config (golden-ratio 1))
+
+
 ;;; ---------------------------------------- Google This
 
 (use-package google-this
@@ -178,4 +190,6 @@
   (dolist (hook '(prog-mode-hook text-mode-hook))
     (add-hook hook #'google-this-mode)))
 
+
 (provide 'init-misc)
+;;; init-misc ends here

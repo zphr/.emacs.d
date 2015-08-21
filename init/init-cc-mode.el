@@ -255,7 +255,15 @@ header"
                                        (replace-regexp-in-string "\"" "\\\"" (buffer-substring-no-properties (region-beginning) (region-end)))
                                      (symbol-name (symbol-at-point)))))
                 (browse-url (concat "http://docs.unity3d.com/ScriptReference/30_search.html?q=" search-string))))
-	    
+
+	    (defun unity-log-stacktrace ()
+	      (interactive)
+	      (save-excursion
+		(newline)
+		(insert "Debug.Log(System.Environment.StackTrace);")
+		(c-indent-line-or-region)
+		(newline)))
+
 	    (defun unity-log-symbol-or-region (&optional arg)
 	      (interactive "P")
 	      (let* ((log-string (if (region-active-p)
@@ -297,6 +305,7 @@ header"
 					  (local-set-key (kbd "C-c C-i") 'look-up-unity-documentation)
 					  (local-set-key (kbd "C-c d") 'unity-log-symbol-or-region)
 					  (local-set-key (kbd "C-c a") 'unity-assert-symbol-or-region)
+					  (local-set-key (kbd "C-c s") 'unity-log-stacktrace)
 					  (diff-hl-mode t)
 					  ;; (set-buffer-file-coding-system 'utf-8-dos)
 					  (setq indent-tabs-mode nil)))))
@@ -353,14 +362,14 @@ header"
             (add-hook 'csharp-mode-hook (lambda ()
 					  (local-set-key (kbd "C-c a") 'unity-assert-symbol-or-region)))))
 
-(defun powerline-color-change ()
-  (if (fboundp 'projectile-project-root)
-      (cond ((string= (projectile-project-root) "d:/Software/geniusevil-client/")
-             (set-face-background 'powerline-active2 "#ab3737"))
-            ((string= (projectile-project-root) "d:/Software/gamebook-sdk/")
-             (set-face-background 'powerline-active2 "#000000"))
-            (t
-             (set-face-background 'powerline-active2 "#5F5F5F")))))
+;; (defun powerline-color-change ()
+;;   (if (fboundp 'projectile-project-root)
+;;       (cond ((string= (projectile-project-root) "d:/Software/geniusevil-client/")
+;;              (set-face-background 'powerline-active2 "#ab3737"))
+;;             ((string= (projectile-project-root) "d:/Software/gamebook-sdk/")
+;;              (set-face-background 'powerline-active2 "#000000"))
+;;             (t
+;;              (set-face-background 'powerline-active2 "#5F5F5F")))))
 
 ;; (nil . ((eval . (face-remap-set-base 'powerline-active2 '(:background "#000000")))))
 

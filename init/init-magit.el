@@ -4,7 +4,9 @@
 (use-package magit
   :ensure t
   :defer t
-  :bind ("C-x g" . magit-status)
+  :bind
+  ("C-S-g" . magit-status)
+  ("C-x g" . magit-status)
   :config (progn
 	    ;; ask for password avoid stdout
 	    (setenv "GIT_ASKPASS" "git-gui--askpass")))
@@ -39,6 +41,7 @@
   :ensure hydra
   :init
   (add-hook 'after-init-hook #'global-diff-hl-mode)
+  (add-hook 'dired-mode-hook #'diff-hl-dired-mode)
   :defer t
   :config (progn
 	    (global-diff-hl-mode)

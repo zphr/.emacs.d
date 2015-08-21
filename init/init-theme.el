@@ -7,7 +7,6 @@
 ;;   :ensure t
 ;;   :config (load-theme 'zenburn))
 
-
 ;; (require-package 'subatomic-theme)
 ;; (load-theme 'subatomic)
 

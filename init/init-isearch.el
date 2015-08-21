@@ -2,11 +2,9 @@
 ;; Show number of matches while searching
 (use-package anzu
   :ensure t
-:defer t
   :diminish anzu-mode
   :config (progn
 	    (global-anzu-mode t)	    
-
 	    (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp)
 	    (global-set-key [remap query-replace] 'anzu-query-replace)))
 
@@ -76,12 +74,8 @@ This is useful when followed by an immediate kill."
 ;;; ---------------------------------------- Swiper
 
 (use-package swiper
-  :ensure t)
-
-(use-package swiper-helm
   :ensure t
-  :defer t
-  :bind ("M-s" . swiper-helm))
+  :bind ("M-s" . swiper))
 
 
 (provide 'init-isearch)
