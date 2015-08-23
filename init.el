@@ -179,7 +179,6 @@
 (require 'init-navigation)
 (require 'init-smart-scan)
 (require 'init-company)
-(require 'init-evil)
 (require 'init-helm)
 ;; (require 'init-god-mode)
 (require 'init-chat)
@@ -188,3 +187,4 @@
 (require 'init-python)
 (require 'init-hydra)
 (require 'init-prodigy)
+(require 'init-evil)
