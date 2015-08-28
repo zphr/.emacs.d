@@ -178,17 +178,24 @@
 ;;; ---------------------------------------- Golden Ratio
 
 (use-package golden-ratio
+  :diminish golden-ratio-mode
   :ensure t
-  :config (golden-ratio 1))
+  :config (golden-ratio-mode t))
 
 
 ;;; ---------------------------------------- Google This
 
 (use-package google-this
+  :diminish google-this-mode
   :ensure t
-  :init
-  (dolist (hook '(prog-mode-hook text-mode-hook))
-    (add-hook hook #'google-this-mode)))
+  :config (google-this-mode t))
+
+
+;;; ---------------------------------------- Shrink Whitespace
+
+(use-package shrink-whitespace
+  :ensure t
+  :bind ("C-S-j" . shrink-whitespace))
 
 
 (provide 'init-misc)

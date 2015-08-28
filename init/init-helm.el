@@ -6,6 +6,7 @@
   :defer t)
 
 (use-package helm
+  :diminish helm-mode
   :ensure t
   :bind (("C-8" . helm-mini)
 	 ("C-x C-i" . helm-imenu)

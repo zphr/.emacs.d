@@ -187,4 +187,5 @@
 (require 'init-python)
 (require 'init-hydra)
 (require 'init-prodigy)
-(require 'init-evil)
+(require 'init-mode-line)
+;; (require 'init-evil)

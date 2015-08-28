@@ -33,6 +33,7 @@
 	c-end-of-statement
 	c-indent-line-or-region
 	c-indent-new-comment-line
+	c-mark-function
 	change-inner
 	comment-dwim
 	csharp-insert-open-brace

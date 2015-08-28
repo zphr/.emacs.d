@@ -31,26 +31,43 @@
   :ensure t
   :config (progn
 	    (global-evil-leader-mode t)
-	    (evil-leader/set-leader "ö")
+	    (evil-leader/set-leader "<SPC>")
 
 	    (evil-leader/set-key "b" 'helm-mini)
 	    (evil-leader/set-key "r" 'jump-to-register)
-	    (evil-leader/set-key "g" 'magit-status)))
+	    (evil-leader/set-key "g" 'magit-status)
+
+	    (evil-leader/set-key "hr" 'helm-resume)
+
+	    (evil-leader/set-key "G" 'google-this-lucky-search)
+
+	    (eval-after-load 'shrink-whitespace
+	      (evil-leader/set-key "o" 'shrink-whitespace))))
+
 
 (use-package evil-quickscope
   :ensure t
   :config (global-evil-quickscope-mode t))
 
+
 (use-package evil-space
   :ensure t
+  :init
+  (setq evil-space-next-key (kbd "ö"))
+  (setq evil-space-prev-key (kbd "Ö"))
   :config (progn
-	    (evil-space-mode)
-
-	    (setq evil-space-prev-key (kbd "M-SPC"))
+	    (evil-space-mode t)
 	    
 	    (evil-space-setup "t" ";" ",")
 	    (evil-space-setup "f" ";" ",")
 	    (evil-space-setup "T" "," ";")
 	    (evil-space-setup "F" "," ";")))
+
+
+(use-package evil-org
+  :ensure t
+  :init
+  (dolist (hook '(org-mode-hook))
+    (add-hook hook #'evil-org-mode)))
 
 (provide 'init-evil)
