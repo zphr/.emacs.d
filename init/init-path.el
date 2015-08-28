@@ -76,7 +76,7 @@
   (setenv "PATH"
           (concat
            "~/.emacs.d/" ";"
-	   "C:/Program Files \(x86\)/Git/bin/" ";"
+	   "C:/Program Files/Git/bin/" ";"
            "c:/Emacs/bin/" ";"
 	   "C:/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/" ";"
 	   "c:/omnisharp-server/OmniSharp/bin/Release/" ";"
@@ -97,7 +97,7 @@
 	   (getenv "PATH")))
 
   (setq exec-path '("~/.emacs.d/" 
-		    "C:/Program Files \(x86\)/Git/bin/" 
+		    "C:/Program Files/Git/bin/" 
 		    "c:/Emacs/bin/" 
 		    "C:/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/" 
 		    "c:/omnisharp-server/OmniSharp/bin/Release/"
