@@ -57,5 +57,12 @@
 
 	    (global-set-key (kbd "C-c g") 'hydra-diff-hl/body)))
 
+;; ---------------------------------------- Magit File Notify
+
+(use-package magit-filenotify
+  :ensure t
+  :init
+  (add-hook 'magit-status-mode-hook #'magit-filenotify-mode))
+
 
 (provide 'init-magit)

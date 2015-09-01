@@ -6,24 +6,25 @@
   :config (popwin-mode 1))
 
 
-;; ---------------------------------------- Ace Window
+;; ;; ---------------------------------------- Ace Window
 
-(use-package ace-window
+;; (use-package ace-window
+;;   :ensure t
+;; :defer t
+;;   :bind ("C-S-o" . ace-window)
+;;   :config (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+
+;; ---------------------------------------- Switch Window
+
+(use-package switch-window
   :ensure t
-:defer t
-  :bind ("C-S-o" . ace-window)
-  :config (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
-
-;; ;; ---------------------------------------- Switch Window
-
-;; (require-package 'switch-window)
-
-;; (defadvice switch-window (before switch-frame-if-just-one-window activate)
-;;   "Switch to other frame if only one window exists"
-;;   (if (< (length (window-list)) 2)
-;;       (other-frame 1)))
-
-;; (global-set-key (kbd "C-S-o") 'switch-window)
+  :bind 
+  ("C-S-o" . switch-window)
+  :config (progn
+	    (defadvice switch-window (before switch-frame-if-just-one-window activate)
+	      "Switch to other frame if only one window exists"
+	      (if (< (length (window-list)) 2)
+		  (other-frame 1)))))
 
 ;;; ---------------------------------------- IBuffer
 
