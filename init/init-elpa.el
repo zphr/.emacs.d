@@ -37,5 +37,10 @@ re-downloaded in order to locate PACKAGE."
 
 (package-initialize)
 
+;;; ---------------------------------------- Paradox
+
+(use-package paradox
+  :ensure t
+  :defer t)
 
 (provide 'init-elpa)

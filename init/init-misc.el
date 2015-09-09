@@ -175,14 +175,14 @@
          (setq truncate-lines t))))
 
 
-;;; ---------------------------------------- Golden Ratio
+;; ;;; ---------------------------------------- Golden Ratio
 
-(use-package golden-ratio
-  :diminish golden-ratio-mode
-  :ensure t
-  :config (progn
-	    (setq golden-ratio-auto-scale t)
-	    (golden-ratio-mode 1)))
+;; (use-package golden-ratio
+;;   :diminish golden-ratio-mode
+;;   :ensure t
+;;   :config (progn
+;; 	    (setq golden-ratio-auto-scale t)
+;; 	    (golden-ratio-mode 1)))
 
 
 ;;; ---------------------------------------- Google This

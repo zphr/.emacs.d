@@ -57,5 +57,23 @@
   :defer t
   :bind ("M-z" . zop-up-to-char))
 
+;;; ---------------------------------------- Misc Commands
+
+(defun join-lines-in-region ()
+  (interactive)
+  (if (region-active-p)
+      (let ((line-count (count-lines (region-beginning) (region-end))))
+	(save-excursion
+	      (goto-char (region-end))
+	      (dotimes (number line-count)
+		(delete-indentation))))))
+
+(defun my-delete-indentation ()
+  (interactive)
+  (if (region-active-p)
+      (join-lines-in-region)
+    (delete-indentation)))
+
+(global-set-key (kbd "M-J") 'my-delete-indentation)
 
 (provide 'init-editing-utils)

@@ -270,8 +270,11 @@ header"
 	      (interactive "P")
 	      (let* ((log-string (if (region-active-p)
 				     (buffer-substring (region-beginning) (region-end))
-				   (symbol-name (symbol-at-point))))
-		     (debug-string (if arg
+				   (if (eq nil (symbol-at-point))
+				       (read-string "Log String: ")
+				     (symbol-name (symbol-at-point)))))
+		     (only-string-log (or arg (eq nil (symbol-at-point))))
+		     (debug-string (if only-string-log
 				       (concat "Debug.Log(\"" log-string "\");")
 				     (concat "Debug.Log(\"" log-string ": \" + " log-string ");"))))
 		(message debug-string)

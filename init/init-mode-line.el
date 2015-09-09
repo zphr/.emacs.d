@@ -7,11 +7,11 @@
   :ensure t
   :config (progn
 	    (setq telephone-line-lhs
-		  '((accent . (telephone-line-vc-segment
+		  '((accent . (telephone-line-buffer-segment
 			       telephone-line-erc-modified-channels-segment
 			       telephone-line-process-segment))
 		    (nil    . (telephone-line-minor-mode-segment
-			       telephone-line-buffer-segment))))
+			       telephone-line-vc-segment))))
 
 	    (setq telephone-line-rhs
 		  '((nil    . (telephone-line-misc-info-segment))

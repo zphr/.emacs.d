@@ -8,6 +8,7 @@
 	 ("M-ä" . mc/mark-previous-like-this))
   :config (progn
 	    (define-prefix-command 'multiple-cursors-map)
+	    (global-set-key (kbd "M-RET") 'multiple-cursors-map)
 	    (define-key multiple-cursors-map (kbd "da") 'mc/mark-all-like-this-in-defun)
 	    (define-key multiple-cursors-map (kbd "dm") 'mc/mark-all-like-this-in-defun)
 	    (define-key multiple-cursors-map (kbd "dw") 'mc/mark-all-words-like-this-in-defun)
