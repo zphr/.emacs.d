@@ -200,5 +200,22 @@
   :bind ("C-S-j" . shrink-whitespace))
 
 
+;;; ---------------------------------------- General Scrolling
+
+(setq next-screen-context-lines 10)
+
+
+;; ;;; ---------------------------------------- Sublimity
+
+;; (use-package sublimity
+;;   :ensure t
+;;   :config (progn
+;; 	    (require 'sublimity-scroll)
+
+;; 	    (setq sublimity-scroll-weight 10
+;; 		  sublimity-scroll-drift-length 5)
+
+;; 	    (sublimity-mode 1)))
+
 (provide 'init-misc)
 ;;; init-misc ends here

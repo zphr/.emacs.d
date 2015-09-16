@@ -57,6 +57,13 @@
   :defer t
   :bind ("M-z" . zop-up-to-char))
 
+;;; ---------------------------------------- WhiteSpace Cleanup
+
+(use-package whitespace-cleanup-mode
+  :ensure t
+  :init
+  (add-hook 'prog-mode-hook #'whitespace-cleanup-mode))
+
 ;;; ---------------------------------------- Misc Commands
 
 (defun join-lines-in-region ()

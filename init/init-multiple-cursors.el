@@ -3,22 +3,25 @@
 
 (use-package multiple-cursors
   :ensure t
-  :bind (("C-S-c C-S-c" . mc/edit-lines)
-	 ("M-ö" . mc/mark-next-like-this)
-	 ("M-ä" . mc/mark-previous-like-this))
+  :init
+  (add-hook 'prog-mode-hook #'multiple-cursors-mode)
+  (define-prefix-command 'multiple-cursors-map)
+  (bind-key "M-RET" 'multiple-cursors-map)
+  (bind-key "da" 'mc/mark-all-like-this-in-defun multiple-cursors-map)
+  (bind-key "dm" 'mc/mark-all-like-this-in-defun multiple-cursors-map)
+  (bind-key "dw" 'mc/mark-all-words-like-this-in-defun multiple-cursors-map)
+  (bind-key "w" 'mc/mark-all-words-like-this multiple-cursors-map)
+  (bind-key "m" 'mc/mark-all-like-this-dwim multiple-cursors-map)
+  (bind-key "l" 'mc/edit-lines multiple-cursors-map)
+  (bind-key "eb" 'mc/edit-beginnings-of-lines multiple-cursors-map)
+  (bind-key "el" 'mc/edit-ends-of-lines multiple-cursors-map)
+  (bind-key "n" 'mc/insert-numbers multiple-cursors-map)
+  (bind-key "r" 'mc/reverse-regions multiple-cursors-map)
+  :bind
+  (("C-S-c C-S-c" . mc/edit-lines)
+   ("M-ö" . mc/mark-next-like-this)
+   ("M-ä" . mc/mark-previous-like-this))
   :config (progn
-	    (define-prefix-command 'multiple-cursors-map)
-	    (global-set-key (kbd "M-RET") 'multiple-cursors-map)
-	    (define-key multiple-cursors-map (kbd "da") 'mc/mark-all-like-this-in-defun)
-	    (define-key multiple-cursors-map (kbd "dm") 'mc/mark-all-like-this-in-defun)
-	    (define-key multiple-cursors-map (kbd "dw") 'mc/mark-all-words-like-this-in-defun)
-	    (define-key multiple-cursors-map (kbd "w") 'mc/mark-all-words-like-this)
-	    (define-key multiple-cursors-map (kbd "m") 'mc/mark-all-like-this-dwim)
-	    (define-key multiple-cursors-map (kbd "l") 'mc/edit-lines)
-	    (define-key multiple-cursors-map (kbd "eb") 'mc/edit-beginnings-of-lines)
-	    (define-key multiple-cursors-map (kbd "el") 'mc/edit-ends-of-lines)
-	    (define-key multiple-cursors-map (kbd "n") 'mc/insert-numbers)
-	    (define-key multiple-cursors-map (kbd "r") 'mc/reverse-regions)
 
 	    (defadvice mc/mark-previous-like-this (before mark-previous-default-mark-sexp
 							  (arg) activate)

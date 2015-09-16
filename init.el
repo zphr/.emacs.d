@@ -188,4 +188,4 @@
 (require 'init-hydra)
 (require 'init-prodigy)
 (require 'init-mode-line)
-;; (require 'init-evil)
+(require 'init-evil)

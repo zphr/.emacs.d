@@ -1,8 +1,9 @@
 
 (use-package god-mode
   :ensure t
-:defer t
   :defer t
+  :bind
+  ("<return>" . god-mode)
   :config (progn
 	    (god-mode-all)
 	    
@@ -39,6 +40,7 @@
 	    (define-key god-local-mode-map (kbd "B") 'backward-word)
 
 	    (define-key god-local-mode-map (kbd "C") 'comment-dwim)
+	    (define-key god-local-mode-map (kbd "u") 'undo)
 
 	    (define-key god-local-mode-map (kbd "O") 'switch-window)
 

@@ -82,6 +82,7 @@
 	mark-sexp
 	multiple-cursors-hydra/mc/unmark-next-like-this
 	my-decrement-number-decimal
+	my-delete-indentation
 	my-increment-number-decimal
 	my-kill-statement
 	org-backward-sentence
@@ -120,6 +121,7 @@
 	python-nav-backward-up-list
 	query-replace
 	reindent-then-newline-and-indent
+	shrink-whitespace
 	smartscan-restrict-to-defun-forward
 	sp-kill-hybrid-sexp
 	split-line

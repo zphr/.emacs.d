@@ -153,6 +153,7 @@ header"
     (save-excursion
       (c-end-of-statement)
       (kill-region start (point))
+      (delete-blank-lines)
       (delete-blank-lines))))
 
 (add-hook 'c++-mode-hook (lambda ()

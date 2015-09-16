@@ -10,13 +10,13 @@
  '(compilation-skip-threshold 2)
  '(custom-safe-themes
    (quote
-    ("2e5705ad7ee6cfd6ab5ce81e711c526ac22abed90b852ffaf0b316aa7864b11f" "95a6ac1b01dcaed4175946b581461e16e1b909d354ada79770c0821e491067c6" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "b06aaf5cefc4043ba018ca497a9414141341cb5a2152db84a9a80020d35644d1" "d7fd415a5525efd5f969cb251dabf561562059240c55f67fa9bce5108d944d31" "3dafeadb813a33031848dfebfa0928e37e7a3c18efefa10f3e9f48d1993598d3" "2a05e0061e801af2954f1b2f539d3c411c9a48ab403b8fd0f20c862697c7675c" default)))
+    ("19352d62ea0395879be564fc36bc0b4780d9768a964d26dfae8aad218062858d" "2e5705ad7ee6cfd6ab5ce81e711c526ac22abed90b852ffaf0b316aa7864b11f" "95a6ac1b01dcaed4175946b581461e16e1b909d354ada79770c0821e491067c6" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "b06aaf5cefc4043ba018ca497a9414141341cb5a2152db84a9a80020d35644d1" "d7fd415a5525efd5f969cb251dabf561562059240c55f67fa9bce5108d944d31" "3dafeadb813a33031848dfebfa0928e37e7a3c18efefa10f3e9f48d1993598d3" "2a05e0061e801af2954f1b2f539d3c411c9a48ab403b8fd0f20c862697c7675c" default)))
  '(ergoemacs-mode t)
  '(fci-rule-color "#383838")
  '(global-company-mode t)
  '(global-flycheck-mode t)
  '(helm-external-programs-associations (quote (("svg" . "inkscape.exe"))))
- '(magit-log-arguments (quote ("--graph" "--decorate")))
+ '(magit-log-arguments (quote ("--graph" "--color" "--decorate")))
  '(menu-bar-mode nil)
  '(org-agenda-files (quote ("c:/Users/foolhouse/Desktop/TODO.org")))
  '(paradox-github-token t)
