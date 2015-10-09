@@ -1,10 +1,10 @@
 ;; ---------------------------------------- Windows Path
 
-(when (string= system-name "foolhouse") ;; mac specific settings
+(when (string= system-name "FOOLHOUSE-PC") ;; mac specific settings
   (setenv "PATH"
           (concat
            "~/.emacs.d/" ";"
-	   "C:/Program Files \(x86\)/Git/bin/" ";"
+	   "C:/Program Files/Git/bin/" ";"
 	   "c:/Python34/" ";"
            ;; "C:/Python27/" ";"
            ;; "C:/Python26/" ";"
@@ -18,7 +18,7 @@
 	   "C:/Program\ Files\ \(x86\)/gs/gs9.14/bin/" ";"
            "C:/Program Files/TortoiseHg" ";"
            "C:/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 9\.0/Common7/IDE" ";"
-           "C:/Program\ Files\ \(x86\)/Git/bin" ";"
+           "C:/Program\ Files/Git/bin" ";"
            "c:/Program Files/Blender Foundation/Blender/" ";"
            "c:/Users/Christian/Desktop/emacs-24.3/bin/" ";"
            "C:/Users/Christian/AppData/Roaming/.emacs.d/svn/bin/"  ";"
@@ -38,7 +38,7 @@
            (getenv "PATH")))
 
   (setq exec-path '("~/.emacs.d/" 
-		    "C:/Program Files (x86)/Git/bin/"
+		    "C:/Program Files/Git/bin/"
                     "c:/Python34/"
                     ;; "C:/Python27/" 
                     "c:/Emacs/bin/"
@@ -53,7 +53,7 @@
                     "C:/Program Files/TortoiseHg"
 		    "C:/Program Files (x86)/CVSNT/"
 		    "c:/texlive/2014/bin/win32/"
-                    "C:/Program/ Files\ \(x86\)/Git/bin" 
+                    "C:/Program/ Files/Git/bin" 
                     "c:/Program Files/Blender Foundation/Blender/"
                     "c:/Users/Christian/Desktop/emacs-24.3/bin/"
                     "C:/Users/Christian/AppData/Roaming/.emacs.d/svn/bin/"

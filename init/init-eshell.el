@@ -8,7 +8,7 @@
 
 ;; ---------------------------------------- Bash Setup
 
-(setq explicit-shell-file-name "c:/Program Files (x86)/Git/bin/bash.exe")
+(setq explicit-shell-file-name "c:/Program Files/Git/bin/bash.exe")
 (setq shell-file-name "bash")
 (setq explicit-bash-args '("--noediting" "--login" "-i"))
 (setenv "SHELL" shell-file-name)

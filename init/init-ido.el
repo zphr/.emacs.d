@@ -52,7 +52,6 @@
 
 (use-package flx-ido
   :ensure t
-:defer t
   :init (setq gc-cons-threshold 20000000) ;; speed up garbage collector 
   :config (progn
 	    (flx-ido-mode t)

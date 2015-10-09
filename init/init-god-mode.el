@@ -2,8 +2,8 @@
 (use-package god-mode
   :ensure t
   :defer t
-  :bind
-  ("<return>" . god-mode)
+  :init (setq original-cursor-color (face-foreground 'cursor))
+  :bind (("<return>" . god-mode))
   :config (progn
 	    (god-mode-all)
 	    
@@ -14,8 +14,6 @@
 
 	    (add-hook 'god-mode-enabled-hook 'my-update-cursor)
 	    (add-hook 'god-mode-disabled-hook 'my-update-cursor)
-
-	    (setq original-cursor-color (face-foreground 'cursor))
 
 	    (defun god-mode-start ()
 	      (local-set-key (kbd "S-SPC") 'save-buffer)
@@ -41,7 +39,6 @@
 
 	    (define-key god-local-mode-map (kbd "C") 'comment-dwim)
 	    (define-key god-local-mode-map (kbd "u") 'undo)
-
 	    (define-key god-local-mode-map (kbd "O") 'switch-window)
 
 	    
