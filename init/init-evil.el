@@ -36,6 +36,7 @@
 	    (evil-leader/set-key "b" 'helm-mini)
 	    (evil-leader/set-key "r" 'jump-to-register)
 	    (evil-leader/set-key "g" 'magit-status)
+	    (evil-leader/set-key "i" 'helm-imenu)
 
 	    (evil-leader/set-key "hr" 'helm-resume)
 

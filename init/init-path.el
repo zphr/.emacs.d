@@ -72,7 +72,7 @@
 		    "C:/Program Files (x86)/Unity/Editor/Data/Mono/lib/mono/2.0"
                     (getenv "PATH"))))
 
-(when (string= system-name "BLACKWORTHMOODY") ;; mac specific settings
+(when (string= system-name "GENIUS-02") ;; mac specific settings
   (setenv "PATH"
           (concat
            "~/.emacs.d/" ";"

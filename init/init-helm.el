@@ -129,7 +129,7 @@
 		ad-do-it
 		(setq helm-input-idle-delay old-input-idle-delay)))
 
-	    (if (string= system-name "BLACKWORTHMOODY")
+	    (if (string= system-name "GENIUS-02")
 		(global-set-key (kbd "C-c C-h") 'helm-pt-exg-search)
 	      (global-set-key (kbd "C-c C-h") 'helm-projectile-pt))))
 

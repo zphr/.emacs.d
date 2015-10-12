@@ -18,9 +18,9 @@
   (bind-key "n" 'mc/insert-numbers multiple-cursors-map)
   (bind-key "r" 'mc/reverse-regions multiple-cursors-map)
   :bind
-  (("C-S-c C-S-c" . mc/edit-lines)
-   ("M-ö" . mc/mark-next-like-this)
-   ("M-ä" . mc/mark-previous-like-this))
+  ("C-S-c C-S-c" . mc/edit-lines)
+  ("M-ö" . mc/mark-next-like-this)
+  ("M-ä" . mc/mark-previous-like-this)
   :config (progn
 
 	    (defadvice mc/mark-previous-like-this (before mark-previous-default-mark-sexp

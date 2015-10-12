@@ -7,7 +7,7 @@
   :bind ("C-7" . prodigy)
   :config (progn
             ;;; EXG Services 
-	    (when (string= system-name "BLACKWORTHMOODY")
+	    (when (string= system-name "GENIUS-02")
 	      (prodigy-define-service
 		:name "Omnisharp gamebook-sdk"
 		:command "OmniSharp"

@@ -1,6 +1,6 @@
 ;;; ---------------------------------------- CC Mode
 
-(cond ((string= system-name "BLACKWORTHMOODY")
+(cond ((string= system-name "GENIUS-02")
        (setq OpenFileToolValue "12"))
       ((string= system-name "foolhouse")
        (setq OpenFileToolValue "10"))

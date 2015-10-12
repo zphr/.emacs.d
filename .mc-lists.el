@@ -129,6 +129,7 @@
 	transpose-sexps
 	undefined
 	unity-assert-symbol-or-region
+	unity-log-symbol-or-region
 	universal-argument-minus
 	wdired-next-line
 	wdired-previous-line
