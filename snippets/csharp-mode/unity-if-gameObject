@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-if-gameObject
+# key: ifgo
+# binding: direct-keybinding
+# --
+if (gameObject.name.Equals("$1"))
+{
+    $0
+}

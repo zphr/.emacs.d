@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-debug-foreach
+# key: dfe
+# binding: direct-keybinding
+# --
+foreach(var $1 in $2)
+    Debug.Log("$1: " + $1);

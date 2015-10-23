@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-on-disable
+# key: ond
+# --
+private void OnDisable()
+{
+    $0
+}

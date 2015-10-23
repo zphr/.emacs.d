@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-gameobject-name-equals
+# key: goneq
+# binding: direct-keybinding
+# --
+gameObject.name.Equals("$0")

@@ -16,7 +16,7 @@
  '(global-company-mode t)
  '(global-flycheck-mode t)
  '(helm-external-programs-associations (quote (("svg" . "inkscape.exe"))))
- '(magit-log-arguments (quote ("--graph" "--color" "--decorate")))
+ '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n100")))
  '(menu-bar-mode nil)
  '(org-agenda-files (quote ("c:/Users/foolhouse/Desktop/TODO.org")))
  '(paradox-github-token t)
@@ -146,6 +146,7 @@
 	       (concat
 		(locate-dominating-file buffer-file-name master-name)
 		master-name)))))))
+ '(session-use-package t nil (session))
  '(shift-select-mode nil)
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map

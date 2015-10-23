@@ -32,6 +32,8 @@
   :config
   (require 'spaceline-config)
   (setq powerline-default-separator 'wave)
+  (setq spaceline-window-numbers-unicode t)
+  (setq spaceline-workspace-numbers-unicode t)
   (spaceline-emacs-theme))
 
 

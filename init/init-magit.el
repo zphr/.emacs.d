@@ -21,18 +21,19 @@
   :defer t
   :config (progn
 	    (require 'magit-popup)
-	    (magit-define-popup magit-pull-request-popup
-				"Popup console for pull request commands."
-				'magit-commands
-				:actions  '((?g "Reload" magit-gh-pulls-reload)
-					    (?b "Create Branch" magit-gh-pulls-create-branch)
-					    (?f "Fetch Commits" magit-gh-pulls-fetch-commits)
-					    (?m "Merge Pull Request" magit-gh-pulls-merge-pull-request)
-					    (?c "Create Pull Request" magit-gh-pulls-create-pull-request)
-					    (?o "Open In Browser" magit-gh-pulls-open-in-browser))
-				:default-action 'magit-gh-pulls-reload)
-	    (unbind-key "#" magit-gh-pulls-mode-map)
-	    (bind-key "#" 'magit-pull-request-popup magit-gh-pulls-mode-map)))
+	    ;; (magit-define-popup magit-pull-request-popup
+	    ;; 			"Popup console for pull request commands."
+	    ;; 			'magit-commands
+	    ;; 			:actions  '((?g "Reload" magit-gh-pulls-reload)
+	    ;; 				    (?b "Create Branch" magit-gh-pulls-create-branch)
+	    ;; 				    (?f "Fetch Commits" magit-gh-pulls-fetch-commits)
+	    ;; 				    (?m "Merge Pull Request" magit-gh-pulls-merge-pull-request)
+	    ;; 				    (?c "Create Pull Request" magit-gh-pulls-create-pull-request)
+	    ;; 				    (?o "Open In Browser" magit-gh-pulls-open-in-browser))
+	    ;; 			:default-action 'magit-gh-pulls-reload)
+	    ;; (unbind-key "#" magit-gh-pulls-mode-map)
+	    ;; (bind-key "#" 'magit-pull-request-popup magit-gh-pulls-mode-map)
+	    ))
 
 
 ;; ---------------------------------------- Diff Hl

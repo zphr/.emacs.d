@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: untiy-debug-log-string
+# key: dl
+# binding: direct-keybinding
+# --
+Debug.Log("$1"${2:, gameObject});$0

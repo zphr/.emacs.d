@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity foreach
+# key: fe
+# --
+foreach(var $1 in $2)
+{
+    $0
+}

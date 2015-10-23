@@ -95,6 +95,7 @@
 	org-force-self-insert
 	org-forward-sentence
 	org-insert-heading
+	org-insert-link
 	org-kill-line
 	org-mark-element
 	org-metaleft

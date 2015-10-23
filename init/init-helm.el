@@ -17,13 +17,15 @@
 
 	    (bind-key "M-o" 'helm-buffer-switch-other-window helm-map)
 	    (bind-key "M-C-n" 'helm-next-source helm-map)
-	    (bind-key "M-C-p" 'helm-previous-source helm-map) 
+	    (bind-key "M-C-p" 'helm-previous-source helm-map)
+
+	    (setq helm-buffer-max-length 60)
 
 	    (setq helm-default-external-file-browser "explorer.exe")
 
 	    ;; (set-face-attribute 'helm-selection nil :inherit 'hl-line)
 
-            ;;; ---------------------------------------- Fuzzy Matching
+;;; ---------------------------------------- Fuzzy Matching
 	    (setq helm-recentf-fuzzy-match t)
 	    (setq helm-buffers-fuzzy-matching t)
 	    (setq helm-recentf-fuzzy-match t)
@@ -36,7 +38,7 @@
 	    (setq helm-apropos-fuzzy-match t)
 	    (setq helm-lisp-fuzzy-completion t)
 
-	    ;; ---------------------------------------- Input In Header 
+	    ;; ---------------------------------------- Input In Header
 	    (setq helm-echo-input-in-header-line t)
 
 	    (defun helm-hide-minibuffer-maybe ()
@@ -48,14 +50,14 @@
 		  (setq-local cursor-type nil))))
 
 	    (add-hook 'helm-minibuffer-set-up-hook 'helm-hide-minibuffer-maybe)
-	    
+
 	    (defun magit-status-for-helm-bookmark-candidate (candidate)
 	      (magit-status (bookmark-get-filename candidate)))
 
 	    (helm-add-action-to-source "Magit" 'magit-status-for-helm-bookmark-candidate helm-source-bookmarks 1)
 
 	    ;; ---------------------------------------- Mini Sources
-	    
+
 	    ;; (setq helm-sources-using-default-as-input nil)
 
 	    (setq helm-mini-default-sources '(helm-source-buffers-list
@@ -81,7 +83,16 @@
   :config (progn
 	    (setq helm-pt-args '("--smart-case" "--parallel"))
 
-	    ;; TODO check this stuff in!
+	    ;; (defun copy-candidate-description-as-org-link (candidate)
+	    ;;   (mapc (lambda (c) (org-insert-link c c c)) (helm-marked-candidates)))
+
+	    ;; (helm-add-action-to-source "Insert Org Links" 'copy-candidate-description-as-org-link helm-source-pt 1)
+
+	    (defun copy-candidate-description (candidate)
+	      (kill-new (mapconcat 'identity (helm-marked-candidates) "\n")))
+
+	    (helm-add-action-to-source "Kill Description" 'copy-candidate-description helm-source-pt 1)
+
 	    (defun helm-pt--process ()
 	      "Launch async process to supply candidates."
 	      (let ((debug-on-error t)

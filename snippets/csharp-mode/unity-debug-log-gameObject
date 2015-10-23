@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-debug-log-gameObject
+# key: dlgo
+# binding: direct-keybinding
+# --
+Debug.Log(gameObject.name$1);$0

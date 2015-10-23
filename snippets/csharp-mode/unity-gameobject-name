@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-gameobject-name
+# key: gon
+# binding: direct-keybinding
+# --
+gameObject.name

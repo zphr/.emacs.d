@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-update
+# key: upd
+# binding: direct-keybinding
+# --
+private void Update()
+{
+    $0
+}

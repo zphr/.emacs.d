@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-private
+# key: pv
+# binding: direct-keybinding
+# --
+private $0

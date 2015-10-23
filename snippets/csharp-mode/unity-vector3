@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-vector3
+# key: v
+# binding: direct-keybinding
+# --
+Vector3 $0

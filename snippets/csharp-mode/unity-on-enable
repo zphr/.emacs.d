@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-on-enable
+# key: one
+# --
+private void OnEnable()
+{
+    $0
+}

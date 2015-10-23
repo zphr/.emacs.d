@@ -94,6 +94,7 @@
 	   "C:/Program Files/Unity/Editor/" ";"
 	   "c:/Windows/system32/" ";"
 	   "C:/Program Files (x86)/NArrange 0.2.9/" ";"
+	   "C:/Program Files/SlikSvn/bin/"
 	   (getenv "PATH")))
 
   (setq exec-path '("~/.emacs.d/" 
@@ -115,7 +116,8 @@
 		    "C:/Program Files/Unity/Editor/"
 		    "c:/Windows/system32/" 
 		    "C:/Program Files (x86)/NArrange 0.2.9/"
-                    (getenv "PATH"))))
+		    "C:/Program Files/SlikSvn/bin/"
+		    (getenv "PATH"))))
 
 
 ;; ---------------------------------------- MacOS Path

@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-awake
+# key: awk
+# --
+private void Awake()
+{
+    $0
+}

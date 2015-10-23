@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-float-type
+# key: f
+# binding: direct-keybinding
+# --
+float $0
