@@ -2,27 +2,29 @@
 ;; ---------------------------------------- Dired
 
 (use-package dired
-  :config (progn
-	    (setq dired-isearch-filenames 'dwim)
-	    (setq dired-dwim-target t)
+  :bind
+  ("M-j" . dired-jump)
+  :config
+  (setq dired-isearch-filenames 'dwim)
+  (setq dired-dwim-target t)
 
-	    (defun dired-back-to-top ()
-	      (interactive)
-	      (beginning-of-buffer)
-	      (dired-next-line 4))
+  (defun dired-back-to-top ()
+    (interactive)
+    (beginning-of-buffer)
+    (dired-next-line 4))
 
-	    (define-key dired-mode-map (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
-	    (define-key dired-mode-map (kbd "M-+") 'dired-back-to-top)
+  (define-key dired-mode-map (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
+  (define-key dired-mode-map (kbd "M-+") 'dired-back-to-top)
 
-	    (defun dired-jump-to-bottom ()
-	      (interactive)
-	      (end-of-buffer)
-	      (dired-next-line -1))
+  (defun dired-jump-to-bottom ()
+    (interactive)
+    (end-of-buffer)
+    (dired-next-line -1))
 
-	    (define-key dired-mode-map (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
-	    (define-key dired-mode-map (kbd "M-#") 'dired-jump-to-bottom)
+  (define-key dired-mode-map (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
+  (define-key dired-mode-map (kbd "M-#") 'dired-jump-to-bottom)
 
-	    (define-key dired-mode-map (kbd "C-a") 'back-to-indentation)))
+  (define-key dired-mode-map (kbd "C-a") 'back-to-indentation))
 
 ;; ---------------------------------------- Dired-X
 
