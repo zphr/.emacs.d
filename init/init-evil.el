@@ -124,6 +124,24 @@
     (evil-leader/set-key "o" 'shrink-whitespace)))
 
 
+;;; ---------------------------------------- Evil Args
+
+(use-package evil-args
+  :ensure t
+  :config
+  (define-key evil-inner-text-objects-map "a" 'evil-inner-arg)
+  (define-key evil-outer-text-objects-map "a" 'evil-outer-arg)
+
+  ;; bind evil-forward/backward-args
+  (define-key evil-normal-state-map "L" 'evil-forward-arg)
+  (define-key evil-normal-state-map "H" 'evil-backward-arg)
+  (define-key evil-motion-state-map "L" 'evil-forward-arg)
+  (define-key evil-motion-state-map "H" 'evil-backward-arg)
+
+  ;; bind evil-jump-out-args
+  (define-key evil-normal-state-map "K" 'evil-jump-out-args))
+
+
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
