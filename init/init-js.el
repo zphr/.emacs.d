@@ -1,45 +1,60 @@
 
 ;;; ---------------------------------------- Tern
 
-(require-package 'tern)
-(require 'tern)
+(use-package tern
+  :ensure t)
 
 
 ;;; ---------------------------------------- Company Tern
 
-(require-package 'company-tern)
-(require 'company-tern)
+(use-package company-tern
+  :ensure t
+  :init
+  (eval-after-load 'company
+    '(add-to-list 'company-backends #'company-tern)))
 
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-tern))
 
 ;;; ---------------------------------------- JS2 Mode
 
-;; Let flycheck handle parse errors
-(setq-default js2-show-parse-errors nil)
-(setq-default js2-strict-missing-semi-warning nil)
-(setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
+(use-package js2-mode
+  :ensure t
+  :mode "\\.js\\'"
+  :config
+  ;; Let flycheck handle parse errors
+  (setq-default js2-show-parse-errors nil)
+  (setq-default js2-strict-missing-semi-warning nil)
+  (setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
 
-(add-hook 'js2-mode-hook (lambda () (flycheck-mode 1)))
+  (require 'js2-imenu-extras)
+  (js2-imenu-extras-setup)
 
-(require 'js2-imenu-extras)
-(js2-imenu-extras-setup)
+  (eval-after-load 'align
+    '(add-to-list 'align-c++-modes 'js2-mode))
 
-(eval-after-load 'align
-  '(add-to-list 'align-c++-modes 'js2-mode))
+  (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
-(setq js2-highlight-level 3)
+  (setq js2-highlight-level 3))
 
 ;;; ---------------------------------------- JS2 Refactor
 
-(require-package 'js2-refactor)
-(require 'js2-refactor)
+(use-package js2-refactor
+  :ensure t
+  :init
+  (add-hook 'js2-mode-hook #'js2-refactor-mode)
+  :config
+  (js2r-add-keybindings-with-prefix "C-c C-m"))
 
-(add-hook 'js2-mode-hook #'js2-refactor-mode)
 
-(js2r-add-keybindings-with-prefix "C-c C-m")
+;;; ---------------------------------------- JSON Mode
+
+(use-package json-mode
+  :ensure t
+  :mode "\\.json\\'"
+  :config
+  (defun json-reformat-sexp ()
+    (interactive)
+    (json-reformat-region (point) (save-excursion (end-of-sexp) (point))))
+  (bind-key (kbd "M-q") 'json-reformat-sexp json-mode-map))
 
 
 (provide 'init-js)
