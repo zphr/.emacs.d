@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-is-true
+# key: it
+# binding: direct-keybinding
+# --
+== true$0

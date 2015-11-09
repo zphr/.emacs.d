@@ -228,6 +228,14 @@
 ;; set key binding
 (global-set-key (kbd "C-,") 'switch-to-previous-buffer)
 
+;;; ---------------------------------------- Beacon
+
+(use-package beacon
+  :ensure t
+  :config
+  (setq beacon-blink-when-point-moves 10)
+  (beacon-mode 1))
+
 
 ;;; ---------------------------------------- Key Chord Mode
 

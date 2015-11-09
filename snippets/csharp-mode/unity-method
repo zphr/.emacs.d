@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-method
+# key: m
+# binding: direct-keybinding
+# --
+${1:$$(yas-choose-value '("public" "private" "protected" "internal"))} ${2:void} ${3:MethodName}(${4:Parameter})
+{
+    $0
+}

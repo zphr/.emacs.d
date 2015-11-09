@@ -128,7 +128,10 @@
 	      (let ((old-idle-delay helm-input-idle-delay))
 		(setq helm-input-idle-delay 0.1)
 		(if (>= arg 4)
-		    (helm-do-pt "d:/Software/")
+		    (let ((old-helm-pt-args helm-pt-args))
+		      (setq helm-pt-args '("--smart-case" "--parallel" "-G \".cs$\""))
+		      (helm-do-pt "d:/Software/")
+		      (setq helm-pt-args old-helm-pt-args))
 		  (helm-projectile-pt))
 		(setq helm-input-idle-delay old-idle-delay)))
 

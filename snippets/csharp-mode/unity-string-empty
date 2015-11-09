@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-string-empty
+# key: se
+# binding: direct-keybinding
+# --
+string.Empty$0

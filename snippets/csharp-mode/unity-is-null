@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-is-null
+# key: in
+# binding: direct-keybinding
+# --
+== null$0
