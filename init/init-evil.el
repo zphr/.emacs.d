@@ -87,7 +87,8 @@
 
 (use-package evil-quickscope
   :ensure t
-  :config (global-evil-quickscope-mode t))
+  :init
+  (add-hook 'prog-mode-hook #'turn-on-evil-quickscope-mode))
 
 
 ;; ;;; ---------------------------------------- Evil Space
