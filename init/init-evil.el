@@ -52,7 +52,7 @@
 	    ;; ---------------------------------------- Elisp Mode
 	    (evil-define-key 'normal emacs-lisp-mode-map "ge" 'eval-last-sexp)
 
-	    (eval-after-load 'omnisharp-mode
+	    (with-eval-after-load 'omnisharp-mode
 	      (progn
 		(evil-define-key 'normal omnisharp-mode-map "gd" 'omnisharp-go-to-definition)
 		(evil-define-key 'normal omnisharp-mode-map "gb" 'pop-tag-mark)
@@ -61,26 +61,38 @@
 		(evil-define-key 'normal omnisharp-mode-map (kbd "M-.") 'omnisharp-go-to-definition)))
 
 	    ;; ---------------------------------------- Helm
-	    (eval-after-load 'helm-mode
+	    (with-eval-after-load 'helm-mode
 	      (progn
-		;; Hydra for in Helm
-		(defhydra helm-like-unite ()
-		  ("q" keyboard-escape-quit "exit")
-		  ("<SPC>" helm-toggle-visible-mark "mark")
-		  ("a" helm-toggle-all-marks "(un)mark all")
-		  ("v" helm-execute-persistent-action)
-		  ("g" helm-beginning-of-buffer "top")
-		  ("h" helm-previous-source)
-		  ("l" helm-next-source)
-		  ("G" helm-end-of-buffer "bottom")
-		  ("j" helm-next-line "down")
-		  ("k" helm-previous-line "up")
-		  ("i" nil "cancel"))
+	    	;; Hydra for in Helm
+	    	(defhydra helm-like-unite ()
+	    	  ("q" keyboard-escape-quit "exit")
+	    	  ("<SPC>" helm-toggle-visible-mark "mark")
+	    	  ("a" helm-toggle-all-marks "(un)mark all")
+	    	  ("v" helm-execute-persistent-action)
+	    	  ("g" helm-beginning-of-buffer "top")
+	    	  ("h" helm-previous-source)
+	    	  ("l" helm-next-source)
+	    	  ("G" helm-end-of-buffer "bottom")
+	    	  ("j" helm-next-line "down")
+	    	  ("k" helm-previous-line "up")
+	    	  ("i" nil "cancel"))
 
-		(key-chord-define helm-map "jk" 'helm-like-unite/body)))
+	    	(key-chord-define helm-map "jk" 'helm-like-unite/body)))
 
-	    ;; (define-key evil-normal-state-map (kbd "C-r") 'isearch-backward)
-	    ))
+	    ;; ---------------------------------------- Subword Settings
+	    (global-subword-mode 1)
+
+	    (define-category ?U "Uppercase")
+	    (define-category ?u "Lowercase")
+	    (modify-category-entry (cons ?A ?Z) ?U)
+	    (modify-category-entry (cons ?a ?z) ?u)
+	    (make-variable-buffer-local 'evil-cjk-word-separating-categories)
+	    (add-hook 'subword-mode-hook
+		      (lambda ()
+			(if subword-mode
+			    (push '(?u . ?U) evil-cjk-word-separating-categories)
+			  (setq evil-cjk-word-separating-categories
+				(default-value 'evil-cjk-word-separating-categories)))))))
 
 ;;; ---------------------------------------- Evil Quickscope
 
