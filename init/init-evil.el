@@ -24,6 +24,9 @@
 	    (define-key evil-normal-state-map (kbd "M-n") 'evil-forward-paragraph)
 	    (define-key evil-normal-state-map (kbd "M-p") 'evil-backward-paragraph)
 
+	    (evil-define-key 'motion help-mode-map "i" 'forward-button)
+	    (evil-define-key 'motion help-mode-map "I" 'backward-button)
+
 	    ;; ---------------------------------------- Package Mode
 	    (add-to-list 'evil-normal-state-modes 'package-menu-mode)
 
@@ -77,7 +80,8 @@
 	    	  ("k" helm-previous-line "up")
 	    	  ("i" nil "cancel"))
 
-	    	(key-chord-define helm-map "jk" 'helm-like-unite/body)))
+	    	;; (key-chord-define helm-map "jk" 'helm-like-unite/body)
+		(define-key helm-map "ö" 'helm-like-unite/body)))
 
 	    ;; ---------------------------------------- Subword Settings
 	    (global-subword-mode 1)
@@ -157,6 +161,10 @@
   (evil-leader/set-key "i" 'helm-imenu)
   (evil-leader/set-key "x" 'helm-M-x)
 
+  (evil-leader/set-key "c" 'comment-dwim)
+  (evil-leader/set-key-for-mode 'emacs-lisp-mode "c" 'paredit-comment-dwim)
+  (evil-leader/set-key "x" 'helm-M-x)
+
   (evil-leader/set-key "hr" 'helm-resume)
 
   (evil-leader/set-key "G" 'google-this-lucky-search)
@@ -201,6 +209,8 @@
   (define-key evil-normal-state-map "K" 'evil-jump-out-args))
 
 
+(use-package ranger
+  :ensure t)
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
