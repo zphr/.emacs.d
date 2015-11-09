@@ -229,5 +229,13 @@
 (global-set-key (kbd "C-,") 'switch-to-previous-buffer)
 
 
+;;; ---------------------------------------- Key Chord Mode
+
+(use-package key-chord
+  :ensure t
+  :config
+  (key-chord-mode 1))
+
+
 (provide 'init-misc)
 ;;; init-misc ends here
