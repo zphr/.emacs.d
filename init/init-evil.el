@@ -6,97 +6,99 @@
   ;; :init
   ;; (dolist (hook '(emacs-startup-hook))
   ;;   (add-hook hook #'evil-mode))
-  :init (progn
-	  (setq evil-want-C-u-scroll t))
-  :config (progn
-	    (evil-mode 1)
+  :init
+  (setq evil-want-C-u-scroll t)
+  :config
+  (evil-mode 1)
 
-	    (setcdr evil-insert-state-map nil)
-	    (define-key evil-insert-state-map [escape] 'evil-normal-state)
+  (setcdr evil-insert-state-map nil)
+  (define-key evil-insert-state-map [escape] 'evil-normal-state)
 
-	    (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
+  (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
 
-	    (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-	    (define-key evil-insert-state-map (kbd "S-SPC") 'evil-normal-state)
-	    (define-key evil-normal-state-map (kbd "S-SPC") 'save-buffer)
-	    (define-key evil-normal-state-map (kbd "M-u") 'save-some-buffers)
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+  (define-key evil-insert-state-map (kbd "S-SPC") 'evil-normal-state)
+  (define-key evil-normal-state-map (kbd "S-SPC") 'save-buffer)
+  (define-key evil-normal-state-map (kbd "M-u") 'save-some-buffers)
 
-	    (define-key evil-normal-state-map (kbd "M-n") 'evil-forward-paragraph)
-	    (define-key evil-normal-state-map (kbd "M-p") 'evil-backward-paragraph)
+  (define-key evil-normal-state-map (kbd "M-n") 'evil-forward-paragraph)
+  (define-key evil-normal-state-map (kbd "M-p") 'evil-backward-paragraph)
 
-	    (evil-define-key 'motion help-mode-map "i" 'forward-button)
-	    (evil-define-key 'motion help-mode-map "I" 'backward-button)
+  (evil-define-key 'motion help-mode-map "i" 'forward-button)
+  (evil-define-key 'motion help-mode-map "I" 'backward-button)
 
-	    ;; ---------------------------------------- Package Mode
-	    (add-to-list 'evil-normal-state-modes 'package-menu-mode)
+  ;; ---------------------------------------- Package Mode
+  (with-eval-after-load 'package
+    (add-to-list 'evil-normal-state-modes 'package-menu-mode)
 
-	    (evil-add-hjkl-bindings package-menu-mode-map)
+    (evil-add-hjkl-bindings package-menu-mode-map)
 
-	    (evil-define-key 'normal package-menu-mode-map "/" 'evil-search-forward
-	      "i" 'package-menu-mark-install
-	      "q" 'quit-window
-	      "u" 'package-menu-mark-unmark
-	      "gr" 'revert-buffer
-	      "x" 'package-menu-execute)
+    (evil-define-key 'normal package-menu-mode-map "/" 'evil-search-forward
+      "i" 'package-menu-mark-install
+      "q" 'quit-window
+      "u" 'package-menu-mark-unmark
+      "gr" 'revert-buffer
+      "x" 'package-menu-execute))
 
-	    ;; ---------------------------------------- Prodigy
-	    (add-to-list 'evil-normal-state-modes 'prodigy-mode)
+  ;; ---------------------------------------- Prodigy
+  (with-eval-after-load 'prodigy
+    (add-to-list 'evil-normal-state-modes 'prodigy-mode)
 
-	    (evil-add-hjkl-bindings prodigy-mode-map)
+    (evil-add-hjkl-bindings prodigy-mode-map)
 
-	    (evil-define-key 'normal prodigy-mode-map "/" 'evil-search-forward
-	      "q" 'quit-window
-	      "s" 'prodigy-start
-	      "S" 'prodigy-stop
-	      "m" 'prodigy-mark
-	      "u" 'prodigy-unmark
-	      "U" 'prodigy-unmark-all)
+    (evil-define-key 'normal prodigy-mode-map "/" 'evil-search-forward
+      "q" 'quit-window
+      "s" 'prodigy-start
+      "S" 'prodigy-stop
+      "m" 'prodigy-mark
+      "u" 'prodigy-unmark
+      "U" 'prodigy-unmark-all))
 
-	    ;; ---------------------------------------- Elisp Mode
-	    (evil-define-key 'normal emacs-lisp-mode-map "ge" 'eval-last-sexp)
+  ;; ---------------------------------------- Elisp Mode
+  (evil-define-key 'normal emacs-lisp-mode-map "ge" 'eval-last-sexp)
 
-	    (with-eval-after-load 'omnisharp-mode
-	      (progn
-		(evil-define-key 'normal omnisharp-mode-map "gd" 'omnisharp-go-to-definition)
-		(evil-define-key 'normal omnisharp-mode-map "gb" 'pop-tag-mark)
-		(evil-define-key 'normal omnisharp-mode-map "gr" 'omnisharp-helm-find-usages)
+  (with-eval-after-load 'omnisharp-mode
+    (progn
+      (evil-define-key 'normal omnisharp-mode-map "gd" 'omnisharp-go-to-definition)
+      (evil-define-key 'normal omnisharp-mode-map "gb" 'pop-tag-mark)
+      (evil-define-key 'normal omnisharp-mode-map "gr" 'omnisharp-helm-find-usages)
 
-		(evil-define-key 'normal omnisharp-mode-map (kbd "M-.") 'omnisharp-go-to-definition)))
+      (evil-define-key 'normal omnisharp-mode-map (kbd "M-.") 'omnisharp-go-to-definition)))
 
-	    ;; ---------------------------------------- Helm
-	    (with-eval-after-load 'helm-mode
-	      (progn
-	    	;; Hydra for in Helm
-	    	(defhydra helm-like-unite ()
-	    	  ("q" keyboard-escape-quit "exit")
-	    	  ("<SPC>" helm-toggle-visible-mark "mark")
-	    	  ("a" helm-toggle-all-marks "(un)mark all")
-	    	  ("v" helm-execute-persistent-action)
-	    	  ("g" helm-beginning-of-buffer "top")
-	    	  ("h" helm-previous-source)
-	    	  ("l" helm-next-source)
-	    	  ("G" helm-end-of-buffer "bottom")
-	    	  ("j" helm-next-line "down")
-	    	  ("k" helm-previous-line "up")
-	    	  ("i" nil "cancel"))
+  ;; ---------------------------------------- Helm
+  (with-eval-after-load 'helm-mode
+    (progn
+      ;; Hydra for in Helm
+      (defhydra helm-like-unite ()
+	("q" keyboard-escape-quit "exit")
+	("<SPC>" helm-toggle-visible-mark "mark")
+	("a" helm-toggle-all-marks "(un)mark all")
+	("v" helm-execute-persistent-action)
+	("g" helm-beginning-of-buffer "top")
+	("h" helm-previous-source)
+	("l" helm-next-source)
+	("G" helm-end-of-buffer "bottom")
+	("j" helm-next-line "down")
+	("k" helm-previous-line "up")
+	("i" nil "cancel"))
 
-	    	;; (key-chord-define helm-map "jk" 'helm-like-unite/body)
-		(define-key helm-map "ö" 'helm-like-unite/body)))
+      ;; (key-chord-define helm-map "jk" 'helm-like-unite/body)
+      (define-key helm-map "ö" 'helm-like-unite/body)))
 
-	    ;; ---------------------------------------- Subword Settings
-	    (global-subword-mode 1)
+  ;; ---------------------------------------- Subword Settings
+  (global-subword-mode 1)
 
-	    (define-category ?U "Uppercase")
-	    (define-category ?u "Lowercase")
-	    (modify-category-entry (cons ?A ?Z) ?U)
-	    (modify-category-entry (cons ?a ?z) ?u)
-	    (make-variable-buffer-local 'evil-cjk-word-separating-categories)
-	    (add-hook 'subword-mode-hook
-		      (lambda ()
-			(if subword-mode
-			    (push '(?u . ?U) evil-cjk-word-separating-categories)
-			  (setq evil-cjk-word-separating-categories
-				(default-value 'evil-cjk-word-separating-categories)))))))
+  (define-category ?U "Uppercase")
+  (define-category ?u "Lowercase")
+  (modify-category-entry (cons ?A ?Z) ?U)
+  (modify-category-entry (cons ?a ?z) ?u)
+  (make-variable-buffer-local 'evil-cjk-word-separating-categories)
+  (add-hook 'subword-mode-hook
+	    (lambda ()
+	      (if subword-mode
+		  (push '(?u . ?U) evil-cjk-word-separating-categories)
+		(setq evil-cjk-word-separating-categories
+		      (default-value 'evil-cjk-word-separating-categories))))))
 
 ;;; ---------------------------------------- Evil Quickscope
 
@@ -209,8 +211,20 @@
   (define-key evil-normal-state-map "K" 'evil-jump-out-args))
 
 
+;;; ---------------------------------------- Ranger
+
 (use-package ranger
   :ensure t)
+
+
+;;; ---------------------------------------- Evil Textobj Anyblock
+
+(use-package evil-textobj-anyblock
+  :ensure t
+  :config
+  (define-key evil-inner-text-objects-map "b" 'evil-textobj-anyblock-inner-block)
+  (define-key evil-outer-text-objects-map "b"'evil-textobj-anyblock-a-block))
+
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
