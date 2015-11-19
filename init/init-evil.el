@@ -27,6 +27,12 @@
   (evil-define-key 'motion help-mode-map "i" 'forward-button)
   (evil-define-key 'motion help-mode-map "I" 'backward-button)
 
+  (with-eval-after-load 'diff-hl
+    (evil-define-key 'normal prog-mode-map "gj" 'diff-hl-next-hunk)
+    (evil-define-key 'normal prog-mode-map "gk" 'diff-hl-previous-hunk)
+    (evil-define-key 'normal prog-mode-map "gr" 'diff-hl-revert-hunk)
+    (evil-define-key 'normal prog-mode-map "gc" 'diff-hl-diff-goto-hunk))
+
   ;; ---------------------------------------- Package Mode
   (with-eval-after-load 'package
     (add-to-list 'evil-normal-state-modes 'package-menu-mode)
@@ -38,7 +44,8 @@
       "q" 'quit-window
       "u" 'package-menu-mark-unmark
       "gr" 'revert-buffer
-      "x" 'package-menu-execute))
+      "x" 'package-menu-execute
+      "v" 'package-menu-describe-package))
 
   ;; ---------------------------------------- Prodigy
   (with-eval-after-load 'prodigy
@@ -57,7 +64,7 @@
   ;; ---------------------------------------- Elisp Mode
   (evil-define-key 'normal emacs-lisp-mode-map "ge" 'eval-last-sexp)
 
-  (with-eval-after-load 'omnisharp-mode
+  (with-eval-after-load 'omnisharp
     (progn
       (evil-define-key 'normal omnisharp-mode-map "gd" 'omnisharp-go-to-definition)
       (evil-define-key 'normal omnisharp-mode-map "gb" 'pop-tag-mark)
@@ -84,6 +91,35 @@
 
       ;; (key-chord-define helm-map "jk" 'helm-like-unite/body)
       (define-key helm-map "ö" 'helm-like-unite/body)))
+
+  ;; ---------------------------------------- Evil Text Objects
+
+  (setq evil-move-defun-alist
+	'((ruby-mode . (ruby-beginning-of-defun . ruby-end-of-defun))
+	  (c-mode    . (c-beginning-of-defun . c-end-of-defun))
+	  (js2-mode  . (js2-beginning-of-defun . js2-end-of-defun))
+	  (csharp-mode  . (c-beginning-of-defun . c-end-of-defun))))
+
+  (defun evil-move-defun (count &optional begin-defun end-defun)
+    "Move by defun"
+    (let ((count (or count 1))
+	  (begin-defun (or begin-defun 'beginning-of-defun))
+	  (end-defun (or end-defun 'end-of-defun)))
+      (evil-motion-loop (var count)
+	(cond
+	 ((< var 0) (funcall begin-defun))
+	 (t         (funcall end-defun))))))
+
+  (evil-define-text-object evil-a-defun (count)
+    "Select a defun."
+    (let* ((mode-defuns (cdr-safe (assq major-mode evil-move-defun-alist)))
+	   (begin-defun (car-safe mode-defuns))
+	   (end-defun (cdr-safe mode-defuns)))
+      (evil-an-object-range count
+			    (lambda (count) (evil-move-defun count begin-defun end-defun))
+			    nil nil nil)))
+
+  (define-key evil-outer-text-objects-map "f" 'evil-a-defun)
 
   ;; ---------------------------------------- Subword Settings
   (global-subword-mode 1)
@@ -169,9 +205,12 @@
 
   (evil-leader/set-key "hr" 'helm-resume)
 
-  (evil-leader/set-key "G" 'google-this-lucky-search)
+  (evil-leader/set-key "/" 'google-this-lucky-search)
 
-  (eval-after-load 'evil-lisp-state
+  (with-eval-after-load 'diff-hl
+   (evil-leader/set-key "G" 'hydra-diff-hl/body))
+
+  (with-eval-after-load 'evil-lisp-state
     (progn
       (defun toggle-evil-lisp-state ()
 	(interactive)

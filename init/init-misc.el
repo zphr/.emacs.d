@@ -244,6 +244,12 @@
   :config
   (key-chord-mode 1))
 
+;;; ---------------------------------------- Indent Guide
+
+(use-package indent-guide
+  :ensure t
+  :config
+  (indent-guide-global-mode))
 
 (provide 'init-misc)
 ;;; init-misc ends here
