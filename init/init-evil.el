@@ -250,10 +250,12 @@
   (define-key evil-normal-state-map "K" 'evil-jump-out-args))
 
 
-;;; ---------------------------------------- Ranger
+;;; ---------------------------------------- Evil Paredit
 
-(use-package ranger
-  :ensure t)
+(use-package evil-paredit
+  :ensure t
+  :config
+  (add-hook 'emacs-lisp-mode-hook #'evil-paredit-mode))
 
 
 ;;; ---------------------------------------- Evil Textobj Anyblock
