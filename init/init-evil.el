@@ -195,7 +195,6 @@
 
   (evil-leader/set-key "b" 'helm-mini)
   (evil-leader/set-key "r" 'jump-to-register)
-  (evil-leader/set-key "g" 'magit-status)
   (evil-leader/set-key "i" 'helm-imenu)
   (evil-leader/set-key "x" 'helm-M-x)
 
@@ -208,7 +207,7 @@
   (evil-leader/set-key "/" 'google-this-lucky-search)
 
   (with-eval-after-load 'diff-hl
-   (evil-leader/set-key "G" 'hydra-diff-hl/body))
+   (evil-leader/set-key "g" 'hydra-diff-hl/body))
 
   (with-eval-after-load 'evil-lisp-state
     (progn

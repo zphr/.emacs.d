@@ -150,7 +150,7 @@
 ;;; ---------------------------------------- Helm LS Git
 
 (use-package helm-ls-git
-  :ensure helm
+  :ensure t
   :bind ("C-9" . helm-browse-project)
   :config (progn
 	    (setq helm-ls-git-status-command 'magit-status)))
