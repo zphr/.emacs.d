@@ -26,24 +26,24 @@
 ;; ---------------------------------------- Diff Hl
 
 (use-package diff-hl
-  :ensure hydra
+  :ensure t
   :init
   (add-hook 'after-init-hook #'global-diff-hl-mode)
   (add-hook 'dired-mode-hook #'diff-hl-dired-mode)
   :defer t
-  :config (progn
-	    (global-diff-hl-mode)
-	    
-	    (defhydra hydra-diff-hl (:pre (widen))
-	      "hunk"
-	      ("M-g" goto-line "goto" :exit t)
-	      ("v" diff-hl-revert-hunk "revert")
-	      ("c" diff-hl-diff-goto-hunk "compare hunk")
-	      ("j" diff-hl-next-hunk "next")
-	      ("k" diff-hl-previous-hunk "previous")
-	      ("s" diff-hl-stage-hunks "stage"))
+  :config
+  (global-diff-hl-mode)
+  
+  (defhydra hydra-diff-hl (:pre (widen))
+    "hunk"
+    ("M-g" goto-line "goto" :exit t)
+    ("v" diff-hl-revert-hunk "revert")
+    ("c" diff-hl-diff-goto-hunk "compare hunk")
+    ("j" diff-hl-next-hunk "next")
+    ("k" diff-hl-previous-hunk "previous")
+    ("s" diff-hl-stage-hunks "stage")) 
 
-	    (global-set-key (kbd "C-c g") 'hydra-diff-hl/body)))
+  (global-set-key (kbd "C-c g") 'hydra-diff-hl/body))
 
 
 (provide 'init-magit)
