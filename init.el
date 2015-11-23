@@ -146,9 +146,9 @@
 ;; ---------------------------------------- Auto-Compile 
 
 (setq load-prefer-newer t)
-(add-to-list 'load-path "./elpa/dash-20150704.253/")
-(add-to-list 'load-path "./elpa/packed-20150614.529/")
-(add-to-list 'load-path "./elpa/auto-compile-20150511.1017/")
+(add-to-list 'load-path "~/.emacs.d/elpa/dash-20150704.253/")
+(add-to-list 'load-path "~/.emacs.d/elpa/packed-20150614.529/")
+(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20151107.1408/")
 (require 'auto-compile)
 (auto-compile-on-load-mode t)
 (auto-compile-on-save-mode t)
@@ -189,7 +189,7 @@
 (require 'init-company)
 (require 'init-helm)
 ;; (require 'init-god-mode)
-(require 'init-chat)
+;; (require 'init-chat)
 ;; (require 'init-semantic)
 (require 'init-yasnippet)
 (require 'init-python)
