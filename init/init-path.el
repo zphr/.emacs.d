@@ -72,7 +72,7 @@
 		    "C:/Program Files (x86)/Unity/Editor/Data/Mono/lib/mono/2.0"
                     (getenv "PATH"))))
 
-(when (string= system-name "GENIUS-02") ;; mac specific settings
+(when (string= system-name "GENIUS-02")
   (setenv "PATH"
           (concat
            "~/.emacs.d/" ";"
@@ -117,6 +117,34 @@
 		    "c:/Windows/system32/" 
 		    "C:/Program Files (x86)/NArrange 0.2.9/"
 		    "C:/Program Files/SlikSvn/bin/"
+		    (getenv "PATH"))))
+
+(when (string= system-name "EVIL-03")
+  (setenv "PATH"
+          (concat
+           "~/.emacs.d/" ";"
+	   "c:/Users/Christian/AppData/Local/Programs/Git/bin/" ";"
+           "c:/Users/Christian/Desktop/Emacs/bin/" ";"
+           "c:/Users/Christian/Desktop/omnisharp-server/OmniSharp/bin/Release/" ";"
+	   "c:/cygwin64/bin/" ";"
+	   "c:/Windows/system32/" ";"
+	   "C:/Windows/Microsoft.NET/Framework64/v4.0.30319/" ";"
+	   "C:/Windows/winsxs/amd64_microsoft-windows-xcopy_31bf3856ad364e35_6.1.7600.16385_none_beea9c500dfd4622/" ";"
+	   "c:/Windows/System32/WindowsPowerShell/v1.0/" ";"
+	   "C:/Program Files/Unity/Editor/" ";"
+	   (getenv "PATH")))
+
+  (setq exec-path '("~/.emacs.d/" 
+		    "c:/Users/Christian/AppData/Local/Programs/Git/bin/" ";"
+		    "c:/Emacs/bin/" 
+		    "C:/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/" 
+		    "c:/Users/Christian/Desktop/omnisharp-server/OmniSharp/bin/Release/" ";"
+		    "C:/cygwin64/bin/"
+		    "c:/Windows/system32/"
+		    "C:/Windows/Microsoft.NET/Framework64/v4.0.30319/"
+		    "C:/Windows/winsxs/amd64_microsoft-windows-xcopy_31bf3856ad364e35_6.1.7600.16385_none_beea9c500dfd4622/"
+		    "c:/Windows/System32/WindowsPowerShell/v1.0/"
+		    "C:/Program Files/Unity/Editor/"
 		    (getenv "PATH"))))
 
 

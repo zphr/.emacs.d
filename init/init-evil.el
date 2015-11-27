@@ -177,12 +177,12 @@
   :ensure t)
 
 
-;;; ---------------------------------------- Evil Lisp State
+;; ;;; ---------------------------------------- Evil Lisp State
 
-(use-package evil-lisp-state
-  :ensure t
-  :config
-  (setq evil-lisp-state-leader-prefix "m"))
+;; (use-package evil-lisp-state
+;;   :ensure t
+;;   :config
+;;   (setq evil-lisp-state-leader-prefix "m"))
 
 
 ;;; ---------------------------------------- Evil Leader
@@ -197,9 +197,17 @@
   (evil-leader/set-key "r" 'jump-to-register)
   (evil-leader/set-key "i" 'helm-imenu)
   (evil-leader/set-key "x" 'helm-M-x)
+  (evil-leader/set-key "f" 'helm-find-files)
+
+  (evil-leader/set-key "wo" 'delete-other-windows)
+  (evil-leader/set-key "ws" 'evil-window-split)
+  (evil-leader/set-key "wv" 'evil-window-vsplit)
 
   (evil-leader/set-key "c" 'comment-dwim)
+
   (evil-leader/set-key-for-mode 'emacs-lisp-mode "c" 'paredit-comment-dwim)
+  (evil-leader/set-key-for-mode 'emacs-lisp-mode "e" 'eval-last-sexp)
+
   (evil-leader/set-key "x" 'helm-M-x)
 
   (evil-leader/set-key "hr" 'helm-resume)
@@ -229,6 +237,15 @@
 
   (eval-after-load 'shrink-whitespace
     (evil-leader/set-key "o" 'shrink-whitespace)))
+
+
+;;; ---------------------------------------- Evil Escape
+
+(use-package evil-escape
+  :ensure t
+  :config
+  (evil-escape-mode 1)
+  (setq-default evil-escape-key-sequence "jk"))
 
 
 ;;; ---------------------------------------- Evil Args

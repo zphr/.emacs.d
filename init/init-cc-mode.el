@@ -325,6 +325,10 @@ header"
   (add-hook 'csharp-mode-hook #'omnisharp-mode)
   :config (progn
             (setq omnisharp--curl-executable-path "c:/Emacs/bin/curl.exe")
+
+	    (if (string= system-name "EVIL-03")
+		(setq omnisharp--curl-executable-path "c:/Users/Christian/Desktop/Emacs/bin/curl.exe"))
+
             (setq omnisharp-server-executable-path "c:/OmniSharpServer/OmniSharp/bin/Release/OmniSharp.exe")
             (setq omnisharp-auto-complete-want-documentation nil)
 
