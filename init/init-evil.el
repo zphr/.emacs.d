@@ -202,6 +202,7 @@
   (evil-leader/set-key "wo" 'delete-other-windows)
   (evil-leader/set-key "ws" 'evil-window-split)
   (evil-leader/set-key "wv" 'evil-window-vsplit)
+  (evil-leader/set-key "wb" 'bury-buffer)
 
   (evil-leader/set-key "c" 'comment-dwim)
 
