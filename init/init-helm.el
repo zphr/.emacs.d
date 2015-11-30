@@ -77,7 +77,7 @@
 ;;; ---------------------------------------- Helm Pt
 
 (use-package helm-pt
-  :ensure helm
+  :ensure t
   :defer t
   :bind ("C-c C-h" . helm-pt-exg-search)
   :config (progn
