@@ -9,6 +9,12 @@
 
 (setq gc-cons-threshold 200000000)
 
+
+;; ---------------------------------------- Emacs Exit
+
+(setq confirm-kill-emacs 'y-or-n-p)
+
+
 ;; ---------------------------------------- Use-Package
 
 (add-to-list 'load-path "~/.emacs.d/use-package/")
