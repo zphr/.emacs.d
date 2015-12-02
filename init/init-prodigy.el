@@ -66,7 +66,7 @@
       :name "Omnisharp gamebook-sdk"
       :command "OmniSharp"
       :args '("-s" "gamebook-engine.sln" "-p" "2001")
-      :cwd "d:/Projects/ExG/gamebook-sdk/"
+      :cwd "d:/Projects/ExG/geniusevil-sdk/"
       :tags '(completion)
       :kill-signal 'sigkill
       :kill-process-buffer-on-stop t)

@@ -74,23 +74,28 @@
 
   ;; ---------------------------------------- Helm
   (with-eval-after-load 'helm-mode
-    (progn
-      ;; Hydra for in Helm
+    (with-eval-after-load 'hydra
       (defhydra helm-like-unite ()
-	("q" keyboard-escape-quit "exit")
+	"vim movement"
+	("?" helm-help "help")
+	("S-<SPC>" keyboard-escape-quit "exit")
 	("<SPC>" helm-toggle-visible-mark "mark")
 	("a" helm-toggle-all-marks "(un)mark all")
+	;; not sure if there's a better way to do this
+	("/" (lambda ()
+	       (interactive)
+	       (execute-kbd-macro [?\C-s]))
+	 "search")
 	("v" helm-execute-persistent-action)
 	("g" helm-beginning-of-buffer "top")
-	("h" helm-previous-source)
-	("l" helm-next-source)
 	("G" helm-end-of-buffer "bottom")
+	("p" helm-previous-source "next")
+	("n" helm-next-source "previous")
 	("j" helm-next-line "down")
 	("k" helm-previous-line "up")
 	("i" nil "cancel"))
 
-      ;; (key-chord-define helm-map "jk" 'helm-like-unite/body)
-      (define-key helm-map "ö" 'helm-like-unite/body)))
+      (define-key helm-map (kbd "ö") 'helm-like-unite/body)))
 
   ;; ---------------------------------------- Evil Text Objects
 
@@ -218,6 +223,9 @@
   (with-eval-after-load 'diff-hl
    (evil-leader/set-key "g" 'hydra-diff-hl/body))
 
+  (with-eval-after-load 'google-this
+    (evil-leader/set-key "G" 'google-this))
+
   (with-eval-after-load 'evil-lisp-state
     (progn
       (defun toggle-evil-lisp-state ()
@@ -283,6 +291,17 @@
   (define-key evil-inner-text-objects-map "b" 'evil-textobj-anyblock-inner-block)
   (define-key evil-outer-text-objects-map "b"'evil-textobj-anyblock-a-block))
 
+;;; ---------------------------------------- Evil Match It
+
+(use-package evil-matchit
+  :ensure t
+  :config
+  (with-eval-after-load 'csharp-mode
+    (mapc (lambda (mode)
+	    (plist-put evilmi-plugins mode '((evilmi-c-get-tag evilmi-c-jump)
+					     (evilmi-simple-get-tag evilmi-simple-jump)))
+	    )
+	  '(csharp-mode))))
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
