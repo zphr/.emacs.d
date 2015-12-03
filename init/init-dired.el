@@ -70,7 +70,7 @@
 
 (use-package w32-browser
   :if (eq system-type 'windows-nt)
-  :ensure dired+)
+  :ensure t)
 
 
 ;; ;;; ---------------------------------------- Dired Async
