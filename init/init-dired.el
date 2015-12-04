@@ -68,9 +68,27 @@
 	    (add-to-list 'dired-compress-file-suffixes 
 			 '("\\.zip\\'" ".zip" "unzip"))))
 
+;;; ---------------------------------------- W32 Browser
+
 (use-package w32-browser
   :if (eq system-type 'windows-nt)
   :ensure t)
+
+
+;;; ---------------------------------------- Dired Filter
+
+(use-package dired-filter
+  :ensure t
+  :config
+  (define-key dired-mode-map (kbd "f") 'dired-filter-map))
+
+
+;;; ---------------------------------------- Dired Narrow
+
+(use-package dired-narrow
+  :ensure t
+  :config
+  (define-key dired-mode-map (kbd "N") 'dired-narrow))
 
 
 ;; ;;; ---------------------------------------- Dired Async

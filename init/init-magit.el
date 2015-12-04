@@ -46,4 +46,10 @@
   (global-set-key (kbd "C-c g") 'hydra-diff-hl/body))
 
 
+;;; ---------------------------------------- Git Timemachine
+
+(use-package git-timemachine
+  :ensure t)
+
+
 (provide 'init-magit)

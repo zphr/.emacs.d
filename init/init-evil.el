@@ -220,6 +220,9 @@
 
   (evil-leader/set-key "/" 'google-this-lucky-search)
 
+  (with-eval-after-load 'omnisharp
+    (evil-leader/set-key "o" 'hydra-omnisharp/body))
+
   (with-eval-after-load 'diff-hl
    (evil-leader/set-key "g" 'hydra-diff-hl/body))
 
