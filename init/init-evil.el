@@ -33,6 +33,51 @@
     (evil-define-key 'normal prog-mode-map "gr" 'diff-hl-revert-hunk)
     (evil-define-key 'normal prog-mode-map "gc" 'diff-hl-diff-goto-hunk))
 
+  ;; ---------------------------------------- Comment Text Object
+
+  (defun beginning-of-previous-line ()
+    (save-excursion (beginning-of-line 0) (point)))
+
+  (defun beginning-of-comment ()
+    (interactive)
+    (let ((start-point (point)))
+      (save-excursion
+	(while (re-search-backward comment-start (beginning-of-previous-line) t))
+	(beginning-of-line)
+	(point))))
+
+  (defun end-of-next-line ()
+    (save-excursion (end-of-line 2) (point)))
+
+  (defun end-of-comment ()
+    (interactive)
+    (save-excursion
+      (end-of-line)
+      (while (re-search-forward comment-start (end-of-next-line) t))
+      (end-of-line)
+      (point)))
+
+  (defun get-comment-start-end ()
+    (interactive)
+    (let* ((start (beginning-of-comment))
+	   (end (end-of-comment)))
+      (list start end)))
+
+  (defun select-comment-region ()
+    (interactive)
+    (let* ((selected-region (get-comment-start-end)))
+      (set-mark (nth 0 selected-region))
+      (goto-char (nth 1 selected-region))))
+
+  (evil-define-text-object inner-comment-region (&optional count begin end type)
+    "blub"
+    (let ((selected-region (get-comment-start-end)))
+      (if selected-region
+	  (evil-range (nth 0 selected-region) (nth 1 selected-region)))))
+
+  (define-key evil-inner-text-objects-map "C" 'inner-comment-region)
+  (define-key evil-outer-text-objects-map "C" 'inner-comment-region)
+
   ;; ---------------------------------------- Package Mode
   (with-eval-after-load 'package
     (add-to-list 'evil-normal-state-modes 'package-menu-mode)
