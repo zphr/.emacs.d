@@ -88,6 +88,15 @@
   (define-key evil-outer-text-objects-map "F" 'evil-defun-text-object)
 
 
+  ;; ---------------------------------------- Defun Text Object
+  (evil-define-text-object evil-method-text-object (&optional count begin end type)
+    "blub"
+    (evil-range (save-excursion (c-beginning-of-defun) (point)) (save-excursion (c-end-of-defun) (point))))
+
+  (define-key evil-inner-text-objects-map "M" 'evil-method-text-object)
+  (define-key evil-outer-text-objects-map "M" 'evil-method-text-object)
+
+
   ;; ---------------------------------------- Package Mode
   (with-eval-after-load 'package
     (add-to-list 'evil-normal-state-modes 'package-menu-mode)
