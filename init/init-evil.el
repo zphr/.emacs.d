@@ -78,6 +78,16 @@
   (define-key evil-inner-text-objects-map "C" 'inner-comment-region)
   (define-key evil-outer-text-objects-map "C" 'inner-comment-region)
 
+
+  ;; ---------------------------------------- Defun Text Object
+  (evil-define-text-object evil-defun-text-object (&optional count begin end type)
+    "blub"
+    (evil-range (save-excursion (beginning-of-defun) (point)) (save-excursion (end-of-defun) (point))))
+
+  (define-key evil-inner-text-objects-map "F" 'evil-defun-text-object)
+  (define-key evil-outer-text-objects-map "F" 'evil-defun-text-object)
+
+
   ;; ---------------------------------------- Package Mode
   (with-eval-after-load 'package
     (add-to-list 'evil-normal-state-modes 'package-menu-mode)
