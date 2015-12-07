@@ -27,11 +27,13 @@
   (evil-define-key 'motion help-mode-map "i" 'forward-button)
   (evil-define-key 'motion help-mode-map "I" 'backward-button)
 
+  ;; ---------------------------------------- Diff HL
   (with-eval-after-load 'diff-hl
     (evil-define-key 'normal prog-mode-map "gj" 'diff-hl-next-hunk)
     (evil-define-key 'normal prog-mode-map "gk" 'diff-hl-previous-hunk)
     (evil-define-key 'normal prog-mode-map "gr" 'diff-hl-revert-hunk)
     (evil-define-key 'normal prog-mode-map "gc" 'diff-hl-diff-goto-hunk))
+
 
   ;; ---------------------------------------- Comment Text Object
 
@@ -95,6 +97,10 @@
 
   (define-key evil-inner-text-objects-map "M" 'evil-method-text-object)
   (define-key evil-outer-text-objects-map "M" 'evil-method-text-object)
+
+  ;; ---------------------------------------- Avy
+  (with-eval-after-load 'avy
+    (define-key evil-normal-state-map (kbd "ö") 'avy-goto-char-2))
 
 
   ;; ---------------------------------------- Package Mode

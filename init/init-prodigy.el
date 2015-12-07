@@ -53,6 +53,15 @@
       :kill-process-buffer-on-stop t)
 
     (prodigy-define-service
+      :name "Omnisharp berlin-partner"
+      :command "OmniSharp"
+      :args '("-s" "berlin-partner.sln" "-p" "2010")
+      :cwd "d:/Software/berlin-partner/"
+      :tags '(completion)
+      :kill-signal 'sigkill
+      :kill-process-buffer-on-stop t)
+
+    (prodigy-define-service
       :name "Unity: GeniuisEvil Client"
       :command "unity"
       :args '("-projectPath" "d:/Software/geniusevil-client/")
