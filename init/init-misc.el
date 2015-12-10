@@ -251,5 +251,13 @@
   :config
   (indent-guide-global-mode))
 
+;;; ---------------------------------------- Eletric Spacing Mode
+
+(use-package electric-spacing
+  :ensure t
+  :init
+  (add-hook 'prog-mode-hook #'electric-spacing-mode))
+
+
 (provide 'init-misc)
 ;;; init-misc ends here
