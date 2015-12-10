@@ -199,8 +199,11 @@
   ;; ---------------------------------------- Subword Settings
   (global-subword-mode 1)
 
-  (define-category ?U "Uppercase")
-  (define-category ?u "Lowercase")
+  (with-demoted-errors
+      "Evil subword mode acting up! %S"
+    (define-category ?U "Uppercase")
+    (define-category ?u "Lowercase"))
+
   (modify-category-entry (cons ?A ?Z) ?U)
   (modify-category-entry (cons ?a ?z) ?u)
   (make-variable-buffer-local 'evil-cjk-word-separating-categories)
