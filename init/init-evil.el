@@ -1,5 +1,5 @@
 
-;; ---------------------------------------- EVIL
+;;; ---------------------------------------- EVIL
 
 (use-package evil
   :ensure t
@@ -26,6 +26,21 @@
 
   (evil-define-key 'motion help-mode-map "i" 'forward-button)
   (evil-define-key 'motion help-mode-map "I" 'backward-button)
+
+  ;; ---------------------------------------- Dired
+  (evil-define-key 'normal dired-mode-map "h" 'dired-up-directory)
+  (evil-define-key 'normal dired-mode-map "l" 'dired-find-alternate-file)
+  (evil-define-key 'normal dired-mode-map "o" 'dired-sort-toggle-or-edit)
+  (evil-define-key 'normal dired-mode-map "v" 'dired-toggle-marks)
+  (evil-define-key 'normal dired-mode-map "m" 'dired-mark)
+  (evil-define-key 'normal dired-mode-map "u" 'dired-unmark)
+  (evil-define-key 'normal dired-mode-map "U" 'dired-unmark-all-marks)
+  (evil-define-key 'normal dired-mode-map "c" 'dired-create-directory)
+  (evil-define-key 'normal dired-mode-map "n" 'evil-search-next)
+  (evil-define-key 'normal dired-mode-map "N" 'evil-search-previous)
+  (evil-define-key 'normal dired-mode-map "q" 'kill-this-buffer)
+  (evil-define-key 'normal dired-mode-map "/" 'evil-search-forward)
+  (evil-define-key 'normal dired-mode-map "?" 'evil-search-backward)
 
   ;; ---------------------------------------- Diff HL
   (with-eval-after-load 'diff-hl
@@ -281,6 +296,8 @@
   (evil-leader/set-key "ws" 'evil-window-split)
   (evil-leader/set-key "wv" 'evil-window-vsplit)
   (evil-leader/set-key "wb" 'bury-buffer)
+
+  (evil-leader/set-key "dj" 'dired-jump)
 
   (evil-leader/set-key "c" 'comment-dwim)
 
