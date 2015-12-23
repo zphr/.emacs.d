@@ -1,3 +1,9 @@
+;;; package --- Summary
+
+;;; Commentary:
+;;; This configuration file sets up the git functionalities.
+
+;; Code:
 
 ;;; ---------------------------------------- Magit
 
@@ -30,9 +36,9 @@
   :init
   (add-hook 'after-init-hook #'global-diff-hl-mode)
   (add-hook 'dired-mode-hook #'diff-hl-dired-mode)
-  :defer t
+  (add-hook 'prog-mode-hook #'diff-hl-flydiff-mode)
   :config
-  (global-diff-hl-mode)
+  (global-diff-hl-mode 1)
   
   (defhydra hydra-diff-hl (:pre (widen))
     "hunk"
@@ -53,3 +59,4 @@
 
 
 (provide 'init-magit)
+;;; init-magit.el ends here

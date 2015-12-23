@@ -66,8 +66,12 @@
 
 ;; ---------------------------------------- Fringe
 
-;;  Links 0px, Rechts 4px
-(fringe-mode (cons 4 0))
+;; Rechts 4px, Links 0px
+(cond
+ ((string= system-name "DESKTOP-VTVHSK3")
+  (fringe-mode (cons 16 0)))
+ (t
+  (fringe-mode (cons 4 0))))
 
 
 ;; ---------------------------------------- Font Settings

@@ -147,6 +147,34 @@
 		    "C:/Program Files/Unity/Editor/"
 		    (getenv "PATH"))))
 
+(when (string= system-name "DESKTOP-VTVHSK3")
+  (setenv "PATH"
+	  (concat
+	   "~/.emacs.d/" ";"
+	   "c:/Program Files/Git/bin/" ";"
+	   "c:/Users/Christian/Desktop/Emacs/bin/" ";"
+	   "c:/Users/Christian/Desktop/omnisharp-server/OmniSharp/bin/Release/" ";"
+	   "c:/cygwin64/bin/" ";"
+	   "c:/Windows/system32/" ";"
+	   "C:/Windows/Microsoft.NET/Framework64/v4.0.30319/" ";"
+	   "C:/Windows/winsxs/amd64_microsoft-windows-xcopy_31bf3856ad364e35_6.1.7600.16385_none_beea9c500dfd4622/" ";"
+	   "c:/Windows/System32/WindowsPowerShell/v1.0/" ";"
+	   "C:/Program Files/Unity/Editor/" ";"
+	   (getenv "PATH")))
+
+  (setq exec-path '("~/.emacs.d/" 
+		    "c:/Program Files/Git/bin/" ";"
+		    "c:/Emacs/bin/" 
+		    "C:/Program Files (x86)/Microsoft Visual Studio 11.0/Common7/IDE/" 
+		    "c:/Users/Christian/Desktop/omnisharp-server/OmniSharp/bin/Release/" ";"
+		    "C:/cygwin64/bin/"
+		    "c:/Windows/system32/"
+		    "C:/Windows/Microsoft.NET/Framework64/v4.0.30319/"
+		    "C:/Windows/winsxs/amd64_microsoft-windows-xcopy_31bf3856ad364e35_6.1.7600.16385_none_beea9c500dfd4622/"
+		    "c:/Windows/System32/WindowsPowerShell/v1.0/"
+		    "C:/Program Files/Unity/Editor/"
+		    (getenv "PATH"))))
+
 
 ;; ---------------------------------------- MacOS Path
 

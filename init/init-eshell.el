@@ -1,9 +1,9 @@
 
-;; ---------------------------------------- Starter Kit Eshell
+;; ;; ---------------------------------------- Starter Kit Eshell
 
-(use-package starter-kit-eshell
-  :ensure t
-:defer t)
+;; (use-package starter-kit-eshell
+;;   :ensure t
+;; :defer t)
 
 
 ;; ---------------------------------------- Bash Setup

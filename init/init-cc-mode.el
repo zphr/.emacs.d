@@ -1,3 +1,9 @@
+;;; package --- Summary
+
+;;; Commentary:
+;;; This init file includes configuration for cc csharp
+;;; and omnisharp mode.
+
 ;;; ---------------------------------------- CC Mode
 
 (cond ((string= system-name "GENIUS-02")
@@ -334,36 +340,7 @@ header"
 
             (eval-after-load 'company
               '(add-to-list 'company-backends 'company-omnisharp))
-
 	    
-	    ;; (defun omnisharp-current-type-information-worker 
-	    ;;   (omnisharp-post-message-curl-as-json-async
-	    ;;    (concat (omnisharp-get-host) "typelookup")
-	    ;;    (omnisharp--get-common-params)
-	    ;;    (lambda (response)
-	    ;; 	 (let ((stuff-to-display (cdr (assoc type-property-name
-	    ;; 					     response))))
-	    ;; 	   (message stuff-to-display)
-	    ;; 	   (when add-to-kill-ring
-	    ;; 	     (kill-new stuff-to-display))))))
-
-
-	    ;; (defun unity-assert-symbol-or-region (&optional arg)
-	    ;;   (interactive "P")
-	    ;;   (let* ((type-information (s-split "[ \.;]" (omnisharp-current-type-information-worker 'Type) t))
-	    ;; 	     (type (car type-information))
-	    ;; 	     (class (cadr type-information))
-	    ;; 	     (field (caddr type-information))
-	    ;; 	     (debug-string (concat "\"Missing " type " <" field "> on " class "\""))
-	    ;; 	     (final-string (concat "UnityEngine.Assertions.Assert.IsNotNull(" field ", " debug-string " + gameObject.name)")))
-	    ;; 	(message debug-string)
-	    ;; 	(save-excursion
-	    ;; 	  (move-end-of-line 1)
-	    ;; 	  (open-line 1)
-	    ;; 	  (forward-line 1)
-	    ;; 	  (insert final-string)
-	    ;; 	  (c-indent-line-or-region))))
-
             ;;; relies heavily on dir-local variables
             (defun start-omnisharp ()
               (interactive)
@@ -372,15 +349,6 @@ header"
             (add-hook 'csharp-mode-hook (lambda ()
 					  (local-set-key (kbd "C-c a") 'unity-assert-symbol-or-region)))))
 
-;; (defun powerline-color-change ()
-;;   (if (fboundp 'projectile-project-root)
-;;       (cond ((string= (projectile-project-root) "d:/Software/geniusevil-client/")
-;;              (set-face-background 'powerline-active2 "#ab3737"))
-;;             ((string= (projectile-project-root) "d:/Software/gamebook-sdk/")
-;;              (set-face-background 'powerline-active2 "#000000"))
-;;             (t
-;;              (set-face-background 'powerline-active2 "#5F5F5F")))))
-
-;; (nil . ((eval . (face-remap-set-base 'powerline-active2 '(:background "#000000")))))
 
 (provide 'init-cc-mode)
+;;; init-cc-mode.el ends here
