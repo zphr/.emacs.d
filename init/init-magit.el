@@ -39,7 +39,7 @@
   (add-hook 'prog-mode-hook #'diff-hl-flydiff-mode)
   :config
   (global-diff-hl-mode 1)
-  
+
   (defhydra hydra-diff-hl (:pre (widen))
     "hunk"
     ("M-g" goto-line "goto" :exit t)
@@ -47,7 +47,8 @@
     ("c" diff-hl-diff-goto-hunk "compare hunk")
     ("j" diff-hl-next-hunk "next")
     ("k" diff-hl-previous-hunk "previous")
-    ("s" diff-hl-stage-hunks "stage")) 
+    ("s" diff-hl-stage-hunks "stage")
+    ("g" magit-status "status"))
 
   (global-set-key (kbd "C-c g") 'hydra-diff-hl/body))
 
