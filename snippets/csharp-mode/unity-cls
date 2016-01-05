@@ -4,8 +4,12 @@
 # --
 using UnityEngine;
 
-${1:public} class ${2:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`} ${3:: MonoBehaviour}
+namespace ${1:`(car (last (split-string (projectile-project-root) "/" t)))`}
 {
-    $0
+    ${2:public} class ${3:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`} ${4:: MonoBehaviour}
+    {
+       $0    
+    }
 }
+
 

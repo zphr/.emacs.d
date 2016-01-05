@@ -49,8 +49,8 @@
 ;; ---------------------------------------- Emacs Server
 
 (require 'server)
-(unless (server-running-p)
-  (server-start))
+(server-force-delete)
+(server-start)
 
 ;; ---------------------------------------- Misc
 

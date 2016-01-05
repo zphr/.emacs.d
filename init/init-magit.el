@@ -38,8 +38,9 @@
   (add-hook 'dired-mode-hook #'diff-hl-dired-mode)
   (add-hook 'prog-mode-hook #'diff-hl-flydiff-mode)
   :config
+  (diff-hl-flydiff-mode t)
   (global-diff-hl-mode 1)
-
+  
   (defhydra hydra-diff-hl (:pre (widen))
     "hunk"
     ("M-g" goto-line "goto" :exit t)

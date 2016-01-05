@@ -3,13 +3,10 @@
 
 (use-package projectile
   :ensure t
-  :defer t
-  :config (progn
-	    (projectile-global-mode)
-
-	    (setq projectile-completion-system 'helm)
-
-	    (setq projectile-switch-project-action 'projectile-vc)))
+  :config
+  (projectile-global-mode)
+  (setq projectile-completion-system 'helm)
+  (setq projectile-switch-project-action 'projectile-vc))
 
 
 (provide 'init-projectile)
