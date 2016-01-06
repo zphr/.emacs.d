@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-assertion-is-not-null
+# key: ann
+# binding: direct-keybinding
+# --
+UnityEngine.Assertions.Assert.IsNotNull($1, "$1 in class ${2:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`} should not be null!");$0
