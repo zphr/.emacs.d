@@ -384,6 +384,7 @@
   (define-key evil-inner-text-objects-map "b" 'evil-textobj-anyblock-inner-block)
   (define-key evil-outer-text-objects-map "b"'evil-textobj-anyblock-a-block))
 
+
 ;;; ---------------------------------------- Evil Match It
 
 (use-package evil-matchit
@@ -395,6 +396,23 @@
 					     (evilmi-simple-get-tag evilmi-simple-jump)))
 	    )
 	  '(csharp-mode))))
+
+
+;;; ---------------------------------------- Evil Visual Star
+
+(use-package evil-visualstar
+  :ensure t
+  :config
+  (global-evil-visualstar-mode t))
+
+
+;;; ---------------------------------------- Evil Indent Plus
+
+(use-package evil-indent-plus
+  :ensure t
+  :config
+  (evil-indent-plus-default-bindings))
+
 
 (provide 'init-evil)
 ;;; init-evil.el ends here

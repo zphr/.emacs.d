@@ -335,7 +335,7 @@ header"
 	    (if (string= system-name "EVIL-03")
 		(setq omnisharp--curl-executable-path "c:/Users/Christian/Desktop/Emacs/bin/curl.exe"))
 
-            (setq omnisharp-server-executable-path "c:/OmniSharpServer/OmniSharp/bin/Release/OmniSharp.exe")
+            (setq omnisharp-server-executable-path "c:/omnisharp-server/OmniSharp/bin/Release/OmniSharp.exe")
             (setq omnisharp-auto-complete-want-documentation nil)
 
             (eval-after-load 'company
