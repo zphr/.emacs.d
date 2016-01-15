@@ -287,6 +287,10 @@
   (evil-leader/set-leader "<SPC>")
 
   (evil-leader/set-key "b" 'helm-mini)
+
+  (with-eval-after-load 'popup-switcher
+    (evil-leader/set-key "b" 'psw-switch-buffer))
+
   (evil-leader/set-key "r" 'jump-to-register)
   (evil-leader/set-key "i" 'helm-imenu)
   (evil-leader/set-key "x" 'helm-M-x)
@@ -412,6 +416,25 @@
   :ensure t
   :config
   (evil-indent-plus-default-bindings))
+
+
+;; ;;; ---------------------------------------- Evil Avy
+
+;; (use-package evil-avy
+;;   :ensure t
+;;   :init
+;;   (add-hook 'prog-mode-hook (lambda () (evil-avy-mode 1)))
+;;   (add-hook 'magit-mode-hook (lambda () (evil-avy-mode -1)))
+;;   :config
+;;   (evil-avy-mode))
+
+
+;;; ---------------------------------------- Evil Jumper
+
+(use-package evil-jumper
+  :ensure t
+  :config
+  (global-evil-jumper-mode 1))
 
 
 (provide 'init-evil)

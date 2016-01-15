@@ -49,7 +49,7 @@
     ("j" diff-hl-next-hunk "next")
     ("k" diff-hl-previous-hunk "previous")
     ("s" diff-hl-stage-hunks "stage")
-    ("g" magit-status "status"))
+    ("g" magit-status "status":exit t))
 
   (global-set-key (kbd "C-c g") 'hydra-diff-hl/body))
 

@@ -259,5 +259,14 @@
   (add-hook 'prog-mode-hook #'electric-spacing-mode))
 
 
+;;; ---------------------------------------- PopUp Switcher
+
+(use-package popup-switcher
+  :ensure t
+  :config
+  (setq psw-in-window-center nil)
+  (setq psw-use-flx t))
+
+
 (provide 'init-misc)
 ;;; init-misc ends here
