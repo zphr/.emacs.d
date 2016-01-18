@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-on-destroy
+# key: onds
+# --
+private void OnDestroy()
+{
+    $0
+}
