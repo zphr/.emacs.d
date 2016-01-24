@@ -113,9 +113,10 @@
   (define-key evil-inner-text-objects-map "M" 'evil-method-text-object)
   (define-key evil-outer-text-objects-map "M" 'evil-method-text-object)
 
+
   ;; ---------------------------------------- Avy
   (with-eval-after-load 'avy
-    (define-key evil-normal-state-map (kbd "ö") 'avy-goto-char-2))
+    (define-key evil-normal-state-map (kbd "ö") 'avy-goto-char-timer))
 
 
   ;; ---------------------------------------- Package Mode

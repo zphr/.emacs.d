@@ -41,7 +41,7 @@
 	      ("R" omnisharp-run-code-action-refactoring "refactor")
 	      ("o" omnisharp-auto-complete-overrides "complete overrides")
 	      ("u" omnisharp-fix-usings "fix usings")
-	      ("f" omnisharp-code-format "format" :exit t)
+	      ("f" omnisharp-code-format-entire-file"format" :exit t)
 	      ("q" nil "quit"))
 
 	    (add-hook 'csharp-mode-hook (lambda ()

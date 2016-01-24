@@ -33,17 +33,23 @@
 
 (use-package avy
   :ensure t
-:defer t
+  :defer t
   :bind ("C-ö" . avy-goto-char-2)
-  :config (progn
-	   (defun set-up-avy-keys ()
-	     (local-set-key (kbd "ö") 'avy-goto-char-2)
-	     (local-set-key (kbd "ü") 'avy-goto-line))
-	   (add-hook 'prog-mode-hook 'set-up-avy-keys)
+  :config 
 
-	   (define-key isearch-mode-map (kbd "ö") 'avy-isearch)
+  (defun set-up-avy-keys ()
+    (local-set-key (kbd "ö") 'avy-goto-char-2)
+    (local-set-key (kbd "ü") 'avy-goto-line))
 
-	   (setq avy-style 'at-full)))
+  (add-hook 'prog-mode-hook 'set-up-avy-keys)
+
+  (setq avy-style 'at-full)
+  (setq avy-keys
+	'(?j ?k ?l ?f ?d ?s ?a ?ö ?ä ?# ?u ?i ?o ?p ?q ?w ?e ?r ?t ?z ?n ?m ?. ?- ?v ?c ?x ?y ?b ?1 ?2 ?3 ?4 ?5 ?6 ?7 ?8 ?9))
+  (setq avy-timeout-seconds 0.4)
+
+  (define-key isearch-mode-map (kbd "ö") 'avy-isearch))
 
 
 (provide 'init-navigation)
+;;; init-navigation.el ends here

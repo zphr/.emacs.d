@@ -43,6 +43,7 @@
 	delete-indentation
 	down-list
 	electric-newline-and-maybe-indent
+	electric-pair-delete-pair
 	evil-backward-char
 	evil-backward-word-begin
 	evil-change
@@ -62,6 +63,7 @@
 	evil-next-line-1-first-non-blank
 	evil-previous-line
 	evil-substitute
+	evil-window-middle
 	fill-paragraph
 	forward-sexp
 	hydra-yank-pop/lambda-n
