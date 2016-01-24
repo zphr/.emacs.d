@@ -127,4 +127,23 @@
 	    (setq helm-ls-git-status-command 'magit-status)))
 
 
+;;; ---------------------------------------- Helm Swoop
+
+(use-package helm-swoop
+  :ensure t
+  :config
+  (setq helm-swoop-speed-or-color t)
+  (setq helm-swoop-use-line-number-face t)
+  (setq helm-swoop-use-fuzzy-match nil)
+
+  ;; When doing isearch, hand the word over to helm-swoop
+  (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
+  ;; From helm-swoop to helm-multi-swoop-all
+  (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
+
+  ;; Instead of helm-multi-swoop-all, you can also use helm-multi-swoop-current-mode
+  (define-key helm-swoop-map (kbd "M-m") 'helm-multi-swoop-current-mode-from-helm-swoop))
+
+
+
 (provide 'init-helm)

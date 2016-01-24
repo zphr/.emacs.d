@@ -114,6 +114,13 @@
   (define-key evil-outer-text-objects-map "M" 'evil-method-text-object)
 
 
+  ;; ---------------------------------------- Helm Swoop
+
+  (with-eval-after-load 'helm-swoop
+    ;; When doing evil-search, hand the word over to helm-swoop
+    (define-key evil-motion-state-map (kbd "M-i") 'helm-swoop-from-evil-search))
+
+
   ;; ---------------------------------------- Avy
   (with-eval-after-load 'avy
     (define-key evil-normal-state-map (kbd "ö") 'avy-goto-char-timer))
@@ -305,6 +312,11 @@
   (evil-leader/set-key "dj" 'dired-jump)
 
   (evil-leader/set-key "c" 'comment-dwim)
+
+  (with-eval-after-load 'helm-swoop
+    (evil-leader/set-key "ss" 'helm-swoop)
+    (evil-leader/set-key "sm" 'helm-multi-swoop-current-mode)
+    (evil-leader/set-key "sa" 'helm-multi-swoop-all))
 
   (evil-leader/set-key-for-mode 'emacs-lisp-mode "c" 'paredit-comment-dwim)
   (evil-leader/set-key-for-mode 'emacs-lisp-mode "e" 'eval-last-sexp)
