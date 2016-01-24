@@ -419,24 +419,5 @@
   (evil-indent-plus-default-bindings))
 
 
-;; ;;; ---------------------------------------- Evil Avy
-
-;; (use-package evil-avy
-;;   :ensure t
-;;   :init
-;;   (add-hook 'prog-mode-hook (lambda () (evil-avy-mode 1)))
-;;   (add-hook 'magit-mode-hook (lambda () (evil-avy-mode -1)))
-;;   :config
-;;   (evil-avy-mode))
-
-
-;;; ---------------------------------------- Evil Jumper
-
-(use-package evil-jumper
-  :ensure t
-  :config
-  (global-evil-jumper-mode 1))
-
-
 (provide 'init-evil)
 ;;; init-evil.el ends here

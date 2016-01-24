@@ -78,74 +78,45 @@
 
 (use-package helm-pt
   :ensure t
-  :defer t
-  :bind ("C-c C-h" . helm-pt-exg-search)
-  :config (progn
-	    (setq helm-pt-args '("--smart-case" "--parallel"))
+  :bind ("C-c C-h" . helm-do-pt)
+  :config
 
-	    ;; (defun copy-candidate-description-as-org-link (candidate)
-	    ;;   (mapc (lambda (c) (org-insert-link c c c)) (helm-marked-candidates)))
+  (defun helm-pt--process ()
+    "Launch async process to supply candidates."
+    (let ((debug-on-error t)
+	  (cmd-line (helm-pt--command helm-pattern)))
+      ;; Start pt process.
+      (prog1	      ; This function should return the process first.
+	  (start-file-process-shell-command
+	   "*helm pt*" helm-buffer cmd-line)
+	;; Init sentinel.
+	(set-process-sentinel
+	 (get-buffer-process helm-buffer)
+	 #'(lambda (process event)
+	     (cond ((process-live-p process)
+		    (helm-process-deferred-sentinel-hook process event helm-ff-default-directory))
+		   ((= (process-exit-status process) 2)
+		    (with-current-buffer helm-buffer
+		      (insert (concat "* Exit with code 2, no result found,"
+				      " command line was:\n\n "
+				      (helm-pt--command helm-pattern)))))
+		   ((string= event "finished\n")
+		    (with-helm-window
+		      (force-mode-line-update))
+		    (message "Finished"))
+		   ;; Catch error output in log.
+		   (t (helm-log
+		       "Error: %s %s"
+		       (replace-regexp-in-string "\n" "" event)))))))))
 
-	    ;; (helm-add-action-to-source "Insert Org Links" 'copy-candidate-description-as-org-link helm-source-pt 1)
+  (setq helm-input-idle-delay 0.1)
 
-	    (defun copy-candidate-description (candidate)
-	      (kill-new (mapconcat 'identity (helm-marked-candidates) "\n")))
+  (defadvice helm-do-pt (around helm-do-pt-idle-advice activate)
+    (let ((old-input-idle-delay helm-input-idle-delay))
+      (setq helm-input-idle-delay 0.1)
+      ad-do-it
+      (setq helm-input-idle-delay old-input-idle-delay))))
 
-	    (helm-add-action-to-source "Kill Description" 'copy-candidate-description helm-source-pt 1)
-
-	    (defun helm-pt--process ()
-	      "Launch async process to supply candidates."
-	      (let ((debug-on-error t)
-		    (cmd-line (helm-pt--command helm-pattern)))
-		;; Start pt process.
-		(prog1            ; This function should return the process first.
-		    (start-file-process-shell-command
-		     "*helm pt*" helm-buffer cmd-line)
-		  ;; Init sentinel.
-		  (set-process-sentinel
-		   (get-buffer-process helm-buffer)
-		   #'(lambda (process event)
-		       ;; need to FIX this and actually recognize exit-code
-		       (let ((status (process-status process)))
-			 (cond ((process-live-p process)
-				(helm-process-deferred-sentinel-hook process event helm-ff-default-directory))
-			       ((= (process-exit-status process) 2)
-				(with-current-buffer helm-buffer
-				  (insert (concat "* Exit with code 2, no result found,"
-						  " command line was:\n\n "
-						  (helm-pt--command helm-pattern)))))
-			       ((string= event "finished\n")
-				(with-helm-window
-				  (force-mode-line-update))
-				(message "Finished"))
-			       ;; Catch error output in log.
-			       (t (helm-log
-				   "Error: %s %s"
-				   (replace-regexp-in-string "\n" "" event))))))))))
-
-	    (defun helm-pt-exg-search (&optional arg)
-	      (interactive "p")
-	      (let ((old-idle-delay helm-input-idle-delay))
-		(setq helm-input-idle-delay 0.1)
-		(if (>= arg 4)
-		    (let ((old-helm-pt-args helm-pt-args))
-		      (setq helm-pt-args '("--smart-case" "--parallel" "-G \".cs$\""))
-		      (helm-do-pt "d:/Software/")
-		      (setq helm-pt-args old-helm-pt-args))
-		  (helm-projectile-pt))
-		(setq helm-input-idle-delay old-idle-delay)))
-
-	    (setq helm-input-idle-delay 0.1)
-
-	    (defadvice helm-do-pt (around helm-do-pt-idle-advice activate)
-	      (let ((old-input-idle-delay helm-input-idle-delay))
-		(setq helm-input-idle-delay 0.1)
-		ad-do-it
-		(setq helm-input-idle-delay old-input-idle-delay)))
-
-	    (if (string= system-name "GENIUS-02")
-		(global-set-key (kbd "C-c C-h") 'helm-pt-exg-search)
-	      (global-set-key (kbd "C-c C-h") 'helm-projectile-pt))))
 
 ;;; ---------------------------------------- Helm LS Git
 

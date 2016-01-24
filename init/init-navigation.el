@@ -33,10 +33,8 @@
 
 (use-package avy
   :ensure t
-  :defer t
   :bind ("C-ö" . avy-goto-char-2)
   :config 
-
   (defun set-up-avy-keys ()
     (local-set-key (kbd "ö") 'avy-goto-char-2)
     (local-set-key (kbd "ü") 'avy-goto-line))
