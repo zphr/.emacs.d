@@ -3,9 +3,6 @@
 
 (use-package evil
   :ensure t
-  ;; :init
-  ;; (dolist (hook '(emacs-startup-hook))
-  ;;   (add-hook hook #'evil-mode))
   :init
   (setq evil-want-C-u-scroll t)
   :config
@@ -132,12 +129,15 @@
 
     (evil-add-hjkl-bindings package-menu-mode-map)
 
-    (evil-define-key 'normal package-menu-mode-map "/" 'evil-search-forward
+    (evil-define-key 'normal package-menu-mode-map
+      "/" 'evil-search-forward
+      "?" 'evil-search-backward
       "i" 'package-menu-mark-install
       "q" 'quit-window
       "u" 'package-menu-mark-unmark
       "gr" 'revert-buffer
       "x" 'package-menu-execute
+      "d" 'package-menu-mark-delete
       "v" 'package-menu-describe-package))
 
   ;; ---------------------------------------- Prodigy
@@ -336,6 +336,9 @@
   (with-eval-after-load 'google-this
     (evil-leader/set-key "G" 'google-this))
 
+  (with-eval-after-load 'avy
+      (evil-leader/set-key "<SPC>" 'avy-goto-char-timer))
+
   (with-eval-after-load 'evil-lisp-state
     (progn
       (defun toggle-evil-lisp-state ()
@@ -429,6 +432,12 @@
   :ensure t
   :config
   (evil-indent-plus-default-bindings))
+
+
+;;; ---------------------------------------- Evil Ediff
+
+(use-package evil-ediff
+  :ensure t)
 
 
 (provide 'init-evil)
