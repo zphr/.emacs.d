@@ -294,15 +294,7 @@
   (global-evil-leader-mode t)
   (evil-leader/set-leader "<SPC>")
 
-  (evil-leader/set-key "b" 'helm-mini)
-
-  (with-eval-after-load 'popup-switcher
-    (evil-leader/set-key "b" 'psw-switch-buffer))
-
   (evil-leader/set-key "r" 'jump-to-register)
-  (evil-leader/set-key "i" 'helm-imenu)
-  (evil-leader/set-key "x" 'helm-M-x)
-  (evil-leader/set-key "f" 'helm-find-files)
 
   (evil-leader/set-key "wo" 'delete-other-windows)
   (evil-leader/set-key "ws" 'evil-window-split)
@@ -313,17 +305,24 @@
 
   (evil-leader/set-key "c" 'comment-dwim)
 
+  (evil-leader/set-key-for-mode 'emacs-lisp-mode "c" 'paredit-comment-dwim)
+  (evil-leader/set-key-for-mode 'emacs-lisp-mode "e" 'eval-last-sexp)
+
+  (with-eval-after-load 'helm
+    (evil-leader/set-key "b" 'helm-mini)
+    (evil-leader/set-key "i" 'helm-imenu)
+    (evil-leader/set-key "x" 'helm-M-x)
+    (evil-leader/set-key "f" 'helm-find-files)
+    (evil-leader/set-key "x" 'helm-M-x)
+    (evil-leader/set-key "hr" 'helm-resume))
+
   (with-eval-after-load 'helm-swoop
     (evil-leader/set-key "ss" 'helm-swoop)
     (evil-leader/set-key "sm" 'helm-multi-swoop-current-mode)
     (evil-leader/set-key "sa" 'helm-multi-swoop-all))
 
-  (evil-leader/set-key-for-mode 'emacs-lisp-mode "c" 'paredit-comment-dwim)
-  (evil-leader/set-key-for-mode 'emacs-lisp-mode "e" 'eval-last-sexp)
-
-  (evil-leader/set-key "x" 'helm-M-x)
-
-  (evil-leader/set-key "hr" 'helm-resume)
+  (with-eval-after-load 'swiper
+    (evil-leader/set-key "S" 'swiper))
 
   (evil-leader/set-key "/" 'google-this-lucky-search)
 
