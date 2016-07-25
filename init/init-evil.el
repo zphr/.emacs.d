@@ -15,11 +15,15 @@
 
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
   (define-key evil-insert-state-map (kbd "S-SPC") 'evil-normal-state)
+  (define-key evil-visual-state-map (kbd "S-SPC") 'evil-normal-state)
   (define-key evil-normal-state-map (kbd "S-SPC") 'save-buffer)
   (define-key evil-normal-state-map (kbd "M-u") 'save-some-buffers)
 
   (define-key evil-normal-state-map (kbd "M-n") 'evil-forward-paragraph)
   (define-key evil-normal-state-map (kbd "M-p") 'evil-backward-paragraph)
+
+  (define-key evil-normal-state-map (kbd "M-j") 'evil-forward-paragraph)
+  (define-key evil-normal-state-map (kbd "M-k") 'evil-backward-paragraph)
 
   (evil-define-key 'motion help-mode-map "i" 'forward-button)
   (evil-define-key 'motion help-mode-map "I" 'backward-button)

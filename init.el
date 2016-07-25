@@ -7,7 +7,7 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(setq gc-cons-threshold 200000000)
+;; (setq gc-cons-threshold 200000000)
 
 
 ;; ---------------------------------------- Emacs Exit
@@ -207,5 +207,6 @@
 (require 'init-prodigy)
 (require 'init-evil)
 (require 'init-mode-line)
+(require 'init-haxe)
 
 ;;; init.el ends here
