@@ -65,7 +65,8 @@
   (add-to-list 'auto-mode-alist '("\\.js[x]?$" . web-mode))
   (setq web-mode-content-types-alist
 	'(("jsx" . "\\.js[x]?\\'")))
-  (with-eval-after-load 'flycheck-mode
+
+  (with-eval-after-load 'flycheck
       (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(javascript-jshint)))
       (flycheck-add-mode 'javascript-eslint 'web-mode)))
 

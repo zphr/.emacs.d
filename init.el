@@ -208,5 +208,6 @@
 ;; (require 'init-evil)
 (require 'init-mode-line)
 (require 'init-haxe)
+(require 'init-js)
 
 ;;; init.el ends here
