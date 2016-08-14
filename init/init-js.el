@@ -66,9 +66,13 @@
   (setq web-mode-content-types-alist
 	'(("jsx" . "\\.js[x]?\\'")))
 
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+
   (with-eval-after-load 'flycheck
-      (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(javascript-jshint)))
-      (flycheck-add-mode 'javascript-eslint 'web-mode)))
+    (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(javascript-jshint)))
+    (flycheck-add-mode 'javascript-eslint 'web-mode)))
 
 
 (provide 'init-js)
