@@ -57,5 +57,18 @@
   (bind-key (kbd "M-q") 'json-reformat-sexp json-mode-map))
 
 
+;;; ---------------------------------------- Web Mode
+
+(use-package web-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.js[x]?$" . web-mode))
+  (setq web-mode-content-types-alist
+	'(("jsx" . "\\.js[x]?\\'")))
+  (with-eval-after-load 'flycheck-mode
+      (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(javascript-jshint)))
+      (flycheck-add-mode 'javascript-eslint 'web-mode)))
+
+
 (provide 'init-js)
 ;;; init-js ends here

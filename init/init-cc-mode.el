@@ -324,31 +324,27 @@ header"
 
 (use-package omnisharp
   :ensure t
+  :load-path ("e:/Rettungsboot/Code/omnisharp-emacs/" "e:/Rettungsboot/Code/omnisharp-emacs/src/" "e:/Rettungsboot/Code/omnisharp-emacs/src/actions/")
   :bind 
   ("M-." . omnisharp-go-to-definition)
   ("C-M-." . omnisharp-helm-find-usages)
-  :init
-  (add-hook 'csharp-mode-hook #'omnisharp-mode)
-  :config (progn
-            (setq omnisharp--curl-executable-path "c:/Emacs/bin/curl.exe")
+  ;; :init
+  ;; (add-hook 'csharp-mode-hook #'omnisharp-mode)
+  :config
+  ;; (setq omnisharp-server-executable-path "c:/OmniSharpServer/OmniSharp/bin/Release/OmniSharp.exe")
+  (setq omnisharp-server-executable-path "c:/OmniSharpRoslyn/scripts/Omnisharp")
 
-	    (if (string= system-name "EVIL-03")
-		(setq omnisharp--curl-executable-path "c:/Users/Christian/Desktop/Emacs/bin/curl.exe"))
+  (setq omnisharp--curl-executable-path "c:/Emacs/bin/curl.exe")
+  (setq omnisharp-auto-complete-want-documentation nil)
 
-            (setq omnisharp-server-executable-path "c:/omnisharp-server/OmniSharp/bin/Release/OmniSharp.exe")
-            (setq omnisharp-auto-complete-want-documentation nil)
+  (eval-after-load 'company
+    '(add-to-list 'company-backends 'company-omnisharp))
 
-            (eval-after-load 'company
-              '(add-to-list 'company-backends 'company-omnisharp))
-	    
             ;;; relies heavily on dir-local variables
-            (defun start-omnisharp ()
-              (interactive)
-              (start-process-shell-command "omnisharp-server" nil (concat "OmniSharp -s " solution-file " -p " (int-to-string omnisharp-port))))
-
-            (add-hook 'csharp-mode-hook (lambda ()
-					  (local-set-key (kbd "C-c a") 'unity-assert-symbol-or-region)))))
-
+  (defun start-omnisharp ()
+    (interactive)
+    (start-process-shell-command "omnisharp-server" nil (concat "OmniSharp -s " solution-file " -p " (int-to-string omnisharp-port)))))
 
 (provide 'init-cc-mode)
+
 ;;; init-cc-mode.el ends here

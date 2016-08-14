@@ -1,8 +1,8 @@
 ;;; -*- coding: utf-8 -*-
-(("c:/Users/foolhouse/AppData/Roaming/.emacs.d/init/init-misc.el" . 2522)
+(("c:/Users/foolhouse/AppData/Roaming/.emacs.d/init/init-navigation.el" . 1274)
+ ("c:/Users/foolhouse/AppData/Roaming/.emacs.d/init/init-misc.el" . 2522)
  ("c:/Users/foolhouse/AppData/Roaming/.emacs.d/init/init-elpa.el" . 993)
  ("c:/Users/foolhouse/AppData/Roaming/.emacs.d/init/init-company.el" . 106)
  ("c:/Users/foolhouse/AppData/Roaming/.emacs.d/init/init-multiple-cursors.el" . 892)
  ("c:/Users/foolhouse/AppData/Roaming/.emacs.d/init/init-helm.el" . 2596)
- ("c:/Users/foolhouse/AppData/Roaming/.emacs.d/init/init-elisp.el" . 1030)
- ("c:/Users/foolhouse/AppData/Roaming/.emacs.d/elpa/fuzzy-20150315.619/fuzzy-autoloads.el" . 224))
+ ("c:/Users/foolhouse/AppData/Roaming/.emacs.d/init/init-elisp.el" . 1030))
