@@ -251,12 +251,12 @@
   :config
   (indent-guide-global-mode))
 
-;;; ---------------------------------------- Eletric Spacing Mode
+;; ;;; ---------------------------------------- Eletric Spacing Mode
 
-(use-package electric-spacing
-  :ensure t
-  :init
-  (add-hook 'prog-mode-hook #'electric-spacing-mode))
+;; (use-package electric-spacing
+;;   :ensure t
+;;   :init
+;;   (add-hook 'prog-mode-hook #'electric-spacing-mode))
 
 
 ;;; ---------------------------------------- PopUp Switcher

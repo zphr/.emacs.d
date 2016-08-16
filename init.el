@@ -156,9 +156,9 @@
 ;; ---------------------------------------- Auto-Compile 
 
 (setq load-prefer-newer t)
-(add-to-list 'load-path "~/.emacs.d/elpa/dash-20150704.253/")
-(add-to-list 'load-path "~/.emacs.d/elpa/packed-20150614.529/")
-(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20151107.1408/")
+(add-to-list 'load-path "~/.emacs.d/elpa/dash-20160813.951/")
+(add-to-list 'load-path "~/.emacs.d/elpa/packed-20160523.600/")
+(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20160711.1012/")
 (require 'auto-compile)
 (auto-compile-on-load-mode t)
 (auto-compile-on-save-mode t)
@@ -166,6 +166,10 @@
 (setq auto-compile-display-buffer nil)
 (setq auto-compile-mode-line-counter t)
 
+
+;; ---------------------------------------- Indentation
+
+(setq-default indent-tabs-mode nil)
 
 ;; ---------------------------------------- Modes and Package Config
 
@@ -209,5 +213,7 @@
 (require 'init-mode-line)
 (require 'init-haxe)
 (require 'init-js)
+(require 'init-smartparens)
+(require 'init-flycheck)
 
 ;;; init.el ends here

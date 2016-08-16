@@ -4,11 +4,12 @@
 
 (use-package company
   :ensure t
-  :config (progn
-	    (global-company-mode t)
-	    (setq company-clang-executable nil)
-	    (setq company-auto-complete nil)
-	    (setq company-idle-delay 0.2)))
+  :config
+  (global-company-mode t)
+  (setq company-clang-executable nil)
+  (setq company-auto-complete nil)
+  (setq company-idle-delay 0.2)
+  (setq company-dabbrev-downcase nil))
 
 
 ;; ---------------------------------------- Auctex Completion

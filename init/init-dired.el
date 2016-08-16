@@ -2,8 +2,6 @@
 ;; ---------------------------------------- Dired
 
 (use-package dired
-  :bind
-  ("M-j" . dired-jump)
   :config
   (setq dired-isearch-filenames 'dwim)
   (setq dired-dwim-target t)

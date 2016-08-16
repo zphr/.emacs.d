@@ -46,8 +46,8 @@
     ("M-g" goto-line "goto" :exit t)
     ("v" diff-hl-revert-hunk "revert")
     ("c" diff-hl-diff-goto-hunk "compare hunk")
-    ("j" diff-hl-next-hunk "next")
-    ("k" diff-hl-previous-hunk "previous")
+    ("n" diff-hl-next-hunk "next")
+    ("p" diff-hl-previous-hunk "previous")
     ("s" diff-hl-stage-hunks "stage")
     ("g" magit-status "status":exit t))
 

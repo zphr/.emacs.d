@@ -119,6 +119,7 @@
 	paredit-newline
 	paredit-open-round
 	paredit-raise-sexp
+	paredit-semicolon
 	picture-clear-column
 	picture-self-insert
 	python-nav-backward-up-list

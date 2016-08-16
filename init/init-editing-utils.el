@@ -12,7 +12,11 @@
 (use-package goto-last-change
   :ensure t
   :defer t
-  :bind ("C-M-z" . goto-last-change))
+  :config
+  (defun my-goto-last-change ()
+    (interactive)
+    (goto-last-change t 0))
+  (global-set-key (kbd "C-M-z") 'my-goto-last-change))
 
 
 ;; ---------------------------------------- Auto Indent Mode

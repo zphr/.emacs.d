@@ -11,6 +11,7 @@
   :bind (("C-8" . helm-mini)
 	 ("C-x C-i" . helm-imenu)
 	 ("C-x C-f" . helm-find-files)
+         ("M-C-8" . helm-find-files)
 	 ("M-x" . helm-M-x))
   :config (progn
 	    (helm-mode 1)
@@ -78,44 +79,45 @@
 
 (use-package helm-pt
   :ensure t
-  :bind ("C-c C-h" . helm-do-pt)
+  :bind ("C-4" . helm-projectile-pt)
   :config
 
-  (defun helm-pt--process ()
-    "Launch async process to supply candidates."
-    (let ((debug-on-error t)
-	  (cmd-line (helm-pt--command helm-pattern)))
-      ;; Start pt process.
-      (prog1	      ; This function should return the process first.
-	  (start-file-process-shell-command
-	   "*helm pt*" helm-buffer cmd-line)
-	;; Init sentinel.
-	(set-process-sentinel
-	 (get-buffer-process helm-buffer)
-	 #'(lambda (process event)
-	     (cond ((process-live-p process)
-		    (helm-process-deferred-sentinel-hook process event helm-ff-default-directory))
-		   ((= (process-exit-status process) 2)
-		    (with-current-buffer helm-buffer
-		      (insert (concat "* Exit with code 2, no result found,"
-				      " command line was:\n\n "
-				      (helm-pt--command helm-pattern)))))
-		   ((string= event "finished\n")
-		    (with-helm-window
-		      (force-mode-line-update))
-		    (message "Finished"))
-		   ;; Catch error output in log.
-		   (t (helm-log
-		       "Error: %s %s"
-		       (replace-regexp-in-string "\n" "" event)))))))))
+  ;; (defun helm-pt--process ()
+  ;;   "Launch async process to supply candidates."
+  ;;   (let ((debug-on-error t)
+  ;;         (cmd-line (helm-pt--command helm-pattern)))
+  ;;     ;; Start pt process.
+  ;;     (prog1	      ; This function should return the process first.
+  ;;         (start-file-process-shell-command
+  ;;          "*helm pt*" helm-buffer cmd-line)
+  ;;       ;; Init sentinel.
+  ;;       (set-process-sentinel
+  ;;        (get-buffer-process helm-buffer)
+  ;;        #'(lambda (process event)
+  ;;            (cond ((process-live-p process)
+  ;;       	    (helm-process-deferred-sentinel-hook process event helm-ff-default-directory))
+  ;;       	   ((= (process-exit-status process) 2)
+  ;;       	    (with-current-buffer helm-buffer
+  ;;       	      (insert (concat "* Exit with code 2, no result found,"
+  ;;       			      " command line was:\n\n "
+  ;;       			      (helm-pt--command helm-pattern)))))
+  ;;       	   ((string= event "finished\n")
+  ;;       	    (with-helm-window
+  ;;       	      (force-mode-line-update))
+  ;;       	    (message "Finished"))
+  ;;       	   ;; Catch error output in log.
+  ;;       	   (t (helm-log
+  ;;       	       "Error: %s %s"
+  ;;       	       (replace-regexp-in-string "\n" "" event)))))))))
 
-  (setq helm-input-idle-delay 0.1)
+  ;; (setq helm-input-idle-delay 0.1)
 
-  (defadvice helm-do-pt (around helm-do-pt-idle-advice activate)
-    (let ((old-input-idle-delay helm-input-idle-delay))
-      (setq helm-input-idle-delay 0.1)
-      ad-do-it
-      (setq helm-input-idle-delay old-input-idle-delay))))
+  ;; (defadvice helm-do-pt (around helm-do-pt-idle-advice activate)
+  ;;   (let ((old-input-idle-delay helm-input-idle-delay))
+  ;;     (setq helm-input-idle-delay 0.1)
+  ;;     ad-do-it
+  ;;     (setq helm-input-idle-delay old-input-idle-delay)))
+  )
 
 
 ;;; ---------------------------------------- Helm LS Git

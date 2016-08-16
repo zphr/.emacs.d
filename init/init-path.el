@@ -196,5 +196,23 @@
           "/Applications/blender.app/Contents/MacOS/"
           )))
 
+;;; ---------------------------------------- Linux Paths
+
+(when (string= system-name "christian-MS-7693")
+  (setenv "PATH"
+	  (concat
+	   "/bin" ":"
+	   "/usr/bin" ":"
+	   "/usr/local/bin" ":"
+	   "/home/christian/.nvm/versions/node/v5.10.1/bin" ":"
+	   "/home/christian/.nvm/versions/node/v5.10.1/lib/node_modules/" ":"
+	   (getenv "PATH")))
+
+  (setq exec-path '("/bin"
+		    "/usr/bin"
+		    "/usr/local/bin"
+		    "/home/christian/.nvm/versions/node/v5.10.1/bin"
+		    (getenv "PATH"))))
+
 
 (provide 'init-path)

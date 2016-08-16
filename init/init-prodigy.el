@@ -70,6 +70,28 @@
       :kill-signal 'sigkill
       :kill-process-buffer-on-stop t))
 
+  (when (string= system-name "christian-MS-7693")
+   (prodigy-define-service
+     :name "Gamebook Portal Server"
+     :command "/home/christian/.nvm/versions/node/v5.10.1/bin/npm"
+     :args '("run" "start")
+     :cwd "~/Software/gamebook-portal/"
+     :url "localhost"
+     :port 3000
+     :kill-signal 'sigkill
+     :kill-process-buffer-on-stop t)
+
+   (prodigy-define-service
+     :name "Gamebook Portal Watcher"
+     :command "/home/christian/.nvm/versions/node/v5.10.1/bin/npm"
+     :args '("run" "webpack")
+     :cwd "~/Software/gamebook-portal/"
+     :url "localhost"
+     :port 3000
+     :kill-signal 'sigkill
+     :kill-process-buffer-on-stop t))
+
+
   (when (string= system-name "EVIL-03")
     (prodigy-define-service
       :name "Omnisharp gamebook-sdk"
