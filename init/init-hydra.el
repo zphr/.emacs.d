@@ -23,9 +23,10 @@
 	      ("n" next-error "next error")
 	      ("p" previous-error "previous error")
 	      ("g" goto-line "go")
-	      ("l" (if (bound-and-true-p linum-mode)
+	      ("L" (if (bound-and-true-p linum-mode)
 		       (linum-mode -1)
 		     (linum-mode 1)) "line nr")
+              ("l" flycheck-list-errors "list errors" :bind nil)
 	      ("m" set-mark-command "mark" :bind nil)
 	      ("q" nil "quit"))
 

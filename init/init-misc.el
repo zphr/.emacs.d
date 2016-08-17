@@ -226,7 +226,7 @@
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 
 ;; set key binding
-(global-set-key (kbd "C-,") 'switch-to-previous-buffer)
+(global-set-key [C-tab] 'switch-to-previous-buffer)
 
 ;;; ---------------------------------------- Beacon
 

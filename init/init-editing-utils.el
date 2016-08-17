@@ -11,7 +11,6 @@
 
 (use-package goto-last-change
   :ensure t
-  :defer t
   :config
   (defun my-goto-last-change ()
     (interactive)
