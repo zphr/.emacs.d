@@ -40,6 +40,12 @@
 
   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
+  (defun setup-defun-movement ()
+    (setq-local beginning-of-defun-function 'js2-beginning-of-defun)
+    (setq-local end-of-defun-function 'js2-end-of-defun))
+
+  (add-hook 'js2-minor-mode-hook 'setup-defun-movement)
+
   (setq js2-highlight-level 3))
 
 ;;; ---------------------------------------- JS2 Refactor
@@ -81,6 +87,11 @@
    web-mode-code-indent-offset 2
    web-mode-attr-indent-offset 2
    web-mode-enable-auto-quoting nil)
+
+  (defun start-j2-minor-mode-in-web-mode ()
+    (if (and (string= web-mode-content-type "jsx") (fboundp 'js2-minor-mode))
+        (js2-minor-mode)))
+  (add-hook 'web-mode-hook 'start-j2-minor-mode-in-web-mode)
 
   (with-eval-after-load 'flycheck
     (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(javascript-jshint)))
