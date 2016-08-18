@@ -75,7 +75,8 @@ This is useful when followed by an immediate kill."
 
 (use-package swiper
   :ensure t
-  :bind ("M-s" . swiper))
+  ;; :bind ("M-s" . swiper)
+  )
 
 
 (provide 'init-isearch)

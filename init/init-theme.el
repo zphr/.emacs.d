@@ -1,11 +1,15 @@
 
-;; (use-package apropospriate-theme
+;; (use-package omtose-phellack-theme
 ;;   :ensure t
-;;   :config (load-theme 'apropospriate-dark t))
+;;   :config (load-theme 'omtose-darker t))
 
-(use-package zenburn-theme
+(use-package apropospriate-theme
   :ensure t
-  :config (load-theme 'zenburn))
+  :config (load-theme 'apropospriate-dark t))
+
+;; (use-package zenburn-theme
+;;   :ensure t
+;;   :config (load-theme 'zenburn))
 
 ;; (require-package 'subatomic-theme)
 ;; (load-theme 'subatomic)

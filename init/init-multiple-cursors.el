@@ -7,6 +7,7 @@
   (add-hook 'prog-mode-hook #'multiple-cursors-mode)
   (define-prefix-command 'multiple-cursors-map)
   (bind-key "M-RET" 'multiple-cursors-map)
+  (bind-key "M-RET" 'mc/edit-lines multiple-cursors-map)
   (bind-key "da" 'mc/mark-all-like-this-in-defun multiple-cursors-map)
   (bind-key "dm" 'mc/mark-all-like-this-in-defun multiple-cursors-map)
   (bind-key "dw" 'mc/mark-all-words-like-this-in-defun multiple-cursors-map)
