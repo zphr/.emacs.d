@@ -23,6 +23,7 @@
 	      ("n" next-error "next error")
 	      ("p" previous-error "previous error")
 	      ("g" goto-line "go")
+              ("t" git-timemachine "time-machine")
 	      ("L" (if (bound-and-true-p linum-mode)
 		       (linum-mode -1)
 		     (linum-mode 1)) "line nr")

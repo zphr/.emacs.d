@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: tripple-equal
+# key: =
+# --
+=== $0
