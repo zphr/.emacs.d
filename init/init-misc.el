@@ -268,5 +268,13 @@
   (setq psw-use-flx t))
 
 
+;;; ---------------------------------------- Zeal At Point
+
+(use-package zeal-at-point
+  :ensure t
+  :bind ("C-c d" . zeal-at-point))
+
+
+
 (provide 'init-misc)
 ;;; init-misc ends here

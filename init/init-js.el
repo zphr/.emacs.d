@@ -123,5 +123,33 @@
     '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css)))
 
 
+;;; ---------------------------------------- ESlint Fix
+
+(use-package eslint-fix
+  :ensure t
+  :config
+  (bind-key   "M-C-q" 'eslint-fix web-mode-map)
+
+  ;; (defun add-eslint-fix-to-save-hook ()
+  ;;   (when (member web-mode-content-type '("js" "jsx"))
+  ;;     (add-hook 'after-save-hook 'eslint-fix nil t)))
+
+  ;; (with-eval-after-load 'web-mode
+  ;;   '(add-hook 'web-mode-hook 'add-eslint-fix-to-save-hook))
+  )
+
+
+;;; ---------------------------------------- SCSS Mode
+
+(use-package scss-mode
+  :ensure t)
+
+
+;;; ---------------------------------------- Flycheck Flow
+
+(use-package flycheck-flow
+  :ensure t)
+
+
 (provide 'init-js)
 ;;; init-js ends here

@@ -23,11 +23,11 @@
 	      ("n" next-error "next error")
 	      ("p" previous-error "previous error")
 	      ("g" goto-line "go")
-              ("t" git-timemachine "time-machine")
+              ("t" git-timemachine "time-machine" :exit t)
 	      ("L" (if (bound-and-true-p linum-mode)
 		       (linum-mode -1)
 		     (linum-mode 1)) "line nr")
-              ("l" flycheck-list-errors "list errors" :bind nil)
+              ("l" flycheck-list-errors "list errors" :bind nil :exit t)
 	      ("m" set-mark-command "mark" :bind nil)
 	      ("q" nil "quit"))
 

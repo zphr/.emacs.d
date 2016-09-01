@@ -14,7 +14,7 @@
   :config
   (defun my-goto-last-change ()
     (interactive)
-    (goto-last-change t 0))
+    (goto-last-change t 1))
   (global-set-key (kbd "C-M-z") 'my-goto-last-change))
 
 

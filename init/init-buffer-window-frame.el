@@ -74,4 +74,26 @@
 			(ibuffer-switch-to-saved-filter-groups "default")))))
 
 
+;; ;;; ---------------------------------------- Perspective
+
+;; (use-package perspective
+;;   :ensure t
+;;   :bind
+;;   ("M-C-)" . persp-switch)
+;;   ("M-C-9" . persp-switch-last)
+;;   :config
+;;   (persp-mode t))
+
+
+;;; ---------------------------------------- WorkGroups 2
+
+(use-package workgroups2
+  :ensure t
+  :bind
+  ("M-C-)" . wg-switch-to-workgroup)
+  ("M-C-9" . wg-switch-to-previous-workgroup)
+  :config
+  (workgroups-mode t))
+
+
 (provide 'init-buffer-window-frame)
