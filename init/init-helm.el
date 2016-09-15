@@ -125,8 +125,8 @@
 (use-package helm-ls-git
   :ensure t
   :bind ("C-9" . helm-browse-project)
-  :config (progn
-	    (setq helm-ls-git-status-command 'magit-status)))
+  :config
+  (setq helm-ls-git-status-command 'magit-status))
 
 
 ;;; ---------------------------------------- Helm Swoop
@@ -147,6 +147,19 @@
   ;; Instead of helm-multi-swoop-all, you can also use helm-multi-swoop-current-mode
   (define-key helm-swoop-map (kbd "M-m") 'helm-multi-swoop-current-mode-from-helm-swoop))
 
+
+;;; ---------------------------------------- Helm Dash
+
+(use-package helm-dash
+  :ensure t
+  :bind
+  ("C-h d" . helm-dash-at-point)
+  :config
+  (defun helm-dash-js ()
+    (interactive)
+    (setq-local helm-dash-docsets '("Lo-Dash")))
+
+  (add-hook 'web-mode-hook 'helm-dash-js))
 
 
 (provide 'init-helm)

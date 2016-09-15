@@ -72,15 +72,6 @@
   :if (eq system-type 'windows-nt)
   :ensure t)
 
-
-;;; ---------------------------------------- Dired Filter
-
-(use-package dired-filter
-  :ensure t
-  :config
-  (define-key dired-mode-map (kbd "f") 'dired-filter-map))
-
-
 ;;; ---------------------------------------- Dired Narrow
 
 (use-package dired-narrow
@@ -88,21 +79,12 @@
   :config
   (define-key dired-mode-map (kbd "N") 'dired-narrow))
 
+;;; ---------------------------------------- Dired Launch
 
-;; ;;; ---------------------------------------- Dired Async
-;; (require-package 'async)
-;; (when (require 'dired-aux)
-;;    (require 'dired-async))
-
-;;; ---------------------------------------- Ranger
-
-;; (use-package ranger
-;;   :ensure t
-;;   :init (add-hook 'dired-mode-hook #'ranger-mode)
-;;   :config (progn
-;; 	    (setq ranger-cleanup-on-disable t)
-;; 	    (setq ranger-cleanup-eagerly t)
-;; 	    (setq ranger-show-dotfiles t)))
+(use-package dired-launch
+  :ensure t
+  :config
+  (dired-launch-enable))
 
 
 (provide 'init-dired)

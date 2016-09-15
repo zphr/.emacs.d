@@ -1,8 +1,4 @@
 
-;; (use-package omtose-phellack-theme
-;;   :ensure t
-;;   :config (load-theme 'omtose-darker t))
-
 (use-package apropospriate-theme
   :ensure t
   :config (load-theme 'apropospriate-dark t))

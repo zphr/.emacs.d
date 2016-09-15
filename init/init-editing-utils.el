@@ -15,7 +15,7 @@
   (defun my-goto-last-change ()
     (interactive)
     (goto-last-change t 1))
-  (global-set-key (kbd "C-M-z") 'my-goto-last-change))
+  (global-set-key (kbd "C-M-z") 'goto-last-change))
 
 
 ;; ---------------------------------------- Auto Indent Mode

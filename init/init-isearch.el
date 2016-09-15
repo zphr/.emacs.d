@@ -71,12 +71,4 @@ This is useful when followed by an immediate kill."
 (define-key isearch-mode-map [(control return)] 'isearch-exit-other-end)
 
 
-;;; ---------------------------------------- Swiper
-
-(use-package swiper
-  :ensure t
-  ;; :bind ("M-s" . swiper)
-  )
-
-
 (provide 'init-isearch)

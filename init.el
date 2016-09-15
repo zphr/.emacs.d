@@ -201,7 +201,7 @@
 (require 'init-navigation)
 (require 'init-smart-scan)
 (require 'init-company)
-(require 'init-helm)
+;; (require 'init-helm)
 ;; (require 'init-god-mode)
 ;; (require 'init-chat)
 ;; (require 'init-semantic)
@@ -211,9 +211,10 @@
 (require 'init-prodigy)
 ;; (require 'init-evil)
 (require 'init-mode-line)
-(require 'init-haxe)
+;; (require 'init-haxe)
 (require 'init-js)
 (require 'init-smartparens)
 (require 'init-flycheck)
+(require 'init-counsel)
 
 ;;; init.el ends here
