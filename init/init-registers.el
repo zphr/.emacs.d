@@ -4,6 +4,11 @@
 (set-register ?s '(file . "~/.emacs.d/init/init-shortcuts.el"))
 (set-register ?e '(file . "~/.emacs.d/init/init-elpa.el"))
 
+(when (eq system-type 'gnu/linux)
+  (set-register ?d '(file . "~/Desktop/"))
+  (set-register ?l '(file . "~/Downloads/"))
+  (set-register ?t '(file . "~/Desktop/TODO.org")))
+
 (when (eq system-type 'windows-nt) 
   (set-register ?d '(file . "~/../../Desktop/"))
   (set-register ?l '(file . "~/../../Downloads/"))
