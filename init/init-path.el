@@ -198,21 +198,28 @@
 
 ;;; ---------------------------------------- Linux Paths
 
-(when (string= system-name "christian-MS-7693")
-  (setenv "PATH"
-          (concat
-           "/bin" ":"
-           "/usr/bin" ":"
-           "/usr/local/bin" ":"
-           "/home/christian/.nvm/versions/node/v5.10.1/bin" ":"
-           "/home/christian/.nvm/versions/node/v5.10.1/lib/node_modules/" ":"
-           (getenv "PATH")))
+(setq p (getenv "PATH"))
 
-  (setq exec-path '("/bin"
-                    "/usr/bin"
-                    "/usr/local/bin"
-                    "/home/christian/.nvm/versions/node/v5.10.1/bin"
-                    (getenv "PATH"))))
+
+(when (string= system-name "christian-MS-7693")
+  (let* ((path (getenv "PATH"))
+         (path-list (split-string (getenv "PATH") ":")))
+    (setenv "PATH"
+            (concat
+             "/bin" ":"
+             "/usr/bin" ":"
+             "/usr/local/bin" ":"
+             "/home/christian/.nvm/versions/node/v5.10.1/bin" ":"
+             "/home/christian/.nvm/versions/node/v5.10.1/lib/node_modules/" ":"
+             path))
+
+    (setq exec-path (append
+                     path-list
+                     '("/bin"
+                       "/usr/bin"
+                       "/usr/local/bin"
+                       "/home/christian/.nvm/versions/node/v5.10.1/bin"
+                       )))))
 
 
 (provide 'init-path)

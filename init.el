@@ -156,7 +156,7 @@
 ;; ---------------------------------------- Auto-Compile 
 
 (setq load-prefer-newer t)
-(add-to-list 'load-path "~/.emacs.d/elpa/dash-20160813.951/")
+(add-to-list 'load-path "~/.emacs.d/elpa/dash-20160820.501/")
 (add-to-list 'load-path "~/.emacs.d/elpa/packed-20160523.600/")
 (add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20160711.1012/")
 (require 'auto-compile)
