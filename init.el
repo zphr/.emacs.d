@@ -44,7 +44,12 @@
 ;; ---------------------------------------- Unicode
 
 (prefer-coding-system 'utf-8)
-
+;; (setq buffer-file-coding-system 'utf-8)
+;; (setq default-file-name-coding-system 'utf-8)
+;; (setq default-keyboard-coding-system 'utf-8)
+;; (setq default-process-coding-system '(utf-8 . utf-8))
+;; (setq default-sendmail-coding-system 'utf-8)
+;; (setq default-terminal-coding-system 'utf-8)
 
 ;; ---------------------------------------- Emacs Server
 
@@ -71,7 +76,7 @@
  ((string= system-name "DESKTOP-VTVHSK3")
   (fringe-mode (cons 16 0)))
  (t
-  (fringe-mode (cons 4 0))))
+  (fringe-mode (cons 8 0))))
 
 
 ;; ---------------------------------------- Font Settings

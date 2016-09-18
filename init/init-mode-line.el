@@ -25,6 +25,12 @@
 ;;   :ensure t
 ;;   :config (powerline-default-theme))
 
+;;; ---------------------------------------- All The Icons
+
+(use-package all-the-icons
+  :ensure t)
+
+
 ;;; ---------------------------------------- Spaceline
 
 (use-package spaceline

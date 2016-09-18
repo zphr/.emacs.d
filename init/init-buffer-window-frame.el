@@ -96,4 +96,12 @@
   (workgroups-mode t))
 
 
+;;; ---------------------------------------- Window Numbering
+
+(use-package window-numbering
+  :ensure t
+  :config
+  (window-numbering-mode t))
+
+
 (provide 'init-buffer-window-frame)
