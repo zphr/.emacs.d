@@ -31,7 +31,8 @@
 
 (use-package paredit
   :ensure t
-:defer t)
+  :diminish paredit-mode
+  :defer t)
 
 
 ;; ---------------------------------------- Eldoc

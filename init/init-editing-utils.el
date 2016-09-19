@@ -64,6 +64,7 @@
 
 (use-package whitespace-cleanup-mode
   :ensure t
+  :diminish whitespace-cleanup-mode
   :init
   (add-hook 'prog-mode-hook #'whitespace-cleanup-mode))
 

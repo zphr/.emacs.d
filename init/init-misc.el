@@ -232,6 +232,7 @@
 
 (use-package beacon
   :ensure t
+  :diminish beacon-mode
   :config
   (setq beacon-blink-when-point-moves 10)
   (beacon-mode 1))
@@ -248,6 +249,7 @@
 
 (use-package indent-guide
   :ensure t
+  :diminish indent-guide-mode
   :config
   (indent-guide-global-mode))
 

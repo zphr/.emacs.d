@@ -5,6 +5,7 @@
   :ensure t
   ;; :bind
   ;; ("C-8" . ivy-switch-buffer)
+  :diminish ivy-mode
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)

@@ -4,6 +4,7 @@
 
 (use-package company
   :ensure t
+  :diminish company-mode
   ;; :bind
   ;; ("M-SPC" . company-complete)
   :config
