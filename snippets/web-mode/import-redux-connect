@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import-redux-connect
+# key: irc
+# --
+import { connect } from 'react-redux';$0

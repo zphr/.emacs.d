@@ -12,7 +12,10 @@
   (setq company-clang-executable nil)
   (setq company-auto-complete nil)
   (setq company-idle-delay 0.2)
-  (setq company-dabbrev-downcase nil))
+  (setq company-dabbrev-downcase nil)
+
+  (eval-after-load 'yasnippet
+    '(add-to-list 'company-backends 'company-yasnippet)))
 
 
 ;; ---------------------------------------- Auctex Completion

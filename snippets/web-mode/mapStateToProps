@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: mapStateToProps
+# key: msp
+# --
+function mapStateToProps(state) {
+  return {
+    $1,      
+  }
+}$0
+

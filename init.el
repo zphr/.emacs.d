@@ -153,9 +153,9 @@
 (require 'init-registers)
 (require 'init-shortcuts)
 (require 'init-elpa)
-(require 'init-theme)
 (require 'init-completion)
 (require 'init-abbrev)
+(require 'init-theme)
 
 
 ;; ---------------------------------------- Auto-Compile 

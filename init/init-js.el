@@ -3,10 +3,10 @@
 
 (use-package tern
   :ensure t
+  :diminish tern-mode
   :init
   (add-hook 'js2-mode-hook #'tern-mode)
-  (add-hook 'web-mode-hook#'tern-mode)
-  )
+  (add-hook 'web-mode-hook#'tern-mode))
 
 
 ;;; ---------------------------------------- Company Tern

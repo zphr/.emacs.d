@@ -2,4 +2,4 @@
 # name: import-from-lodash
 # key: ilo
 # --
-import $1 from 'lodash/$1';$0
+import _$1 from 'lodash/$1';$0

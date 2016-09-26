@@ -89,6 +89,7 @@
 
 (use-package workgroups2
   :ensure t
+  :diminish workgroups-mode
   :bind
   ("M-C-)" . wg-switch-to-workgroup)
   ("M-C-9" . wg-switch-to-previous-workgroup)

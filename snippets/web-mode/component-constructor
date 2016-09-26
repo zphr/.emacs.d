@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: component-constructor
+# key: ctor
+# --
+constructor(props, context) {
+  super(props, context);$0
+}

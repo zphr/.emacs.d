@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: mapDispatchToProps
+# key: mdp
+# --
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    $1
+  }, dispatch);
+}$0
+
