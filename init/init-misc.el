@@ -220,10 +220,12 @@
 ;;; --------------------------------------------- Switch to Previous
 ;;; --------------------------------------------- Buffer
 
-(defun switch-to-previous-buffer ()
+(defun switch-to-previous-buffer (&optional arg)
   "Switch to most recent buffer. Repeated calls toggle back and forth between the most recent two buffers."
-  (interactive)
-  (switch-to-buffer (other-buffer (current-buffer) 1)))
+  (interactive "P")
+  (if arg
+      (switch-to-buffer-other-window (other-buffer (current-buffer) 1))
+    (switch-to-buffer (other-buffer (current-buffer) 1))))
 
 ;; set key binding
 (global-set-key [C-tab] 'switch-to-previous-buffer)

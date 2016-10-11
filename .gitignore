@@ -26,3 +26,11 @@
 /bookmarks
 /custom.el
 /projectile-bookmarks.eld
+session.*
+/eshell/lastdir
+/image-dired
+/image-dired
+/url
+/var
+tramp
+ido.last

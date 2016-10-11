@@ -22,6 +22,7 @@
 
 (use-package magit-gh-pulls
   :ensure t
+  :after magit
   :init
   (add-hook 'magit-mode-hook #'turn-on-magit-gh-pulls)
   :defer t
@@ -38,7 +39,9 @@
   (add-hook 'dired-mode-hook #'diff-hl-dired-mode)
   ;; (add-hook 'prog-mode-hook #'diff-hl-flydiff-mode)
   :config
-  ;; (diff-hl-flydiff-mode t)
+  (if (eq system-type 'gnu/linux)
+      (diff-hl-flydiff-mode t))
+
   (global-diff-hl-mode 1)
   
   (defhydra hydra-diff-hl (:pre (widen))
