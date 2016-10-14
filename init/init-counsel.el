@@ -42,6 +42,7 @@
   ("C-h f" . counsel-describe-function)
   ("C-h v" . counsel-describe-variable)
   :config
+  (setq counsel-find-file-at-point t)
   (with-eval-after-load 'key-chord
     (key-chord-define-global (kbd "df") 'counsel-git)))
 

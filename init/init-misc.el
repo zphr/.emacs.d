@@ -51,7 +51,7 @@
 
 (add-hook 'prog-mode-hook 'local-column-number-mode)
 (add-hook 'prog-mode-hook 'local-comment-auto-fill)
-(add-hook 'prog-mode-hook 'turn-on-hl-line-mode)
+;; (add-hook 'prog-mode-hook 'turn-on-hl-line-mode)
 (add-hook 'prog-mode-hook 'turn-on-save-place-mode)
 (add-hook 'prog-mode-hook 'pretty-lambdas)
 (add-hook 'prog-mode-hook 'add-watchwords)
@@ -247,13 +247,13 @@
   :config
   (key-chord-mode 1))
 
-;;; ---------------------------------------- Indent Guide
+;; ;;; ---------------------------------------- Indent Guide
 
-(use-package indent-guide
-  :ensure t
-  :diminish indent-guide-mode
-  :config
-  (indent-guide-global-mode))
+;; (use-package indent-guide
+;;   :ensure t
+;;   :diminish indent-guide-mode
+;;   :config
+;;   (indent-guide-global-mode))
 
 ;; ;;; ---------------------------------------- Eletric Spacing Mode
 

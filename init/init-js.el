@@ -46,6 +46,9 @@
 
   (add-hook 'js2-minor-mode-hook 'setup-defun-movement)
 
+  (js2-mode-hide-warnings-and-errors)
+  (setq js2-mode-assume-strict t)
+
   (setq js2-highlight-level 3))
 
 ;;; ---------------------------------------- JS2 Refactor

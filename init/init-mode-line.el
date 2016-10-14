@@ -37,7 +37,7 @@
   :ensure t
   :config
   (require 'spaceline-config)
-  (setq powerline-default-separator 'wave)
+  (setq powerline-default-separator 'arrow)
   (setq spaceline-window-numbers-unicode t)
   (setq spaceline-workspace-numbers-unicode t)
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
