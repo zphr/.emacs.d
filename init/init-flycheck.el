@@ -5,7 +5,8 @@
   :ensure t
   :diminish flycheck-mode
   :config
-  (global-flycheck-mode t))
+  (global-flycheck-mode t)
+  (setq flycheck-javascript-eslint-executable "~/Software/gamebook-portal/node_modules/eslint/bin/eslint.js"))
 
 
 (provide 'init-flycheck)
