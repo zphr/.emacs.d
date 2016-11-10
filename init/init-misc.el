@@ -240,12 +240,12 @@
   (beacon-mode 1))
 
 
-;;; ---------------------------------------- Key Chord Mode
+;; ;;; ---------------------------------------- Key Chord Mode
 
-(use-package key-chord
-  :ensure t
-  :config
-  (key-chord-mode 1))
+;; (use-package key-chord
+;;   :ensure t
+;;   :config
+;;   (key-chord-mode 1))
 
 ;; ;;; ---------------------------------------- Indent Guide
 

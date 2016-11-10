@@ -185,5 +185,16 @@
 ;;   :after web-mode)
 
 
+;;; ---------------------------------------- JS Import
+
+(use-package js-import
+  :ensure t
+  :after web-mode
+  :config
+  (with-eval-after-load 'web-mode
+    (define-key web-mode-map (kbd "C-M-i") 'js-import)))
+
+
+
 (provide 'init-js)
 ;;; init-js ends here

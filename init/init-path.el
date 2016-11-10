@@ -201,7 +201,7 @@
 (setq p (getenv "PATH"))
 
 
-(when (string= system-name "christian-MS-7693")
+(when (eq system-type 'gnu/linux)
   (let* ((path (getenv "PATH"))
          (path-list (split-string (getenv "PATH") ":")))
     (setenv "PATH"
@@ -209,8 +209,9 @@
              "/bin" ":"
              "/usr/bin" ":"
              "/usr/local/bin" ":"
-             "/home/christian/.nvm/versions/node/v5.10.1/bin" ":"
-             "/home/christian/.nvm/versions/node/v5.10.1/lib/node_modules/" ":"
+             "~/.nvm/versions/node/v5.10.1/bin" ":"
+             "~/.nvm/versions/node/v5.10.1/lib/node_modules/" ":"
+             "~/Software/gamebook-portal/node_modules/" ":"
              path))
 
     (setq exec-path (append
@@ -218,7 +219,8 @@
                      '("/bin"
                        "/usr/bin"
                        "/usr/local/bin"
-                       "/home/christian/.nvm/versions/node/v5.10.1/bin"
+                       "~/.nvm/versions/node/v5.10.1/bin"
+                       "~/Software/gamebook-portal/node_modules/"
                        )))))
 
 
