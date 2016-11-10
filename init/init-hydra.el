@@ -20,8 +20,8 @@
 						:pre (push-mark (point))
 						:post (linum-mode -1))
 	      "goto-line"
-	      ("n" next-error "next error")
-	      ("p" previous-error "previous error")
+	      ("n" flycheck-next-error "next error")
+	      ("p" flycheck-previous-error "previous error")
 	      ("g" goto-line "go")
               ("t" git-timemachine "time-machine" :exit t)
 	      ("L" (if (bound-and-true-p linum-mode)

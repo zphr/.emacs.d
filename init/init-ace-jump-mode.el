@@ -31,23 +31,24 @@
 
 ;;; ---------------------------------------- Avy Mode
 
-(require-package 'avy)
-(require 'avy)
+(use-package avy
+  :ensure t
+  :bind ("C-ö" . avy-goto-char-timer)
+  :config
 
-(global-set-key (kbd "C-ö") 'avy-goto-word-1)
+  ;; (custom-set-faces
+  ;;  '(avy-background-face ((t (:background  "#DCA3A3" :foreground "#DCA3A3" :inverse-video nil))))
+  ;;  '(avy-lead-face ((t (:background  "#DCA3A3" :foreground "#000000" :inverse-video nil)))))
 
-(custom-set-faces
- '(avy-background-face ((t (:background  "#DCA3A3" :foreground "#DCA3A3" :inverse-video nil))))
- '(avy-lead-face ((t (:background  "#DCA3A3" :foreground "#000000" :inverse-video nil)))))
+  (defun set-up-avy-keys ()
+    (local-set-key (kbd "ö") 'avy-goto-char-timer)
+    (local-set-key (kbd "ü") 'avy-goto-line))
+  (add-hook 'prog-mode-hook 'set-up-avy-keys)
 
-(defun set-up-avy-keys ()
-  (local-set-key (kbd "ö") 'avy-goto-word-1)
-  (local-set-key (kbd "ü") 'avy-goto-line))
-(add-hook 'prog-mode-hook 'set-up-avy-keys)
+  (define-key isearch-mode-map (kbd "ö") 'avy-isearch)
 
-(define-key isearch-mode-map (kbd "ö") 'avy-isearch)
+  (setq avy-style 'at-full))
 
-(setq avy-style 'at-full)
 
 
 (provide 'init-ace-jump-mode)

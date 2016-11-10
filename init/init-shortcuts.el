@@ -48,6 +48,8 @@
 
 (global-set-key (kbd "C-M-h") 'mark-defun)
 
+(global-set-key (kbd "C-c C-h") 'mark-whole-buffer)
+
 ;;; ---------------------------------------- Register
 
 (global-set-key (kbd "C-x r a") 'append-to-register)
@@ -263,6 +265,11 @@
           ((backward-up-list arg)))))
 
 (global-set-key [remap backward-up-list] 'backward-up-sexp)
+
+
+;;; ---------------------------------------- FFAP
+
+(global-set-key (kbd "C-M-<return>") 'ffap)
 
 
 ;; ;; ---------------------------------------- Ö Map

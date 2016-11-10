@@ -75,14 +75,23 @@
   (bind-key (kbd "M-q") 'json-reformat-sexp json-mode-map))
 
 
+;;; ---------------------------------------- RSJX Mode
+
+(use-package rjsx-mode
+  :ensure t
+  :after js2-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.js[x]?$" . rjsx-mode)))
+
 ;;; ---------------------------------------- Web Mode
 
 (use-package web-mode
   :ensure t
+  :defer t
   :config
-  (add-to-list 'auto-mode-alist '("\\.js[x]?$" . web-mode))
-  (setq web-mode-content-types-alist
-	'(("jsx" . "\\.js[x]?\\'")))
+  ;; (add-to-list 'auto-mode-alist '("\\.js[x]?$" . web-mode))
+  ;; (setq web-mode-content-types-alist
+  ;;       '(("jsx" . "\\.js[x]?\\'")))
 
   (setq-default
    web-mode-markup-indent-offset 2
@@ -105,6 +114,8 @@
 
 (use-package web-beautify
   :ensure t
+  :defer t
+  :after web-mode
   :config
   (with-eval-after-load 'js2-mode
     '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
@@ -131,7 +142,8 @@
 (use-package eslint-fix
   :ensure t
   :config
-  (bind-key   "M-C-q" 'eslint-fix web-mode-map)
+  (with-eval-after-load 'web-mode
+    (bind-key "M-C-q" 'eslint-fix web-mode-map))
 
   ;; (defun add-eslint-fix-to-save-hook ()
   ;;   (when (member web-mode-content-type '("js" "jsx"))
@@ -145,13 +157,32 @@
 ;;; ---------------------------------------- SCSS Mode
 
 (use-package scss-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
-;;; ---------------------------------------- Flycheck Flow
+;; ;;; ---------------------------------------- Flycheck Flow
 
-(use-package flycheck-flow
-  :ensure t)
+;; (use-package flycheck-flow
+;;   :ensure t)
+
+
+;;; ---------------------------------------- JS Import
+
+(use-package js-import
+  :ensure t
+  :defer t
+  :after web-mode
+  :config
+  (define-key web-mode-map (kbd "C-M-i") 'js-import))
+
+
+;; ;;; ---------------------------------------- Import JS
+
+;; (use-package import-js
+;;   :ensure t
+;;   :defer t
+;;   :after web-mode)
 
 
 (provide 'init-js)

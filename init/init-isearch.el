@@ -71,4 +71,13 @@ This is useful when followed by an immediate kill."
 (define-key isearch-mode-map [(control return)] 'isearch-exit-other-end)
 
 
+;; ;;; ---------------------------------------- Ace Isearch
+
+;; (use-package ace-isearch
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (global-ace-isearch-mode +1))
+
+
 (provide 'init-isearch)

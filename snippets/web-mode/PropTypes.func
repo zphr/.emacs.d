@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: PropTypes.func
+# key: ptf
+# --
+PropTypes.func$0

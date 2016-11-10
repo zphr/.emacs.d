@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: PropTypes.array
+# key: pta
+# --
+PropTypes.array$0
