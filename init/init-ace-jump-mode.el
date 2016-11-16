@@ -33,12 +33,8 @@
 
 (use-package avy
   :ensure t
-  :bind ("C-ö" . avy-goto-char-timer)
+  :bind (("C-ö" . avy-goto-char-timer))
   :config
-
-  ;; (custom-set-faces
-  ;;  '(avy-background-face ((t (:background  "#DCA3A3" :foreground "#DCA3A3" :inverse-video nil))))
-  ;;  '(avy-lead-face ((t (:background  "#DCA3A3" :foreground "#000000" :inverse-video nil)))))
 
   (defun set-up-avy-keys ()
     (local-set-key (kbd "ö") 'avy-goto-char-timer)

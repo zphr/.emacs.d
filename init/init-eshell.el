@@ -6,15 +6,15 @@
 ;; :defer t)
 
 
-;; ---------------------------------------- Bash Setup
+;; ;; ---------------------------------------- Bash Setup
 
-(setq explicit-shell-file-name "c:/Program Files/Git/bin/bash.exe")
-(setq shell-file-name "bash")
-(setq explicit-bash-args '("--noediting" "--login" "-i"))
-(setenv "SHELL" shell-file-name)
-(add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+;; (setq explicit-shell-file-name "c:/Program Files/Git/bin/bash.exe")
+;; (setq shell-file-name "bash")
+;; (setq explicit-bash-args '("--noediting" "--login" "-i"))
+;; (setenv "SHELL" shell-file-name)
+;; (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
 
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+;; (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 ;; (setq explicit-shell-file-name "C:/Emacs/libexec/emacs/24.5/x86_64-w64-mingw32/cmdproxy.exe")
 ;; (setq shell-file-name "cmdproxy")

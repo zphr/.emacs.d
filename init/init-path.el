@@ -220,6 +220,7 @@
                        "/usr/bin"
                        "/usr/local/bin"
                        "~/.nvm/versions/node/v5.10.1/bin"
+                       "~/.nvm/versions/node/v5.10.1/lib/node_modules/"
                        "~/Software/gamebook-portal/node_modules/"
                        )))))
 

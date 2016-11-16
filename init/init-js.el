@@ -79,9 +79,12 @@
 
 (use-package rjsx-mode
   :ensure t
-  :after js2-mode
   :config
-  (add-to-list 'auto-mode-alist '("\\.js[x]?$" . rjsx-mode)))
+  (add-to-list 'auto-mode-alist '("\\.js[x]?$" . rjsx-mode))
+
+  (with-eval-after-load 'flycheck
+    (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(javascript-jshint)))
+    (flycheck-add-mode 'javascript-eslint 'rjsx-mode)))
 
 ;;; ---------------------------------------- Web Mode
 
@@ -145,6 +148,9 @@
   (with-eval-after-load 'web-mode
     (bind-key "M-C-q" 'eslint-fix web-mode-map))
 
+  (with-eval-after-load 'rjsx-mode
+    (bind-key "M-C-q" 'eslint-fix rjsx-mode-map))
+
   ;; (defun add-eslint-fix-to-save-hook ()
   ;;   (when (member web-mode-content-type '("js" "jsx"))
   ;;     (add-hook 'after-save-hook 'eslint-fix nil t)))
@@ -171,10 +177,8 @@
 
 (use-package js-import
   :ensure t
-  :defer t
-  :after web-mode
-  :config
-  (define-key web-mode-map (kbd "C-M-i") 'js-import))
+  :bind (:map rjsx-mode-map
+              ("C-M-i" . js-import)))
 
 
 ;; ;;; ---------------------------------------- Import JS
@@ -194,6 +198,14 @@
   (with-eval-after-load 'web-mode
     (define-key web-mode-map (kbd "C-M-i") 'js-import)))
 
+
+;;; ---------------------------------------- Add Node Modules Path
+
+(use-package add-node-modules-path
+  :ensure t
+  :config
+  (eval-after-load 'rjsx-mode
+    '(add-hook 'rjsx-mode-hook #'add-node-modules-path)))
 
 
 (provide 'init-js)

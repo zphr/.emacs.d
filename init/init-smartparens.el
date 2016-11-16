@@ -19,6 +19,7 @@
   ("C-k"   . sp-kill-hybrid-sexp)
   ("C-M-w" . sp-copy-sexp)
   :config
+  (electric-pair-mode -1)
   (require 'smartparens-config)
   (add-hook 'web-mode-hook #'smartparens-strict-mode)
   (add-hook 'js2-mode-hook #'smartparens-strict-mode)
