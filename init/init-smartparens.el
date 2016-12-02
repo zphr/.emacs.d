@@ -23,7 +23,8 @@
   (require 'smartparens-config)
   (add-hook 'web-mode-hook #'smartparens-strict-mode)
   (add-hook 'js2-mode-hook #'smartparens-strict-mode)
-  (add-hook 'js-mode-hook #'smartparens-strict-mode))
+  (add-hook 'js-mode-hook #'smartparens-strict-mode)
+  (add-hook 'rjsx-mode-hook #'smartparens-strict-mode))
 
 (provide 'init-smartparens)
 ;;; init-smartparens ends here

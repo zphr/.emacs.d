@@ -6,6 +6,20 @@
   :defer t
   :bind ("C-7" . prodigy)
   :config
+
+  (prodigy-define-tag
+    :name 'npmWebPack
+    :on-output (lambda (&rest args)
+                 (let ((output (plist-get args :output))
+                       (service (plist-get args :service)))
+                   (cond ((or (s-matches? "^ERROR in" output)
+                              (s-matches? "^Errors:" output))
+                          (prodigy-set-status service 'failed))
+                         ((s-matches? "^compiled-server.js" output)
+                          (prodigy-set-status service 'ready))
+                         (t
+                          (prodigy-set-status service 'running))))))
+
   (when (string= system-name "GENIUS-02")
     (prodigy-define-service
       :name "Omnisharp gamebook-sdk"
@@ -89,7 +103,8 @@
      :url "localhost"
      :port 3000
      :kill-signal 'sigkill
-     :kill-process-buffer-on-stop t))
+     :kill-process-buffer-on-stop t
+     :tags '(npmWebPack)))
 
 
   (when (string= system-name "EVIL-03")

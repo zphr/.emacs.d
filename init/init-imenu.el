@@ -1,8 +1,8 @@
 
-;; ---------------------------------------- Imenu
+;; ;; ---------------------------------------- Imenu
 
-(add-hook 'imenu-after-jump-hook (lambda ()
-                                   (recenter-top-bottom)))
+;; (add-hook 'imenu-after-jump-hook (lambda ()
+;;                                    (recenter-top-bottom)))
 
 
 ;; ---------------------------------------- Flimenu
@@ -17,8 +17,9 @@
 
 (use-package imenu-anywhere
   :ensure t
-  :bind ("C-." . imenu-anywhere))
-
-
+  :bind
+  (("C-." . imenu-anywhere)
+   ("ö" . imenu)
+   ("Ö" . imenu-anywhere)))
 
 (provide 'init-imenu)

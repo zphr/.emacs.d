@@ -70,11 +70,6 @@
   :ensure helm
   :defer t)
 
-(use-package imenu-anywhere
-  :ensure t
-  :defer t
-  :bind ("C-h i" . helm-imenu-anywhere))
-
 ;;; ---------------------------------------- Helm Pt
 
 (use-package helm-pt

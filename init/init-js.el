@@ -84,7 +84,11 @@
 
   (with-eval-after-load 'flycheck
     (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(javascript-jshint)))
-    (flycheck-add-mode 'javascript-eslint 'rjsx-mode)))
+    (flycheck-add-mode 'javascript-eslint 'rjsx-mode))
+
+  (defun rjsx-setup ()
+    (auto-fill-mode -1))
+  (add-hook 'rjsx-mode-hook 'rjsx-setup))
 
 ;;; ---------------------------------------- Web Mode
 

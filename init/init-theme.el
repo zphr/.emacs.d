@@ -1,11 +1,11 @@
 
-(use-package apropospriate-theme
-  :ensure t
-  :init (load-theme 'apropospriate-dark t))
-
-;; (use-package zenburn-theme
+;; (use-package apropospriate-theme
 ;;   :ensure t
-;;   :config (load-theme 'zenburn))
+;;   :init (load-theme 'apropospriate-dark t))
+
+(use-package zenburn-theme
+  :ensure t
+  :init (load-theme 'zenburn))
 
 ;; (require-package 'subatomic-theme)
 ;; (load-theme 'subatomic)
