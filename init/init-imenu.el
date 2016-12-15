@@ -20,6 +20,8 @@
   :bind
   (("C-." . imenu-anywhere)
    ("ö" . imenu)
-   ("Ö" . imenu-anywhere)))
+   ("Ö" . imenu-anywhere))
+  :init
+  (setq imenu-auto-rescan t))
 
 (provide 'init-imenu)

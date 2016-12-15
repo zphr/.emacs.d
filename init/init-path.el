@@ -209,8 +209,8 @@
              "/bin" ":"
              "/usr/bin" ":"
              "/usr/local/bin" ":"
-             "~/.nvm/versions/node/v5.10.1/bin" ":"
-             "~/.nvm/versions/node/v5.10.1/lib/node_modules/" ":"
+             "~/.nvm/versions/node/v6.9.2/bin" ":"
+             "~/.nvm/versions/node/v6.9.2/lib/node_modules/" ":"
              "~/Software/gamebook-portal/node_modules/" ":"
              path))
 
@@ -219,8 +219,8 @@
                      '("/bin"
                        "/usr/bin"
                        "/usr/local/bin"
-                       "~/.nvm/versions/node/v5.10.1/bin"
-                       "~/.nvm/versions/node/v5.10.1/lib/node_modules/"
+                       "~/.nvm/versions/node/v6.9.2/bin"
+                       "~/.nvm/versions/node/v6.9.2/lib/node_modules/"
                        "~/Software/gamebook-portal/node_modules/"
                        )))))
 

@@ -20,6 +20,8 @@
   ("C-M-w" . sp-copy-sexp)
   :config
   (electric-pair-mode -1)
+  (smartparens-global-mode t)
+
   (require 'smartparens-config)
   (add-hook 'web-mode-hook #'smartparens-strict-mode)
   (add-hook 'js2-mode-hook #'smartparens-strict-mode)
