@@ -17,7 +17,7 @@
     (if arg
         (ivy-switch-buffer-other-window)
       (ivy-switch-buffer)))
-  (global-set-key (kbd "C-8") 'my-ivy-switch-buffer)
+  ;; (global-set-key (kbd "C-8") 'my-ivy-switch-buffer)
 
   (with-eval-after-load 'key-chord
     (key-chord-define-global (kbd "jk") 'my-ivy-switch-buffer)))

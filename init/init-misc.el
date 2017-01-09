@@ -279,6 +279,13 @@
   :bind ("C-c d" . zeal-at-point))
 
 
+;;; ---------------------------------------- String Inflection
+
+(use-package string-inflection
+  :ensure t
+  :bind
+  ("C-c C-u" . string-inflection-java-style-cycle))
+
 
 (provide 'init-misc)
 ;;; init-misc ends here

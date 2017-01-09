@@ -52,11 +52,13 @@
 
 (use-package flx-ido
   :ensure t
+  :bind
+  ("C-8" . ido-switch-buffer)
   :init (setq gc-cons-threshold 20000000) ;; speed up garbage collector 
-  :config (progn
-	    (flx-ido-mode t)
-	    ;; disable ido faces to see flx highlights.
-	    (setq ido-use-faces nil)))
+  :config
+  (flx-ido-mode t)
+  ;; disable ido faces to see flx highlights.
+  (setq ido-use-faces nil))
 
 
 (provide 'init-ido)

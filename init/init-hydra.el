@@ -11,7 +11,7 @@
     ("M-y" yank-pop nil)
     ("n" (yank-pop 1) "next")
     ("p" (yank-pop -1) "prev")
-    ("l" helm-show-kill-ring "list" :color blue))
+    ("l" helm-show-kill-ring "list" :color blue :exit t))
 
   (global-set-key (kbd "M-y") #'hydra-yank-pop/yank-pop)
   (global-set-key (kbd "C-y") #'hydra-yank-pop/yank)
@@ -31,7 +31,7 @@
     ("m" set-mark-command "mark" :bind nil)
     ("q" nil "quit"))
 
-  (global-set-key (kbd "M-g") #'hydra-goto-line/body)
+  ;; (global-set-key (kbd "M-g") #'hydra-goto-line/body)
 
             ;;; ---------------------------------------- C#
 

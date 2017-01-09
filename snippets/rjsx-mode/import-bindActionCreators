@@ -2,6 +2,4 @@
 # name: import-bindActionCreators
 # key: ibac
 # --
-import {
-  bindActionCreators,
-} from 'redux';$0
+import { bindActionCreators } from 'redux';$0

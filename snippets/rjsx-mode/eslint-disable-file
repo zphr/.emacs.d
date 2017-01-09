@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: eslint-disable-file
+# key: edf
+# --
+/* eslint-disable */$0

@@ -168,7 +168,9 @@
 
 (use-package scss-mode
   :ensure t
-  :defer t)
+  :defer t
+  :config
+  (setq-default css-indent-offset 2))
 
 
 ;; ;;; ---------------------------------------- Flycheck Flow
