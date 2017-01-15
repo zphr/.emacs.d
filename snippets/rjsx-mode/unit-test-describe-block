@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: unity-test-describe-block
+# key: db
+# --
+describe('$1', () => {
+  ${2:beforeEach(() => {
+    $0
+  });}
+  
+});

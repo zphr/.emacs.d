@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: expect-to-be-true
+# key: tbt
+# --
+.toBe(true)$0

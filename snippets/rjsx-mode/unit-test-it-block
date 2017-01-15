@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: unit-test-it-block
+# key: it
+# --
+it('$1', () => {
+  $0
+});

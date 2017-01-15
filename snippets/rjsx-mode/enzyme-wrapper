@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: enzyme-wrapper
+# key: wr
+# --
+const wrapper = shallow(<${1:`(car (split-string (file-name-base) "\\."))`} />);$0
