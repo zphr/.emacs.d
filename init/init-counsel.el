@@ -17,7 +17,7 @@
     (if arg
         (ivy-switch-buffer-other-window)
       (ivy-switch-buffer)))
-  ;; (global-set-key (kbd "C-8") 'my-ivy-switch-buffer)
+  (global-set-key (kbd "C-8") 'my-ivy-switch-buffer)
 
   (with-eval-after-load 'key-chord
     (key-chord-define-global (kbd "jk") 'my-ivy-switch-buffer)))
@@ -34,13 +34,21 @@
 
 (use-package counsel
   :ensure t
+  :functions counsel-git-grep
   :bind
   ("M-x" . counsel-M-x)
   ("C-x C-f" . counsel-find-file)
-  ("C-4" . counsel-git-grep)
+  ;; ("C-4" . counsel-git-grep)
   ("C-9" . counsel-git)
   ("C-h f" . counsel-describe-function)
   ("C-h v" . counsel-describe-variable)
+  :init
+  (defun my-counsel-git-grep (&optional arg)
+    (interactive "P")
+    (if arg
+        (counsel-git-grep nil (symbol-name (symbol-at-point)))
+      (counsel-git-grep)))
+  (global-set-key (kbd "C-4") 'my-counsel-git-grep)
   :config
   (setq counsel-find-file-at-point t)
   (with-eval-after-load 'key-chord

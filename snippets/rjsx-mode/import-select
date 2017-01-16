@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import-select
+# key: is
+# --
+import { select } from './../redux/reducers';$0

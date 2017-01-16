@@ -27,7 +27,7 @@
   ;; Let flycheck handle parse errors
   (setq-default js2-show-parse-errors nil)
   (setq-default js2-strict-missing-semi-warning nil)
-  (setq-default js2-strict-trailing-comma-warning t) ;; jshint does not warn about this now for some reason
+  (setq-default js2-strict-trailing-comma-warning nil) ;; jshint does not warn about this now for some reason
 
   (require 'js2-imenu-extras)
   (js2-imenu-extras-setup)
@@ -212,6 +212,21 @@
   :config
   (eval-after-load 'rjsx-mode
     '(add-hook 'rjsx-mode-hook #'add-node-modules-path)))
+
+;;; ---------------------------------------- Dumb Jump
+
+(use-package dumb-jump
+  :ensure t
+  :after rjsx-mode
+  :bind
+  ("C-M-S-g" . dumb-jump-back)
+  :config
+  (defun my-dumb-jump-go (&optional arg)
+    (interactive "P")
+    (if arg
+        (dumb-jump-go-other-window)
+      (dumb-jump-go)))
+  (global-set-key (kbd "C-M-g") 'my-dumb-jump-go))
 
 
 (provide 'init-js)

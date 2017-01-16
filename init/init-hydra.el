@@ -16,20 +16,20 @@
   (global-set-key (kbd "M-y") #'hydra-yank-pop/yank-pop)
   (global-set-key (kbd "C-y") #'hydra-yank-pop/yank)
 
-  (defhydra hydra-goto-line (goto-map ""
-                                      :pre (push-mark (point))
-                                      :post (linum-mode -1))
-    "goto-line"
-    ("n" flycheck-next-error "next error")
-    ("p" flycheck-previous-error "previous error")
-    ("g" goto-line "go")
-    ("t" git-timemachine "time-machine" :exit t)
-    ("L" (if (bound-and-true-p linum-mode)
-             (linum-mode -1)
-           (linum-mode 1)) "line nr")
-    ("l" flycheck-list-errors "list errors" :bind nil :exit t)
-    ("m" set-mark-command "mark" :bind nil)
-    ("q" nil "quit"))
+  ;; (defhydra hydra-goto-line (goto-map ""
+  ;;                                     :pre (push-mark (point))
+  ;;                                     :post (linum-mode -1))
+  ;;   "goto-line"
+  ;;   ("n" flycheck-next-error "next error")
+  ;;   ("p" flycheck-previous-error "previous error")
+  ;;   ("g" goto-line "go")
+  ;;   ("t" git-timemachine "time-machine" :exit t)
+  ;;   ("L" (if (bound-and-true-p linum-mode)
+  ;;            (linum-mode -1)
+  ;;          (linum-mode 1)) "line nr")
+  ;;   ("l" flycheck-list-errors "list errors" :bind nil :exit t)
+  ;;   ("m" set-mark-command "mark" :bind nil)
+  ;;   ("q" nil "quit"))
 
   ;; (global-set-key (kbd "M-g") #'hydra-goto-line/body)
 
