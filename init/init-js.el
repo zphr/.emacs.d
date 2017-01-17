@@ -184,7 +184,9 @@
 (use-package js-import
   :ensure t
   :bind (:map rjsx-mode-map
-              ("C-M-i" . js-import)))
+              ("C-M-i" . js-import))
+  :config
+  (setq-default js-import-quote "'"))
 
 
 ;; ;;; ---------------------------------------- Import JS
