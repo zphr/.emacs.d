@@ -222,6 +222,8 @@
   :after rjsx-mode
   :bind
   ("C-M-S-g" . dumb-jump-back)
+  :init
+  (setq dumb-jump-selector 'ivy)
   :config
   (defun my-dumb-jump-go (&optional arg)
     (interactive "P")
