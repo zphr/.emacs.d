@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: destructure-props
+# key: dp
+# --
+const { $0 } = this.props;

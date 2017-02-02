@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: destructure-state
+# key: ds
+# --
+const { $0 } = this.state;

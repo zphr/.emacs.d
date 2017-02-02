@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: mergeProps
+# key: mp
+# --
+const mergeProps = (stateProps, dispatchProps, ownProps) => ({
+  ...stateProps,
+  ...ownProps,
+  $0
+});

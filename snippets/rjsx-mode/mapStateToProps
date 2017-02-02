@@ -2,9 +2,7 @@
 # name: mapStateToProps
 # key: msp
 # --
-function mapStateToProps(state) {
-  return {
-    $1,      
-  }
-}$0
+const mapStateToProps = (state) => ({
+  $1,      
+});$0
 

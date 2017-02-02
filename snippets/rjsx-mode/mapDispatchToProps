@@ -2,9 +2,8 @@
 # name: mapDispatchToProps
 # key: mdp
 # --
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    $1
-  }, dispatch);
-}$0
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  $1
+}, dispatch);
+$0
 

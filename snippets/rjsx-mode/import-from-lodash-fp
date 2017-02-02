@@ -2,4 +2,4 @@
 # name: import-from-lodash-fp
 # key: filo
 # --
-import f${1:$(capitalize yas-text)} from 'lodash/fp/$1';$0
+import f${1:$(capitalize-first yas-text)} from 'lodash/fp/$1';$0
