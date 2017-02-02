@@ -178,6 +178,12 @@
 
 ;; ---------------------------------------- Modes and Package Config
 
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (when (memq window-system '(x mac ns))
+    (exec-path-from-shell-initialize)))
+
 (use-package diminish
   :ensure t)
 (use-package scratch
