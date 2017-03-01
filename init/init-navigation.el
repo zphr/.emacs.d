@@ -33,7 +33,7 @@
 
 (use-package avy
   :ensure t
-  :bind ("C-ö" . avy-goto-char-2)
+  :bind ("C-ö" . avy-goto-char-timer)
   :config 
   (defun set-up-avy-keys ()
     (local-set-key (kbd "ö") 'avy-goto-char-timer)
