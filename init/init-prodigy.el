@@ -85,10 +85,13 @@
       :kill-signal 'sigkill
       :kill-process-buffer-on-stop t))
 
-  (when (or (string= system-name "christian-MS-7693") (string= system-name "localhost.localdomain"))
+  (when (or
+         (string= system-name "christian-MS-7693")
+         (string= system-name "localhost.localdomain")
+         (string= system-name "EXG.local"))
    (prodigy-define-service
      :name "Gamebook Portal Server"
-     :command "~/.nvm/versions/node/v6.9.2/bin/npm"
+     :command "~/.nvm/versions/node/v6.10.0/bin/npm"
      :args '("run" "start")
      :cwd "~/Software/gamebook-portal/"
      :url "localhost"
@@ -98,7 +101,7 @@
 
    (prodigy-define-service
      :name "Gamebook Portal Watcher"
-     :command "~/.nvm/versions/node/v6.9.2/bin/npm"
+     :command "~/.nvm/versions/node/v6.10.0/bin/npm"
      :args '("run" "webpack")
      :cwd "~/Software/gamebook-portal/"
      :url "localhost"
