@@ -29,22 +29,5 @@
 (add-hook 'dired-mode-hook (lambda () (setq-local ace-jump-search-filter
 					     (lambda () (get-text-property (point) 'dired-filename)))))
 
-;;; ---------------------------------------- Avy Mode
-
-(use-package avy
-  :ensure t
-  :bind (("C-ö" . avy-goto-char-timer))
-  :config
-
-  (defun set-up-avy-keys ()
-    (local-set-key (kbd "ö") 'avy-goto-char-timer)
-    (local-set-key (kbd "ü") 'avy-goto-line))
-  (add-hook 'prog-mode-hook 'set-up-avy-keys)
-
-  (define-key isearch-mode-map (kbd "ö") 'avy-isearch)
-
-  (setq avy-style 'at-full))
-
-
 
 (provide 'init-ace-jump-mode)

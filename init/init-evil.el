@@ -155,6 +155,7 @@
       "s" 'prodigy-start
       "S" 'prodigy-stop
       "m" 'prodigy-mark
+      "$" 'prodigy-display-process
       "u" 'prodigy-unmark
       "U" 'prodigy-unmark-all))
 
@@ -312,6 +313,14 @@
   (evil-leader/set-key-for-mode 'emacs-lisp-mode "c" 'paredit-comment-dwim)
   (evil-leader/set-key-for-mode 'emacs-lisp-mode "e" 'eval-last-sexp)
 
+  (with-eval-after-load 'counsel
+    (evil-leader/set-key "b" 'my-ivy-switch-buffer)
+    (evil-leader/set-key "i" 'imenu)
+    (evil-leader/set-key "x" 'counsel-M-x)
+    (evil-leader/set-key "f" 'counsel-find-files)
+    (evil-leader/set-key "x" 'counsel-M-x)
+    (evil-leader/set-key "hr" 'ivy-resume))
+
   (with-eval-after-load 'helm
     (evil-leader/set-key "b" 'helm-mini)
     (evil-leader/set-key "i" 'helm-imenu)
@@ -326,7 +335,7 @@
     (evil-leader/set-key "sa" 'helm-multi-swoop-all))
 
   (with-eval-after-load 'swiper
-    (evil-leader/set-key "S" 'swiper))
+    (evil-leader/set-key "s" 'swiper))
 
   (evil-leader/set-key "/" 'google-this-lucky-search)
 

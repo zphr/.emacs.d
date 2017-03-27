@@ -86,5 +86,10 @@
   :config
   (dired-launch-enable))
 
+;;; ---------------------------------------- Mac Dired
+
+(when (eq system-type 'darwin)
+  (setq dired-use-ls-dired nil))
+
 
 (provide 'init-dired)

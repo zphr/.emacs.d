@@ -81,6 +81,10 @@
       backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
       diff-switches "-u")
 
+(when (eq system-type 'darwin) ;; mac specific settings
+  (setq visible-bell nil)
+  (setq ring-bell-function 'ignore))
+
 
 ;;; ---------------------------------------- Fancy Narrow
 (use-package fancy-narrow

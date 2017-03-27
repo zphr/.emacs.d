@@ -6,7 +6,7 @@
   :diminish tern-mode
   :init
   (add-hook 'js2-mode-hook #'tern-mode)
-  (add-hook 'web-mode-hook#'tern-mode))
+  (add-hook 'web-mode-hook #'tern-mode))
 
 
 ;;; ---------------------------------------- Company Tern
@@ -164,6 +164,15 @@
   )
 
 
+;;; ---------------------------------------- ESlintD Fix
+
+(use-package eslintd-fix
+  :ensure t
+  :init
+  (add-hook 'js2-mode-hook #'eslintd-fix-mode)
+  (add-hook 'rjsx-mode-hook #'eslintd-fix-mode))
+
+
 ;;; ---------------------------------------- SCSS Mode
 
 (use-package scss-mode
@@ -215,6 +224,7 @@
   (eval-after-load 'rjsx-mode
     '(add-hook 'rjsx-mode-hook #'add-node-modules-path)))
 
+
 ;;; ---------------------------------------- Dumb Jump
 
 (use-package dumb-jump
@@ -230,7 +240,17 @@
     (if arg
         (dumb-jump-go-other-window)
       (dumb-jump-go)))
-  (global-set-key (kbd "C-M-g") 'my-dumb-jump-go))
+  (global-set-key (kbd "C-M-g") 'my-dumb-jump-go)
+  (define-key rjsx-mode-map (kbd "M-.") 'my-dumb-jump-go))
+
+
+;;; ---------------------------------------- JS Doc
+
+(use-package js-doc
+  :ensure t
+  :config
+  (define-key rjsx-mode-map (kbd "C-c C-i")'js-doc-insert-function-doc)
+  (define-key rjsx-mode-map "@" 'js-doc-insert-tag))
 
 
 (provide 'init-js)

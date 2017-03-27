@@ -3,10 +3,12 @@
 (use-package anzu
   :ensure t
   :diminish anzu-mode
-  :config (progn
-	    (global-anzu-mode t)	    
-	    (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp)
-	    (global-set-key [remap query-replace] 'anzu-query-replace)))
+  :config
+  (setq anzu-cons-mode-line-p nil)
+
+  (global-anzu-mode t)
+  (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp)
+  (global-set-key [remap query-replace] 'anzu-query-replace))
 
 ;; Activate occur easily inside isearch
 (define-key isearch-mode-map (kbd "C-o") 'isearch-occur)

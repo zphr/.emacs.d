@@ -2,4 +2,4 @@
 # name: expect-to-equal
 # key: te
 # --
-.toEqual($0)
+.to.be.equal($0)

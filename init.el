@@ -81,13 +81,15 @@
 
 ;; ---------------------------------------- Font Settings
 
-(when (eq system-type 'windows-nt) ;; mac specific settings
+(when (eq system-type 'windows-nt)
   (add-to-list 'default-frame-alist
                '(font . "Consolas-11:antialias=natural"))
   (set-face-attribute 'default nil :height 105))
 
 (when (eq system-type 'darwin) ;; mac specific settings
-  (set-face-attribute 'default nil :height 130))
+  (set-default-font "Anonymous Pro")
+  (set-face-attribute 'default nil :height 155)
+  (set-face-attribute 'mode-line nil :height 155))
 
 
 ;; ---------------------------------------- Repeat
@@ -188,8 +190,8 @@
   :ensure t)
 (use-package scratch
   :ensure t)
-(use-package idle-highlight-mode
-  :ensure t)
+;; (use-package idle-highlight-mode
+;;   :ensure t)
 
 (require 'init-misc)
 (require 'init-isearch)
