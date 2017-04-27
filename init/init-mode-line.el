@@ -25,10 +25,10 @@
 ;;   :ensure t
 ;;   :config (powerline-default-theme))
 
-;; ;;; ---------------------------------------- All The Icons
+;;; ---------------------------------------- All The Icons
 
-;; (use-package all-the-icons
-;;   :ensure t)
+(use-package all-the-icons
+  :ensure t)
 
 
 ;;; ---------------------------------------- Spaceline
@@ -42,6 +42,19 @@
   (setq spaceline-workspace-numbers-unicode t)
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
   (spaceline-emacs-theme))
+
+
+;;; ---------------------------------------- Spaceline All The Icons
+
+(use-package spaceline-all-the-icons
+  :ensure t
+  :after spaceline
+  :config
+  (setq spaceline-all-the-icons-separator-type 'wave)
+  (setq spaceline-all-the-icons-slim-render t)
+
+  (spaceline-all-the-icons--setup-anzu)
+  (spaceline-all-the-icons-theme))
 
 
 (provide 'init-mode-line)

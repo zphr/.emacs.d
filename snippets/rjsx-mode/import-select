@@ -2,4 +2,4 @@
 # name: import-select
 # key: is
 # --
-import { select } from './../redux/reducers';$0
+import { select } from 'redux/reducers';$0

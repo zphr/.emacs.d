@@ -43,12 +43,21 @@
   ("C-h f" . counsel-describe-function)
   ("C-h v" . counsel-describe-variable)
   :init
+
   (defun my-counsel-git-grep (&optional arg)
     (interactive "P")
     (if arg
         (counsel-git-grep nil (symbol-name (symbol-at-point)))
       (counsel-git-grep)))
+
+  (defun my-counsel-rg (&optional arg)
+    (interactive "P")
+    (if arg
+        (counsel-rg (symbol-name (symbol-at-point)))
+      (counsel-rg)))
+
   (global-set-key (kbd "C-4") 'my-counsel-git-grep)
+
   :config
   (setq counsel-find-file-at-point t)
   (with-eval-after-load 'key-chord

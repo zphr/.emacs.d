@@ -288,7 +288,7 @@
 (use-package string-inflection
   :ensure t
   :bind
-  ("C-c C-u" . string-inflection-java-style-cycle))
+  ("C-c C-u" . string-inflection-all-cycle))
 
 
 (provide 'init-misc)

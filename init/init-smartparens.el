@@ -14,13 +14,22 @@
   ("M-C-p" . sp-previous-sexp)
   ("M-F" . sp-forward-symbol)
   ("M-B" . sp-backward-symbol)
-  ("C-M-t" . sp-transpose-sexp)
+  ;; ("C-M-t" . sp-transpose-sexp)
+  ("C-M-SPC" . sp-mark-sexp)
   ("C-M-k" . sp-kill-sexp)
   ("C-k"   . sp-kill-hybrid-sexp)
   ("C-M-w" . sp-copy-sexp)
   :config
   (electric-pair-mode -1)
   (smartparens-global-mode t)
+
+  (defun sp-whole-line-or-region ()
+    (interactive)
+    (if (region-active-p)
+        (sp-kill-region (region-beginning) (region-end))
+      (sp-kill-whole-line)))
+
+  (global-set-key (kbd "C-w") 'sp-whole-line-or-region)
 
   (require 'smartparens-config)
   (add-hook 'web-mode-hook #'smartparens-strict-mode)

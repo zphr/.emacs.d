@@ -4,6 +4,9 @@
   :ensure t
   :defer t
   :config
+  (setq org-clock-persist 'history)
+  (org-clock-persistence-insinuate)
+
   (setq org-directory "e:/Rettungsboot/Dokumente/TODO")
 
   (setq org-ellipsis " ▼")
