@@ -62,11 +62,11 @@
 (use-package git-timemachine
   :ensure t)
 
-;;; ---------------------------------------- Magithub
+;; ;;; ---------------------------------------- Magithub
 
-(use-package magithub
-  :after magit
-  :config (magithub-feature-autoinject t))
+;; (use-package magithub
+;;   :after magit
+;;   :config (magithub-feature-autoinject t))
 
 
 (provide 'init-magit)

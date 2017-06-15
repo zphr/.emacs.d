@@ -55,7 +55,7 @@
 (add-hook 'prog-mode-hook 'turn-on-save-place-mode)
 (add-hook 'prog-mode-hook 'pretty-lambdas)
 (add-hook 'prog-mode-hook 'add-watchwords)
-(add-hook 'prog-mode-hook 'idle-highlight-mode)
+;; (add-hook 'prog-mode-hook 'idle-highlight-mode)
 
 
 (defun untabify-buffer ()

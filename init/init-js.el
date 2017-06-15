@@ -1,21 +1,21 @@
 
-;;; ---------------------------------------- Tern
+;; ;;; ---------------------------------------- Tern
 
-(use-package tern
-  :ensure t
-  :diminish tern-mode
-  :init
-  (add-hook 'js2-mode-hook #'tern-mode)
-  (add-hook 'web-mode-hook #'tern-mode))
+;; (use-package tern
+;;   :ensure t
+;;   :diminish tern-mode
+;;   :init
+;;   (add-hook 'js2-mode-hook #'tern-mode)
+;;   (add-hook 'web-mode-hook #'tern-mode))
 
 
-;;; ---------------------------------------- Company Tern
+;; ;;; ---------------------------------------- Company Tern
 
-(use-package company-tern
-  :ensure t
-  :init
-  (eval-after-load 'company
-    '(add-to-list 'company-backends #'company-tern)))
+;; (use-package company-tern
+;;   :ensure t
+;;   :init
+;;   (eval-after-load 'company
+;;     '(add-to-list 'company-backends #'company-tern)))
 
 
 ;;; ---------------------------------------- JS2 Mode
@@ -134,6 +134,9 @@
   (with-eval-after-load 'json-mode
     '(define-key json-mode-map (kbd "C-c b") 'web-beautify-js))
 
+  (with-eval-after-load 'rjsx-mode
+    '(define-key rjsx-mode-map (kbd "M-C-q") 'web-beautify-js))
+
   (with-eval-after-load 'sgml-mode
     '(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))
 
@@ -152,8 +155,8 @@
   (with-eval-after-load 'web-mode
     (bind-key "M-C-q" 'eslint-fix web-mode-map))
 
-  (with-eval-after-load 'rjsx-mode
-    (bind-key "M-C-q" 'eslint-fix rjsx-mode-map))
+  ;; (with-eval-after-load 'rjsx-mode
+  ;;   (bind-key "M-C-q" 'eslint-fix rjsx-mode-map))
 
   ;; (defun add-eslint-fix-to-save-hook ()
   ;;   (when (member web-mode-content-type '("js" "jsx"))

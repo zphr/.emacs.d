@@ -15,7 +15,17 @@
   (defun my-goto-last-change ()
     (interactive)
     (goto-last-change t 1))
-  (global-set-key (kbd "C-M-z") 'goto-last-change))
+
+  (defun my-jump-to-last-change ()
+    (interactive)
+    (session-jump-to-last-change 10))
+
+  (setq session-jump-undo-threshold 1)
+
+  (global-set-key (kbd "C-M-z") 'session-jump-to-last-change)
+  (global-set-key (kbd "C-M-S-z") 'my-jump-to-last-change)
+  ;; (global-set-key (kbd "C-M-z") 'goto-last-change)
+  )
 
 
 ;; ---------------------------------------- Auto Indent Mode

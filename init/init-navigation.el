@@ -50,5 +50,17 @@
   (define-key isearch-mode-map (kbd "ö") 'avy-isearch))
 
 
+;;; ---------------------------------------- Highlight Symbol Mode
+
+(use-package highlight-symbol
+  :ensure t
+  :bind
+  ("M-C-S-n" . highlight-symbol-next)
+  ("M-C-S-p" . highlight-symbol-prev)
+  :config
+  (highlight-symbol-mode +1)
+  ;; (highlight-symbol-nav-mode +1)
+  )
+
 (provide 'init-navigation)
 ;;; init-navigation.el ends here

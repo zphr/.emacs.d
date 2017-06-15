@@ -25,36 +25,36 @@
 ;;   :ensure t
 ;;   :config (powerline-default-theme))
 
-;;; ---------------------------------------- All The Icons
+;; ;;; ---------------------------------------- All The Icons
 
-(use-package all-the-icons
-  :ensure t)
-
-
-;;; ---------------------------------------- Spaceline
-
-(use-package spaceline
-  :ensure t
-  :config
-  (require 'spaceline-config)
-  (setq powerline-default-separator 'butt)
-  (setq spaceline-window-numbers-unicode t)
-  (setq spaceline-workspace-numbers-unicode t)
-  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-  (spaceline-emacs-theme))
+;; (use-package all-the-icons
+;;   :ensure t)
 
 
-;;; ---------------------------------------- Spaceline All The Icons
+;; ;;; ---------------------------------------- Spaceline
 
-(use-package spaceline-all-the-icons
-  :ensure t
-  :after spaceline
-  :config
-  (setq spaceline-all-the-icons-separator-type 'wave)
-  (setq spaceline-all-the-icons-slim-render t)
+;; (use-package spaceline
+;;   :ensure t
+;;   :config
+;;   (require 'spaceline-config)
+;;   (setq powerline-default-separator 'butt)
+;;   (setq spaceline-window-numbers-unicode t)
+;;   (setq spaceline-workspace-numbers-unicode t)
+;;   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+;;   (spaceline-emacs-theme))
 
-  (spaceline-all-the-icons--setup-anzu)
-  (spaceline-all-the-icons-theme))
+
+;; ;;; ---------------------------------------- Spaceline All The Icons
+
+;; (use-package spaceline-all-the-icons
+;;   :ensure t
+;;   :after spaceline
+;;   :config
+;;   (setq spaceline-all-the-icons-separator-type 'arrow)
+;;   (setq spaceline-all-the-icons-slim-render t)
+
+;;   (spaceline-all-the-icons--setup-anzu)
+;;   (spaceline-all-the-icons-theme))
 
 
 (provide 'init-mode-line)
