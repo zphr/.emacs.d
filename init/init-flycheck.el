@@ -10,14 +10,14 @@
   (setq flycheck-javascript-eslint-executable "eslint_d"))
 
 
-;;; ---------------------------------------- Flycheck Pos Tip
+;; ;;; ---------------------------------------- Flycheck Pos Tip
 
-(use-package flycheck-pos-tip
-  :if (not (eq system-type 'darwin))
-  :ensure t
-  :after flycheck
-  :config
-  (flycheck-pos-tip-mode +1))
+;; (use-package flycheck-pos-tip
+;;   :if (not (eq system-type 'darwin))
+;;   :ensure t
+;;   :after flycheck
+;;   :config
+;;   (flycheck-pos-tip-mode +1))
 
 
 (provide 'init-flycheck)

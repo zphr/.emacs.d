@@ -1,7 +1,13 @@
 
-(use-package labburn-theme
+;; (use-package nord-theme
+;;   :ensure t
+;;   :init (load-theme 'nord))
+
+(use-package zerodark-theme
   :ensure t
-  :init (load-theme 'labburn))
+  :init (load-theme 'zerodark t)
+  :config
+  (zerodark-setup-modeline-format))
 
 ;; (use-package apropospriate-theme
 ;;   :ensure t
@@ -13,6 +19,10 @@
 
 ;; (require-package 'subatomic-theme)
 ;; (load-theme 'subatomic)
+
+;; (use-package omtose-phellack-theme
+;;   :ensure t
+;;   :init (load-theme 'omtose-darker))
 
 ;; (require-package 'firebelly-theme)
 ;; (load-theme 'firebelly)

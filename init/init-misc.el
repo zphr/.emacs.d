@@ -51,7 +51,7 @@
 
 (add-hook 'prog-mode-hook 'local-column-number-mode)
 (add-hook 'prog-mode-hook 'local-comment-auto-fill)
-;; (add-hook 'prog-mode-hook 'turn-on-hl-line-mode)
+(add-hook 'prog-mode-hook 'turn-on-hl-line-mode)
 (add-hook 'prog-mode-hook 'turn-on-save-place-mode)
 (add-hook 'prog-mode-hook 'pretty-lambdas)
 (add-hook 'prog-mode-hook 'add-watchwords)
@@ -289,6 +289,14 @@
   :ensure t
   :bind
   ("C-c C-u" . string-inflection-all-cycle))
+
+
+;;; ---------------------------------------- BeginEnd
+
+(use-package beginend
+  :ensure t
+  :config
+  (beginend-global-mode t))
 
 
 (provide 'init-misc)

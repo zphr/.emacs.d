@@ -121,8 +121,6 @@
 
 (use-package web-beautify
   :ensure t
-  :defer t
-  :after web-mode
   :config
   (with-eval-after-load 'js2-mode
     '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
@@ -135,7 +133,7 @@
     '(define-key json-mode-map (kbd "C-c b") 'web-beautify-js))
 
   (with-eval-after-load 'rjsx-mode
-    '(define-key rjsx-mode-map (kbd "M-C-q") 'web-beautify-js))
+    (define-key rjsx-mode-map (kbd "M-C-q") 'web-beautify-js))
 
   (with-eval-after-load 'sgml-mode
     '(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))

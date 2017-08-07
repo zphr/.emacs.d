@@ -272,6 +272,11 @@
 (global-set-key (kbd "C-M-<return>") 'ffap)
 
 
+;;; ---------------------------------------- Commenting
+
+(global-set-key (kbd "C-c C-,") 'comment-line)
+
+
 ;; ;; ---------------------------------------- Ö Map
 
 ;; (global-unset-key (kbd "ö"))

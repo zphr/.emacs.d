@@ -19,6 +19,13 @@
   (define-key evil-normal-state-map (kbd "S-SPC") 'save-buffer)
   (define-key evil-normal-state-map (kbd "M-u") 'save-some-buffers)
 
+  ;; (define-key evil-normal-state-map (kbd "C-o") 'session-jump-to-last-change)
+
+  ;; (defun backward-session-jump-to-last-change ()
+  ;;   (interactive)
+  ;;   (session-jump-to-last-change -1))
+  ;; (define-key evil-normal-state-map (kbd "C-i") 'backward-session-jump-to-last-change)
+
   (define-key evil-normal-state-map (kbd "M-n") 'evil-forward-paragraph)
   (define-key evil-normal-state-map (kbd "M-p") 'evil-backward-paragraph)
 
@@ -30,7 +37,7 @@
 
   ;; ---------------------------------------- Dired
   (evil-define-key 'normal dired-mode-map "h" 'dired-up-directory)
-  (evil-define-key 'normal dired-mode-map "l" 'dired-find-alternate-file)
+  (evil-define-key 'normal dired-mode-map "l" 'dired-find-file)
   (evil-define-key 'normal dired-mode-map "o" 'dired-sort-toggle-or-edit)
   (evil-define-key 'normal dired-mode-map "v" 'dired-toggle-marks)
   (evil-define-key 'normal dired-mode-map "m" 'dired-mark)
@@ -49,7 +56,6 @@
     (evil-define-key 'normal prog-mode-map "gk" 'diff-hl-previous-hunk)
     (evil-define-key 'normal prog-mode-map "gr" 'diff-hl-revert-hunk)
     (evil-define-key 'normal prog-mode-map "gc" 'diff-hl-diff-goto-hunk))
-
 
   ;; ---------------------------------------- Comment Text Object
 
@@ -114,6 +120,12 @@
   (define-key evil-inner-text-objects-map "M" 'evil-method-text-object)
   (define-key evil-outer-text-objects-map "M" 'evil-method-text-object)
 
+
+  ;; ---------------------------------------- Dumb Jump
+
+  (with-eval-after-load 'dumb-jump
+    (define-key evil-normal-state-map (kbd "gd") 'dumb-jump-go)
+    (define-key evil-normal-state-map (kbd "gD") 'dumb-jump-back))
 
   ;; ---------------------------------------- Helm Swoop
 
@@ -297,7 +309,7 @@
   :ensure t
   :config
   (global-evil-leader-mode t)
-  (evil-leader/set-leader "<SPC>")
+  (evil-leader/set-leader "SPC")
 
   (evil-leader/set-key "r" 'jump-to-register)
 
@@ -451,6 +463,28 @@
 (use-package evil-ediff
   :ensure t)
 
+;; ;;; ---------------------------------------- Evil Smartparens
+
+;; (use-package evil-smartparens
+;;   :ensure t
+;;   :config
+;;   (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode))
+
+
+;;; ---------------------------------------- Evil Googles
+
+(use-package evil-goggles
+  :ensure t
+  :config
+  (setq evil-goggles-duration 0.1)
+
+  (evil-goggles-mode)
+
+  ;; optionally use diff-mode's faces; as a result, deleted text
+  ;; will be highlighed with `diff-removed` face which is typically
+  ;; some red color (as defined by the color theme)
+  ;; other faces such as `diff-added` will be used for other actions
+  (evil-goggles-use-diff-faces))
 
 (provide 'init-evil)
 ;;; init-evil.el ends here

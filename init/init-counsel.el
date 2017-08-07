@@ -8,6 +8,12 @@
   :diminish ivy-mode
   :config
   (ivy-mode 1)
+
+  ;; (setq ivy-re-builders-alist
+  ;;       '((t . ivy--regex-fuzzy)))
+
+  ;; (setq ivy-initial-inputs-alist nil)
+
   (setq ivy-use-virtual-buffers t)
   (setq ivy-fixed-height-minibuffer 15)
   (setq ivy-height 15)
@@ -38,25 +44,25 @@
   :bind
   ("M-x" . counsel-M-x)
   ("C-x C-f" . counsel-find-file)
-  ;; ("C-4" . counsel-git-grep)
+  ("C-4" . counsel-git-grep)
   ("C-9" . counsel-git)
   ("C-h f" . counsel-describe-function)
   ("C-h v" . counsel-describe-variable)
   :init
 
-  (defun my-counsel-git-or-rg-grep (&optional arg)
-    (interactive "P")
-    (if arg
-        (counsel-git-grep nil (symbol-name (symbol-at-point)))
-      (counsel-rg)))
+  ;; (defun my-counsel-git-or-rg-grep (&optional arg)
+  ;;   (interactive "P")
+  ;;   (if arg
+  ;;       (counsel-git-grep nil (symbol-name (symbol-at-point)))
+  ;;     (counsel-rg)))
 
-  (defun my-counsel-rg (&optional arg)
-    (interactive "P")
-    (if arg
-        (counsel-rg (symbol-name (symbol-at-point)))
-      (counsel-rg)))
+  ;; (defun my-counsel-rg (&optional arg)
+  ;;   (interactive "P")
+  ;;   (if arg
+  ;;       (counsel-rg (symbol-name (symbol-at-point)))
+  ;;     (counsel-rg)))
 
-  (global-set-key (kbd "C-4") 'my-counsel-git-or-rg-grep)
+  ;; (global-set-key (kbd "C-4") 'my-counsel-git-or-rg-grep)
 
   :config
   (setq counsel-find-file-at-point t)
