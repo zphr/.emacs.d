@@ -295,8 +295,16 @@
 
 (use-package beginend
   :ensure t
+  :diminish beginend-global-mode
   :config
   (beginend-global-mode t))
+
+
+;;; ---------------------------------------- Insert UUID
+
+(defun insert-random-uuid ()
+  (interactive)
+  (shell-command "uuidgen" t))
 
 
 (provide 'init-misc)

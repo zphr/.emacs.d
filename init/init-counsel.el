@@ -3,10 +3,10 @@
 
 (use-package ivy
   :ensure t
-  ;; :bind
-  ;; ("C-8" . ivy-switch-buffer)
   :diminish ivy-mode
   :config
+  (setq-default ivy-wrap t)
+
   (ivy-mode 1)
 
   ;; (setq ivy-re-builders-alist
@@ -33,7 +33,10 @@
 
 (use-package swiper
   :ensure t
-  :bind ("M-s" . swiper))
+  :bind ("M-s" . swiper)
+  :config
+  (global-set-key (kbd "M-s") 'swiper))
+
 
 
 ;;; ---------------------------------------- Counsel
@@ -44,25 +47,19 @@
   :bind
   ("M-x" . counsel-M-x)
   ("C-x C-f" . counsel-find-file)
-  ("C-4" . counsel-git-grep)
+  ;; ("C-4" . counsel-git-grep)
   ("C-9" . counsel-git)
   ("C-h f" . counsel-describe-function)
   ("C-h v" . counsel-describe-variable)
   :init
 
-  ;; (defun my-counsel-git-or-rg-grep (&optional arg)
-  ;;   (interactive "P")
-  ;;   (if arg
-  ;;       (counsel-git-grep nil (symbol-name (symbol-at-point)))
-  ;;     (counsel-rg)))
+  (defun my-counsel-git-grep (&optional arg)
+    (interactive "P")
+    (if arg
+        (counsel-git-grep nil (symbol-name (symbol-at-point)))
+      (counsel-git-grep)))
 
-  ;; (defun my-counsel-rg (&optional arg)
-  ;;   (interactive "P")
-  ;;   (if arg
-  ;;       (counsel-rg (symbol-name (symbol-at-point)))
-  ;;     (counsel-rg)))
-
-  ;; (global-set-key (kbd "C-4") 'my-counsel-git-or-rg-grep)
+  (global-set-key (kbd "C-4") 'my-counsel-git-grep)
 
   :config
   (setq counsel-find-file-at-point t)

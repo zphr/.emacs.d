@@ -1,9 +1,4 @@
 
-;; ---------------------------------------- Abbrev
-
-(diminish 'abbrev-mode)
-
-
 ;; ---------------------------------------- Hippie Expand
 
 (defvar he-search-loc-backward (make-marker))

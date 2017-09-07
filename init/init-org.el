@@ -33,4 +33,13 @@
   (setq org-src-fontify-natively t)
   (setq org-hide-emphasis-markers t))
 
+
+;;; ---------------------------------------- Org Bullet
+
+(use-package org-bullets
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
 (provide 'init-org)

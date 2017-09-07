@@ -3,9 +3,9 @@
 ;; ---------------------------------------- Elisp Slime Nav
 
 (use-package elisp-slime-nav
+  :diminish elisp-slime-nav-mode
   :ensure t
-:defer t
-  :diminish elisp-slime-nav-mode)
+  :defer t)
 
 
 ;; ---------------------------------------- Hippie-expand
@@ -30,15 +30,9 @@
 ;; ---------------------------------------- Paredit
 
 (use-package paredit
-  :ensure t
   :diminish paredit-mode
+  :ensure t
   :defer t)
-
-
-;; ---------------------------------------- Eldoc
-
-(after-load 'eldoc
-  (diminish 'eldoc-mode))
 
 
 ;; ---------------------------------------- Mode Setup

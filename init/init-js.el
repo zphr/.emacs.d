@@ -55,6 +55,7 @@
 
 (use-package js2-refactor
   :ensure t
+  :diminish js2-refactor-mode
   :init
   (add-hook 'js2-mode-hook #'js2-refactor-mode)
   :config
@@ -139,39 +140,41 @@
     '(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))
 
   (with-eval-after-load 'web-mode
-    '(define-key web-mode-map (kbd "C-c b") 'web-beautify-html))
+    '(define-key web-mode-map (kbd "M-C-q") 'web-beautify-js))
 
   (with-eval-after-load 'css-mode
     '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css)))
 
 
-;;; ---------------------------------------- ESlint Fix
+;; ;;; ---------------------------------------- ESlint Fix
 
-(use-package eslint-fix
-  :ensure t
-  :config
-  (with-eval-after-load 'web-mode
-    (bind-key "M-C-q" 'eslint-fix web-mode-map))
+;; (use-package eslint-fix
+;;   :ensure t
+;;   :config
+;;   (with-eval-after-load 'web-mode
+;;     (bind-key "M-C-q" 'eslint-fix web-mode-map))
 
-  ;; (with-eval-after-load 'rjsx-mode
-  ;;   (bind-key "M-C-q" 'eslint-fix rjsx-mode-map))
+;;   ;; (with-eval-after-load 'rjsx-mode
+;;   ;;   (bind-key "M-C-q" 'eslint-fix rjsx-mode-map))
 
-  ;; (defun add-eslint-fix-to-save-hook ()
-  ;;   (when (member web-mode-content-type '("js" "jsx"))
-  ;;     (add-hook 'after-save-hook 'eslint-fix nil t)))
+;;   ;; (defun add-eslint-fix-to-save-hook ()
+;;   ;;   (when (member web-mode-content-type '("js" "jsx"))
+;;   ;;     (add-hook 'after-save-hook 'eslint-fix nil t)))
 
-  ;; (with-eval-after-load 'web-mode
-  ;;   '(add-hook 'web-mode-hook 'add-eslint-fix-to-save-hook))
-  )
+;;   ;; (with-eval-after-load 'web-mode
+;;   ;;   '(add-hook 'web-mode-hook 'add-eslint-fix-to-save-hook))
+;;   )
 
 
 ;;; ---------------------------------------- ESlintD Fix
 
 (use-package eslintd-fix
   :ensure t
+  :diminish eslintd-fix-mode
   :init
   (add-hook 'js2-mode-hook #'eslintd-fix-mode)
-  (add-hook 'rjsx-mode-hook #'eslintd-fix-mode))
+  (add-hook 'rjsx-mode-hook #'eslintd-fix-mode)
+  (add-hook 'web-mode-hook #'eslintd-fix-mode))
 
 
 ;;; ---------------------------------------- SCSS Mode
@@ -179,6 +182,8 @@
 (use-package scss-mode
   :ensure t
   :defer t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
   :config
   (setq-default css-indent-offset 2))
 
@@ -195,6 +200,8 @@
   :ensure t
   :bind (:map rjsx-mode-map
               ("C-M-i" . js-import))
+  ;; (:map web-mode-map
+  ;;       ("C-M-i" . js-import))
   :config
   (setq-default js-import-quote "'"))
 
@@ -232,7 +239,7 @@
   :ensure t
   :after rjsx-mode
   :bind
-  ("C-M-S-g" . dumb-jump-back)
+  ("M-," . dumb-jump-back)
   :init
   (setq dumb-jump-selector 'ivy)
   :config
@@ -241,8 +248,12 @@
     (if arg
         (dumb-jump-go-other-window)
       (dumb-jump-go)))
-  (global-set-key (kbd "C-M-g") 'my-dumb-jump-go)
-  (define-key rjsx-mode-map (kbd "M-.") 'my-dumb-jump-go))
+
+  (global-set-key (kbd "M-.") 'my-dumb-jump-go)
+  (define-key rjsx-mode-map (kbd "M-.") 'my-dumb-jump-go)
+  (define-key rjsx-mode-map (kbd "M-,") 'dumb-jump-back)
+
+  (dumb-jump-mode t))
 
 
 ;;; ---------------------------------------- JS Doc
@@ -250,8 +261,9 @@
 (use-package js-doc
   :ensure t
   :config
-  (define-key rjsx-mode-map (kbd "C-c C-i")'js-doc-insert-function-doc)
-  (define-key rjsx-mode-map "@" 'js-doc-insert-tag))
+  (with-eval-after-load 'rjsx-mode
+    (define-key rjsx-mode-map (kbd "C-c C-i")'js-doc-insert-function-doc)
+    (define-key rjsx-mode-map "@" 'js-doc-insert-tag)))
 
 
 (provide 'init-js)

@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: functional-component
+# key: fcp
+# --
+import React, { PropTypes } from 'react';
+
+const $1 = ({$2}) => {
+    $0
+};
+
+$1.propTypes = {
+  ${2:$(s-replace " " "\n" yas-text)}
+};
+
+export default $1;

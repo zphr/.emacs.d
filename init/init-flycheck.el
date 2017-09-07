@@ -19,6 +19,14 @@
 ;;   :config
 ;;   (flycheck-pos-tip-mode +1))
 
+;;; ---------------------------------------- Flycheck PopUp Tip
+
+(use-package flycheck-popup-tip
+  :ensure t
+  :after flycheck
+  :config
+  (flycheck-popup-tip-mode +1))
+
 
 (provide 'init-flycheck)
 ;;; init-flycheck ends here

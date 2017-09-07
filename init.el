@@ -190,10 +190,6 @@
 
 (use-package diminish
   :ensure t)
-(use-package scratch
-  :ensure t)
-;; (use-package idle-highlight-mode
-;;   :ensure t)
 
 (require 'init-misc)
 (require 'init-isearch)

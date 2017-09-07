@@ -55,16 +55,16 @@
 
 (use-package dired+
   :ensure t
-  :config (progn
-	    (setq diredp-file-name font-lock-constant-face)
-	    (setq diredp-dir-priv font-lock-keyword-face)
-	    (setq diredp-ignored-file-name font-lock-comment-face)
-	    (setq diredp-file-suffix font-lock-builtin-face)
-	    (setq diredp-dir-heading font-lock-keyword-face)
-	    (setq diredp-flag-mark font-lock-warning-face)
-	    
-	    (add-to-list 'dired-compress-file-suffixes 
-			 '("\\.zip\\'" ".zip" "unzip"))))
+  :config
+  (setq diredp-file-name font-lock-constant-face)
+  (setq diredp-dir-priv font-lock-keyword-face)
+  (setq diredp-ignored-file-name font-lock-comment-face)
+  (setq diredp-file-suffix font-lock-builtin-face)
+  (setq diredp-dir-heading font-lock-keyword-face)
+  (setq diredp-flag-mark font-lock-warning-face)
+  
+  (add-to-list 'dired-compress-file-suffixes 
+               '("\\.zip\\'" ".zip" "unzip")))
 
 ;;; ---------------------------------------- W32 Browser
 

@@ -19,6 +19,7 @@
   ("C-M-k" . sp-kill-sexp)
   ("C-k"   . sp-kill-hybrid-sexp)
   ("C-M-w" . sp-copy-sexp)
+  ("M-d" . sp-kill-word)
   :config
   (electric-pair-mode -1)
   (smartparens-global-mode t)
