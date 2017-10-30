@@ -4,7 +4,8 @@
 # --
 import React, { PropTypes } from 'react';
 
-const $1 = ({$2}) => {
+
+const ${1:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`} = ({$2}) => {
     $0
 };
 
