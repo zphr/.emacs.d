@@ -3,7 +3,7 @@
 
 (use-package whole-line-or-region
   :ensure t
-  :diminish whole-line-or-region-mode
+  :diminish whole-line-or-region
   :config (whole-line-or-region-mode t))
 
 

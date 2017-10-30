@@ -80,6 +80,7 @@
 
 (use-package rjsx-mode
   :ensure t
+  :diminish rjsx-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.js[x]?$" . rjsx-mode))
 
