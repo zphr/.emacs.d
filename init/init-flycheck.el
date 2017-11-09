@@ -28,6 +28,17 @@
   (flycheck-popup-tip-mode +1))
 
 
+;;; ---------------------------------------- Flycheck Color Modeline
+
+(use-package flycheck-color-mode-line
+  :ensure t
+  :after flycheck
+  :config
+  (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)
+  (set-face-attribute 'flycheck-color-mode-line-error-face nil :background "firebrick" :foreground "white")
+  )
+
+
 (provide 'init-flycheck)
 ;;; init-flycheck ends here
 

@@ -93,6 +93,9 @@
   ;; (set-face-attribute 'mode-line nil :height 155)
   )
 
+(when (eq system-type 'gnu/linux)
+  (set-default-font "-CYEL-Iosevka-light-normal-normal-*-*-*-*-*-d-0-iso10646-1")
+  (set-face-attribute 'default nil :height 130))
 
 ;; ---------------------------------------- Repeat
 

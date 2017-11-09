@@ -57,6 +57,8 @@
   :bind
   ("M-C-S-n" . highlight-symbol-next)
   ("M-C-S-p" . highlight-symbol-prev)
+  ("M-N" . highlight-symbol-next-in-defun)
+  ("M-P" . highlight-symbol-prev-in-defun)
   :config
   (highlight-symbol-mode +1)
   ;; (highlight-symbol-nav-mode +1)

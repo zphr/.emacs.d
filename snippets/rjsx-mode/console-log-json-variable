@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: console-log-json-variable
+# key: clvs
+# --
+console.log('$1: ', JSON.stringify($1, null, 2)); // eslint-disable-line$0
