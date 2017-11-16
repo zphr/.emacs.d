@@ -3,6 +3,7 @@
 
 (use-package smartparens
   :ensure t
+  :demand
   :bind
   ("M-C-f" . sp-forward-sexp)
   ("M-C-b" . sp-backward-sexp)
@@ -37,6 +38,7 @@
   (add-hook 'js2-mode-hook #'smartparens-strict-mode)
   (add-hook 'js-mode-hook #'smartparens-strict-mode)
   (add-hook 'rjsx-mode-hook #'smartparens-strict-mode))
+
 
 (provide 'init-smartparens)
 ;;; init-smartparens ends here

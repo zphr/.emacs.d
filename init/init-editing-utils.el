@@ -1,10 +1,10 @@
 
-;; ---------------------------------------- Whole Line Or Region Mode
+;; ;; ---------------------------------------- Whole Line Or Region Mode
 
-(use-package whole-line-or-region
-  :ensure t
-  :diminish whole-line-or-region
-  :config (whole-line-or-region-mode t))
+;; (use-package whole-line-or-region
+;;   :ensure t
+;;   :diminish whole-line-or-region
+;;   :config (whole-line-or-region-mode t))
 
 
 ;; ---------------------------------------- Goto Last Change

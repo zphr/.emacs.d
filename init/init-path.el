@@ -198,29 +198,27 @@
 
 ;;; ---------------------------------------- Linux Paths
 
-(setq p (getenv "PATH"))
-
-
 (when (eq system-type 'gnu/linux)
   (let* ((path (getenv "PATH"))
          (path-list (split-string (getenv "PATH") ":")))
     (setenv "PATH"
             (concat
+             "/home/christian/.nvm/versions/node/v8.9.1/bin/" ":"
+             "/home/christian/.nvm/versions/node/v8.9.1/lib/node_modules/" ":"
              "/bin" ":"
              "/usr/bin" ":"
              "/usr/local/bin" ":"
-             "~/.nvm/versions/node/v6.9.2/bin" ":"
-             "~/.nvm/versions/node/v6.9.2/lib/node_modules/" ":"
              "~/Software/gamebook-portal/node_modules/" ":"
              path))
 
     (setq exec-path (append
                      path-list
-                     '("/bin"
+                     '(
+                       "/home/christian/.nvm/versions/node/v8.9.1/bin/"
+                       "/home/christian/.nvm/versions/node/v8.9.1/lib/node_modules/"
+                       "/bin"
                        "/usr/bin"
                        "/usr/local/bin"
-                       "~/.nvm/versions/node/v6.9.2/bin"
-                       "~/.nvm/versions/node/v6.9.2/lib/node_modules/"
                        "~/Software/gamebook-portal/node_modules/"
                        )))))
 

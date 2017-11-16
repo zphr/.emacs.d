@@ -126,4 +126,33 @@ more-helpful local prompt."
 (setq-default eshell-prompt-function #'eshell/eshell-local-prompt-function)
 
 
+;;; ---------------------------------------- Truncate Output
+
+(setq eshell-buffer-maximum-lines 20000)
+
+(defun my/truncate-eshell-buffers ()
+  "Truncates all eshell buffers"
+  (interactive)
+  (save-current-buffer
+    (dolist (buffer (buffer-list t))
+      (set-buffer buffer)
+      (when (eq major-mode 'eshell-mode)
+        (eshell-truncate-buffer)))))
+
+;; After being idle for 5 seconds, truncate all the eshell-buffers if
+;; needed. If this needs to be canceled, you can run `(cancel-timer
+;; my/eshell-truncate-timer)'
+(setq my/eshell-truncate-timer
+      (run-with-idle-timer 5 t #'my/truncate-eshell-buffers))
+
+;; ;;; ---------------------------------------- Eshell Prompt Extras
+
+;; (use-package eshell-prompt-extras
+;;   :ensure t
+;;   :config
+;;   ((autoload 'epe-theme-lambda "eshell-prompt-extras")
+;;    (setq eshell-highlight-prompt nil
+;;          eshell-prompt-function 'epe-theme-lambda)))
+
+
 (provide 'init-eshell)

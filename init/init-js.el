@@ -267,5 +267,45 @@
     (define-key rjsx-mode-map "@" 'js-doc-insert-tag)))
 
 
+;; ;;; ---------------------------------------- LSP
+
+;; (use-package lsp-javascript-typescript
+;;   :ensure t
+;;   :init
+;;   (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
+;;   (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable)
+;;   (add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable)
+;;   (add-hook 'rjsx-mode #'lsp-javascript-typescript-enable))
+
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :demand
+;;   :config
+;;   (lsp-mode t))
+
+;;; ---------------------------------------- Tide
+
+(use-package tide
+  :ensure t
+  :bind
+  ("C-c r" . tide-references)
+  ("C-c R" . tide-rename-symbol)
+  :config
+  (defun setup-tide-mode ()
+    (interactive)
+    (tide-setup)
+    (flycheck-mode +1)
+    (setq flycheck-check-syntax-automatically '(save mode-enabled))
+    (eldoc-mode +1)
+    (tide-hl-identifier-mode +1)
+    ;; company is an optional dependency. You have to
+    ;; install it separately via package-install
+    (company-mode +1))
+
+  (with-eval-after-load 'flycheck-mode
+    (flycheck-add-next-checker 'javascript-eslint 'jsx-tide 'append))
+
+  (add-hook 'rjsx-mode-hook #'setup-tide-mode))
+
 (provide 'init-js)
 ;;; init-js ends here

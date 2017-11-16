@@ -307,6 +307,7 @@
 
 (use-package evil-leader
   :ensure t
+  :demand
   :config
   (global-evil-leader-mode t)
   (evil-leader/set-leader "SPC")
@@ -329,7 +330,7 @@
     (evil-leader/set-key "b" 'my-ivy-switch-buffer)
     (evil-leader/set-key "i" 'imenu)
     (evil-leader/set-key "x" 'counsel-M-x)
-    (evil-leader/set-key "f" 'counsel-find-files)
+    (evil-leader/set-key "f" 'counsel-find-file)
     (evil-leader/set-key "x" 'counsel-M-x)
     (evil-leader/set-key "hr" 'ivy-resume))
 
