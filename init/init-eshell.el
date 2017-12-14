@@ -112,7 +112,7 @@ more-helpful local prompt."
          (for-git `(:inherit 'eshell-ls-executable)))
 
     (concat
-     (propertize "⏩ "    'face for-parent)
+     (propertize "➽ "    'face for-parent)
      (propertize parent   'face for-parent)
      (propertize name     'face for-dir)
      (when branch

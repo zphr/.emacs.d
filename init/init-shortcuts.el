@@ -277,6 +277,10 @@
 (global-set-key (kbd "C-c C-,") 'comment-line)
 
 
+;;; ---------------------------------------- Sorting
+
+(global-set-key (kbd "C-M-S-s") 'sort-lines)
+
 ;; ;; ---------------------------------------- Ö Map
 
 ;; (global-unset-key (kbd "ö"))

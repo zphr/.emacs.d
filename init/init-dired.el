@@ -91,5 +91,14 @@
 (when (eq system-type 'darwin)
   (setq dired-use-ls-dired nil))
 
+;; ;;; ---------------------------------------- Dired Sidebar
+
+;; (use-package dired-sidebar
+;;   :ensure t
+;;   :bind ("C-x C-j" . dired-sidebar-toggle-sidebar)
+;;   :commands (dired-sidebar-toggle-sidebar)
+;;   :config
+;;   (setq dired-sidebar-width 55))
+
 
 (provide 'init-dired)

@@ -56,7 +56,9 @@
   (defun my-counsel-git-grep (&optional arg)
     (interactive "P")
     (if arg
-        (counsel-git-grep nil (symbol-name (symbol-at-point)))
+        (counsel-git-grep nil (if (region-active-p)
+                                  (buffer-substring (region-beginning) (region-end))
+                                (symbol-name (symbol-at-point))))
       (counsel-git-grep)))
 
   (global-set-key (kbd "C-4") 'my-counsel-git-grep)

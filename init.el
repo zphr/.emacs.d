@@ -87,10 +87,14 @@
   (set-face-attribute 'default nil :height 105))
 
 (when (eq system-type 'darwin) ;; mac specific settings
-  (set-default-font "-*-Monaco-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+  (set-default-font "-*-Iosevka-light-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+  ;; (set-default-font "-*-Monaco-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
   ;; (set-default-font "Anonymous Pro")
-  (set-face-attribute 'default nil :height 145)
+  (set-face-attribute 'default nil :height 155)
   ;; (set-face-attribute 'mode-line nil :height 155)
+
+  ;; (add-to-list 'default-frame-alist
+  ;;            '(font . "-*-Iosevka-light-normal-normal-*-*-*-*-*-m-0-iso10646-1"))
   )
 
 (when (eq system-type 'gnu/linux)
