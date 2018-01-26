@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: console-log-result
+# key: clr
+# --
+${1:result} => {
+  console.log('### $1: ', $1); // eslint-disable-line
+  return $1;
+},

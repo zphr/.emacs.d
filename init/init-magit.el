@@ -47,7 +47,7 @@
   (defhydra hydra-diff-hl (:pre (widen))
     "hunk"
     ("M-g" goto-line "goto" :exit t)
-    ("v" diff-hl-revert-hunk "revert")
+    ("k" diff-hl-revert-hunk "revert")
     ("c" diff-hl-diff-goto-hunk "compare hunk")
     ("n" diff-hl-next-hunk "next")
     ("p" diff-hl-previous-hunk "previous")

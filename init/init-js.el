@@ -286,10 +286,14 @@
 ;;; ---------------------------------------- Tide
 
 (use-package tide
+  :demand t
   :ensure t
-  :bind
-  ("C-c r" . tide-references)
-  ("C-c R" . tide-rename-symbol)
+  :commands (tide-references tide-rename-symbol tide-nav)
+  :bind (:map tide-mode-map
+              ("C-M-." . tide-references)
+              ("C-M-r" . tide-rename-symbol)
+              ("C-M-S-r" . tide-refactor)
+              ("C-M-S-SPC" . tide-nav))
   :config
   (defun setup-tide-mode ()
     (interactive)

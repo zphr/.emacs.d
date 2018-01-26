@@ -31,17 +31,17 @@
 ;;   :ensure t)
 
 
-;; ;;; ---------------------------------------- Spaceline
+;;; ---------------------------------------- Spaceline
 
-;; (use-package spaceline
-;;   :ensure t
-;;   :config
-;;   (require 'spaceline-config)
-;;   (setq powerline-default-separator 'butt)
-;;   (setq spaceline-window-numbers-unicode t)
-;;   (setq spaceline-workspace-numbers-unicode t)
-;;   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-;;   (spaceline-emacs-theme))
+(use-package spaceline
+  :ensure t
+  :config
+  (require 'spaceline-config)
+  (setq powerline-default-separator 'utf-8)
+  (setq spaceline-window-numbers-unicode t)
+  (setq spaceline-workspace-numbers-unicode t)
+  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+  (spaceline-emacs-theme))
 
 
 ;; ;;; ---------------------------------------- Spaceline All The Icons

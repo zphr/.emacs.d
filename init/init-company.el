@@ -4,9 +4,10 @@
 
 (use-package company
   :ensure t
+  :demand t
   :diminish company-mode
-  ;; :bind
-  ;; ("M-SPC" . company-complete)
+  :bind
+  ("M-/" . company-complete)
   :config
   (global-company-mode t)
   (setq company-clang-executable nil)

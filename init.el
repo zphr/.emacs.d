@@ -234,6 +234,8 @@
 (require 'init-smartparens)
 (require 'init-flycheck)
 (require 'init-counsel)
+(require 'init-override-keys-mode)
+
 
 ;;; init.el ends here
 (put 'narrow-to-region 'disabled nil)
