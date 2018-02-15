@@ -96,7 +96,7 @@
 
 (use-package web-mode
   :ensure t
-  :defer t
+  ;; :demand t
   :config
   ;; (add-to-list 'auto-mode-alist '("\\.js[x]?$" . web-mode))
   ;; (setq web-mode-content-types-alist
@@ -200,6 +200,8 @@
 (use-package js-import
   :ensure t
   :bind (:map rjsx-mode-map
+              ("C-M-i" . js-import)
+              :map web-mode-map
               ("C-M-i" . js-import))
   ;; (:map web-mode-map
   ;;       ("C-M-i" . js-import))
@@ -244,6 +246,7 @@
   :init
   (setq dumb-jump-selector 'ivy)
   :config
+  (assq-delete-all 'dumb-jump-mode minor-mode-map-alist)
   (defun my-dumb-jump-go (&optional arg)
     (interactive "P")
     (if arg
@@ -301,7 +304,10 @@
     (flycheck-mode +1)
     (setq flycheck-check-syntax-automatically '(save mode-enabled))
     (eldoc-mode +1)
-    (tide-hl-identifier-mode +1)
+    (tide-hl-identifier-mode -1)
+    (setq tide-server-max-response-length 204800)
+    (setq tide-default-mode "JSX")
+    (setq tide-tsserver-executable "/Users/christianlenke/.nvm/versions/node/v6.9.1/bin/tsserver")
     ;; company is an optional dependency. You have to
     ;; install it separately via package-install
     (company-mode +1))
@@ -309,7 +315,9 @@
   (with-eval-after-load 'flycheck-mode
     (flycheck-add-next-checker 'javascript-eslint 'jsx-tide 'append))
 
-  (add-hook 'rjsx-mode-hook #'setup-tide-mode))
+  (add-hook 'rjsx-mode-hook #'setup-tide-mode)
+  (add-hook 'web-mode-hook #'setup-tide-mode)
+)
 
 (provide 'init-js)
 ;;; init-js ends here

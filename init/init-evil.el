@@ -127,6 +127,13 @@
     (define-key evil-normal-state-map (kbd "gd") 'dumb-jump-go)
     (define-key evil-normal-state-map (kbd "gD") 'dumb-jump-back))
 
+
+  ;; ---------------------------------------- Tide
+
+  (with-eval-after-load 'tide
+    (define-key evil-normal-state-map (kbd "gd") 'tide-jump-to-definition)
+    (define-key evil-normal-state-map (kbd "gD") 'tide-jump-back))
+
   ;; ---------------------------------------- Helm Swoop
 
   (with-eval-after-load 'helm-swoop
@@ -464,12 +471,12 @@
 (use-package evil-ediff
   :ensure t)
 
-;; ;;; ---------------------------------------- Evil Smartparens
+;;; ---------------------------------------- Evil Smartparens
 
-;; (use-package evil-smartparens
-;;   :ensure t
-;;   :config
-;;   (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode))
+(use-package evil-smartparens
+  :ensure t
+  :config
+  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode))
 
 
 ;;; ---------------------------------------- Evil Googles

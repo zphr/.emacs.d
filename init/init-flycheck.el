@@ -4,6 +4,9 @@
 (use-package flycheck
   :ensure t
   :diminish flycheck-mode
+  :bind (:map flycheck-mode-map
+              ("C-!" . flycheck-next-error)
+              ("C-\"" . flycheck-previous-error))
   :config
   (global-flycheck-mode t)
 

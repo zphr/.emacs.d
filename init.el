@@ -65,7 +65,8 @@
 
 (global-subword-mode t)
 
-(blink-cursor-mode -1)
+(setq-default cursor-type 'bar)
+(blink-cursor-mode +1)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -228,13 +229,13 @@
 (require 'init-hydra)
 (require 'init-prodigy)
 ;; (require 'init-evil)
-(require 'init-mode-line)
+(require 'init-override-keys-mode)
 ;; (require 'init-haxe)
 (require 'init-js)
 (require 'init-smartparens)
 (require 'init-flycheck)
 (require 'init-counsel)
-(require 'init-override-keys-mode)
+(require 'init-mode-line)
 
 
 ;;; init.el ends here

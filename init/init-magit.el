@@ -69,5 +69,12 @@
 ;;   :config (magithub-feature-autoinject t))
 
 
+;;; ---------------------------------------- Git Link
+
+(use-package git-link
+  :ensure t
+  :defer t)
+
+
 (provide 'init-magit)
 ;;; init-magit.el ends here

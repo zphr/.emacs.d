@@ -307,5 +307,12 @@
   (shell-command "uuidgen" t))
 
 
+;;; ---------------------------------------- Volatile Highlights
+
+(use-package volatile-highlights
+  :ensure t
+  :config (volatile-highlights-mode +1))
+
+
 (provide 'init-misc)
 ;;; init-misc ends here

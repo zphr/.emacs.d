@@ -83,4 +83,13 @@
   (add-hook 'web-mode-hook 'counsel-dash-js))
 
 
+;;; ---------------------------------------- Ivy Historian
+
+(use-package ivy-historian
+  :ensure t
+  :after ivy
+  :config
+  (ivy-historian-mode +1))
+
+
 (provide 'init-counsel)
