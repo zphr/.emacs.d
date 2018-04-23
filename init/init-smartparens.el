@@ -22,6 +22,8 @@
   ("C-M-w" . sp-copy-sexp)
   ("M-d" . sp-kill-word)
   ("C-w" . sp-whole-line-or-region)
+  ("<C-backspace>" . sp-backward-kill-word)
+  ("M-DEL" . sp-backward-kill-word)
   :config
   (electric-pair-mode -1)
   (smartparens-global-mode t)

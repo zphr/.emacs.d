@@ -91,7 +91,7 @@
   (set-default-font "-*-Iosevka-light-normal-normal-*-*-*-*-*-m-0-iso10646-1")
   ;; (set-default-font "-*-Monaco-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
   ;; (set-default-font "Anonymous Pro")
-  (set-face-attribute 'default nil :height 155)
+  (set-face-attribute 'default nil :height 150)
   ;; (set-face-attribute 'mode-line nil :height 155)
 
   ;; (add-to-list 'default-frame-alist

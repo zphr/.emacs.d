@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: mapStateToVars
+# key: msv
+# --
+const mapStateToVars = (state) => ({
+  $1,      
+});$0
+

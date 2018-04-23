@@ -31,17 +31,17 @@
 ;;   :ensure t)
 
 
-;; ;;; ---------------------------------------- Spaceline
+;;; ---------------------------------------- Spaceline
 
-;; (use-package spaceline
-;;   :ensure t
-;;   :config
-;;   (require 'spaceline-config)
-;;   (setq powerline-default-separator 'utf-8)
-;;   (setq spaceline-window-numbers-unicode t)
-;;   (setq spaceline-workspace-numbers-unicode t)
-;;   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-;;   (spaceline-emacs-theme))
+(use-package spaceline
+  :ensure t
+  :config
+  (require 'spaceline-config)
+  (setq powerline-default-separator 'utf-8)
+  (setq spaceline-window-numbers-unicode t)
+  (setq spaceline-workspace-numbers-unicode t)
+  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+  (spaceline-emacs-theme))
 
 
 ;; ;;; ---------------------------------------- Spaceline All The Icons
@@ -57,24 +57,24 @@
 ;;   (spaceline-all-the-icons-theme))
 
 
-;;; ---------------------------------------- Feebleline
+;; ;;; ---------------------------------------- Feebleline
 
-(use-package feebleline
-  :ensure t
-  :demand t
-  :config
-  (feebleline-mode +1)
-  (setq feebleline-mode-line-text
-        '(("%6s"      ((format "%s,%s" (format-mode-line "%l") (current-column))))
-          ("%s"       ((if (flycheck-has-current-errors-p)
-                           (flycheck-mode-line-status-text)
-                         "")) (face error))
-          (" : %s"    ((buffer-name)) (face feebleline-bufname-face))
-          ("%s"       ((if (and (buffer-file-name) (buffer-modified-p)) "*" "" ))
-           (face feebleline-asterisk-face))
-          (" | %s"    ((feebleline-previous-buffer-name))
-           (face feebleline-previous-buffer-face))))
-)
+;; (use-package feebleline
+;;   :ensure t
+;;   :demand t
+;;   :config
+;;   (feebleline-mode +1)
+;;   (setq feebleline-mode-line-text
+;;         '(("%6s"      ((format "%s,%s" (format-mode-line "%l") (current-column))))
+;;           ("%s"       ((if (flycheck-has-current-errors-p)
+;;                            (flycheck-mode-line-status-text)
+;;                          "")) (face error))
+;;           (" : %s"    ((buffer-name)) (face feebleline-bufname-face))
+;;           ("%s"       ((if (and (buffer-file-name) (buffer-modified-p)) "*" "" ))
+;;            (face feebleline-asterisk-face))
+;;           (" | %s"    ((feebleline-previous-buffer-name))
+;;            (face feebleline-previous-buffer-face))))
+;; )
 
 (provide 'init-mode-line)
 ;;; init-mode-line ends here

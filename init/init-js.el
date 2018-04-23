@@ -307,7 +307,7 @@
     (tide-hl-identifier-mode -1)
     (setq tide-server-max-response-length 204800)
     (setq tide-default-mode "JSX")
-    (setq tide-tsserver-executable "/Users/christianlenke/.nvm/versions/node/v6.9.1/bin/tsserver")
+    ;; (setq tide-tsserver-executable "/Users/christianlenke/.nvm/versions/node/v6.9.1/bin/tsserver")
     ;; company is an optional dependency. You have to
     ;; install it separately via package-install
     (company-mode +1))

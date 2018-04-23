@@ -3,19 +3,19 @@
 ;;   :ensure t
 ;;   :init (load-theme 'nord))
 
-;; (use-package zerodark-theme
-;;   :ensure t
-;;   :init (load-theme 'zerodark t)
-;;   :config
-;;   (zerodark-setup-modeline-format))
+(use-package zerodark-theme
+  :ensure t
+  :init (load-theme 'zerodark t)
+  :config
+  (zerodark-setup-modeline-format))
 
 ;; (use-package apropospriate-theme
 ;;   :ensure t
 ;;   :init (load-theme 'apropospriate-dark t))
 
-(use-package labburn-theme
-  :ensure t
-  :init (load-theme 'labburn))
+;; (use-package labburn-theme
+;;   :ensure t
+;;   :init (load-theme 'labburn))
 
 ;; (use-package zenburn-theme
 ;;   :ensure t

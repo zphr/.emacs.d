@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: unity-debug-log-variable
+# key: dlv
+# binding: direct-keybinding
+# --
+Debug.Log("$1: " + $1);$0

@@ -53,6 +53,9 @@
   ("C-h v" . counsel-describe-variable)
   :init
 
+  (setq counsel-rg-base-command
+        "rg -i -M 240 --no-heading --line-number --color never %s .")
+
   (defun my-counsel-git-grep (&optional arg)
     (interactive "P")
     (if arg
@@ -61,7 +64,8 @@
                                 (symbol-name (symbol-at-point))))
       (counsel-git-grep)))
 
-  (global-set-key (kbd "C-4") 'my-counsel-git-grep)
+  ;; (global-set-key (kbd "C-4") 'my-counsel-git-grep)
+  (global-set-key (kbd "C-4") 'counsel-rg)
 
   :config
   (setq counsel-find-file-at-point t)
@@ -90,6 +94,15 @@
   :after ivy
   :config
   (ivy-historian-mode +1))
+
+
+;;; ---------------------------------------- Grep Context
+
+(use-package grep-context
+  :ensure t
+  :bind
+  ("C-M--" . grep-context-less-around-point)
+  ("C-M-+" . grep-context-more-around-point))
 
 
 (provide 'init-counsel)

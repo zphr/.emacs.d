@@ -324,15 +324,20 @@ header"
 
 (use-package omnisharp
   :ensure t
-  :load-path ("e:/Rettungsboot/Code/omnisharp-emacs/" "e:/Rettungsboot/Code/omnisharp-emacs/src/" "e:/Rettungsboot/Code/omnisharp-emacs/src/actions/")
-  :bind 
+  :bind
   ("M-." . omnisharp-go-to-definition)
-  ("C-M-." . omnisharp-helm-find-usages)
-  ;; :init
-  ;; (add-hook 'csharp-mode-hook #'omnisharp-mode)
+  ("C-M-." . omnisharp-find-usages-with-ido)
+  ("C-c r" . omnisharp-rename)
+  ("C-c R" . omnisharp-run-code-action-refactoring)
+  ("C-c F" . omnisharp-code-format-entire-file)
+  ("C-M-r" . omnisharp-rename)
+  ("C-M-S-r" . omnisharp-run-code-action-refactoring)
+  :init
+  (add-hook 'csharp-mode-hook #'omnisharp-mode)
   :config
-  ;; (setq omnisharp-server-executable-path "c:/OmniSharpServer/OmniSharp/bin/Release/OmniSharp.exe")
-  (setq omnisharp-server-executable-path "c:/OmniSharpRoslyn/scripts/Omnisharp")
+  (if (eq system-type 'darwin) ;; mac specific settings
+      (setq omnisharp-server-executable-path nil)
+    (setq omnisharp-server-executable-path "c:/OmniSharpRoslyn/scripts/Omnisharp"))
 
   (setq omnisharp--curl-executable-path "c:/Emacs/bin/curl.exe")
   (setq omnisharp-auto-complete-want-documentation nil)

@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 # name: console-log-variable
 # key: clv
+# binding: C-c C-l
 # --
 console.log('$1: ', $1); // eslint-disable-line$0

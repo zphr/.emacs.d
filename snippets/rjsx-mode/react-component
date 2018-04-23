@@ -2,7 +2,8 @@
 # name: react-component
 # key: cp
 # --
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 
 class ${1:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`} extends Component { // eslint-disable-line

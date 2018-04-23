@@ -2,7 +2,8 @@
 # name: functional-component
 # key: fcp
 # --
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const ${1:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`} = ({$2}) => {

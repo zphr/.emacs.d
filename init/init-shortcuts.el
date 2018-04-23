@@ -208,8 +208,9 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
-;; Jump to a definition in the current file. (Protip: this is awesome.)
+;; Jump to a definition in the current file.
 (global-set-key (kbd "C-x C-i") 'imenu)
+(global-set-key (kbd "C-M-j") 'imenu)
 (global-set-key (kbd "C-x i") 'imenu)
 
 ;; Window switching. (C-x o goes to the next window)
@@ -280,6 +281,16 @@
 ;;; ---------------------------------------- Sorting
 
 (global-set-key (kbd "C-M-S-s") 'sort-lines)
+
+;;; ---------------------------------------- Random Snippets
+
+(global-set-key (kbd "≠") '(lambda ()
+                             (interactive)
+                             (insert "=> { 
+
+}")
+                             (backward-paragraph)
+                             (indent-for-tab-command)))
 
 ;; ;; ---------------------------------------- Ö Map
 

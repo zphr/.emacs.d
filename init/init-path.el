@@ -187,6 +187,7 @@
           (concat
            "/Applications/blender.app/Contents/MacOS/" ":"
            "/usr/texbin/" ":"
+           "/Users/christianlenke/.nvm/versions/node/v9.11.1/bin/" ":"
            (getenv "PATH")))
   (setq exec-path
         '("/bin"
@@ -194,6 +195,7 @@
           "/usr/local/bin"
           "/usr/texbin/"
           "/Applications/blender.app/Contents/MacOS/"
+          "/Users/christianlenke/.nvm/versions/node/v9.11.1/bin/"
           )))
 
 ;;; ---------------------------------------- Linux Paths
