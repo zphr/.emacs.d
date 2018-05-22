@@ -136,6 +136,8 @@
 
 ;;; ---------------------------------------- Window Managing Maps
 
+(global-set-key (kbd "C-x f") 'toggle-frame-fullscreen)
+
 (global-set-key (kbd "C-x M-+") 'maximize-window)
 
 (global-set-key (kbd "C-0") 'delete-window)
