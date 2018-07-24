@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: import-from-lodash-fp
-# key: filo
+# key: fi
 # --
 import f${1:$(capitalize-first yas-text)} from 'lodash/fp/$1';$0

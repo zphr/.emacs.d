@@ -301,10 +301,16 @@
   :config
   (defun setup-tide-mode ()
     (interactive)
+
+    (setq tide-tsserver-executable "/Users/christianlenke/.nvm/versions/node/v9.11.1/bin/tsserver")
+
     (tide-setup)
     (flycheck-mode +1)
     (setq flycheck-check-syntax-automatically '(save mode-enabled))
     (eldoc-mode +1)
+
+    (setq tide-sync-request-timeout 4)
+
     (tide-hl-identifier-mode -1)
     (setq tide-server-max-response-length 204800)
     (setq tide-default-mode "JSX")
@@ -315,6 +321,9 @@
 
   (with-eval-after-load 'flycheck-mode
     (flycheck-add-next-checker 'javascript-eslint 'jsx-tide 'append))
+
+  ;; ;; set log level to verbose
+  ;; (setq tide-tsserver-process-environment '("TSS_LOG=-level verbose -file /tmp/tss.log"))
 
   (add-hook 'rjsx-mode-hook #'setup-tide-mode)
   (add-hook 'web-mode-hook #'setup-tide-mode)

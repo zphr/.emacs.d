@@ -25,10 +25,10 @@
 ;;   :ensure t
 ;;   :config (powerline-default-theme))
 
-;;; ---------------------------------------- All The Icons
+;; ;;; ---------------------------------------- All The Icons
 
-(use-package all-the-icons
-  :ensure t)
+;; (use-package all-the-icons
+;;   :ensure t)
 
 
 ;;; ---------------------------------------- Spaceline
@@ -44,17 +44,17 @@
   (spaceline-emacs-theme))
 
 
-;;; ---------------------------------------- Spaceline All The Icons
+;; ;;; ---------------------------------------- Spaceline All The Icons
 
-(use-package spaceline-all-the-icons
-  :ensure t
-  :after spaceline
-  :config
-  (setq spaceline-all-the-icons-separator-type 'cup)
-  (setq spaceline-all-the-icons-slim-render t)
+;; (use-package spaceline-all-the-icons
+;;   :ensure t
+;;   :after spaceline
+;;   :config
+;;   (setq spaceline-all-the-icons-separator-type 'cup)
+;;   (setq spaceline-all-the-icons-slim-render t)
 
-  (spaceline-all-the-icons--setup-anzu)
-  (spaceline-all-the-icons-theme))
+;;   (spaceline-all-the-icons--setup-anzu)
+;;   (spaceline-all-the-icons-theme))
 
 
 ;; ;;; ---------------------------------------- Feebleline

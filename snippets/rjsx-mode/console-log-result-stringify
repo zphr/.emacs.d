@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: console-log-result-stringify
+# key: clrs
+# --
+${1:result} => {
+  console.log('### $1: ', JSON.stringify($1, null, 2)); // eslint-disable-line
+  return $1;
+},

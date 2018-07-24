@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: react-intl-translations
+# key: trans
+# --
+const translations = defineMessages({
+  $1: {
+  id: '`(car (last (split-string (file-name-directory (buffer-file-name)) "/" t)))`.`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`.$1',
+    defaultMessage: '$3',
+  },$0
+});

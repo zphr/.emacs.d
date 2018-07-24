@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: react-intl-imports
+# key: ti
+# --
+import { defineMessages } from 'react-intl';
+import withTranslations from 'Locale/withTranslations';$0

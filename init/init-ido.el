@@ -20,13 +20,13 @@
  (define-key ido-completion-map (kbd "C-a") 'move-beginning-of-line))
 
 
-;; ---------------------------------------- Ido Ubiquitous
+;; ;; ---------------------------------------- Ido Ubiquitous
 
-(use-package ido-ubiquitous
-    :ensure t
-:defer t
-    :if (>= emacs-major-version 24)
-    :config (ido-ubiquitous-mode t))
+;; (use-package ido-ubiquitous
+;;     :ensure t
+;; :defer t
+;;     :if (>= emacs-major-version 24)
+;;     :config (ido-ubiquitous-mode t))
 
 
 ;; ---------------------------------------- Smex

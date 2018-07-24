@@ -29,6 +29,14 @@
     (key-chord-define-global (kbd "jk") 'my-ivy-switch-buffer)))
 
 
+;;; ---------------------------------------- Ivy Prescient
+
+(use-package ivy-prescient
+  :ensure t
+  :after ivy-mode
+  :config
+  (ivy-prescient-mode t))
+
 ;;; ---------------------------------------- Swiper
 
 (use-package swiper
