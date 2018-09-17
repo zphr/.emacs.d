@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ramda-initial-import
+# key: rii
+# --
+import { $0 } from 'ramda';

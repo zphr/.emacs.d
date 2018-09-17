@@ -5,6 +5,7 @@
   :ensure t
   :demand
   :bind
+  ("M-i" . sp-change-enclosing)
   ("M-C-f" . sp-forward-sexp)
   ("M-C-b" . sp-backward-sexp)
   ("M-C-u" . sp-backward-up-sexp)

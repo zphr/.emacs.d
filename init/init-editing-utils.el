@@ -55,12 +55,12 @@
 	    (global-color-identifiers-mode t)))
 
 
-;;; ---------------------------------------- Change Inner
+;; ;;; ---------------------------------------- Change Inner
 
-(use-package change-inner
-  :ensure t
-  :defer t
-  :bind ("M-i" . change-inner))
+;; (use-package change-inner
+;;   :ensure t
+;;   :defer t
+;;   :bind ("M-i" . change-inner))
 
 
 ;; --------------------------------------------- Zop To Char

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: transform-props-hoc
+# key: tph
+# --
+Wrapped => ownProps => <Wrapped {...ownProps} $0 />,

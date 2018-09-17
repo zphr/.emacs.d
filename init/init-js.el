@@ -302,18 +302,25 @@
   (defun setup-tide-mode ()
     (interactive)
 
+    (setq tide-node-executable "/Users/christianlenke/.nvm/versions/node/v9.11.1/bin/node")
     (setq tide-tsserver-executable "/Users/christianlenke/.nvm/versions/node/v9.11.1/bin/tsserver")
 
-    (tide-setup)
-    (flycheck-mode +1)
-    (setq flycheck-check-syntax-automatically '(save mode-enabled))
-    (eldoc-mode +1)
+    (setq tide-server-max-response-length 204800)
+
+    (setq tide-default-mode "JSX")
 
     (setq tide-sync-request-timeout 4)
 
     (tide-hl-identifier-mode -1)
-    (setq tide-server-max-response-length 204800)
-    (setq tide-default-mode "JSX")
+    (setq tide-hl-identifier-idle-time 1000.0)
+
+    (tide-setup)
+
+    (flycheck-mode +1)
+    (setq flycheck-check-syntax-automatically '(save mode-enabled))
+
+    ;; (eldoc-mode +1)
+
     ;; (setq tide-tsserver-executable "/Users/christianlenke/.nvm/versions/node/v6.9.1/bin/tsserver")
     ;; company is an optional dependency. You have to
     ;; install it separately via package-install

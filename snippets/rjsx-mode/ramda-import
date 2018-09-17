@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ramda-import
+# key: ri
+# --
+$1 as r${1:$(capitalize-first yas-text)},$0

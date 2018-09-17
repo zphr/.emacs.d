@@ -41,10 +41,14 @@
 
 (use-package swiper
   :ensure t
-  :bind ("M-s" . swiper)
+  :bind
+  ("M-s" . swiper)
+  ("C-s" . swiper)
+  ("C-r" . swiper)
   :config
-  (global-set-key (kbd "M-s") 'swiper))
-
+  (global-set-key (kbd "M-s") 'swiper)
+  (define-key swiper-map (kbd "C-ö") 'swiper-avy)
+  )
 
 
 ;;; ---------------------------------------- Counsel
@@ -59,6 +63,7 @@
   ("C-9" . counsel-git)
   ("C-h f" . counsel-describe-function)
   ("C-h v" . counsel-describe-variable)
+  ("C-M-y" . counsel-yank-pop)
   :init
 
   (setq counsel-rg-base-command
