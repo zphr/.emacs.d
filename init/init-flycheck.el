@@ -10,6 +10,14 @@
   :config
   (global-flycheck-mode t)
 
+  (defhydra hydra-flycheck (:pre (widen))
+    "errors"
+    ("n" flycheck-next-error "next")
+    ("p" flycheck-previous-error "previous")
+    )
+
+  (global-set-key (kbd "C-c f") 'hydra-flycheck/body)
+
   (setq flycheck-javascript-eslint-executable "eslint_d"))
 
 

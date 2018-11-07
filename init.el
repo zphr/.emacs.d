@@ -89,7 +89,7 @@
 
 (when (eq system-type 'darwin) ;; mac specific settings
   (when (window-system)
-    (set-frame-font "Fira Code Light")
+    (set-frame-font "Fira Code Retina")
     (set-face-attribute 'default nil :height 140))
 
   (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")

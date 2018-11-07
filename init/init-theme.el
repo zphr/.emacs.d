@@ -9,13 +9,13 @@
 ;;   :config
 ;;   (zerodark-setup-modeline-format))
 
-(use-package apropospriate-theme
-  :ensure t
-  :init (load-theme 'apropospriate-dark t))
-
-;; (use-package labburn-theme
+;; (use-package apropospriate-theme
 ;;   :ensure t
-;;   :init (load-theme 'labburn))
+;;   :init (load-theme 'apropospriate-dark t))
+
+(use-package labburn-theme
+  :ensure t
+  :init (load-theme 'labburn))
 
 ;; (use-package zenburn-theme
 ;;   :ensure t

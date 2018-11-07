@@ -18,16 +18,16 @@
 	    (setenv "GIT_ASKPASS" "git-gui--askpass")))
 
 
-;;; ---------------------------------------- Magit GH Pulls
+;; ;;; ---------------------------------------- Magit GH Pulls
 
-(use-package magit-gh-pulls
-  :ensure t
-  :after magit
-  :init
-  (add-hook 'magit-mode-hook #'turn-on-magit-gh-pulls)
-  :defer t
-  :config (progn
-	    (require 'magit-popup)))
+;; (use-package magit-gh-pulls
+;;   :ensure t
+;;   :after magit
+;;   :init
+;;   (add-hook 'magit-mode-hook #'turn-on-magit-gh-pulls)
+;;   :defer t
+;;   :config (progn
+;; 	    (require 'magit-popup)))
 
 
 ;; ---------------------------------------- Diff Hl
@@ -52,6 +52,7 @@
     ("n" diff-hl-next-hunk "next")
     ("p" diff-hl-previous-hunk "previous")
     ("s" diff-hl-stage-hunks "stage")
+    ("l" git-link :exit t)
     ("t" git-timemachine "timemachine" :exit t)
     ("g" magit-status "status" :exit t))
 

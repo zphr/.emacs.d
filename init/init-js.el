@@ -256,6 +256,8 @@
       (dumb-jump-go)))
 
   (global-set-key (kbd "M-.") 'my-dumb-jump-go)
+  (global-set-key (kbd "C-M-g") 'dumb-jump-go)
+  (global-set-key (kbd "C-S-M-g") 'dumb-jump-go-prompt)
   (define-key rjsx-mode-map (kbd "M-.") 'my-dumb-jump-go)
   (define-key rjsx-mode-map (kbd "M-,") 'dumb-jump-back)
 
@@ -302,8 +304,8 @@
   (defun setup-tide-mode ()
     (interactive)
 
-    (setq tide-node-executable "/Users/christianlenke/.nvm/versions/node/v9.11.1/bin/node")
-    (setq tide-tsserver-executable "/Users/christianlenke/.nvm/versions/node/v9.11.1/bin/tsserver")
+    (setq tide-node-executable "/Users/christianlenke/.nvm/versions/node/v8.12.0/bin/node")
+    (setq tide-tsserver-executable "/Users/christianlenke/.nvm/versions/node/v8.12.0/bin/tsserver")
 
     (setq tide-server-max-response-length 204800)
 
@@ -395,6 +397,11 @@
   (advice-add 'mocha-generate-command
               :override 'mocha-generate-command--jest-command))
 
+
+;;; ---------------------------------------- Prettier JS
+
+(use-package prettier-js
+  :bind (:map rjsx-mode-map ("C-c p" . prettier-js-mode)))
 
 (provide 'init-js)
 ;;; init-js ends here
