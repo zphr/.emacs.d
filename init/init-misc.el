@@ -291,13 +291,13 @@
   ("C-c C-u" . string-inflection-all-cycle))
 
 
-;;; ---------------------------------------- BeginEnd
+;; ;;; ---------------------------------------- BeginEnd
 
-(use-package beginend
-  :ensure t
-  :diminish beginend-global-mode
-  :config
-  (beginend-global-mode t))
+;; (use-package beginend
+;;   :ensure t
+;;   :diminish beginend-global-mode
+;;   :config
+;;   (beginend-global-mode t))
 
 
 ;;; ---------------------------------------- Insert UUID

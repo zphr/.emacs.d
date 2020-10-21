@@ -13,13 +13,13 @@
 ;;   :ensure t
 ;;   :init (load-theme 'apropospriate-dark t))
 
-(use-package labburn-theme
-  :ensure t
-  :init (load-theme 'labburn))
-
-;; (use-package zenburn-theme
+;; (use-package labburn-theme
 ;;   :ensure t
-;;   :init (load-theme 'zenburn))
+;;   :init (load-theme 'labburn))
+
+(use-package zenburn-theme
+  :ensure t
+  :init (load-theme 'zenburn))
 
 ;; (require-package 'subatomic-theme)
 ;; (load-theme 'subatomic)

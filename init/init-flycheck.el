@@ -5,8 +5,8 @@
   :ensure t
   :diminish flycheck-mode
   :bind (:map flycheck-mode-map
-              ("C-!" . flycheck-next-error)
-              ("C-\"" . flycheck-previous-error))
+              ("C-M-2" . flycheck-next-error)
+              ("C-M-1" . flycheck-previous-error))
   :config
   (global-flycheck-mode t)
 

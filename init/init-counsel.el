@@ -57,7 +57,7 @@
   :ensure t
   :functions counsel-git-grep
   :bind
-  ("M-x" . counsel-M-x)
+  ;; ("M-x" . counsel-M-x)
   ("C-x C-f" . counsel-find-file)
   ;; ("C-4" . counsel-git-grep)
   ("C-9" . counsel-git)
@@ -86,36 +86,36 @@
     (key-chord-define-global (kbd "df") 'counsel-git)))
 
 
-;;; ---------------------------------------- Counsel Dash
+;; ;;; ---------------------------------------- Counsel Dash
 
-(use-package counsel-dash
-  :ensure t
-  :bind
-  ("C-h d" . counsel-dash)
-  :config
-  (defun counsel-dash-js ()
-    (interactive)
-    (setq-local counsel-dash-docsets '("Lo-Dash")))
+;; (use-package counsel-dash
+;;   :ensure t
+;;   :bind
+;;   ("C-h d" . counsel-dash)
+;;   :config
+;;   (defun counsel-dash-js ()
+;;     (interactive)
+;;     (setq-local counsel-dash-docsets '("Lo-Dash")))
 
-  (add-hook 'web-mode-hook 'counsel-dash-js))
-
-
-;;; ---------------------------------------- Ivy Historian
-
-(use-package ivy-historian
-  :ensure t
-  :after ivy
-  :config
-  (ivy-historian-mode +1))
+;;   (add-hook 'web-mode-hook 'counsel-dash-js))
 
 
-;;; ---------------------------------------- Grep Context
+;; ;;; ---------------------------------------- Ivy Historian
 
-(use-package grep-context
-  :ensure t
-  :bind
-  ("C-M--" . grep-context-less-around-point)
-  ("C-M-+" . grep-context-more-around-point))
+;; (use-package ivy-historian
+;;   :ensure t
+;;   :after ivy
+;;   :config
+;;   (ivy-historian-mode +1))
+
+
+;; ;;; ---------------------------------------- Grep Context
+
+;; (use-package grep-context
+;;   :ensure t
+;;   :bind
+;;   ("C-M--" . grep-context-less-around-point)
+;;   ("C-M-+" . grep-context-more-around-point))
 
 
 (provide 'init-counsel)

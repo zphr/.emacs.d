@@ -238,30 +238,30 @@
     '(add-hook 'rjsx-mode-hook #'add-node-modules-path)))
 
 
-;;; ---------------------------------------- Dumb Jump
+;; ;;; ---------------------------------------- Dumb Jump
 
-(use-package dumb-jump
-  :ensure t
-  :after rjsx-mode
-  :bind
-  ("M-," . dumb-jump-back)
-  :init
-  (setq dumb-jump-selector 'ivy)
-  :config
-  (assq-delete-all 'dumb-jump-mode minor-mode-map-alist)
-  (defun my-dumb-jump-go (&optional arg)
-    (interactive "P")
-    (if arg
-        (dumb-jump-go-other-window)
-      (dumb-jump-go)))
+;; (use-package dumb-jump
+;;   :ensure t
+;;   :after rjsx-mode
+;;   :bind
+;;   ("M-," . dumb-jump-back)
+;;   :init
+;;   (setq dumb-jump-selector 'ivy)
+;;   :config
+;;   (assq-delete-all 'dumb-jump-mode minor-mode-map-alist)
+;;   (defun my-dumb-jump-go (&optional arg)
+;;     (interactive "P")
+;;     (if arg
+;;         (dumb-jump-go-other-window)
+;;       (dumb-jump-go)))
 
-  (global-set-key (kbd "M-.") 'my-dumb-jump-go)
-  (global-set-key (kbd "C-M-g") 'dumb-jump-go)
-  (global-set-key (kbd "C-S-M-g") 'dumb-jump-go-prompt)
-  (define-key rjsx-mode-map (kbd "M-.") 'my-dumb-jump-go)
-  (define-key rjsx-mode-map (kbd "M-,") 'dumb-jump-back)
+;;   (global-set-key (kbd "M-.") 'my-dumb-jump-go)
+;;   (global-set-key (kbd "C-M-g") 'dumb-jump-go)
+;;   (global-set-key (kbd "C-S-M-g") 'dumb-jump-go-prompt)
+;;   (define-key rjsx-mode-map (kbd "M-.") 'my-dumb-jump-go)
+;;   (define-key rjsx-mode-map (kbd "M-,") 'dumb-jump-back)
 
-  (dumb-jump-mode t))
+;;   (dumb-jump-mode t))
 
 
 ;;; ---------------------------------------- JS Doc
@@ -304,12 +304,14 @@
   (defun setup-tide-mode ()
     (interactive)
 
-    (setq tide-node-executable "/Users/christianlenke/.nvm/versions/node/v8.12.0/bin/node")
-    (setq tide-tsserver-executable "/Users/christianlenke/.nvm/versions/node/v8.12.0/bin/tsserver")
+    ;; (setq tide-node-executable "/Users/christian/.nvm/versions/node/v12.19.0/bin/node")
+    ;; (setq tide-tsserver-executable "/Users/christian/.nvm/versions/node/v12.19.0/bin/tsserver")
 
     (setq tide-server-max-response-length 204800)
 
     (setq tide-default-mode "JSX")
+
+    (setq tide-imenu-flatten t)
 
     (setq tide-sync-request-timeout 4)
 
@@ -401,7 +403,10 @@
 ;;; ---------------------------------------- Prettier JS
 
 (use-package prettier-js
-  :bind (:map rjsx-mode-map ("C-c p" . prettier-js-mode)))
+  :ensure t
+  :bind (:map rjsx-mode-map ("C-c p" . prettier-js-mode))
+  :config
+  (setq prettier-js-command "prettier_d"))
 
 (provide 'init-js)
 ;;; init-js ends here

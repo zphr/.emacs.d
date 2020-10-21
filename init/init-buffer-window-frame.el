@@ -18,19 +18,13 @@
 
 (use-package switch-window
   :ensure t
-  :bind 
-  ("C-S-o" . switch-window)
-  :config (progn
-	    (defadvice switch-window (before switch-frame-if-just-one-window activate)
-	      "Switch to other frame if only one window exists"
-	      (if (< (length (window-list)) 2)
-		  (other-frame 1)))))
+  :bind (("C-S-o" . switch-window)))
 
 ;;; ---------------------------------------- IBuffer
 
 (use-package ibuffer
   :ensure t
-:defer t
+  :defer t
   :config (progn
 	    (setq ibuffer-show-empty-filter-groups nil)
 
@@ -90,9 +84,8 @@
 (use-package workgroups2
   :ensure t
   :diminish workgroups-mode
-  :bind
-  ("M-C-)" . wg-switch-to-workgroup)
-  ("M-C-9" . wg-switch-to-previous-workgroup)
+  :bind (("M-C-)" . wg-switch-to-workgroup)
+         ("M-C-9" . wg-switch-to-previous-workgroup))
   :config
   (workgroups-mode t))
 

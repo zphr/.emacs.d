@@ -1,12 +1,5 @@
 ;;; init.el --- user init file      -*- no-byte-compile: t -*-
 
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
-
 ;; (setq gc-cons-threshold 200000000)
 
 
@@ -65,7 +58,7 @@
 
 (global-subword-mode t)
 
-(setq-default cursor-type 'bar)
+(setq-default cursor-type 'box)
 (blink-cursor-mode +1)
 
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -136,9 +129,9 @@
   ;;            '(font . "-*-Iosevka-light-normal-normal-*-*-*-*-*-m-0-iso10646-1"))
   )
 
-(when (eq system-type 'gnu/linux)
-  (set-default-font "-CYEL-Iosevka-light-normal-normal-*-*-*-*-*-d-0-iso10646-1")
-  (set-face-attribute 'default nil :height 130))
+;; (when (eq system-type 'gnu/linux)
+;;   (set-default-font "-CYEL-Iosevka-light-normal-normal-*-*-*-*-*-d-0-iso10646-1")
+;;   (set-face-attribute 'default nil :height 130))
 
 ;; ---------------------------------------- Repeat
 
