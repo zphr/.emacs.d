@@ -276,69 +276,84 @@
 
 ;; ;;; ---------------------------------------- LSP
 
-;; (use-package lsp-javascript-typescript
-;;   :ensure t
-;;   :init
-;;   (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
-;;   (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable)
-;;   (add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable)
-;;   (add-hook 'rjsx-mode #'lsp-javascript-typescript-enable))
+(setq lsp-keymap-prefix "s-l")
 
-;; (use-package lsp-mode
-;;   :ensure t
-;;   :demand
-;;   :config
-;;   (lsp-mode t))
-
-;;; ---------------------------------------- Tide
-
-(use-package tide
-  :demand t
+(use-package lsp-mode
   :ensure t
-  :commands (tide-references tide-rename-symbol tide-nav)
-  :bind (:map tide-mode-map
-              ("C-M-." . tide-references)
-              ("C-M-r" . tide-rename-symbol)
-              ("C-M-S-r" . tide-refactor))
+  :bind (:map lsp-mode-map
+              ("M-." . lsp-find-definition)
+              ("C-M-." . lsp-find-references)
+              ("C-M-r" . lsp-rename)
+              ("C-M-S-r" . lsp-execute-code-action)
+              ("M-O" . lsp-organize-imports))
+  :hook ((rjsx-mode . lsp))
+  :commands lsp
+  :init
+  (setq lsp-headerline-breadcrumb-enable t)
+
+  (defun setup-flycheck-lsp-eslint ()
+      (flycheck-add-next-checker 'lsp 'javascript-eslint))
+
+  (add-hook 'lsp-after-open-hook #'setup-flycheck-lsp-eslint))
+
+;; optionally
+(use-package lsp-ui
+  :commands lsp-ui-mode
   :config
-  (defun setup-tide-mode ()
-    (interactive)
+  ;; (setq lsp-ui-peek-fontify 'always)
+  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references))
 
-    ;; (setq tide-node-executable "/Users/christian/.nvm/versions/node/v12.19.0/bin/node")
-    ;; (setq tide-tsserver-executable "/Users/christian/.nvm/versions/node/v12.19.0/bin/tsserver")
+;; ;;; ---------------------------------------- Tide
 
-    (setq tide-server-max-response-length 204800)
+;; (use-package tide
+;;   :demand t
+;;   :ensure t
+;;   :commands (tide-references tide-rename-symbol tide-nav)
+;;   :bind (:map tide-mode-map
+;;               ("C-M-." . tide-references)
+;;               ("C-M-r" . tide-rename-symbol)
+;;               ("C-M-S-r" . tide-refactor)
+;;               ("M-O" . tide-organize-imports))
+;;   :config
+;;   (defun setup-tide-mode ()
+;;     (interactive)
 
-    (setq tide-default-mode "JSX")
+;;     ;; (setq tide-node-executable "/Users/christian/.nvm/versions/node/v12.19.0/bin/node")
+;;     ;; (setq tide-tsserver-executable "/Users/christian/.nvm/versions/node/v12.19.0/bin/tsserver")
 
-    (setq tide-imenu-flatten t)
+;;     (setq tide-server-max-response-length 204800)
 
-    (setq tide-sync-request-timeout 4)
+;;     (setq tide-default-mode "JSX")
 
-    (tide-hl-identifier-mode -1)
-    (setq tide-hl-identifier-idle-time 1000.0)
+;;     (setq tide-imenu-flatten t)
 
-    (tide-setup)
+;;     (setq tide-sync-request-timeout 4)
 
-    (flycheck-mode +1)
-    (setq flycheck-check-syntax-automatically '(save mode-enabled))
+;;     (tide-hl-identifier-mode -1)
+;;     (setq tide-hl-identifier-idle-time 1000.0)
 
-    ;; (eldoc-mode +1)
+;;     (tide-setup)
 
-    ;; (setq tide-tsserver-executable "/Users/christianlenke/.nvm/versions/node/v6.9.1/bin/tsserver")
-    ;; company is an optional dependency. You have to
-    ;; install it separately via package-install
-    (company-mode +1))
+;;     (flycheck-mode +1)
+;;     (setq flycheck-check-syntax-automatically '(save mode-enabled))
 
-  (with-eval-after-load 'flycheck-mode
-    (flycheck-add-next-checker 'javascript-eslint 'jsx-tide 'append))
+;;     ;; (eldoc-mode +1)
 
-  ;; ;; set log level to verbose
-  ;; (setq tide-tsserver-process-environment '("TSS_LOG=-level verbose -file /tmp/tss.log"))
+;;     ;; (setq tide-tsserver-executable "/Users/christianlenke/.nvm/versions/node/v6.9.1/bin/tsserver")
+;;     ;; company is an optional dependency. You have to
+;;     ;; install it separately via package-install
+;;     (company-mode +1))
 
-  (add-hook 'rjsx-mode-hook #'setup-tide-mode)
-  (add-hook 'web-mode-hook #'setup-tide-mode)
-)
+;;   (with-eval-after-load 'flycheck-mode
+;;     (flycheck-add-next-checker 'javascript-eslint 'jsx-tide 'append))
+
+;;   ;; ;; set log level to verbose
+;;   ;; (setq tide-tsserver-process-environment '("TSS_LOG=-level verbose -file /tmp/tss.log"))
+
+;;   ;; (add-hook 'rjsx-mode-hook #'setup-tide-mode)
+;;   (add-hook 'web-mode-hook #'setup-tide-mode)
+;;   )
 
 
 ;;; ---------------------------------------- Moch (Jest)
@@ -405,6 +420,7 @@
 (use-package prettier-js
   :ensure t
   :bind (:map rjsx-mode-map ("C-c p" . prettier-js-mode))
+  :hook (rjsx-mode . prettier-js-mode)
   :config
   (setq prettier-js-command "prettier_d"))
 
