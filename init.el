@@ -159,13 +159,17 @@
 
 (setenv "CYGWIN" "nodosfilewarning")
 
-;; ---------------------------------------- Backup- and TMP-Files
+;; ---------------------------------------- Backup-, TMP- and Lock-Files
 
 ;; store all backup and autosave files in the tmp dir
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
+
+;;; Cypress dies because of lockfiles. Just disable them for now. 
+(setq create-lockfiles nil)
+
 
 ;; ---------------------------------------- Mac Key Settings
 
