@@ -86,36 +86,15 @@
     (key-chord-define-global (kbd "df") 'counsel-git)))
 
 
-;; ;;; ---------------------------------------- Counsel Dash
+;;; ---------------------------------------- RG
 
-;; (use-package counsel-dash
-;;   :ensure t
-;;   :bind
-;;   ("C-h d" . counsel-dash)
-;;   :config
-;;   (defun counsel-dash-js ()
-;;     (interactive)
-;;     (setq-local counsel-dash-docsets '("Lo-Dash")))
-
-;;   (add-hook 'web-mode-hook 'counsel-dash-js))
-
-
-;; ;;; ---------------------------------------- Ivy Historian
-
-;; (use-package ivy-historian
-;;   :ensure t
-;;   :after ivy
-;;   :config
-;;   (ivy-historian-mode +1))
-
-
-;; ;;; ---------------------------------------- Grep Context
-
-;; (use-package grep-context
-;;   :ensure t
-;;   :bind
-;;   ("C-M--" . grep-context-less-around-point)
-;;   ("C-M-+" . grep-context-more-around-point))
-
+(use-package rg
+  :ensure t
+  :bind
+  (("C-M-4" . rg))
+  :config
+  (rg-enable-menu)
+  (setq rg-command-line-flags '("-C=4"))
+)
 
 (provide 'init-counsel)
