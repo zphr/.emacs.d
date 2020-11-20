@@ -93,4 +93,12 @@
 ;;   (setq dired-sidebar-width 55))
 
 
+;;; ---------------------------------------- Diredfl
+
+(use-package diredfl
+  :ensure t
+  :init
+  (diredfl-global-mode t))
+
+
 (provide 'init-dired)

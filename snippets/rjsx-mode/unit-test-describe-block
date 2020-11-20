@@ -3,8 +3,5 @@
 # key: db
 # --
 describe('$1', () => {
-  ${2:beforeEach(() => {
     $0
-  });}
-  
 });

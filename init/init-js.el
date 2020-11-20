@@ -121,32 +121,32 @@
     (flycheck-add-mode 'javascript-eslint 'web-mode)))
 
 
-;;; ---------------------------------------- Web Beautify
+;; ;;; ---------------------------------------- Web Beautify
 
-(use-package web-beautify
-  :ensure t
-  :config
-  (with-eval-after-load 'js2-mode
-    '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
+;; (use-package web-beautify
+;;   :ensure t
+;;   :config
+;;   (with-eval-after-load 'js2-mode
+;;     '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
 
-  ;; Or if you're using 'js-mode' (a.k.a 'javascript-mode')
-  (with-eval-after-load 'js
-    '(define-key js-mode-map (kbd "C-c b") 'web-beautify-js))
+;;   ;; Or if you're using 'js-mode' (a.k.a 'javascript-mode')
+;;   (with-eval-after-load 'js
+;;     '(define-key js-mode-map (kbd "C-c b") 'web-beautify-js))
 
-  (with-eval-after-load 'json-mode
-    '(define-key json-mode-map (kbd "C-c b") 'web-beautify-js))
+;;   (with-eval-after-load 'json-mode
+;;     '(define-key json-mode-map (kbd "C-c b") 'web-beautify-js))
 
-  (with-eval-after-load 'rjsx-mode
-    (define-key rjsx-mode-map (kbd "M-C-q") 'web-beautify-js))
+;;   (with-eval-after-load 'rjsx-mode
+;;     (define-key rjsx-mode-map (kbd "M-C-q") 'web-beautify-js))
 
-  (with-eval-after-load 'sgml-mode
-    '(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))
+;;   (with-eval-after-load 'sgml-mode
+;;     '(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))
 
-  (with-eval-after-load 'web-mode
-    '(define-key web-mode-map (kbd "M-C-q") 'web-beautify-js))
+;;   (with-eval-after-load 'web-mode
+;;     '(define-key web-mode-map (kbd "M-C-q") 'web-beautify-js))
 
-  (with-eval-after-load 'css-mode
-    '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css)))
+;;   (with-eval-after-load 'css-mode
+;;     '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css)))
 
 
 ;; ;;; ---------------------------------------- ESlint Fix
@@ -191,44 +191,6 @@
   (setq-default css-indent-offset 2))
 
 
-;; ;;; ---------------------------------------- Flycheck Flow
-
-;; (use-package flycheck-flow
-;;   :ensure t)
-
-
-;;; ---------------------------------------- JS Import
-
-(use-package js-import
-  :ensure t
-  :bind (:map rjsx-mode-map
-              ("C-M-i" . js-import)
-              :map web-mode-map
-              ("C-M-i" . js-import))
-  ;; (:map web-mode-map
-  ;;       ("C-M-i" . js-import))
-  :config
-  (setq-default js-import-quote "'"))
-
-
-;; ;;; ---------------------------------------- Import JS
-
-;; (use-package import-js
-;;   :ensure t
-;;   :defer t
-;;   :after web-mode)
-
-
-;;; ---------------------------------------- JS Import
-
-(use-package js-import
-  :ensure t
-  :after web-mode
-  :config
-  (with-eval-after-load 'web-mode
-    (define-key web-mode-map (kbd "C-M-i") 'js-import)))
-
-
 ;;; ---------------------------------------- Add Node Modules Path
 
 (use-package add-node-modules-path
@@ -236,32 +198,6 @@
   :config
   (eval-after-load 'rjsx-mode
     '(add-hook 'rjsx-mode-hook #'add-node-modules-path)))
-
-
-;; ;;; ---------------------------------------- Dumb Jump
-
-;; (use-package dumb-jump
-;;   :ensure t
-;;   :after rjsx-mode
-;;   :bind
-;;   ("M-," . dumb-jump-back)
-;;   :init
-;;   (setq dumb-jump-selector 'ivy)
-;;   :config
-;;   (assq-delete-all 'dumb-jump-mode minor-mode-map-alist)
-;;   (defun my-dumb-jump-go (&optional arg)
-;;     (interactive "P")
-;;     (if arg
-;;         (dumb-jump-go-other-window)
-;;       (dumb-jump-go)))
-
-;;   (global-set-key (kbd "M-.") 'my-dumb-jump-go)
-;;   (global-set-key (kbd "C-M-g") 'dumb-jump-go)
-;;   (global-set-key (kbd "C-S-M-g") 'dumb-jump-go-prompt)
-;;   (define-key rjsx-mode-map (kbd "M-.") 'my-dumb-jump-go)
-;;   (define-key rjsx-mode-map (kbd "M-,") 'dumb-jump-back)
-
-;;   (dumb-jump-mode t))
 
 
 ;;; ---------------------------------------- JS Doc
@@ -304,59 +240,14 @@
   (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
   (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references))
 
-;; ;;; ---------------------------------------- Tide
-
-;; (use-package tide
-;;   :demand t
-;;   :ensure t
-;;   :commands (tide-references tide-rename-symbol tide-nav)
-;;   :bind (:map tide-mode-map
-;;               ("C-M-." . tide-references)
-;;               ("C-M-r" . tide-rename-symbol)
-;;               ("C-M-S-r" . tide-refactor)
-;;               ("M-O" . tide-organize-imports))
-;;   :config
-;;   (defun setup-tide-mode ()
-;;     (interactive)
-
-;;     ;; (setq tide-node-executable "/Users/christian/.nvm/versions/node/v12.19.0/bin/node")
-;;     ;; (setq tide-tsserver-executable "/Users/christian/.nvm/versions/node/v12.19.0/bin/tsserver")
-
-;;     (setq tide-server-max-response-length 204800)
-
-;;     (setq tide-default-mode "JSX")
-
-;;     (setq tide-imenu-flatten t)
-
-;;     (setq tide-sync-request-timeout 4)
-
-;;     (tide-hl-identifier-mode -1)
-;;     (setq tide-hl-identifier-idle-time 1000.0)
-
-;;     (tide-setup)
-
-;;     (flycheck-mode +1)
-;;     (setq flycheck-check-syntax-automatically '(save mode-enabled))
-
-;;     ;; (eldoc-mode +1)
-
-;;     ;; (setq tide-tsserver-executable "/Users/christianlenke/.nvm/versions/node/v6.9.1/bin/tsserver")
-;;     ;; company is an optional dependency. You have to
-;;     ;; install it separately via package-install
-;;     (company-mode +1))
-
-;;   (with-eval-after-load 'flycheck-mode
-;;     (flycheck-add-next-checker 'javascript-eslint 'jsx-tide 'append))
-
-;;   ;; ;; set log level to verbose
-;;   ;; (setq tide-tsserver-process-environment '("TSS_LOG=-level verbose -file /tmp/tss.log"))
-
-;;   ;; (add-hook 'rjsx-mode-hook #'setup-tide-mode)
-;;   (add-hook 'web-mode-hook #'setup-tide-mode)
-;;   )
+(use-package lsp-ivy
+  :ensure t
+  :after lsp-mode
+  :bind (:map lsp-mode-map
+              ("C-M-:" . lsp-ivy-workspace-symbol)))
 
 
-;;; ---------------------------------------- Moch (Jest)
+;;; ---------------------------------------- Mocha (Jest)
 ;;; ripped from here https://github.com/scottaj/mocha.el/issues/3
 (use-package mocha
   :ensure t
@@ -423,6 +314,7 @@
   :hook (rjsx-mode . prettier-js-mode)
   :config
   (setq prettier-js-command "prettier_d"))
+
 
 (provide 'init-js)
 ;;; init-js ends here

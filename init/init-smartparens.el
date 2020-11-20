@@ -6,6 +6,7 @@
   :demand
   :bind
   ("M-i" . sp-change-enclosing)
+  ("C-M-i" . sp-rewrap-sexp)
   ("M-C-f" . sp-forward-sexp)
   ("M-C-b" . sp-backward-sexp)
   ("M-C-u" . sp-backward-up-sexp)

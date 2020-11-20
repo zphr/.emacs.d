@@ -64,5 +64,13 @@
               )))
 
 
+;;; ---------------------------------------- OX GFM
+;;; Github Markdown Export
+
+(use-package ox-gfm
+  :ensure t
+  :after org)
+
+
 
 (provide 'init-org)

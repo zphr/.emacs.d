@@ -64,5 +64,24 @@
   ;; (highlight-symbol-nav-mode +1)
   )
 
+
+;;; ---------------------------------------- Spatial Navigate
+
+(use-package spatial-navigate
+  :ensure t
+  :after hydra
+  :config
+  (defhydra hydra-spatial-navigate ()
+    "spatial-navigate"
+    ("n" spatial-navigate-forward-vertical-bar "forward vertical")
+    ("p" spatial-navigate-backward-vertical-bar "backward vertical")
+    ("d" spatial-navigate-forward-horizontal-bar "forward horizontal")
+    ("u" spatial-navigate-backward-horizontal-bar "backward horizontal")
+    ("q" nil "quit"))
+
+  (global-set-key (kbd "ö") #'hydra-spatial-navigate/body)
+  )
+
+
 (provide 'init-navigation)
 ;;; init-navigation.el ends here

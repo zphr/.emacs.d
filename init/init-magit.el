@@ -55,7 +55,7 @@
     ("l" git-link :exit t)
     ("t" git-timemachine "timemachine" :exit t)
     ("g" magit-status "status" :exit t)
-    ("v" vc-annotate "annotate" :exit t))
+    ("b" magit-blame-addition "blame" :exit t))
 
   (global-set-key (kbd "C-c g") 'hydra-diff-hl/body))
 
