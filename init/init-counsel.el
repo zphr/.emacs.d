@@ -64,6 +64,7 @@
   ("C-h f" . counsel-describe-function)
   ("C-h v" . counsel-describe-variable)
   ("C-M-y" . counsel-yank-pop)
+  ("M-x". counsel-M-x)
   :init
 
   (setq counsel-rg-base-command
@@ -85,6 +86,13 @@
   (with-eval-after-load 'key-chord
     (key-chord-define-global (kbd "df") 'counsel-git)))
 
+;;; ---------------------------------------- Ivy-Rich
+
+(use-package ivy-rich
+  :ensure t
+  :after counsel
+  :init (ivy-rich-mode t))
+
 
 ;;; ---------------------------------------- RG
 
@@ -95,6 +103,6 @@
   :config
   (rg-enable-menu)
   (setq rg-command-line-flags '("-C=4"))
-)
+  )
 
 (provide 'init-counsel)
