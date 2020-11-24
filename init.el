@@ -66,72 +66,8 @@
 ;; ---------------------------------------- Fringe
 
 ;; Rechts 4px, Links 0px
-(cond
- ((string= system-name "DESKTOP-VTVHSK3")
-  (fringe-mode (cons 16 0)))
- (t
-  (fringe-mode (cons 8 0))))
+(set-fringe-mode (cons 10 0))
 
-
-;; ---------------------------------------- Font Settings
-
-(when (eq system-type 'windows-nt)
-  (add-to-list 'default-frame-alist
-               '(font . "Consolas-11:antialias=natural"))
-  (set-face-attribute 'default nil :height 105))
-
-(when (eq system-type 'darwin) ;; mac specific settings
-  (when (window-system)
-    (set-frame-font "Fira Code Retina")
-    (set-face-attribute 'default nil :height 140))
-
-  (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
-                 (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
-                 (36 . ".\\(?:>\\)")
-                 (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
-                 (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
-                 (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
-                 (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
-                 (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
-                 (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
-                 (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
-                 (48 . ".\\(?:x[a-zA-Z]\\)")
-                 (58 . ".\\(?:::\\|[:=]\\)")
-                 (59 . ".\\(?:;;\\|;\\)")
-                 (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
-                 (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
-                 (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
-                 (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
-                 (91 . ".\\(?:]\\)")
-                 (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
-                 (94 . ".\\(?:=\\)")
-                 (119 . ".\\(?:ww\\)")
-                 (123 . ".\\(?:-\\)")
-                 (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
-                 (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
-                 )
-               ))
-    (dolist (char-regexp alist)
-      (set-char-table-range composition-function-table (car char-regexp)
-                            `([,(cdr char-regexp) 0 font-shape-gstring]))))
-
-  ;; (set-default-font "-*-Fira Code-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-
-  ;; (set-default-font "-*-Iosevka-light-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-  ;; (set-default-font "-*-Monaco-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-  ;; (set-default-font "Anonymous Pro")
-
-  ;; (set-face-attribute 'default nil :height 150)
-
-  ;; (set-face-attribute 'mode-line nil :height 155)
-
-  ;; (add-to-list 'default-frame-alist
-  ;;            '(font . "-*-Iosevka-light-normal-normal-*-*-*-*-*-m-0-iso10646-1"))
-  )
-
-;; (when (eq system-type 'gnu/linux)
-;;   (set-default-font "-CYEL-Iosevka-light-normal-normal-*-*-*-*-*-d-0-iso10646-1")
-;;   (set-face-attribute 'default nil :height 130))
 
 ;; ---------------------------------------- Repeat
 
@@ -234,6 +170,7 @@
 (use-package diminish
   :ensure t)
 
+(require 'init-font)
 (require 'init-misc)
 (require 'init-isearch)
 (require 'init-sessions)
