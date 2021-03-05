@@ -3,7 +3,7 @@
 
 (when (window-system)
   (set-frame-font "Fira Code")
-  (set-face-attribute 'default nil :height 110))
+  (set-face-attribute 'default nil :height 118))
 
 (use-package ligature
   :load-path "~/.emacs.d/ligature.el/"

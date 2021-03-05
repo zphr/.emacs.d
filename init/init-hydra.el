@@ -11,7 +11,7 @@
     ("M-y" yank-pop nil)
     ("n" (yank-pop 1) "next")
     ("p" (yank-pop -1) "prev")
-    ("l" counsel-yank-pop "list" :color blue :exit t))
+    ("l" consult-yank-pop "list" :color blue :exit t))
 
   (global-set-key (kbd "M-y") #'hydra-yank-pop/yank-pop)
   (global-set-key (kbd "C-y") #'hydra-yank-pop/yank)
@@ -64,7 +64,21 @@
 	      ("p" mc/mark-previous-like-this)
 	      ("P" mc/skip-to-previous-like-this)
 	      ("M-p" mc/unmark-previous-like-this)
-	      ("q" nil)))
+	      ("q" nil))
+
+  (defun switch-to-unit-test-buffer ()
+    (interactive)
+    (switch-to-buffer-other-window "*mocha tests*")
+    (goto-char (point-max)))
+
+  (defhydra hydra-unit-test (:pre (widen))
+    "Unit Test"
+    ("f" mocha-test-file "file" :exit t)
+    ("p" mocha-test-at-point "at point" :exit t)
+    ("P" mocha-test-project "project" :exit t)
+    ("b" switch-to-unit-test-buffer "show buffer" :exit t))
+
+  (global-set-key (kbd "C-c t") 'hydra-unit-test/body))
 
 
 (provide 'init-hydra)

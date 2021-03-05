@@ -1,4 +1,9 @@
 
+;;; ---------------------------------------- Prefix
+
+(define-key input-decode-map (kbd "ö") (kbd "C-c"))
+
+
 ;;; ---------------------------------------- Misc Maps
 
 (global-set-key (kbd "<f6>") 'save-buffer)

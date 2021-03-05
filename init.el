@@ -1,6 +1,11 @@
 ;;; init.el --- user init file      -*- no-byte-compile: t -*-
-
+;;; www.google.com
 ;; (setq gc-cons-threshold 200000000)
+
+;;; ---------------------------------------- GPG
+
+(require 'epa-file)
+(epa-file-enable)
 
 
 ;; ---------------------------------------- Emacs Exit
@@ -207,7 +212,9 @@
 (require 'init-smartparens)
 (require 'init-flycheck)
 (require 'init-counsel)
+;; (require 'init-selectrum)
 (require 'init-mode-line)
+(require 'init-browsing)
 
 
 ;;; init.el ends here

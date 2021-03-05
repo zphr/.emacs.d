@@ -37,7 +37,6 @@
   :init
   (add-hook 'after-init-hook #'global-diff-hl-mode)
   (add-hook 'dired-mode-hook #'diff-hl-dired-mode)
-  ;; (add-hook 'prog-mode-hook #'diff-hl-flydiff-mode)
   :config
   (if (eq system-type 'gnu/linux)
       (diff-hl-flydiff-mode t))
@@ -45,7 +44,7 @@
   (global-diff-hl-mode 1)
   
   (defhydra hydra-diff-hl (:pre (widen))
-    "hunk"
+    "Git"
     ("M-g" goto-line "goto" :exit t)
     ("k" diff-hl-revert-hunk "revert")
     ("c" diff-hl-diff-goto-hunk "compare hunk")
@@ -117,6 +116,23 @@ _p_rev       _u_pper              _=_: upper/lower       _r_esolve
     ("r" smerge-resolve)
     ("k" smerge-kill-current)
     ("q" nil "cancel" :color blue)))
+
+;;; ---------------------------------------- Magit Todos
+
+(use-package magit-todos
+  :ensure t
+  :defer t
+  :after magit
+  :init
+  (magit-todos-mode t))
+
+
+;;; ---------------------------------------- Magit Forge
+
+(use-package forge
+  :ensure t
+  :after magit)
+
 
 (provide 'init-magit)
 ;;; init-magit.el ends here

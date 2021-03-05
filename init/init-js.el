@@ -216,15 +216,21 @@
 
 (use-package lsp-mode
   :ensure t
-  :bind (:map lsp-mode-map
-              ("M-." . lsp-find-definition)
-              ("C-M-." . lsp-find-references)
-              ("C-M-r" . lsp-rename)
-              ("C-M-S-r" . lsp-execute-code-action)
-              ("M-O" . lsp-organize-imports))
+  :bind ((:map lsp-mode-map
+               ("M-." . lsp-find-definition)
+               ("C-M-." . lsp-find-references)
+               ("C-M-r" . lsp-rename)
+               ("C-M-S-r" . lsp-execute-code-action)
+               ("M-O" . lsp-organize-imports))
+         (:map lsp-signature-mode-map
+               ("M-n" . forward-paragraph)
+               ("M-p" . backward-paragraph)
+               ("C-S-p" . lsp-signature-previous)
+               ("C-S-n" . lsp-signature-next)))
   :hook ((rjsx-mode . lsp))
   :commands lsp
   :init
+  (setq lsp-completion-provider :capf)
   (setq lsp-headerline-breadcrumb-enable t)
 
   (defun setup-flycheck-lsp-eslint ()
@@ -232,13 +238,19 @@
 
   (add-hook 'lsp-after-open-hook #'setup-flycheck-lsp-eslint))
 
-;; optionally
+
+;;; ---------------------------------------- LSP UI
+
 (use-package lsp-ui
+  :ensure t
   :commands lsp-ui-mode
   :config
   ;; (setq lsp-ui-peek-fontify 'always)
   (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
   (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references))
+
+
+;;; ---------------------------------------- LSP Ivy
 
 (use-package lsp-ivy
   :ensure t

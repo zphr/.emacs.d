@@ -287,7 +287,18 @@
 (use-package string-inflection
   :ensure t
   :bind
-  ("C-c C-u" . string-inflection-all-cycle))
+  ("C-c C-u" . string-inflection-all-cycle)
+  ("C-c s" . hydra-string-inflection/body)
+  :config
+
+  (defhydra hydra-string-inflection ()
+    "string inflection"
+    ("c" string-inflection-lower-camelcase "lower camel" :exit t)
+    ("C" string-inflection-camelcase "camel" :exit t)
+    ("k" string-inflection-kebab-case "kebab" :exit t)
+    ("u" string-inflection-underscore "underscore" :exit t)
+    ("U" string-inflection-upcase "upcase" :exit t)
+    ("q" nil "quit")) )
 
 
 ;; ;;; ---------------------------------------- BeginEnd

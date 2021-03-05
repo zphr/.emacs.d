@@ -19,8 +19,9 @@
   :ensure t
   :bind
   (("C-." . imenu-anywhere)
-   ("ö" . imenu)
-   ("Ö" . imenu-anywhere))
+   ;; ("ö" . imenu)
+   ;; ("Ö" . imenu-anywhere)
+   )
   :init
   (setq imenu-auto-rescan t))
 

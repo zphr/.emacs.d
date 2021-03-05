@@ -29,14 +29,6 @@
     (key-chord-define-global (kbd "jk") 'my-ivy-switch-buffer)))
 
 
-;;; ---------------------------------------- Ivy Prescient
-
-(use-package ivy-prescient
-  :ensure t
-  :after ivy-mode
-  :config
-  (ivy-prescient-mode t))
-
 ;;; ---------------------------------------- Swiper
 
 (use-package swiper
@@ -102,7 +94,9 @@
   (("C-M-4" . rg))
   :config
   (rg-enable-menu)
-  (setq rg-command-line-flags '("-C=4"))
-  )
+  (setq rg-command-line-flags '("-C=4")))
+
+
 
 (provide 'init-counsel)
+;;; init-counsel ends here

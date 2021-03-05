@@ -12,7 +12,7 @@
   (global-company-mode t)
   (setq company-clang-executable nil)
   (setq company-auto-complete nil)
-  (setq company-idle-delay 0.1)
+  (setq company-idle-delay 0.5)
   (setq company-dabbrev-downcase nil))
 
 
@@ -29,7 +29,15 @@
 (use-package company-quickhelp
   :ensure t
   :defer t
-  :config (company-quickhelp-mode 1))
+  :config (company-quickhelp-mode))
+
+
+;;; ---------------------------------------- Company Prescient
+
+(use-package company-prescient
+  :ensure t
+  :config
+  (setq company-prescient-mode t))
 
 
 (provide 'init-company)

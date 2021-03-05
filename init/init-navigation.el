@@ -45,7 +45,7 @@
   (setq avy-keys
 	'(?j ?k ?l ?f ?d ?s ?a ?ö ?ä ?# ?u ?i ?o ?p ?q ?w ?e ?r ?t ?z ?n ?m ?. ?- ?v ?c ?x ?y ?b ?1 ?2 ?3 ?4 ?5 ?6 ?7 ?8 ?9))
   
-  (setq avy-timeout-seconds 0.25)
+  (setq avy-timeout-seconds 0.45)
 
   (define-key isearch-mode-map (kbd "ö") 'avy-isearch))
 
@@ -79,7 +79,7 @@
     ("u" spatial-navigate-backward-horizontal-bar "backward horizontal")
     ("q" nil "quit"))
 
-  (global-set-key (kbd "ö") #'hydra-spatial-navigate/body)
+  ;; (global-set-key (kbd "C-ö") #'hydra-spatial-navigate/body)
   )
 
 

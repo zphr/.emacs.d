@@ -1,3 +1,16 @@
+(use-package modus-themes
+  :ensure t
+  :config
+  (load-theme 'modus-vivendi))
+
+;; (use-package almost-mono-themes
+;;   :ensure t
+;;   :config
+;;   ;; (load-theme 'almost-mono-black t)
+;;   ;; (load-theme 'almost-mono-gray t)
+;;   (load-theme 'almost-mono-cream t)
+;;   ;; (load-theme 'almost-mono-white t)
+;;   )
 
 ;; (use-package nord-theme
 ;;   :ensure t
@@ -11,15 +24,19 @@
 
 ;; (use-package apropospriate-theme
 ;;   :ensure t
-;;   :init (load-theme 'apropospriate-dark t))
+;;   :init (load-theme 'apropospriate-light t))
 
 ;; (use-package labburn-theme
 ;;   :ensure t
 ;;   :init (load-theme 'labburn))
 
-(use-package zenburn-theme
-  :ensure t
-  :init (load-theme 'zenburn))
+;; (use-package solarized-theme
+;;   :ensure t
+;;   :init (load-theme 'solarized-light-high-contrast))
+
+;; (use-package zenburn-theme
+;;   :ensure t
+;;   :init (load-theme 'zenburn))
 
 ;; (require-package 'subatomic-theme)
 ;; (load-theme 'subatomic)

@@ -7,7 +7,7 @@
 (when (eq system-type 'gnu/linux)
   (set-register ?d '(file . "~/Desktop/"))
   (set-register ?l '(file . "~/Downloads/"))
-  (set-register ?t '(file . "~/Desktop/TODO.org")))
+  (set-register ?t '(file . "~/Desktop/TODO.org.gpg")))
 
 (when (eq system-type 'windows-nt) 
   (set-register ?d '(file . "~/../../Desktop/"))
